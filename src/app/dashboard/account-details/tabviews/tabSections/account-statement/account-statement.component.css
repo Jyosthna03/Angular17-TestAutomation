@@ -1,24 +1,13 @@
-.statementTransPeriod,
-.downloadDetails {
-  margin-left: 200px;
+.dateplace{
+  margin-right: 5px;
 }
-.ToDate {
-  padding-left: 100px;
-}
-
-.DownloadTextSpace {
-  margin-top: 5px;
-}
-/*
-.sendToside{
-  margin-left: 240px !important;
-}*/
 
 .lblText{
   color: #082341;
-  background-color: yellow;
-  width: 80px;
-  /* padding: 0px 15px 0px 15px; */
+}
+
+#toDate{
+  margin-left: 1rem;
 }
 
 .lablespace{
