@@ -46,7 +46,7 @@ export class BankingdataService {
 
   addPayee:any = ['Select Payee','Dileep']
 
-  accountData:Array<Object> = [
+  accountData:any= [
     {
         AccountHolder: this.trimmedString,
         AccountType:"Savings Account",

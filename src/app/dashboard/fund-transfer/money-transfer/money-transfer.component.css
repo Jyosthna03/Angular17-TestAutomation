@@ -6,9 +6,9 @@
 .transaction{
    padding: 30px;
 }
-.senderOption{
+/* .senderOption{
     padding-left: 110px;
-}
+} */
 .instantTransfer{
   color: #646464;
   font-size: 12px;
@@ -16,32 +16,31 @@
   font-weight: 700;
   line-height: normal;
 }
-.amount{
+/* .accAndAmount{
     margin-left: 40px;
-}
+} */
 .remarks{
     margin-left: 35px !important;
 }
-.transferDetails{
-    padding-left: 50px;
-}
+
 .acc-number{
     font-weight: bold;
     color: #082341;
 }
 .reAccNoAndRemarks{
-    width: 360px;
-    height: 36px;
+    /* width: 360px; */
+    /* height: 36px; */
     flex-shrink: 0;
     flex-shrink: 0;
     border-radius: 2px;
     border: 1px solid #D2D2D2;
     background: #FFF;
-    margin-left: 20px;
 }
 .savings{
     padding-left: 140px;
 }
+
+
 .addPayeeBtn{
     width: 140px;
     font-weight: 700;
@@ -53,7 +52,7 @@
     border-radius: 2px;
     border: 1px solid #082341;
     background: #FFF;
-    margin-left: 40px;
+    margin-left: 13px;
 }
 .paymentModeLabel{
     color: #082341;
@@ -92,4 +91,7 @@ input::-webkit-inner-spin-button {
   .btn-primary ,.btn-primary:active{
     border: 1px solid #453985 !important;
     background: #453985;
+}
+.formFields{
+    width: 212px;
 }
