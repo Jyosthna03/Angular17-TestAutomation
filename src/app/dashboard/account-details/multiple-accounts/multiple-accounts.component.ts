@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { BankingdataService } from '../../../bankingdata.service';
 import { NgStyle } from '@angular/common';
+import { DigitSpacingPipe } from '../digit-spacing.pipe';
 
 @Component({
   selector: 'app-multiple-accounts',
   standalone: true,
-  imports: [NgStyle],
+  imports: [NgStyle,DigitSpacingPipe],
   templateUrl: './multiple-accounts.component.html',
   styleUrl: './multiple-accounts.component.css'
 })

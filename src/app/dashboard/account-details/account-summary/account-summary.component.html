@@ -5,33 +5,33 @@
                     <p class="summaryheading">Account Summary</p>
                         <div class="form-check form-switch d-flex flex-row m-2 me-4">
                             <p class="hide switch">Hide</p>
-                            <input class="form-check-input checkbox" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <input class="form-check-input checkbox collapsed" type="checkbox" role="switch" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                             <p class="show switch">Show</p>
                         </div>
                   </div>
-            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
               <div class="accordion-body">
                  @for (data of accountSummary; track $index) {
                         <div  class="row row-cols-2 row-cols-sm-2  row-cols-md-2 row-cols-lg-5 ">
                             <div class="col">
                                 <p class="accountHeading">Account Holder Name</p>
-                                 <p class="accountValues">{{accountUserName}}</p>
+                                 <p class="accountValues wrap">{{accountUserName}}</p>
                             </div>
                              <div class="col">
                                  <p class="accountHeading">Account Type</p>
-                                 <p class="accountValues">{{data.AccountType}}</p>
+                                 <p class="accountValues wrap">{{data.AccountType}}</p>
                              </div>
                             <div class="col">
                                 <p class="accountHeading">Account Number</p>
-                                <p class="accountValues">{{data.AccountNumber}}</p>
+                                <p class="accountValues wrap">{{data.AccountNumber | digitSpacing}}</p>
                             </div>
                             <div  class="d-none d-lg-block col">
                                 <p class="accountHeading">Account Branch</p>
-                                <p class="accountValues">{{data.AccountBranch}}</p>
+                                <p class="accountValues wrap">{{data.AccountBranch}}</p>
                             </div>
                             <div class="col">
                                 <p class="accountHeading">{{data.id == 3 ? "Credit Limit" : "Available Balance in Rupees"}}</p>
-                                <p class="accountValues">₹{{data.AvailableBalanceinRupees}}</p>
+                                <p class="accountValues wrap">₹{{data.AvailableBalanceinRupees}}</p>
                             </div>
                         </div>
                     }
@@ -41,3 +41,4 @@
           </div>
     </div>
 </div>
+

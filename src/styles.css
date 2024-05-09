@@ -152,6 +152,15 @@ body {
     letter-spacing: 0.32px;
     padding: 14px;
   }
+  @media only screen and (max-width: 575.98px) {
+    p.summaryheading {
+      font-size: 14px ; /* Adjust the font size as needed */
+      /* text-align: center; */
+      padding: 8px;
+      
+    }
+  }
+  
   .switch {
     color: #082341;
     text-align: right;

@@ -18,7 +18,7 @@
     opacity: 0.5;
   }
   .userCard {
-    width: 300px;
+    width: 340px;
     height: 180px;
     flex-shrink: 0;
     margin: 5px;
@@ -64,4 +64,7 @@
   }
   #scrollbar::-webkit-scrollbar{
     display: none;
+  }
+  #number p:nth-child(4n) {
+    letter-spacing: 0.5em; /* Adjust as needed */
   }
