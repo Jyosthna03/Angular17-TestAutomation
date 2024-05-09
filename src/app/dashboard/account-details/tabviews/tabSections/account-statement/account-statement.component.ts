@@ -1,5 +1,5 @@
 import { DatePipe } from '@angular/common';
-import { Component, Renderer2 } from '@angular/core';
+import { Component, Renderer2, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 
@@ -11,10 +11,10 @@ import { RouterLink } from '@angular/router';
   styleUrl: './account-statement.component.css'
 })
 export class AccountStatementComponent {
-  fromStatementDate = '';
-  toStatementDate = '';
-  showflag = '';
-  todayDate = new Date();
+  fromStatementDate = signal('');
+  toStatementDate = signal('');
+  showflag = signal('');
+  todayDate = signal(new Date());
 
   constructor(private render: Renderer2) { }
 
@@ -50,55 +50,56 @@ export class AccountStatementComponent {
     }
   }
 
-  statementPeriod = ['Last 7 Days', 'Last 14 Days'];
-  selectStatementPeriod = this.statementPeriod[0];
+  statementPeriod = signal(['Last 7 Days', 'Last 14 Days']);
+  selectStatementPeriod = signal(this.statementPeriod()[0]);
 
-  statementFormats = ['PDF File', 'Excel Sheet'];
-  selectedStatementFormat = this.statementFormats[0];
+  statementFormats = signal(['PDF File', 'Excel Sheet']);
+  selectedStatementFormat = signal(this.statementFormats()[0]);
 
   showWithDate() {
-    this.showflag = 'Show With Date';
-    console.log(this.showflag);
+    this.showflag.update(value=>value='Show With Date');
+    console.log(this.showflag());
   }
 
   showWithPeriod() {
-    this.showflag = 'Show With Period';
-    console.log(this.showflag);
+    this.showflag.update(value=>value='Show With Period');
+    console.log(this.showflag());
   }
 
   onSelectStatementPeriod(selectedValue: any) {
-    this.selectStatementPeriod = selectedValue.target.value;
+    this.selectStatementPeriod.update(value=>value=selectedValue.target.value);
   }
 
   onSelectStatementFormat(selectedValue: any) {
-    this.selectedStatementFormat = selectedValue.target.value;
+    this.selectedStatementFormat.update(value=>value=selectedValue.target.value);
   }
 
   submitStatement() {
     console.log("while submitting",this.showflag);
     if (
-      (this.showflag === 'Show With Date' &&
-        this.fromStatementDate !== '' &&
-        this.toStatementDate !== '' &&
-        this.selectedStatementFormat !== '') ||
-      (this.showflag === 'Show With Period' &&
-        this.selectedStatementFormat !== '')
+      (this.showflag() === 'Show With Date' &&
+        this.fromStatementDate() !== '' &&
+        this.toStatementDate() !== '' &&
+        this.selectedStatementFormat() !== '') ||
+      (this.showflag() === 'Show With Period' &&
+        this.selectedStatementFormat() !== '')
     ) {
-      let message = '';
-      if (this.showflag === 'Show With Date') {
-        message = `Downloaded Statement from ${this.fromStatementDate} to ${this.toStatementDate} in ${this.selectedStatementFormat} Format`;
-      } else if(this.showflag==='Show With Period') {
-        message = `Downloaded Statement of ${this.selectStatementPeriod} in ${this.selectedStatementFormat} Format`;
+      let message = signal('');
+      if (this.showflag() === 'Show With Date') {
+        message.update(value=>value=`Downloaded Statement from ${this.fromStatementDate()} to ${this.toStatementDate()} in ${this.selectedStatementFormat()} Format`);
+      } else if(this.showflag()==='Show With Period') {
+        message.update(value=>value=`Downloaded Statement of ${this.selectStatementPeriod()} in ${this.selectedStatementFormat()} Format`);
       }
-      alert(message);
+      alert(message());
     } else {
       alert('Choose Option and Select The Fields To Download');
     }
   }
 
   cancelStatement() {
-    this.selectedStatementFormat = '';
-    this.fromStatementDate = '';
-    this.toStatementDate = '';
+    this.selectedStatementFormat.set('');
+    this.fromStatementDate.set('');
+    this.toStatementDate.set('');
+    this.selectedStatementFormat.set(this.statementFormats()[0]);
   }
 }

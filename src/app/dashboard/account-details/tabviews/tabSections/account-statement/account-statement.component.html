@@ -16,7 +16,7 @@
 </div> -->
 <div class="d-lg-flex mt-4 ms-4 justify-content-lg-center d-sm-block justify-content-sm-start">
   <div class="form-check">
-    <input class="form-check-input" type="radio" name="flexRadioDefault3" id="flexRadioDefault3"/>
+    <input class="form-check-input" type="radio" name="flexRadioDefault3" id="flexRadioDefault3" (click)="showWithDate()"/>
     <label class="form-check-label mt-1 bold-text" for="flexRadioDefault3">Transaction Date</label>
   </div>
   <div class="row">
@@ -26,7 +26,7 @@
           <p>From</p>
         </label>
         <input class="form-control Field inputBox" type="date" [(ngModel)]="fromStatementDate" name="fromStatementDate"
-          (click)="showWithDate()"/>
+          />
       </div>
     </div>
     <div class="col-md-6 col-sm-12">
@@ -35,7 +35,7 @@
           <p>To</p>
         </label>
         <input class="form-control Field inputBox" type="date" [(ngModel)]="toStatementDate" name="toStatementDate"
-          (click)="showWithDate()" max="{{ todayDate | date : 'yyyy-MM-dd' }}" />
+           max="{{ todayDate() | date : 'yyyy-MM-dd' }}" />
       </div>
     </div>
   </div>
@@ -52,7 +52,7 @@
       <p>Select</p>
     </label>
     <select class="form-select Field inputBox" name="duration" id="duration" (change)="onSelectStatementPeriod($event)">
-      @for (eachday of statementPeriod ; track $index) {
+      @for (eachday of statementPeriod() ; track $index) {
       <option [value]="eachday">{{ eachday }}</option>
       }
     </select>
@@ -66,7 +66,7 @@
       <p>Select</p>
     </label>
     <select class="form-select Field inputBox" name="duration" id="duration" (change)="onSelectStatementFormat($event)">
-      @for (opt of statementFormats ; track $index) {
+      @for (opt of statementFormats() ; track $index) {
       <option [value]="opt">{{ opt }}</option>
       }
     </select>
