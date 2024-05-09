@@ -19,10 +19,10 @@ export class AccountSummaryComponent {
   
 
   ngOnInit(){
-    this.accountBalance = this.service.balance
     this.accountSummary = this.service.accountData
+    this.accountBalance = this.service.balance
     this.accountUserName = this.service.trimmedString
-    console.log(this.accountSummary);
+    // console.log(this.accountSummary);
   }
 
 

@@ -1,32 +1,32 @@
 <div class="container-fluid mt-3">
     <div class="bg-container">
-          <div class="accountSummary d-flex flex-row">
+          <div class="accountSummary">
             <p class="summaryheading">Account Summary</p>
           </div>
-          <div class="accountDetails d-flex flex-row justify-content-between p-3">
-               <div>
+          <div class="row row-cols-2 row-cols-sm-2  row-cols-md-2 row-cols-lg-6 p-3" style="text-align: center;">
+               <div class="col">
                     <p class="accountHeading">Account Holder Name</p>
-                    <p class="accountValues" id="accountHolderName">{{accountHolder}}</p>
+                    <p class="accountValues wrap" id="accountHolderName">{{accountHolder}}</p>
                 </div>
-                <div>
+                <div class="col">
                     <p class="accountHeading">Account Type</p>
-                    <p class="accountValues" id="accountType">Savings Account</p>
+                    <p class="accountValues wrap" id="accountType">Savings Account</p>
                 </div>
-                <div>
+                <div class="col">
                     <p class="accountHeading">Account Number</p>
-                    <p class="accountValues" id="accountNumber">1234567890111213</p>
+                    <p class="accountValues wrap" id="accountNumber">{{accountNumber | digitSpacing}}</p>
                 </div>
-                <div>
+                <div class="d-none d-lg-block col">
                     <p class="accountHeading">IFSC Code</p>
-                    <p class="accountValues" id="ifscCode">ABCD0001234</p>
+                    <p class="accountValues wrap" id="ifscCode">ABCD0001234</p>
                 </div>
-                <div>
-                    <p class="accountHeading">Available Balance in Rupees</p>
-                    <p class="accountValues" id="balance">{{accbalance | currency:"INR"}}</p>
+                <div class="col">
+                    <p class="accountHeading">Available Balance</p>
+                    <p class="accountValues wrap" id="balance">{{accbalance | currency:"INR"}}</p>
                 </div>
-                <div>
-                    <p class="accountHeading">Account Branch</p>
-                    <p class="accountValues" id="branch">KPHB</p>
+                <div class="d-none d-lg-block col">
+                    <p class="accountHeading"> Account Branch</p>
+                    <p class="accountValues wrap" id="branch">KPHB</p>
                 </div>
                 
           </div>
