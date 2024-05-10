@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { BankingdataService } from '../../../../../bankingdata.service';
 import { FormsModule } from '@angular/forms';
-import { CommonModule, DatePipe, NgStyle } from '@angular/common';
+import {  DatePipe, NgStyle } from '@angular/common';
 import {Renderer2}from'@angular/core';
 
 import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-transaction-history',
   standalone: true,
-  imports: [FormsModule, DatePipe, NgStyle, RouterLink,CommonModule],
+  imports: [FormsModule, DatePipe, NgStyle, RouterLink],
   templateUrl: './transaction-history.component.html',
   styleUrl: './transaction-history.component.css'
 })
@@ -20,15 +20,7 @@ export class TransactionHistoryComponent {
     this.rightPaginationItems = this.totalPages;
   }
 
-
-
-
-
   ngOnInit() {
-    this.addOrRemoveClassOnViewport();
-    window.addEventListener('resize',()=>{
-      this.addOrRemoveClassOnViewport();
-    })
     this.generateTransactionData();
     this.rightPaginationItems = this.getpageList(
       this.TransHistory.length,
@@ -56,22 +48,7 @@ export class TransactionHistoryComponent {
     }
   }
 
-  addOrRemoveClassOnViewport(){
-    const container = document.getElementById('secondBox');
-    if(!container){
-      return ;
-    }
-    const screenWidth = window.innerWidth;
-    const isLargeScreen = screenWidth>=992;
-
-    if(isLargeScreen){
-      this.render.addClass(container,'sendToside');
-      // console.log("Large screen");
-    }else{
-      this.render.removeClass(container,'sendToside');
-      // console.log("small Screen");
-    }
-  }
+  
 
   isDisablebyDatefield = false;
   isDisableByPeriodfield = false;
