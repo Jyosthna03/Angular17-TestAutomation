@@ -95,3 +95,6 @@ input::-webkit-inner-spin-button {
 .formFields{
     width: 212px;
 }
+.labeltext{
+    width: 260px;
+}

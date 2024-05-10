@@ -6,21 +6,21 @@
           <div>
             <form [formGroup]="moneyTransferForm">
                             <div class="row">
-                                    <div class="col-lg-2 col-sm-1 col-md-2 ms-5">
-                                        <label class="sub-text">From</label>
+                                    <div class="col-lg-2 col-sm-1 col-md-5 ms-lg-5">
+                                        <label class="sub-text ms-md-5 ms-lg-0">From</label>
                                     </div>
-                                    <div class="col-lg-6 col-sm-9 col-md-8">
+                                    <div class="col-lg-6 col-sm-9 col-md-6">
                                         <p class="savingsAccNumber">Savings - 12345678910111213</p>
                                         <p class="balance">Balance - {{availBalance | currency:"INR"}}</p>
                                     </div>
                             </div>
                             <div class="row">
-                                <div class="col-lg-2 col-sm-1 col-md-2">
+                                <div class="col-lg-2 col-sm-1 col-md-5">
                                     <label class="sub-text ms-5">To<span class="text-danger">*</span></label>
                                 </div>
-                                <div class="col-lg-9 col-sm-9 col-md-8 ms-lg-5">
+                                <div class="col-lg-9 col-md-7 ms-lg-5">
                                         <div class="row">
-                                            <div class="col-lg-4">
+                                            <div class="col-lg-4 col-md-8">
                                                 <select class="transferInputs" formControlName="payee" required>
                                                     @for (payee of payeeNames; track $index) {
                                                         <option [value]="payee">{{payee}}</option>
@@ -47,11 +47,11 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-12 col-sm-12">
                                 <div class="row form-group mt-3">
-                                    <div class="col-lg-4 col-md-4 col-sm-5">
+                                    <div class="col-lg-4 col-md-5 col-sm-5">
                                         <label class="acc-number ms-5">Account Number<span class="text-danger">*</span></label>
                                     </div>
-                                    <div class="col-lg-4 col-md-8 col-sm-7">
-                                        <input type="text" placeholder="Enter Account Number" class="transferInputs ms-5" formControlName="accountNumber" maxlength="18" (keypress)="onKeyPress($event)">
+                                    <div class="col-lg-6 col-md-6 col-sm-7 ms-lg-5">
+                                        <input type="text" placeholder="Enter Account Number" class="transferInputs" formControlName="accountNumber" maxlength="18" (keypress)="onKeyPress($event)">
                                     </div>
                                     <div class="text-danger">
                                         @if (moneyTransferForm.get('accountNumber')?.hasError('required') && moneyTransferForm.get('accountNumber')?.touched) {
@@ -67,24 +67,23 @@
                             </div>
                             <div class="col-lg-6 col-md-12 col-sm-12">
                                 <div class="row form-group mt-3">
-                                   <div class="col-lg-5 col-md-4 col-sm-5">
-                                        <label class="bold-text ms-4">Re- Enter Account Number<span class="text-danger">*</span></label>
+                                   <div class="col-lg-5 col-md-5 col-sm-5">
+                                        <label class="bold-text ms-md-5 ms-lg-0">Re-Enter Account Number<span class="text-danger">*</span></label>
                                    </div>
-                                  <div class="col-lg-6 col-md-8 col-sm-7">
+                                  <div class="col-lg-6 col-md-6 col-sm-7">
                                     <input type="text" class="transferInputs reAccNoAndRemarks" placeholder="Enter Account Number" formControlName="reEnterAccountNo" required maxlength="18" (keypress)="onKeyPress($event)">
-                                    <div class="text-danger">
-                                        @if (moneyTransferForm.get('reEnterAccountNo')?.hasError('required') && moneyTransferForm.get('reEnterAccountNo')?.touched) {
-                                            <p class="error-msg"> Please Enter Account Number</p>
-                                        }    
-                                    </div>
-                                    <div class="text-danger">
-                                        @if (moneyTransferForm.hasError('mismatch') && moneyTransferForm.get('reEnterAccountNo')?.touched) {
-                                            <p class="error-msg"> Account Number do not match.</p>
-                                        }
-                                        
-                                    </div>
-                                  </div>
-                                    
+                                </div>
+                                <div class="text-danger">
+                                    @if (moneyTransferForm.get('reEnterAccountNo')?.hasError('required') && moneyTransferForm.get('reEnterAccountNo')?.touched) {
+                                        <p class="error-msg"> Please Enter Account Number</p>
+                                    }    
+                                </div>
+                                <div class="text-danger">
+                                    @if (moneyTransferForm.hasError('mismatch') && moneyTransferForm.get('reEnterAccountNo')?.touched) {
+                                        <p class="error-msg"> Account Number do not match.</p>
+                                    }
+                                </div>
+                                 
                                 </div>
                             </div>
                         </div>
@@ -94,10 +93,10 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-12 col-sm-12">
                                 <div class="row form-group">
-                                    <div class="col-lg-5 col-md-4 col-sm-5">
+                                    <div class="col-lg-5 col-md-5 col-sm-5">
                                         <label class="sub-text ms-5">Enter the Amount<span class="text-danger">*</span></label>
                                     </div>
-                                    <div class="col-lg-4 col-md-8 col-sm-7">
+                                    <div class="col-lg-6 col-md-6 col-sm-7">
                                         <input type="text" placeholder="Enter Amount" class="transferInputs accAndAmount" formControlName="amount" required (keypress)="onKeyPress($event)" maxlength="5">
                                     </div>
                                 </div>
@@ -109,17 +108,17 @@
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-12 col-sm-12">
-                                <div class="row form-group">
-                                    <div class="col-lg-5 col-md-4 col-sm-5">
-                                        <label class="bold-text ms-4">Remarks for transaction<span class="text-danger">*</span></label>
+                                <div class="row form-group mt-md-3 mt-lg-0">
+                                    <div class="col-lg-5 col-md-5 col-sm-5">
+                                        <label class="bold-text ms-md-5 ms-lg-0">Remarks for transaction<span class="text-danger">*</span></label>
                                     </div>
-                                    <div class="col-lg-4 col-md-8 col-sm-7">
+                                    <div class="col-lg-4 col-md-6 col-sm-7">
                                         <input type="text" placeholder="Please write here" class="transferInputs reAccNoAndRemarks" formControlName="remarks"  maxlength="10">
-                                        <div>
-                                            @if (moneyTransferForm.get('remarks')?.hasError('required') && moneyTransferForm.get('remarks')?.touched) {
-                                                <p class="error-msg">Please Enter Remarks</p>
-                                            }
-                                        </div>
+                                    </div>
+                                    <div>
+                                        @if (moneyTransferForm.get('remarks')?.hasError('required') && moneyTransferForm.get('remarks')?.touched) {
+                                            <p class="error-msg">Please Enter Remarks</p>
+                                        }
                                     </div>
                                 </div>
                                
@@ -130,32 +129,43 @@
                     <div>
                         <p class="bold-text transaction">Payment Mode</p>
                         <div class="row">
-                            <div class="col-lg-3">
+                            <div class="col-lg-3 col-md-5">
                                 <p class="sub-text ms-5">Select the Payment Mode<span class="text-danger">*</span></p>
                             </div>
-                            <div class="col-lg-2 paymentMode p-2 ps-3">
-                                <div class="d-flex flex-row">
-                                    <input type="radio" name="paymentModeInput" class="form-check-input" formControlName="paymentModeInput" value="IMPS">
-                                     <label class="paymentModeLabel">IMPS</label>
-                                </div>
-                                <p class="instantTransfer pt-3">Max Rs. 50,000 per day. Instant transfer 24*7
-                                    transferable</p>
+                            <div class="col-lg-9 col-md-7 d-lg-none d-block">
+                                <select class="transferInputs" [formControlName]="isMediumOrSmallScreen ? 'payeeMedium' : 'payeeSmall'" required>
+                                    @for(data of paymentModeData;track $index){
+                                        <option [value]="data.paymentMode">{{data.paymentMode}}</option>
+                                    }
+                                </select>
                             </div>
-                            <div class="col-lg-2 paymentMode p-2 ps-3">
-                                <div class="d-flex flex-row">
-                                    <input type="radio" name="paymentModeInput" class="form-check-input" formControlName="paymentModeInput" value="NEFT">
-                                     <label class="paymentModeLabel">NEFT</label>
+                            <div class="col-lg-9 d-none d-lg-block">
+                                <div class="row">
+                                    <div class="col-lg-3 paymentMode p-2 ps-3">
+                                        <div class="d-flex flex-row">
+                                            <input type="radio" name="paymentModeInput" class="form-check-input" formControlName="paymentModeInput" value="IMPS">
+                                             <label class="paymentModeLabel">IMPS</label>
+                                        </div>
+                                        <p class="instantTransfer pt-3">Max Rs. 50,000 per day. Instant transfer 24*7
+                                            transferable</p>
+                                    </div>
+                                    <div class="col-lg-3 paymentMode p-2 ps-3">
+                                        <div class="d-flex flex-row">
+                                            <input type="radio" name="paymentModeInput" class="form-check-input" formControlName="paymentModeInput" value="NEFT">
+                                             <label class="paymentModeLabel">NEFT</label>
+                                        </div>
+                                        <p class="instantTransfer pt-3">Max Rs. 1,00,000 Lakh per day. Receiver gets money in
+                                            2 to 24 Hrs</p>
+                                    </div>
+                                    <div class="col-lg-3 paymentMode p-2 ps-3">
+                                        <div class="d-flex flex-row">
+                                            <input type="radio" name="paymentModeInput" class="form-check-input" formControlName="paymentModeInput" value="RTGS">
+                                             <label class="paymentModeLabel">RTGS</label>
+                                        </div>
+                                        <p class="instantTransfer pt-3">Min Rs. 75,000, Max Rs. 10 Lakh per day. Real time
+                                            transaction.</p>
+                                    </div>
                                 </div>
-                                <p class="instantTransfer pt-3">Max Rs. 1,00,000 Lakh per day. Receiver gets money in
-                                    2 to 24 Hrs</p>
-                            </div>
-                            <div class="col-lg-2 paymentMode p-2 ps-3">
-                                <div class="d-flex flex-row">
-                                    <input type="radio" name="paymentModeInput" class="form-check-input" formControlName="paymentModeInput" value="RTGS">
-                                     <label class="paymentModeLabel">RTGS</label>
-                                </div>
-                                <p class="instantTransfer pt-3">Min Rs. 75,000, Max Rs. 10 Lakh per day. Real time
-                                    transaction.</p>
                             </div>
                         </div>
                     </div>
