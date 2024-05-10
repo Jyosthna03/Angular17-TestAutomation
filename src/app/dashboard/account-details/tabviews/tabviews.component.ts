@@ -15,7 +15,7 @@ import { NgClass, NgStyle } from '@angular/common';
 export class TabviewsComponent {
 
   constructor(private reg:BankingdataService){}
-  activeTab: number = 3;
+  activeTab: number = 1;
 
   ngOnInit(){
     if(this.reg.isTransactionHistory){

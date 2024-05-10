@@ -1,61 +1,64 @@
-<div class=" offset-md-2 offset-sm-0 col-md-9">
-<div class="d-lg-flex mt-4 ms-4 d-sm-block mt-4">
-  <div class="form-check form-check-label mt-2">
-    <input class="form-check-input" type="radio" name="flexRadioDefault3" id="flexRadioDefault3" (click)="showWithDate()"/>
-    <label class="form-check-label mt-1 bold-text" for="flexRadioDefault3">Transaction Date</label>
-  </div>
-  <div class="row d-flex justify-content-center">
-    <div class="col-md-6 col-sm-12 d-flex mt-2">
-      <label class="lablespace me-4 mb-3 balance lblText">
-        <p class="dateplace">From</p>
-      </label>
-      <input class="form-control Field inputBox" type="date" [(ngModel)]="fromStatementDate" name="fromStatementDate"/>
+<section>
+  <div class=" offset-md-2 offset-sm-0 col-md-9">
+    <div class="d-lg-flex mt-4 ms-4 d-sm-block mt-4">
+      <div class="form-check form-check-label mt-2">
+        <input class="form-check-input" type="radio" name="flexRadioDefault3" id="flexRadioDefault3" (click)="showWithDate()"/>
+        <label class="form-check-label mt-1 bold-text" for="flexRadioDefault3">Transaction Date</label>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-6 col-sm-12 d-flex mt-2">
+          <label class="lablespace balance lblText">
+            <p class="dateplace">From</p>
+          </label>
+          <input class="form-control Field inputBox" type="date" [(ngModel)]="fromStatementDate" name="fromStatementDate"/>
+        </div>
+        <div class="col-md-6 col-sm-12 d-flex mt-2">
+          <label class="lablespace balance lblText">
+            <p class="dateplace" id="toDate">To</p>
+          </label>
+          <input class="form-control Field inputBox" type="date" [(ngModel)]="toStatementDate" name="toStatementDate"
+          max="{{ todayDate() | date : 'yyyy-MM-dd' }}" />
+        </div>
+      </div>
     </div>
-    <div class="col-md-6 col-sm-12 d-flex mt-2">
-      <label class="lablespace me-4 mb-3 balance lblText">
-        <p class="dateplace" id="toDate">To</p>
-      </label>
-      <input class="form-control Field inputBox" type="date" [(ngModel)]="toStatementDate" name="toStatementDate"
-      max="{{ todayDate() | date : 'yyyy-MM-dd' }}" />
+    
+    <div class=" mt-2 ms-4 d-lg-flex" id="periodBox">
+      <div class="form-check transfield form-check-label">
+        <input class="form-check-input" type="radio" name="flexRadioDefault3" id="flexRadioDefault4"
+          (click)="showWithPeriod()" />
+        <label class="form-check-label mt-1 bold-text" for="flexRadioDefault4">Transaction Period</label>
+      </div>
+      <div class="d-flex mt-lg-0 mt-4">
+        <label class="lablespace balance lblText">
+          <p>Select</p>
+        </label>
+        <select class="form-select Field inputBox" name="duration" id="duration" (change)="onSelectStatementPeriod($event)">
+          @for (eachday of statementPeriod() ; track $index) {
+          <option [value]="eachday">{{ eachday }}</option>
+          }
+        </select>
+      </div>
     </div>
-  </div>
-</div>
-
-<div class=" mt-2 ms-4 d-lg-flex" id="periodBox">
-  <div class="form-check transfield form-check-label">
-    <input class="form-check-input" type="radio" name="flexRadioDefault3" id="flexRadioDefault4"
-      (click)="showWithPeriod()" />
-    <label class="form-check-label mt-1 bold-text" for="flexRadioDefault4">Transaction Period</label>
-  </div>
-  <div class="d-flex mt-lg-0 mt-4">
-    <label class="lablespace me-4 mb-3 balance lblText">
-      <p>Select</p>
-    </label>
-    <select class="form-select Field inputBox" name="duration" id="duration" (change)="onSelectStatementPeriod($event)">
-      @for (eachday of statementPeriod() ; track $index) {
-      <option [value]="eachday">{{ eachday }}</option>
-      }
-    </select>
-  </div>
-</div>
-
-<div class=" mt-2 ms-4 d-lg-flex" id="downloadBox">
-    <label class="form-check-label mt-1 bold-text" for="flexRadioDefault5">Download details as</label>
-  <div class="d-flex mt-lg-0 mt-4">
-    <label class="lablespace me-4 mb-3 balance lblText">
-      <p>Select</p>
-    </label>
-    <select class="form-select Field inputBox" name="duration" id="duration" (change)="onSelectStatementFormat($event)">
-      @for (opt of statementFormats() ; track $index) {
-      <option [value]="opt">{{ opt }}</option>
-      }
-    </select>
-  </div>
-</div>
-</div>
-
-<div class="d-flex mb-4 mt-3 justify-content-center">
-  <button class="cancelAndSaveBtn me-2 d-none d-lg-inline" routerLink="/dashboard" id="back">Back</button>
-  <button class="cancelAndSaveBtn ms-3" (click)="cancelStatement()">CANCEL</button>
-  <button class="btn btn-primary cancelAndSaveBtn saveBtn me-2" (click)="submitStatement()">SHOW</button>
-</div>
+    
+    <div class=" mt-2 ms-4 d-lg-flex" id="downloadBox">
+        <label class="form-check-label mt-1 bold-text" for="flexRadioDefault5">Download details as</label>
+      <div class="d-flex mt-lg-0 mt-4">
+        <label class="lablespace balance lblText">
+          <p>Select</p>
+        </label>
+        <select class="form-select Field inputBox" name="duration" id="duration" (change)="onSelectStatementFormat($event)">
+          @for (opt of statementFormats() ; track $index) {
+          <option [value]="opt">{{ opt }}</option>
+          }
+        </select>
+      </div>
+    </div>
+    </div>
+    
+    <div class="d-flex mb-4 mt-3 justify-content-center">
+      <button class="cancelAndSaveBtn me-2 d-none d-lg-inline" routerLink="/dashboard" id="back">Back</button>
+      <button class="cancelAndSaveBtn ms-3" (click)="cancelStatement()">CANCEL</button>
+      <button class="btn btn-primary cancelAndSaveBtn saveBtn me-2" (click)="submitStatement()">SHOW</button>
+    </div>
+    
+</section>
