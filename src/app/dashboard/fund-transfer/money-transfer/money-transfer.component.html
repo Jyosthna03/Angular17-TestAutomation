@@ -5,40 +5,54 @@
           </div>
           <div>
             <form [formGroup]="moneyTransferForm">
-                    <div class="d-flex flex-column">
-                        <div class="d-flex flex-row">
-                            <label class="sub-text transferDetails">From</label>
-                           <div class="d-flex flex-column savings">
-                                <p class="savingsAccNumber">Savings - 12345678910111213</p>
-                                <p class="balance">Balance - {{availBalance | currency:"INR"}}</p>
-                           </div>
-                        </div>
-                        <div class="d-flex flex-row">
-                            <label class="sub-text transferDetails">To<span class="text-danger">*</span></label>
-                           <div class="d-flex flex-row senderOption">
-                                <select class="transferInputs ms-5" formControlName="payee" required>
-                                    @for (payee of payeeNames; track $index) {
-                                        <option [value]="payee">{{payee}}</option>
-                                    }
-                                </select>
-                                <div>
-                                    @if (payeeName) {
-                                        <p class="text-danger">Please Select Payee</p>
-                                    }
+                            <div class="row">
+                                    <div class="col-lg-2 col-sm-1 col-md-2 ms-5">
+                                        <label class="sub-text">From</label>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-9 col-md-8">
+                                        <p class="savingsAccNumber">Savings - 12345678910111213</p>
+                                        <p class="balance">Balance - {{availBalance | currency:"INR"}}</p>
+                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-2 col-sm-1 col-md-2">
+                                    <label class="sub-text ms-5">To<span class="text-danger">*</span></label>
                                 </div>
-                                <p class="or">or</p>
-                                <button class="addPayeeBtn cancelAndSaveBtn" (click)="openAddpayeePopup(copyContent)">ADD PAYEE</button>
+                                <div class="col-lg-9 col-sm-9 col-md-8 ms-lg-5">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <select class="transferInputs" formControlName="payee" required>
+                                                    @for (payee of payeeNames; track $index) {
+                                                        <option [value]="payee">{{payee}}</option>
+                                                    }
+                                                </select>
+                                                <div>
+                                                    @if (payeeName) {
+                                                        <p class="text-danger">Please Select Payee</p>
+                                                    }
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-2">
+                                                <p class="or d-none d-lg-block">or</p>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <button class="addPayeeBtn cancelAndSaveBtn d-none d-lg-block" (click)="openAddpayeePopup(copyContent)">ADD PAYEE</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <ng-template #copyContent let-modal>
+                                    <app-addpayee></app-addpayee>
+                                </ng-template>
                            </div>
-                           <ng-template #copyContent let-modal>
-                            <!-- <app-forgot-info></app-forgot-info> -->
-                            <app-addpayee></app-addpayee>
-                        </ng-template>
-                        </div>
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group mt-3">
-                                    <label class="acc-number transferDetails">Account Number<span class="text-danger">*</span></label>
-                                    <input type="text" placeholder="Enter Account Number" class="transferInputs ms-5" formControlName="accountNumber" maxlength="18" (keypress)="onKeyPress($event)">
+                            <div class="col-lg-6 col-md-12 col-sm-12">
+                                <div class="row form-group mt-3">
+                                    <div class="col-lg-4 col-md-4 col-sm-5">
+                                        <label class="acc-number ms-5">Account Number<span class="text-danger">*</span></label>
+                                    </div>
+                                    <div class="col-lg-4 col-md-8 col-sm-7">
+                                        <input type="text" placeholder="Enter Account Number" class="transferInputs ms-5" formControlName="accountNumber" maxlength="18" (keypress)="onKeyPress($event)">
+                                    </div>
                                     <div class="text-danger">
                                         @if (moneyTransferForm.get('accountNumber')?.hasError('required') && moneyTransferForm.get('accountNumber')?.touched) {
                                             <p class="error-msg">Please Enter Account Number</p>
@@ -51,9 +65,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group mt-3">
-                                    <label class="bold-text">Re- Enter Account Number<span class="text-danger">*</span></label>
+                            <div class="col-lg-6 col-md-12 col-sm-12">
+                                <div class="row form-group mt-3">
+                                   <div class="col-lg-5 col-md-4 col-sm-5">
+                                        <label class="bold-text ms-4">Re- Enter Account Number<span class="text-danger">*</span></label>
+                                   </div>
+                                  <div class="col-lg-6 col-md-8 col-sm-7">
                                     <input type="text" class="transferInputs reAccNoAndRemarks" placeholder="Enter Account Number" formControlName="reEnterAccountNo" required maxlength="18" (keypress)="onKeyPress($event)">
                                     <div class="text-danger">
                                         @if (moneyTransferForm.get('reEnterAccountNo')?.hasError('required') && moneyTransferForm.get('reEnterAccountNo')?.touched) {
@@ -66,18 +83,23 @@
                                         }
                                         
                                     </div>
+                                  </div>
+                                    
                                 </div>
                             </div>
                         </div>
-                    </div>
     
-                    <div class="d-flex flex-column">
+                    <div>
                         <p class="bold-text transaction">Transaction Details</p>
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="sub-text transferDetails">Enter the Amount<span class="text-danger">*</span></label>
-                                    <input type="text" placeholder="Enter Amount" class="transferInputs amount" formControlName="amount" required (keypress)="onKeyPress($event)" maxlength="5">
+                            <div class="col-lg-6 col-md-12 col-sm-12">
+                                <div class="row form-group">
+                                    <div class="col-lg-5 col-md-4 col-sm-5">
+                                        <label class="sub-text ms-5">Enter the Amount<span class="text-danger">*</span></label>
+                                    </div>
+                                    <div class="col-lg-4 col-md-8 col-sm-7">
+                                        <input type="text" placeholder="Enter Amount" class="transferInputs accAndAmount" formControlName="amount" required (keypress)="onKeyPress($event)" maxlength="5">
+                                    </div>
                                 </div>
                                 <div>
                                     @if (moneyTransferForm.get('amount')?.hasError('required') && moneyTransferForm.get('amount')?.touched) {
@@ -86,25 +108,32 @@
                                     
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="bold-text">Remarks for transaction<span class="text-danger">*</span></label>
-                                    <input type="text" placeholder="Please write here" class="transferInputs reAccNoAndRemarks remarks" formControlName="remarks"  maxlength="10">
+                            <div class="col-lg-6 col-md-12 col-sm-12">
+                                <div class="row form-group">
+                                    <div class="col-lg-5 col-md-4 col-sm-5">
+                                        <label class="bold-text ms-4">Remarks for transaction<span class="text-danger">*</span></label>
+                                    </div>
+                                    <div class="col-lg-4 col-md-8 col-sm-7">
+                                        <input type="text" placeholder="Please write here" class="transferInputs reAccNoAndRemarks" formControlName="remarks"  maxlength="10">
+                                        <div>
+                                            @if (moneyTransferForm.get('remarks')?.hasError('required') && moneyTransferForm.get('remarks')?.touched) {
+                                                <p class="error-msg">Please Enter Remarks</p>
+                                            }
+                                        </div>
+                                    </div>
                                 </div>
-                                <div>
-                                    @if (moneyTransferForm.get('remarks')?.hasError('required') && moneyTransferForm.get('remarks')?.touched) {
-                                        <p class="error-msg">Please Enter Remarks</p>
-                                    }
-                                </div>
+                               
                             </div>
                         </div>
                     </div>
     
-                    <div class="d-flex flex-column">
+                    <div>
                         <p class="bold-text transaction">Payment Mode</p>
-                        <div class="d-flex flex-row">
-                            <p class="sub-text transferDetails">Select the Payment Mode<span class="text-danger">*</span></p>
-                            <div class="d-flex flex-column paymentMode p-2 ps-3">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <p class="sub-text ms-5">Select the Payment Mode<span class="text-danger">*</span></p>
+                            </div>
+                            <div class="col-lg-2 paymentMode p-2 ps-3">
                                 <div class="d-flex flex-row">
                                     <input type="radio" name="paymentModeInput" class="form-check-input" formControlName="paymentModeInput" value="IMPS">
                                      <label class="paymentModeLabel">IMPS</label>
@@ -112,7 +141,7 @@
                                 <p class="instantTransfer pt-3">Max Rs. 50,000 per day. Instant transfer 24*7
                                     transferable</p>
                             </div>
-                            <div class="d-flex flex-column paymentMode p-2 ps-3">
+                            <div class="col-lg-2 paymentMode p-2 ps-3">
                                 <div class="d-flex flex-row">
                                     <input type="radio" name="paymentModeInput" class="form-check-input" formControlName="paymentModeInput" value="NEFT">
                                      <label class="paymentModeLabel">NEFT</label>
@@ -120,7 +149,7 @@
                                 <p class="instantTransfer pt-3">Max Rs. 1,00,000 Lakh per day. Receiver gets money in
                                     2 to 24 Hrs</p>
                             </div>
-                            <div class="d-flex flex-column paymentMode p-2 ps-3">
+                            <div class="col-lg-2 paymentMode p-2 ps-3">
                                 <div class="d-flex flex-row">
                                     <input type="radio" name="paymentModeInput" class="form-check-input" formControlName="paymentModeInput" value="RTGS">
                                      <label class="paymentModeLabel">RTGS</label>
@@ -140,7 +169,7 @@
            
           </div>
     </div>
-</div>
+</div> 
 
 
   
