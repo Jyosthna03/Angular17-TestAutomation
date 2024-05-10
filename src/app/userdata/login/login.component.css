@@ -23,3 +23,8 @@ body{
   .mobile-margin{
     margin-top: 10vw; 
   }
+  @media (min-width:320px) {
+    .mrg-t-mobile{
+        margin-top: 110px;
+    }
+  }
