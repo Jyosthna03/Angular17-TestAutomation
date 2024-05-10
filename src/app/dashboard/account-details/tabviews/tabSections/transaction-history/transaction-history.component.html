@@ -69,16 +69,19 @@
       @if ((leftpaginationMode==false)&&(rightpaginationMode==true)) {
       <tbody class="tabData">
         <!-- Rows with Pagination -->
-        <tr *ngFor="let data of getPageTransactions()" class="eachRow">
-          <td class="text-center data">{{ data.sno }}</td>
-          <td class="data">{{ data.valueDate }}</td>
-          <td class="data">{{ data.transactionDate }}</td>
-          <td class="data">{{ data.transctionRemarks }}</td>
-          <td class="data text-end">{{ data.withDrawalAmount }}</td>
-          <td class="data">{{ data.depositAmount }}</td>
-          <td class="data">{{ data.balance }}</td>
-          <td class="text-end data">{{ data.dayClosingBalance }}</td>
-        </tr>
+        @for (data of getPageTransactions(); track $index) {
+          <tr class="eachRow">
+            <td class="text-center data">{{ data.sno }}</td>
+            <td class="data">{{ data.valueDate }}</td>
+            <td class="data">{{ data.transactionDate }}</td>
+            <td class="data">{{ data.transctionRemarks }}</td>
+            <td class="data text-end">{{ data.withDrawalAmount }}</td>
+            <td class="data">{{ data.depositAmount }}</td>
+            <td class="data">{{ data.balance }}</td>
+            <td class="text-end data">{{ data.dayClosingBalance }}</td>
+          </tr>
+        }
+        
         <!-- Pagination Controls -->
         <tr class="lastRow">
           <td colspan="8">
@@ -105,21 +108,24 @@
                         <img src="assets/left-arrow.svg" alt="" class="mt-2" />
                       </a>
                     </li>
-                    <div *ngFor="let eachpgno of rightPaginationItems">
-                      <li class="page-item" [class.active]="eachpgno===currentPage">
-                        <a class="page-link pgNo mt-2 ms-2 border-0 rowsPg" (click)="onPageChange(eachpgno)"
-                          [class.active]="eachpgno===currentPage" [ngStyle]="{
-                            'background': eachpgno===currentPage ? '#082341' : '#fff',
-                            'font-weight':eachpgno===currentPage ?'700' : 'bold',
-                            'font-size':eachpgno===currentPage ?'12px':'16px',
-                            'color': eachpgno===currentPage?'#FFF':'#979797',
-                            'font-style':'normal',
-                            'padding-left':'10px',
-                            'padding-right':'10px',
-                            'text-transform':'capitalize',
-                          }">{{eachpgno}}</a>
-                      </li>
-                    </div>
+                    @for (eachpgno of rightPaginationItems; track $index) {
+                      <div>
+                        <li class="page-item" [class.active]="eachpgno===currentPage">
+                          <a class="page-link pgNo mt-2 ms-2 border-0 rowsPg" (click)="onPageChange(eachpgno)"
+                            [class.active]="eachpgno===currentPage" [ngStyle]="{
+                              'background': eachpgno===currentPage ? '#082341' : '#fff',
+                              'font-weight':eachpgno===currentPage ?'700' : 'bold',
+                              'font-size':eachpgno===currentPage ?'12px':'16px',
+                              'color': eachpgno===currentPage?'#FFF':'#979797',
+                              'font-style':'normal',
+                              'padding-left':'10px',
+                              'padding-right':'10px',
+                              'text-transform':'capitalize',
+                            }">{{eachpgno}}</a>
+                        </li>
+                      </div>
+                    }
+                    
                     <li class="page-item">
                       <a class="page-link mt-1 rounded-0 border-0" (click)="nextPage()">
                         <img src="assets/right-arrow.svg" alt="RightArrow" class="mt-2" />
@@ -134,16 +140,18 @@
       </tbody>
       }@else {
       <tbody class="tabData">
-        <tr *ngFor="let data of TransHistory.slice(startIndex,endIndex)" class="eachRow">
-          <td class="text-center data">{{ data.sno }}</td>
-          <td class="data">{{ data.valueDate }}</td>
-          <td class="data">{{ data.transactionDate }}</td>
-          <td class="data">{{ data.transctionRemarks }}</td>
-          <td class="data text-end">{{ data.withDrawalAmount }}</td>
-          <td class="data">{{ data.depositAmount }}</td>
-          <td class="data">{{ data.balance }}</td>
-          <td class="text-end data">{{ data.dayClosingBalance }}</td>
-        </tr>
+        @for (data of getPageTransactions(); track $index) {
+          <tr class="eachRow">
+            <td class="text-center data">{{ data.sno }}</td>
+            <td class="data">{{ data.valueDate }}</td>
+            <td class="data">{{ data.transactionDate }}</td>
+            <td class="data">{{ data.transctionRemarks }}</td>
+            <td class="data text-end">{{ data.withDrawalAmount }}</td>
+            <td class="data">{{ data.depositAmount }}</td>
+            <td class="data">{{ data.balance }}</td>
+            <td class="text-end data">{{ data.dayClosingBalance }}</td>
+          </tr>
+        }
         <!-- Pagination Controls -->
         <tr class="lastRow">
           <td colspan="8">
@@ -170,21 +178,24 @@
                         <img src="assets/left-arrow.svg" alt="" class="mt-2" />
                       </a>
                     </li>
-                    <div *ngFor="let eachpgno of rightPaginationItems">
-                      <li class="page-item" [class.active]="eachpgno===currentPage">
-                        <a class="page-link pgNo mt-2 ms-2 border-0 rowsPg" (click)="onPageChange(eachpgno)"
-                          [class.active]="eachpgno===currentPage" [ngStyle]="{
-                              'background': eachpgno===currentPage ? '#082341' : '#fff',
-                              'font-weight':eachpgno===currentPage ?'700' : 'bold',
-                              'font-size':eachpgno===currentPage ?'12px':'16px',
-                              'color': eachpgno===currentPage?'#FFF':'#979797',
-                              'font-style':'normal',
-                              'padding-left':'10px',
-                              'padding-right':'10px',
-                              'text-transform':'capitalize',
-                            }">{{eachpgno}}</a>
-                      </li>
-                    </div>
+                    @for (eachpgno of rightPaginationItems; track $index) {
+                      <div>
+                        <li class="page-item" [class.active]="eachpgno===currentPage">
+                          <a class="page-link pgNo mt-2 ms-2 border-0 rowsPg" (click)="onPageChange(eachpgno)"
+                            [class.active]="eachpgno===currentPage" [ngStyle]="{
+                                'background': eachpgno===currentPage ? '#082341' : '#fff',
+                                'font-weight':eachpgno===currentPage ?'700' : 'bold',
+                                'font-size':eachpgno===currentPage ?'12px':'16px',
+                                'color': eachpgno===currentPage?'#FFF':'#979797',
+                                'font-style':'normal',
+                                'padding-left':'10px',
+                                'padding-right':'10px',
+                                'text-transform':'capitalize',
+                              }">{{eachpgno}}</a>
+                        </li>
+                      </div>
+                    }
+                    
                     <li class="page-item">
                       <a class="page-link mt-1 rounded-0 border-0">
                         <img src="assets/right-arrow.svg" alt="RightArrow" class="mt-2" />
