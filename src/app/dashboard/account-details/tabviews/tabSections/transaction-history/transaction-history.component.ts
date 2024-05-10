@@ -20,15 +20,7 @@ export class TransactionHistoryComponent {
     this.rightPaginationItems = this.totalPages;
   }
 
-
-
-
-
   ngOnInit() {
-    this.addOrRemoveClassOnViewport();
-    window.addEventListener('resize',()=>{
-      this.addOrRemoveClassOnViewport();
-    })
     this.generateTransactionData();
     this.rightPaginationItems = this.getpageList(
       this.TransHistory.length,
@@ -56,22 +48,7 @@ export class TransactionHistoryComponent {
     }
   }
 
-  addOrRemoveClassOnViewport(){
-    const container = document.getElementById('secondBox');
-    if(!container){
-      return ;
-    }
-    const screenWidth = window.innerWidth;
-    const isLargeScreen = screenWidth>=992;
-
-    if(isLargeScreen){
-      this.render.addClass(container,'sendToside');
-      // console.log("Large screen");
-    }else{
-      this.render.removeClass(container,'sendToside');
-      // console.log("small Screen");
-    }
-  }
+  
 
   isDisablebyDatefield = false;
   isDisableByPeriodfield = false;
