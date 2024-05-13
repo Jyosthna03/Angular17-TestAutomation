@@ -122,6 +122,7 @@ export class MoneyTransferComponent {
     }
   }
 
+  selectedPaymentModeLimit: string = ' ';
   paymentModeData:PaymentMode[] = [
     {
       "paymentMode":"IMPS",
@@ -136,5 +137,14 @@ export class MoneyTransferComponent {
     "paymentModeLimit":"Min Rs. 75,000, Max Rs. 10 Lakh per day. Real time transaction"
    }]
 
-
+   onPaymentModeChange(paymentMode:any){
+    console.log(paymentMode)
+    const selectedPaymentMode = this.paymentModeData.find(data => data.paymentMode == paymentMode);
+    if (selectedPaymentMode) {
+        this.selectedPaymentModeLimit = selectedPaymentMode.paymentModeLimit;
+        console.log(this.selectedPaymentModeLimit)
+    } else {
+        this.selectedPaymentModeLimit = ''; // Clear the selected payment mode limit if not found
+    }
+   }
 }
