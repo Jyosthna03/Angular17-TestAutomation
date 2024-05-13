@@ -37,7 +37,7 @@ body {
   /* transfer and payment screen css  */
   .cancelAndSaveBtn {
     width: 160px;
-   height: 28px;
+    height: 28px;
     flex-shrink: 0;
     border: 1px solid #082341;
     color: #082341;
@@ -49,6 +49,11 @@ body {
     letter-spacing: 0.12px;
     text-transform: uppercase;
     background: #fff;
+  }
+  @media (max-width:576px){
+    .cancelAndSaveBtn{
+      width: 140px;
+    }
   }
   .saveBtn {
     color: #fff;
