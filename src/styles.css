@@ -92,11 +92,12 @@ body {
   @media (max-width:767px){
     label.sub-text{
       font-size: 12px;
-      margin-left: 25px;
+      margin-left: 12px;
+
     }
     p.sub-text{
       font-size: 12px;
-      margin-left: 25px;
+      margin-left: 12px;
     }
   }
 .bold-text {
@@ -110,7 +111,7 @@ body {
   @media (max-width:767px){
     label.bold-text{
       font-size: 12px;
-      margin-left: 25px;
+      margin-left: 12px;
       
     }
   }
@@ -170,11 +171,15 @@ body {
       width: 216px ;
       height: 36px;
       flex-shrink: 0;
+      float: inline-end;
+      margin-right: 10px;
     }
     select.transferInputs{
       width: 216px ;
       height: 36px;
       flex-shrink: 0;
+      float: inline-end;
+      margin-right: 10px;
     }
   }
   .accountHeading {
