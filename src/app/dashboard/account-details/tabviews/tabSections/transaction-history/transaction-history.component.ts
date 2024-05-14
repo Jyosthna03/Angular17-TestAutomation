@@ -70,11 +70,13 @@ export class TransactionHistoryComponent {
 
   showWithPeriod() {
     this.showflag = 'Show With Period';
+    this.fromTransDate='';
+    this.toTransDate='';
   }
 
-  userChange() {
-    this.cancelField();
-  }
+  // userChange() {
+  //   this.cancelField();
+  // }
 
   cancelField() {
     this.showData = false;
