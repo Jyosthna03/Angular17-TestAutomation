@@ -1,7 +1,10 @@
 <div class="container-fluid">
     <div class="card">
-          <div class="card-header">
+          <div class="card-header d-none d-lg-block d-md-block">
                Transfer Money to Anyone, Anywhere
+          </div>
+          <div class="d-sm-block d-lg-none d-md-none transfer">
+            Transfer to
           </div>
           <div>
             <form [formGroup]="moneyTransferForm">
@@ -15,10 +18,10 @@
                                     </div>
                             </div>
                             <div class="row">
-                                <div class="col-lg-2 col-sm-5 col-md-5 col-6">
+                                <div class="col-lg-2 col-sm-5 col-md-5 col-5">
                                     <label class="sub-text">To<span class="text-danger">*</span></label>
                                 </div>
-                                <div class="col-lg-9 col-md-7 col-sm-7 ms-lg-5 col-6">
+                                <div class="col-lg-9 col-md-7 col-sm-7 ms-lg-5 col-7">
                                         <div class="row">
                                             <div class="col-lg-4 col-md-8">
                                                 <select class="transferInputs" formControlName="payee" required>
@@ -45,12 +48,12 @@
                                 </ng-template>
                            </div>
                         <div class="row">
-                            <div class="col-lg-6 col-md-12 col-sm-12">
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-12">
                                 <div class="row form-group mt-3">
-                                    <div class="col-lg-4 col-md-5 col-sm-5 col-6">
+                                    <div class="col-lg-4 col-md-5 col-sm-5 col-5">
                                         <label class="sub-text">Account Number<span class="text-danger">*</span></label>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-6 ms-lg-5">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-7 ms-lg-5">
                                         <input type="text" placeholder="Enter Account Number" class="transferInputs" formControlName="accountNumber" maxlength="18" (keypress)="onKeyPress($event)">
                                     </div>
                                     <div class="text-danger">
@@ -67,10 +70,13 @@
                             </div>
                             <div class="col-lg-6 col-md-12 col-sm-12">
                                 <div class="row form-group mt-3">
-                                   <div class="col-lg-5 col-md-5 col-sm-5 col-4">
+                                   <div class="col-lg-5 col-md-5 col-sm-5 d-lg-block d-none">
                                         <label class="bold-text">Re-Enter Account Number<span class="text-danger">*</span></label>
                                    </div>
-                                  <div class="col-lg-6 col-md-6 col-sm-6 col-8">
+                                   <div class="col-lg-5 col-md-5 col-sm-5 col-6 d-lg-none">
+                                    <label class="bold-text">Re-Enter Acc No<span class="text-danger">*</span></label>
+                               </div>
+                                  <div class="col-lg-6 col-md-6 col-sm-6 col-6">
                                     <input type="text" class="transferInputs reAccNoAndRemarks" placeholder="Enter Account Number" formControlName="reEnterAccountNo" required maxlength="18" (keypress)="onKeyPress($event)">
                                 </div>
                                 <div class="text-danger">
@@ -94,7 +100,7 @@
                             <div class="col-lg-6 col-md-12 col-sm-12">
                                 <div class="row form-group">
                                     <div class="col-lg-5 col-md-5 col-sm-5 col-6">
-                                        <label class="sub-text">Enter the Amount<span class="text-danger">*</span></label>
+                                        <label class="sub-text">Enter Amount<span class="text-danger">*</span></label>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-7 col-6">
                                         <input type="text" placeholder="Enter Amount" class="transferInputs accAndAmount" formControlName="amount" required (keypress)="onKeyPress($event)" maxlength="5">
@@ -109,8 +115,11 @@
                             </div>
                             <div class="col-lg-6 col-md-12 col-sm-12">
                                 <div class="row form-group mt-3 mt-lg-0">
-                                    <div class="col-lg-5 col-md-5 col-sm-5 col-6">
+                                    <div class="col-lg-5 col-md-5 col-sm-5 d-lg-block d-md-block d-none">
                                         <label class="bold-text">Remarks for Transaction<span class="text-danger">*</span></label>
+                                    </div>
+                                    <div class="col-6 d-lg-none d-sm-block d-md-none">
+                                        <label class="bold-text">Enter Remarks<span class="text-danger">*</span></label>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-7 col-6">
                                         <input type="text" placeholder="Please write here" class="transferInputs reAccNoAndRemarks" formControlName="remarks"  maxlength="10">
@@ -129,8 +138,11 @@
                     <div>
                         <p class="transaction">Payment Mode</p>
                         <div class="row">
-                            <div class="col-lg-3 col-md-5 col-sm-5 col-4">
+                            <div class="col-lg-3 col-md-5 col-sm-5 d-none d-lg-block d-md-block">
                                 <p class="sub-text">Select the Payment Mode<span class="text-danger">*</span></p>
+                            </div>
+                            <div class="col-4 d-md-none d-lg-none d-sm-block">
+                                <p class="sub-text">Payment Mode<span class="text-danger">*</span></p>
                             </div>
                             <!-- <div class="col-lg-9 col-md-7 col-sm-7 col-8 d-lg-none d-block">
                                 <select class="transferInputs" formControlName="paymentModeInputSelector" required>
@@ -140,7 +152,7 @@
                                 </select>
                                
                             </div> -->
-                            <div class="col-lg-9">
+                            <div class="col-lg-9 col-md-7 col-8">
                                 <div class="row">
                                     <div class="col-lg-3 paymentMode p-2 ps-3">
                                         <div class="d-flex flex-row">

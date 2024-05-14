@@ -465,17 +465,17 @@ body {
   @media (max-width:767px){
     label.sub-text{
       font-size: 12px;
-      margin-left: 25px;
+      margin-left: 5px;
     }
     p.sub-text{
       font-size: 12px;
-      margin-left: 25px;
+      margin-left: 5px;
     }
   }
   @media (max-width:767px){
     label.bold-text{
       font-size: 12px;
-      margin-left: 25px;
+      margin-left: 5px;
       
     }
   }
@@ -494,16 +494,21 @@ body {
       width: 216px ;
       height: 36px;
       flex-shrink: 0;
+      float: inline-end;
     }
     select.transferInputs{
       width: 216px ;
       height: 36px;
       flex-shrink: 0;
+      float: inline-end;
     }
   }
-  @media only screen and (max-width: 575.98px) {
+  @media only screen and (min-width:375px) and (max-width: 576px) {
     p.summaryheading {
       font-size: 14px ; 
       padding: 8px;
+    }
+    .card{
+      border: none;
     }
   }
