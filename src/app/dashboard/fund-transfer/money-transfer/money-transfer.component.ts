@@ -7,6 +7,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddpayeeComponent } from '../addpayee/addpayee.component';
 import { PaymentMode } from '../../../modal';
 
+
 @Component({
   selector: 'app-money-transfer',
   standalone: true,
@@ -17,11 +18,14 @@ import { PaymentMode } from '../../../modal';
 export class MoneyTransferComponent {
 
   moneyTransferForm!:FormGroup;
-  isMediumOrSmallScreen: boolean = false;
+
+  isSmallScreen: boolean = false;
+  isMediumScreen: boolean = false;
+
   isFormControlDisabled: boolean = false;
   payeeName:boolean = false
   defaultPayee:string = "Select Payee"
-  constructor(private service:BankingdataService,private fb:FormBuilder,private route:Router,private modalService: NgbModal ){
+  constructor(private service:BankingdataService,private fb:FormBuilder,private route:Router,private modalService: NgbModal){
     this.moneyTransferForm = fb.group({
        "payee":[this.defaultPayee,Validators.required],
        "accountNumber":['',[Validators.required,Validators.pattern(/^\d*$/),Validators.minLength(8),Validators.maxLength(18)]],
@@ -29,20 +33,14 @@ export class MoneyTransferComponent {
        "amount":['',[Validators.required,Validators.pattern(/^\d*$/),Validators.maxLength(5)]],
        "remarks":['',[Validators.required,Validators.maxLength(10)]],
        "paymentModeInput":['',Validators.required],
-       "payeeMedium": ['IMPS', Validators.required], // Define another form control for medium screen
-       "payeeSmall": ['IMPS', Validators.required]
+       "paymentModeInputSelector": ['IMPS', Validators.required], 
     },
     {
       validators: this.accountNoMatchValidator
     });
    }
 
-   @HostListener('window:resize', ['$event'])
-   onResize(event:any) {
-    // Check if screen size is medium or small
-    this.isMediumOrSmallScreen =  window.innerWidth < 992;;
-     this.isFormControlDisabled = this.isMediumOrSmallScreen;
-  }
+  
  
    accountNoMatchValidator(form: FormGroup) {
     const accNumber = form.get('accountNumber')?.value;
