@@ -3,23 +3,18 @@
     height: 26px;
     width: 26px;
   }
-  .eachDate {
-    color: #494848;
-    font-size: 14px !important;
-    font-style: normal;
-    font-weight: 500;
-  }
 
   #smDate{
-    color: #363636;
+    color: #494848;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 400;
+    font-size: 14px;
     line-height: normal;
     padding: 0px 18px 0px 0px;
   }
 
   #smMoney{
-    font-size: calc(12px + 0.5vw);
+    font-size: 14px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -62,14 +57,14 @@
     padding: 18px;
   }
   
-  .eachAmountCredit {
+  /* .eachAmountCredit {
     font-size: 14px !important;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
     width: 100px;
     text-align: center;
-  }
+  } */
   
   .eachTotamount {
     color: #082341;
@@ -77,14 +72,17 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    width: 150px;
+    width: 250px;
     text-align: center;
   }
 
-  
-  
-  .wrap{
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    word-break: break-word;
+
+  @media (max-width: 768px) {
+    #smDate{
+      color: #363636;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
   }

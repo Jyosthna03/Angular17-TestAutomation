@@ -36,3 +36,9 @@ input[type="date"]:before{
   color: #FFF;
   background: #082341;
 }
+
+@media (max-width:576px){
+  .smTop{
+    margin-top: 1.5rem !important;
+  }
+}

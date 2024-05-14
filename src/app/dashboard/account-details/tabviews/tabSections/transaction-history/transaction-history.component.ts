@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { BankingdataService } from '../../../../../bankingdata.service';
 import { FormsModule } from '@angular/forms';
 import {  DatePipe, NgStyle } from '@angular/common';
-import {Renderer2}from'@angular/core';
 
 import { RouterLink } from '@angular/router';
 @Component({
@@ -14,9 +13,7 @@ import { RouterLink } from '@angular/router';
 })
 export class TransactionHistoryComponent {
 
-
-
-  constructor(private serv: BankingdataService,private render:Renderer2) {
+  constructor(private serv: BankingdataService) {
     this.rightPaginationItems = this.totalPages;
   }
 
@@ -73,11 +70,13 @@ export class TransactionHistoryComponent {
 
   showWithPeriod() {
     this.showflag = 'Show With Period';
+    this.fromTransDate='';
+    this.toTransDate='';
   }
 
-  userChange() {
-    this.cancelField();
-  }
+  // userChange() {
+  //   this.cancelField();
+  // }
 
   cancelField() {
     this.showData = false;
