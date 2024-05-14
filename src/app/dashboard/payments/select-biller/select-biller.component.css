@@ -17,20 +17,7 @@
 .form-check-input:focus{
     border: 0px !important;
 }
-.selectBiller{
-    margin-left: 50px;
-    font-size: 12px;
-}
-.cre-card{
-    margin-left: 50px;
-    font-size: 12px;
-}
-.billDetails{
-    margin-left: 50px;
-    font-size: 12px;
-}
-.billerCard{
-    margin-left: 65px;
+.selectBiller,.cre-card,.billDetails,.billerCard{
     font-size: 12px;
 }
 .dueDate{
@@ -39,10 +26,22 @@
 .error-txt{
     font-weight: bold;
     padding-left: 80px;
-    padding-top: 5px;
 }
-.error{
-    padding-left: 252px;
-    font-weight: bold;
-    padding-top: 3px;
-}
+@media only screen and (min-width: 360px) and (max-width: 576px) {
+    .sub-text{
+        margin-left: -8px;
+    }
+    .bold-text{
+        margin-left: -2px;
+        margin-top: 2rem !important;
+    }
+    .select-mob{
+    color: #082341;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-left: 15px;
+    margin-top: 20px;
+    }
+  }

@@ -19,10 +19,7 @@ body {
     line-height: 20px; /* 125% */
     padding: 33px 30px;
   }
-  /* .acc-sty {
-    background: #e14b57;
-    border-radius: 5px 0px 0px 5px;
-  } */
+ 
   .pay-sty {
     background: #e1934b;
     border-radius: 5px 0px 0px 5px;
@@ -50,11 +47,7 @@ body {
     text-transform: uppercase;
     background: #fff;
   }
-  @media (max-width:576px){
-    .cancelAndSaveBtn{
-      width: 140px;
-    }
-  }
+  
   .saveBtn {
     color: #fff;
     margin-left: 20px;
@@ -69,18 +62,7 @@ body {
     padding-left: 255px;
     padding-top: 5px;
   }
-  @media (max-width:576px){
-    .error-msg{
-      font-size: 10px;
-      padding-left: 140px;
-    }
-  }
-  @media (min-width:577px) and (max-width:992px){
-    .error-msg{
-      font-size: 14px;
-      padding-left: 310px;
-    }
-  }
+
   .sub-text {
     color: #777;
     font-size: 16px;
@@ -89,16 +71,7 @@ body {
     line-height: normal;
     margin-left: 47px;
   }
-  @media (max-width:767px){
-    label.sub-text{
-      font-size: 12px;
-      margin-left: 25px;
-    }
-    p.sub-text{
-      font-size: 12px;
-      margin-left: 25px;
-    }
-  }
+
 .bold-text {
     color: #082341;
     font-size: 16px;
@@ -107,24 +80,6 @@ body {
     line-height: normal;
     margin-left: 47px;
 }
-  @media (max-width:767px){
-    label.bold-text{
-      font-size: 12px;
-      margin-left: 25px;
-      
-    }
-  }
- @media (min-width:992px){
-    label.bold-text{
-      margin-left: 0px;
-    }
-  }
-  @media (max-width:992px){
-    label.bold-text{
-      color: #777;
-    }
-
-  }
   .card-header {
     background: #ecf3ff !important;
     color: #082341;
@@ -135,47 +90,6 @@ body {
     padding: 12px;
     margin-bottom: 30px;
     border-radius: 0px !important;
-  }
-  /* .savingsAccNumber {
-    font-size: 16px;
-    color: #082341;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-  } */
-  /* .balance {
-    color: #717171;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-  } */
-  /* .transferInputs {
-    width: 288px;
-    height: 36px;
-    flex-shrink: 0;
-    border-radius: 2px;
-    border: 1px solid #d2d2d2;
-    color: #082341;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    border-radius: 2px;
-    border: 1px solid #d2d2d2;
-    padding: 5px;
-  } */
-  @media only screen and (max-width : 767px) {
-    input.transferInputs {
-      width: 216px ;
-      height: 36px;
-      flex-shrink: 0;
-    }
-    select.transferInputs{
-      width: 216px ;
-      height: 36px;
-      flex-shrink: 0;
-    }
   }
   .accountHeading {
     color: #020202;
@@ -212,12 +126,7 @@ body {
     letter-spacing: 0.32px;
     padding: 14px;
   }
-  @media only screen and (max-width: 575.98px) {
-    p.summaryheading {
-      font-size: 14px ; 
-      padding: 8px;
-    }
-  }
+
 .switch {
     color: #082341;
     text-align: right;
@@ -465,4 +374,68 @@ body {
   }
   .cursor{
     cursor: pointer;
+  }
+      /* All media-breakpoint */
+
+  @media (max-width:576px){
+    .cancelAndSaveBtn{
+      width: 140px;
+    }
+  }
+  @media (max-width:576px){
+    .error-msg{
+      font-size: 10px;
+      padding-left: 140px;
+    }
+  }
+  @media (min-width:577px) and (max-width:992px){
+    .error-msg{
+      font-size: 14px;
+      padding-left: 310px;
+    }
+  }
+  @media (max-width:767px){
+    label.sub-text{
+      font-size: 12px;
+      margin-left: 25px;
+    }
+    p.sub-text{
+      font-size: 12px;
+      margin-left: 25px;
+    }
+  }
+  @media (max-width:767px){
+    label.bold-text{
+      font-size: 12px;
+      margin-left: 25px;
+      
+    }
+  }
+ @media (min-width:992px){
+    label.bold-text{
+      margin-left: 0px;
+    }
+  }
+  @media (max-width:992px){
+    label.bold-text{
+      color: #777;
+    }
+  }
+  @media only screen and (max-width : 767px) {
+    input.transferInputs {
+      width: 216px ;
+      height: 36px;
+      flex-shrink: 0;
+    }
+    select.transferInputs{
+      width: 216px ;
+      height: 36px;
+      flex-shrink: 0;
+    }
+  }
+  @media only screen and (max-width: 575.98px) {
+    p.summaryheading {
+      font-size: 14px ; 
+      padding: 8px;
+    }
   }
