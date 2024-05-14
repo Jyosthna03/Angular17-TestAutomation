@@ -18,3 +18,8 @@ export interface history{
     balance:string;
     dayClosingBalance:string;
 }
+
+export interface PaymentMode {
+    paymentMode: string;
+    paymentModeLimit: string;
+}

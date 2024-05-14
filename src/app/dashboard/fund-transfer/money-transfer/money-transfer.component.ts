@@ -1,10 +1,11 @@
 import { CurrencyPipe } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BankingdataService } from '../../../bankingdata.service';
 import { Router, RouterLink } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddpayeeComponent } from '../addpayee/addpayee.component';
+import { PaymentMode } from '../../../modal';
 
 @Component({
   selector: 'app-money-transfer',
@@ -16,6 +17,8 @@ import { AddpayeeComponent } from '../addpayee/addpayee.component';
 export class MoneyTransferComponent {
 
   moneyTransferForm!:FormGroup;
+  isMediumOrSmallScreen: boolean = false;
+  isFormControlDisabled: boolean = false;
   payeeName:boolean = false
   defaultPayee:string = "Select Payee"
   constructor(private service:BankingdataService,private fb:FormBuilder,private route:Router,private modalService: NgbModal ){
@@ -25,12 +28,21 @@ export class MoneyTransferComponent {
        "reEnterAccountNo":['',[Validators.required,Validators.pattern(/^\d*$/),Validators.minLength(8),Validators.maxLength(18)]],
        "amount":['',[Validators.required,Validators.pattern(/^\d*$/),Validators.maxLength(5)]],
        "remarks":['',[Validators.required,Validators.maxLength(10)]],
-       "paymentModeInput":['',Validators.required]
+       "paymentModeInput":['',Validators.required],
+       "payeeMedium": ['IMPS', Validators.required], // Define another form control for medium screen
+       "payeeSmall": ['IMPS', Validators.required]
     },
     {
       validators: this.accountNoMatchValidator
     });
    }
+
+   @HostListener('window:resize', ['$event'])
+   onResize(event:any) {
+    // Check if screen size is medium or small
+    this.isMediumOrSmallScreen =  window.innerWidth < 992;;
+     this.isFormControlDisabled = this.isMediumOrSmallScreen;
+  }
  
    accountNoMatchValidator(form: FormGroup) {
     const accNumber = form.get('accountNumber')?.value;
@@ -73,6 +85,7 @@ export class MoneyTransferComponent {
       alert("Exceeded Limit");
       return;
     }
+    console.log(this.moneyTransferForm.value)
     this.service.balance -= amount;
     this.service.paymentHistory.push(Number(amount));
     this.service.paymentSucess.pop()
@@ -109,6 +122,20 @@ export class MoneyTransferComponent {
     }
   }
 
+ 
+  paymentModeData:PaymentMode[] = [
+    {
+      "paymentMode":"IMPS",
+     "paymentModeLimit":"Max Rs. 50,000 per day. Instant transfer 24*7 transferable"
+   },
+   {
+    "paymentMode":"NEFT",
+    "paymentModeLimit":"Max Rs. 1,00,000 Lakh per day. Receiver gets money in 2 to 24 Hrs"
+   },
+   {
+    "paymentMode":"RTGS",
+    "paymentModeLimit":"Min Rs. 75,000, Max Rs. 10 Lakh per day. Real time transaction"
+   }]
 
-
+  
 }

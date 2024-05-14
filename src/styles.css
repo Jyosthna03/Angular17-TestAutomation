@@ -37,7 +37,7 @@ body {
   /* transfer and payment screen css  */
   .cancelAndSaveBtn {
     width: 160px;
-   height: 28px;
+    height: 28px;
     flex-shrink: 0;
     border: 1px solid #082341;
     color: #082341;
@@ -50,6 +50,11 @@ body {
     text-transform: uppercase;
     background: #fff;
   }
+  @media (max-width:576px){
+    .cancelAndSaveBtn{
+      width: 140px;
+    }
+  }
   .saveBtn {
     color: #fff;
     margin-left: 20px;
@@ -59,25 +64,67 @@ body {
 
   .error-msg {
     color: red;
+    font-size: 16px;
     font-weight: bold;
-    padding-left: 230px;
+    padding-left: 255px;
     padding-top: 5px;
   }
+  @media (max-width:576px){
+    .error-msg{
+      font-size: 10px;
+      padding-left: 140px;
+    }
+  }
+  @media (min-width:577px) and (max-width:992px){
+    .error-msg{
+      font-size: 14px;
+      padding-left: 310px;
+    }
+  }
   .sub-text {
-    
     color: #777;
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    margin-left: 47px;
   }
-  .bold-text {
-    
+  @media (max-width:767px){
+    label.sub-text{
+      font-size: 12px;
+      margin-left: 12px;
+
+    }
+    p.sub-text{
+      font-size: 12px;
+      margin-left: 12px;
+    }
+  }
+.bold-text {
     color: #082341;
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    margin-left: 47px;
+}
+  @media (max-width:767px){
+    label.bold-text{
+      font-size: 12px;
+      margin-left: 12px;
+      
+    }
+  }
+ @media (min-width:992px){
+    label.bold-text{
+      margin-left: 0px;
+    }
+  }
+  @media (max-width:992px){
+    label.bold-text{
+      color: #777;
+    }
+
   }
   .card-header {
     background: #ecf3ff !important;
@@ -90,21 +137,21 @@ body {
     margin-bottom: 30px;
     border-radius: 0px !important;
   }
-  .savingsAccNumber {
+  /* .savingsAccNumber {
     font-size: 16px;
     color: #082341;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-  }
-  .balance {
+  } */
+  /* .balance {
     color: #717171;
     font-size: 12px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-  }
-  .transferInputs {
+  } */
+  /* .transferInputs {
     width: 288px;
     height: 36px;
     flex-shrink: 0;
@@ -118,6 +165,22 @@ body {
     border-radius: 2px;
     border: 1px solid #d2d2d2;
     padding: 5px;
+  } */
+  @media only screen and (max-width : 767px) {
+    input.transferInputs {
+      width: 216px ;
+      height: 36px;
+      flex-shrink: 0;
+      float: inline-end;
+      margin-right: 10px;
+    }
+    select.transferInputs{
+      width: 216px ;
+      height: 36px;
+      flex-shrink: 0;
+      float: inline-end;
+      margin-right: 10px;
+    }
   }
   .accountHeading {
     color: #020202;
@@ -156,14 +219,11 @@ body {
   }
   @media only screen and (max-width: 575.98px) {
     p.summaryheading {
-      font-size: 14px ; /* Adjust the font size as needed */
-      /* text-align: center; */
+      font-size: 14px ; 
       padding: 8px;
-
     }
   }
-
-  .switch {
+.switch {
     color: #082341;
     text-align: right;
     font-family: Mulish;
@@ -190,8 +250,7 @@ body {
   .form-check-input,.form-check-label{
     cursor: pointer;
   }
-
-  .cancelBtn {
+.cancelBtn {
     width: 100px;
     height: 28px;
     flex-shrink: 0;
@@ -206,8 +265,7 @@ body {
     letter-spacing: 0.12px;
     text-transform: uppercase;
   }
-
-  .addBtn {
+.addBtn {
     background: #082341;
     width: 100px;
     height: 28px;
