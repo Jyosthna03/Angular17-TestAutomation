@@ -56,15 +56,45 @@
     line-height: normal;
     padding: 18px;
   }
-  
-  /* .eachAmountCredit {
-    font-size: 14px !important;
+
+  .userData{    
+    padding: 5px;
+  }
+
+  .smuserDate{
+    color: #082341;
+    font-size: 12px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    width: 100px;
-    text-align: center;
-  } */
+  }
+
+  .smuserTrans{
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    color: #494848;
+    padding-top: 4px;
+  }
+
+  .smAmount{
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  .smCredit{
+    padding-top: 2px;
+    font-size: 10px;
+  }
+
+  .userAmount{
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
+  }
   
   .eachTotamount {
     color: #082341;
@@ -73,7 +103,7 @@
     font-weight: 700;
     line-height: normal;
     width: 250px;
-    text-align: center;
+    text-align: end;
   }
 
 
@@ -86,3 +116,5 @@
       line-height: normal;
     }
   }
+
+  

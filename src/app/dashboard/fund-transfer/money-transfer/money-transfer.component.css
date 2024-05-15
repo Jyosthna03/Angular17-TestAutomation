@@ -21,28 +21,18 @@
     padding-top: 10px;
     padding-bottom: 15px;
 }
-@media screen and (max-width:575px) {
-    .transaction{
-        padding: 30px 0px 10px 0px;
-        font-size: 14px;
-    }
-}
 .instantTransfer{
   color: #646464;
   font-size: 12px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  padding-top: 10px;
 }
-
 .remarks{
     margin-left: 35px !important;
 }
 .reAccNoAndRemarks{
-    /* width: 360px; */
-    /* height: 36px; */
-    flex-shrink: 0;
-    flex-shrink: 0;
     border-radius: 2px;
     border: 1px solid #D2D2D2;
     background: #FFF;
@@ -62,6 +52,7 @@
     border: 1px solid #082341;
     background: #FFF;
     margin-left: 13px;
+    padding: 10px;
 }
 .paymentModeLabel{
     color: #082341;
@@ -106,4 +97,35 @@ input::-webkit-inner-spin-button {
 }
 .labeltext{
     width: 260px;
+}
+.addPayee{
+    color: #069;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration: none;
+    float: inline-end;
+    padding-top: 5px;
+}
+@media screen and (max-width:575px) {
+    .transaction{
+        padding: 30px 0px 10px 0px;
+        font-size: 14px;
+    }
+}
+@media screen and (min-width:375px) and (max-width:992px) {
+    .paymentMode{
+        border: 0px;
+        border-radius: 0px;
+        padding: 0px 30px 0px 0px;
+        overflow-wrap:break-word;
+        
+    }
+    .instantTransfer{
+        font-size: 10px;
+    }
+    .paymentModeLabel{
+        font-size: 12px;
+    }
 }

@@ -9,6 +9,7 @@ import { PaymentDashboardComponent } from './dashboard/payments/payment-dashboar
 import { PaymentSuccessComponent } from './dashboard/payments/payment-success/payment-success.component';
 import { ForgotInfoComponent } from './userdata/forgot-info/forgot-info.component';
 import { TransferSuccessfullComponent } from './dashboard/fund-transfer/transfer-successfull/transfer-successfull.component';
+import { AddpayeesmComponent } from './dashboard/fund-transfer/addpayeesm/addpayeesm.component';
 
 export const routes: Routes = [
     {path: '', component:LoginComponent},
@@ -22,5 +23,6 @@ export const routes: Routes = [
     {path:'transferDashboard',component:TransferDashboardComponent},
     {path:'addpayee',component:AddpayeeComponent},
     {path:'transferSuccess',component:TransferSuccessfullComponent},
-    {path:'paymentSuccess',component:PaymentSuccessComponent}
+    {path:'paymentSuccess',component:PaymentSuccessComponent},
+    {path:'addpayeesm',component:AddpayeesmComponent}
 ];

@@ -1,0 +1,65 @@
+.payeeDetails{
+    color: #082341;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    padding: 0px 20px 0px 35px;
+}
+.btn-primary ,.btn-primary:active{
+  border: 1px solid #453985 !important;
+  background: #453985;
+}
+.payee-details{
+  color: var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1B154C);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  padding-left: 80px; 
+}
+.payeeInputs{
+    margin-bottom: 15px;
+}
+.error-text{
+   color: red;
+   font-weight: bold;
+   font-size: 10px;
+}
+.ifscCode{
+   text-transform: uppercase;
+}
+@media screen and (min-width:576px) and (max-width:767px) {
+    .payee-details{
+        font-size: 12px;
+        padding-left: 55px;
+    }
+    input.transferInputs {
+        width: 216px ;
+        height: 36px;
+        flex-shrink: 0;
+      }
+}
+@media screen and (min-width:576px) and (max-width:767px) {
+    .error-text{
+        padding-left: 40px;
+    }
+}
+@media screen and (min-width:300px) and (max-width:575px) {
+    .payee-details{
+        font-size: 12px;
+        padding-left: 15px;
+    }
+    .error-text{
+        padding-left: 0px;
+        text-align: start;
+    }
+    input.transferInputs {
+        width: 216px ;
+        height: 36px;
+        flex-shrink: 0;
+    }
+    .payeeDetails{
+        padding: 0px;
+    }
+}
