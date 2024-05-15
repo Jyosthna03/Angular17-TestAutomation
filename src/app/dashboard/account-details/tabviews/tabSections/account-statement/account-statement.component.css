@@ -42,3 +42,11 @@ input[type="date"]:before{
     margin-top: 1.5rem !important;
   }
 }
+
+@media (max-width:768px){
+  .wholesmTop{
+    margin-top: 1.5rem !important;
+  }
+
+  
+}

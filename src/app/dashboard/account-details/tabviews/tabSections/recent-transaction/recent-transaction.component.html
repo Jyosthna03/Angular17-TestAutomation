@@ -1,16 +1,31 @@
-
-   <table class="container-fluid">
+  <table class="container-fluid">
     @for (eachData of recentTrans(); track $index) {
       <tr>
         @if (eachData) {
           <ng-container>
-            <td class="data d-none d-lg-table-cell"><img [src]="eachData.symbol" alt="Symbol" class="eachArrow" /></td>
-            <td class="eachName d-none d-lg-table-cell">{{ eachData.name }}</td>
-            <td class="eachDate" id="smDate">{{ eachData.transDate }}</td>
-            <td class="eachType d-none d-lg-table-cell">{{ eachData.transtype }}</td>
-            <td class="eachDesc" id="smDesc">{{ eachData.transDesc }}</td>
-            <td class="eachAmountCredit" id="smMoney" [style.color]="eachData.transtype === 'Debited' ? '#D31B03' : '#3D8300'">₹{{ eachData.amountcredit}}</td>
-            <td class="eachTotamount d-none d-lg-table-cell">{{ eachData.totAmount }}</td>
+            <td class="data d-lg-table-cell d-none d-sm-table-cell d-md-none"><img [src]="eachData.symbol" alt="Symbol" class="eachArrow" /></td>
+            <td class="eachName d-lg-table-cell d-none d-sm-table-cell d-md-none">{{ eachData.name }}</td>
+            <td class="smData d-sm-block d-lg-none d-md-none">
+              <div class="userData">
+                <div class="smuserDate">{{eachData.transDate}}</div>
+                <div class="smuserTrans">{{eachData.transDesc}}</div>
+              </div>
+            </td>
+            <td class="d-sm-block d-lg-none d-md-table-cell d-md-none">
+              <div class="userAmount" [style.color]="eachData.transtype === 'Debited' ? '#3D8300' : '#D31B03'">
+              <div class="smAmount">₹{{eachData.amountcredit}} </div>
+              @if(eachData.transtype==='Debited'){
+                <div class="smCredit">&nbsp;cr</div>
+              }@else{
+                <div class="smCredit">&nbsp;de</div>
+              }
+            </div>
+          </td>
+            <td class="eachDate d-lg-table-cell d-none d-md-table-cell" id="smDate">{{ eachData.transDate }}</td>
+            <td class="eachType d-none d-lg-table-cell d-sm-table-cell d-md-none">{{ eachData.transtype }}</td>
+            <td class="eachDesc d-none d-lg-table-cell d-sm-table-cell" id="smDesc">{{ eachData.transDesc }}</td>
+            <td class="eachAmountCredit d-none d-lg-table-cell d-sm-table-cell" id="smMoney" [style.color]="eachData.transtype === 'Debited' ? '#D31B03' : '#3D8300'">₹{{ eachData.amountcredit}}</td>
+            <td class="eachTotamount d-none d-lg-table-cell d-sm-table-cell d-md-none">{{ eachData.totAmount }}</td>
           </ng-container>
         }
       </tr>
