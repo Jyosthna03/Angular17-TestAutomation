@@ -27,9 +27,22 @@
     font-weight: bold;
     padding-left: 80px;
 }
+.balance{
+    margin-left: 100px;
+}
+.sub-text{
+    margin-right: 23px;
+    margin-left: 30px !important;
+}
+.bold-text{
+    margin-left: 18px !important;
+}
+.sub-text-account{
+    margin-left: 100px;
+}
 @media only screen and (min-width: 360px) and (max-width: 576px) {
     .sub-text{
-        margin-left: -8px;
+        margin-left: 0 !important
     }
     .bold-text{
         margin-left: -2px;

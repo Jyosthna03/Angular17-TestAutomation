@@ -7,10 +7,10 @@
   <form [formGroup]="billerForm">
     <div class="card-body">
       <div class="row">
-        <div class="col-lg-2 col-md-3 col-sm-6 col ">
+        <div class="col-lg-2 col-md-5 col-sm-5 col ">
            <label for="id_select" class="sub-text">Select Billers for</label>
         </div>
-        <div class="col-lg-2 col-md-3 col-sm-6 col">
+        <div class="col-lg-2 col-md-5 col-sm-5 col">
           <select id="id_select" class="transferInputs selectBiller" formControlName="billerType" autofocus>
             @for(option of selectOptions;track $index){
               <option id="biller" [value]="option">{{option}}</option>
@@ -180,8 +180,8 @@
               <option value="Savings Account" id="savings">Savings Account</option>
          </select>
           </div>
-          <div class="col-lg-5 col-md-5 ms-lg-5 col-sm-3 col">
-            <p class="sub-text">Account Details</p>
+          <div class=" sub-text-account col-lg-5 col-md-5 col-sm-3 col">
+            <p class="sub-text float-start">Account Details</p>
             <div class="">
               <p class="savingsAccNumber">Savings - 12345678910111213</p>
               <p class="balance">Balance - ₹ {{availBalance}}/-</p>
