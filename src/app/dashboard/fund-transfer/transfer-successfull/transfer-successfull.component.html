@@ -1,14 +1,16 @@
 <div class="container-fluid mb-5">
     <app-navbar></app-navbar>
     <main class="mainScreen text-center mt-2">
-        <img src="assets/Work_6 1.png" alt="WorkDone" class="congImg">
-        <p class="congratsText mt-1">Congratulations !!</p>
-        <div class="d-flex justify-content-center">
+        <img src="assets/Work_6 1.png" alt="WorkDone" class="img-fluid">
+        <p class="congratsText">Congratulations !!</p>
+        <div class="d-flex justify-content-center flex-wrap">
             @for (data of paymentData; track $index) {
-                <p class="transText w-50 mt-2">Transaction amount  ₹{{data.amount}}/- in the mode of {{data.paymentModeInput}} for the payee {{data.payee}} has been success</p>
+                <p class="transText">Transaction amount  ₹{{data.amount}}/- in the mode of {{data.paymentModeInput}} for the payee {{data.payee}} has been success</p>
             }
         </div>
-        <button class="mt-2 dashBoardBtn" routerLink="/dashboard">Go back to Dashboard</button>
+        <button class="dashBoardBtn" routerLink="/dashboard">Go back to Dashboard</button>
     </main>
 </div>
+
+
 
