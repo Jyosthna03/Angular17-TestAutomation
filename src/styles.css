@@ -19,6 +19,10 @@ body {
     line-height: 20px; /* 125% */
     padding: 33px 30px;
   }
+  .acc-sty {
+    background: #e14b57;
+    border-radius: 5px 0px 0px 5px;
+  }
  
   .pay-sty {
     background: #e1934b;
@@ -71,16 +75,7 @@ body {
     line-height: normal;
     margin-left: 47px;
   }
-  @media (max-width:767px){
-    label.sub-text{
-      font-size: 12px;
-      margin-left: 25px;
-    }
-    p.sub-text{
-      font-size: 12px;
-      margin-left: 25px;
-    }
-  }
+  
 .bold-text {
     color: #082341;
     font-size: 16px;
@@ -89,24 +84,7 @@ body {
     line-height: normal;
     margin-left: 47px;
 }
-  @media (max-width:767px){
-    label.bold-text{
-      font-size: 12px;
-      margin-left: 25px;
-      
-    }
-  }
- @media (min-width:992px){
-    label.bold-text{
-      margin-left: 0px;
-    }
-  }
-  @media (max-width:992px){
-    label.bold-text{
-      color: #777;
-    }
-
-  }
+  
   .card-header {
     background: #ecf3ff !important;
     color: #082341;
@@ -118,21 +96,21 @@ body {
     margin-bottom: 30px;
     border-radius: 0px !important;
   }
-  /* .savingsAccNumber {
+  .savingsAccNumber {
     font-size: 16px;
     color: #082341;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-  } */
-  /* .balance {
+  }
+  .balance {
     color: #717171;
     font-size: 12px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-  } */
-  /* .transferInputs {
+  }
+  .transferInputs {
     width: 288px;
     height: 36px;
     flex-shrink: 0;
@@ -146,19 +124,8 @@ body {
     border-radius: 2px;
     border: 1px solid #d2d2d2;
     padding: 5px;
-  } */
-  @media only screen and (max-width : 767px) {
-    input.transferInputs {
-      width: 216px ;
-      height: 36px;
-      flex-shrink: 0;
-    }
-    select.transferInputs{
-      width: 216px ;
-      height: 36px;
-      flex-shrink: 0;
-    }
   }
+  
   .accountHeading {
     color: #020202;
     font-size: 14px;
@@ -254,181 +221,6 @@ body {
     border-radius: 0px !important;
   }
 
-  /* You can add global styles to this file, and also import other style files */
-body {
-    font-family: Mulish;
-  }
-
-  .ng-invalid.ng-touched {
-    border-color: red;
-  }
-  ::placeholder {
-    color: #b8b8b8;
-  }
-  .text-color {
-    color: #1b154c;
-    color: var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1b154c);
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 20px; /* 125% */
-    padding: 33px 30px;
-  }
-  .acc-sty {
-    background: #e14b57;
-    border-radius: 5px 0px 0px 5px;
-  }
-  .pay-sty {
-    background: #e1934b;
-    border-radius: 5px 0px 0px 5px;
-  }
-  .fund-sty {
-    background: #15b2ec;
-    border-radius: 5px 0px 0px 5px;
-  }
-  .card-body {
-    padding: 15px 20px !important;
-  }
-  /* transfer and payment screen css  */
-  .cancelAndSaveBtn {
-    width: 160px;
-   height: 28px;
-    flex-shrink: 0;
-    border: 1px solid #082341;
-    color: #082341;
-    text-align: center;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: 0.12px;
-    text-transform: uppercase;
-    background: #fff;
-  }
-  .saveBtn {
-    color: #fff;
-    margin-left: 20px;
-    cursor: pointer;
-    border-radius: 0px !important;
-  }
- /* .error-msg {
-    color: red;
-    font-weight: bold;
-    padding-left: 230px;
-    padding-top: 5px;
-  } */
-  .sub-text {
-    color: #777;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-  }
-  .bold-text {
-    color: #082341;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-  }
-  .card-header {
-    background: #ecf3ff !important;
-    color: #082341;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    padding: 12px;
-    margin-bottom: 30px;
-    border-radius: 0px !important;
-  }
-  .savingsAccNumber {
-    font-size: 16px;
-    color: #082341;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-  }
-  .balance {
-    color: #717171;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-  }
-  .transferInputs {
-    width: 288px;
-    height: 36px;
-    flex-shrink: 0;
-    border-radius: 2px;
-    border: 1px solid #d2d2d2;
-    color: #082341;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    border-radius: 2px;
-    border: 1px solid #d2d2d2;
-    padding: 5px;
-    
-  }
-  .accountHeading {
-    color: #020202;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    text-align: start;
-  }
-  .accountValues {
-    color: #082341;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
-    letter-spacing: 0.36px;
-    text-align: start;
-    text-transform: capitalize;
-  }
-  .accountSummary {
-    background-color: #ecf3ff;
-    height: 50px;
-    border: 1px 0px 0px 0px;
-    border: 1px solid #d1cfcf;
-    background: var(--Card-Header, #ecf3ff);
-  }
-  .summaryheading {
-    color: var(--Heading-Text, #1b154c);
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    letter-spacing: 0.32px;
-    padding: 14px;
-  }
-  .switch {
-    color: #082341;
-    text-align: right;
-    font-family: Mulish;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    text-transform: capitalize;
-    padding-top: 4px;
-  }
-  .inputBox {
-    width: 216px;
-    height: 36px;
-    flex-shrink: 0;
-    border-radius: 2px;
-    border: 1px solid #d2d2d2;
-    cursor: pointer;
-  }
-
-  .form-check-input,.form-check-label{
-    cursor: pointer;
-  }
   .account-style{
     color: var(--Neutral-Colors-Smokey-White, var(--Neutral-Colors-Smoky-White, #F8F8F9));
     font-size: 16px;
@@ -443,7 +235,39 @@ body {
   .cursor{
     cursor: pointer;
   }
+ 
       /* All media-breakpoint */
+
+      /* Fund Transfer Screen */
+      @media (max-width:767px){
+        label.sub-text{
+          font-size: 12px;
+          margin-left: 25px;
+        }
+        p.sub-text{
+          font-size: 12px;
+          margin-left: 25px;
+        }
+      }
+
+      @media (max-width:767px){
+        label.bold-text{
+          font-size: 12px;
+          margin-left: 25px;
+          
+        }
+      }
+     @media (min-width:992px){
+        label.bold-text{
+          margin-left: 0px;
+        }
+      }
+      @media (max-width:992px){
+        label.bold-text{
+          color: #777;
+        }
+    
+      }
 
   @media (max-width:768px){
     .cancelAndSaveBtn{
@@ -463,7 +287,7 @@ body {
     }
   }
  
-  @media (max-width:767px){
+  /* @media (max-width:767px){
     label.sub-text{
       font-size: 12px;
       margin-left: 5px;
@@ -472,8 +296,8 @@ body {
       font-size: 12px;
       margin-left: 5px;
     }
-  }
-  @media (max-width:767px){
+  } */
+  /* @media (max-width:767px){
     label.bold-text{
       font-size: 12px;
       margin-left: 5px;
@@ -484,12 +308,12 @@ body {
     label.bold-text{
       margin-left: 0px;
     }
-  }
-  @media (max-width:992px){
+  } */
+  /* @media (max-width:992px){
     label.bold-text{
       color: #777;
     }
-  }
+  } */
   @media only screen and (max-width : 767px) {
     input.transferInputs {
       width: 216px ;
@@ -498,7 +322,7 @@ body {
       float: inline-end;
     }
     select.transferInputs{
-      width: 216px ;
+      width: 216px;
       height: 36px;
       flex-shrink: 0;
       float: inline-end;
@@ -513,3 +337,5 @@ body {
       border: none;
     }
   }
+
+  
