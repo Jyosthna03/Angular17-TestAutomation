@@ -23,7 +23,7 @@
           </td>
             <td class="eachDate d-lg-table-cell d-none d-md-table-cell" id="smDate">{{ eachData.transDate }}</td>
             <td class="eachType d-none d-lg-table-cell d-sm-table-cell d-md-none">{{ eachData.transtype }}</td>
-            <td class="eachDesc d-none d-lg-table-cell d-sm-table-cell" id="smDesc">{{ eachData.transDesc }}</td>
+            <td class="eachDesc d-none d-lg-table-cell d-sm-table-cell text-wrap" id="smDesc">{{ eachData.transDesc }}</td>
             <td class="eachAmountCredit d-none d-lg-table-cell d-sm-table-cell" id="smMoney" [style.color]="eachData.transtype === 'Debited' ? '#D31B03' : '#3D8300'">₹{{ eachData.amountcredit}}</td>
             <td class="eachTotamount d-none d-lg-table-cell d-sm-table-cell d-md-none">{{ eachData.totAmount }}</td>
           </ng-container>

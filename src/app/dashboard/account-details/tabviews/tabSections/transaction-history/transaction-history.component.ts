@@ -74,9 +74,6 @@ export class TransactionHistoryComponent {
     this.toTransDate='';
   }
 
-  // userChange() {
-  //   this.cancelField();
-  // }
 
   cancelField() {
     this.showData = false;

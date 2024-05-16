@@ -1,10 +1,10 @@
 *{
     padding: 0px;
     margin: 0px;
+    box-sizing: border-box;
   }
   .congratsText {
       color: #082341;
-      font-family: Mulish;
       font-size: 40px;
       font-style: normal;
       font-weight: 800;
@@ -13,24 +13,61 @@
   .transText {
       color: #2d455f;
       text-align: center;
-      font-family: Mulish;
       font-size: 20px;
       font-style: normal;
       font-weight: 800;
-      line-height: 28px; 
+      line-height: 28px;
+      margin-top: 0.25rem;
+      padding:1rem; 
   }
   .dashBoardBtn {
       color: #082341;
       background: #fff;
       text-align: center;
-      font-family: Mulish;
       font-size: 14px;
       font-style: normal;
       font-weight: 700;
       line-height: normal;
       letter-spacing: 0.56px;
       padding: 10px 50px 10px 50px;
+      margin-top: 1rem;
   }
+
+  @media (max-width: 576px) {
+    .transText {
+        color: #2d455f;
+        text-align: center;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 24px;
+        margin-top: 1.5rem;
+        padding: 10px; 
+    }
+
+    .congratsText {
+        color: #082341;
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: normal;
+        margin-top: 3rem;
+    }
+
+    .dashBoardBtn {
+        color: #082341;
+        background: #fff;
+        text-align: center;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: 0.56px;
+        padding: 5px 30px 5px 30px;
+        margin-top: 2rem;
+    }
+
+}
 
   
 

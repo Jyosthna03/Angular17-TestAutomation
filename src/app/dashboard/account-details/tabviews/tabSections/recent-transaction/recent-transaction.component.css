@@ -46,6 +46,7 @@
     font-weight: 500;
     line-height: normal;
     width: 500px;
+    overflow-wrap: break-word !important;
   }
 
   #smDesc{
@@ -55,6 +56,7 @@
     font-weight: 500;
     line-height: normal;
     padding: 18px;
+    overflow-wrap: break-word !important;
   }
 
   .userData{    
