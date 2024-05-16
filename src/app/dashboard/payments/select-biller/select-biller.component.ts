@@ -52,6 +52,7 @@ export class SelectBillerComponent {
   ngOnInit() {
     this.dueDate = new Date();
     this.dueDate.setDate(this.dueDate.getDate() + 3);
+    console.log(this.dueDate)
   }
 
   onSubmit() {

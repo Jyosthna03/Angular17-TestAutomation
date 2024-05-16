@@ -27,12 +27,29 @@
     font-weight: bold;
     padding-left: 80px;
 }
+.balance{
+    margin-left: 80px;
+}
+.sub-text{
+    margin-right: 23px;
+    margin-left: 30px !important;
+}
+.bold-text{
+    margin-left: 18px !important;
+}
+.sub-text-account{
+    margin-left: 100px;
+}
+.sel-balance{
+    margin-left: 174px;
+}
 @media only screen and (min-width: 360px) and (max-width: 576px) {
     .sub-text{
-        margin-left: -8px;
+        margin-left: -7px !important;
+        margin-right: 0 !important
     }
     .bold-text{
-        margin-left: -2px;
+        margin-left: -7px !important;
         margin-top: 2rem !important;
     }
     .select-mob{
@@ -46,5 +63,20 @@
     }
     .card{
         border: none;
+    }
+    .dueDate{
+        margin-left: 120px;
+        margin-top: 15px;
+    }
+    .savingsAccNumber{
+        font-size: 14px;
+        margin-left: 8px;
+        margin-top: 5px;
+    }
+    .sel-balance {
+        margin-left: 10px;
+    }
+    .savings-duedate{
+        margin-top: -1px !important;
     }
   }
