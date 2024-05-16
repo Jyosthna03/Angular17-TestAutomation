@@ -9,10 +9,10 @@
           <div>
             <form [formGroup]="moneyTransferForm">
                             <div class="row">
-                                    <div class="col-lg-2 col-sm-5 col-md-5 col-4  d-none d-lg-block">
+                                    <div class="col-lg-2 col-sm-5 col-md-5 col-4 d-none d-lg-block">
                                         <label class="sub-text">From</label>
                                     </div>
-                                    <div class="col-lg-6 col-sm-6 col-md-6 col-8 ms-lg-5  d-none d-lg-block">
+                                    <div class="col-lg-6 col-sm-6 col-md-6 col-8 formInputs d-none d-lg-block">
                                         <p class="savingsAccNumber">Savings - 12345678910111213</p>
                                         <p class="balance">Balance - {{availBalance | currency:"INR"}}</p>
                                     </div>
@@ -21,10 +21,10 @@
                                 <div class="col-lg-2 col-sm-5 col-md-5 col-5">
                                     <label class="sub-text">To<span class="text-danger">*</span></label>
                                 </div>
-                                <div class="col-lg-9 col-md-7 col-sm-7 ms-lg-5 col-7">
+                                <div class="col-lg-9 col-md-7 col-sm-7 col-7">
                                         <div class="row">
-                                            <div class="col-lg-4 col-md-8">
-                                                <select class="transferInputs" formControlName="payee" required>
+                                            <div class="col-lg-4 col-md-8 formInputs">
+                                                <select class="transferInputs " formControlName="payee" required>
                                                     @for (payee of payeeNames; track $index) {
                                                         <option [value]="payee">{{payee}}</option>
                                                     }
@@ -56,7 +56,7 @@
                                     <div class="col-lg-4 col-md-5 col-sm-5 col-5">
                                         <label class="sub-text">Account Number<span class="text-danger">*</span></label>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-7 ms-lg-5">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-7 formInputs">
                                         <input type="text" placeholder="Enter Account Number" class="transferInputs" formControlName="accountNumber" maxlength="18" (keypress)="onKeyPress($event)">
                                     </div>
                                     <div class="text-danger">
@@ -80,7 +80,7 @@
                                     <label class="bold-text">Re-Enter Acc No<span class="text-danger">*</span></label>
                                </div>
                                   <div class="col-lg-6 col-md-6 col-sm-6 col-6">
-                                    <input type="text" class="transferInputs reAccNoAndRemarks" placeholder="Enter Account Number" formControlName="reEnterAccountNo" required maxlength="18" (keypress)="onKeyPress($event)">
+                                    <input type="text" class="transferInputs" placeholder="Enter Account Number" formControlName="reEnterAccountNo" required maxlength="18" (keypress)="onKeyPress($event)">
                                 </div>
                                 <div class="text-danger">
                                     @if (moneyTransferForm.get('reEnterAccountNo')?.hasError('required') && moneyTransferForm.get('reEnterAccountNo')?.touched) {
@@ -106,7 +106,7 @@
                                         <label class="sub-text">Enter Amount<span class="text-danger">*</span></label>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-7 col-6">
-                                        <input type="text" placeholder="Enter Amount" class="transferInputs accAndAmount" formControlName="amount" required (keypress)="onKeyPress($event)" maxlength="5">
+                                        <input type="text" placeholder="Enter Amount" class="transferInputs" formControlName="amount" required (keypress)="onKeyPress($event)" maxlength="5">
                                     </div>
                                 </div>
                                 <div>
@@ -125,7 +125,7 @@
                                         <label class="bold-text">Enter Remarks<span class="text-danger">*</span></label>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-7 col-6">
-                                        <input type="text" placeholder="Please write here" class="transferInputs reAccNoAndRemarks" formControlName="remarks"  maxlength="10">
+                                        <input type="text" placeholder="Please write here" class="transferInputs" formControlName="remarks"  maxlength="10">
                                     </div>
                                     <div>
                                         @if (moneyTransferForm.get('remarks')?.hasError('required') && moneyTransferForm.get('remarks')?.touched) {

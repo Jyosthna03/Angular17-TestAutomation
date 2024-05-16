@@ -311,8 +311,7 @@ body {
     cursor: pointer;
     border-radius: 0px !important;
   }
-
-  .error-msg {
+ .error-msg {
     color: red;
     font-weight: bold;
     padding-left: 230px;
@@ -371,6 +370,7 @@ body {
     border-radius: 2px;
     border: 1px solid #d2d2d2;
     padding: 5px;
+    
   }
   .accountHeading {
     color: #020202;
@@ -505,8 +505,8 @@ body {
   }
   @media only screen and (min-width:375px) and (max-width: 576px) {
     p.summaryheading {
-      font-size: 14px ; 
-      padding: 8px;
+      font-size: 12px ; 
+      padding: 14px;
     }
     .card{
       border: none;
