@@ -3,7 +3,6 @@
 body {
     font-family: Mulish;
   }
-
   .ng-invalid.ng-touched {
     border-color: red;
   }
@@ -23,7 +22,6 @@ body {
     background: #e14b57;
     border-radius: 5px 0px 0px 5px;
   }
- 
   .pay-sty {
     background: #e1934b;
     border-radius: 5px 0px 0px 5px;
@@ -51,14 +49,12 @@ body {
     text-transform: uppercase;
     background: #fff;
   }
-  
   .saveBtn {
     color: #fff;
     margin-left: 20px;
     cursor: pointer;
     border-radius: 0px !important;
   }
-
   .error-msg {
     color: red;
     font-size: 16px;
@@ -66,7 +62,6 @@ body {
     padding-top: 5px;
     padding-left: 258px;
   }
-
   .sub-text {
     color: #777;
     font-size: 16px;
@@ -75,7 +70,6 @@ body {
     line-height: normal;
     margin-left: 47px;
   }
-  
 .bold-text {
     color: #082341;
     font-size: 16px;
@@ -84,7 +78,6 @@ body {
     line-height: normal;
     margin-left: 47px;
 }
-  
   .card-header {
     background: #ecf3ff !important;
     color: #082341;
@@ -125,7 +118,6 @@ body {
     border: 1px solid #d2d2d2;
     padding: 5px;
   }
-  
   .accountHeading {
     color: #020202;
     font-size: 14px;
@@ -161,7 +153,6 @@ body {
     letter-spacing: 0.32px;
     padding: 14px;
   }
-
 .switch {
     color: #082341;
     text-align: right;
@@ -239,76 +230,76 @@ body {
       /* All media-breakpoint */
 
       /* Fund Transfer Screen */
-      @media (max-width:767px){
-        label.sub-text{
-          font-size: 12px;
-          margin-left: 5px;
-        }
-        p.sub-text{
-          font-size: 12px;
-          margin-left: 5px;
-        }
-      }
+  @media (max-width:767px){
+    label.sub-text{
+      font-size: 12px;
+      margin-left: 5px;
+    }
+    p.sub-text{
+      font-size: 12px;
+      margin-left: 5px;
+    }
+  }
 
-      @media (max-width:767px){
-        label.bold-text{
-          font-size: 12px;
-          margin-left: 5px;
-          
-        }
-      }
-     @media (min-width:992px){
-        label.bold-text{
-          margin-left: 0px;
-        }
-      }
-      @media (max-width:992px){
-        label.bold-text{
-          color: #777;
-        }
-    
-      }
+  @media (max-width:767px){
+    label.bold-text{
+      font-size: 12px;
+      margin-left: 5px;
+      
+    }
+  }
+  @media (min-width:992px){
+    label.bold-text{
+      margin-left: 0px;
+    }
+  }
+  @media (max-width:992px){
+    label.bold-text{
+      color: #777;
+    }
 
-  @media (max-width:768px){
-    .cancelAndSaveBtn{
-      width: 100px;
-    }
   }
-  @media (max-width:576px){
-    .error-msg{
-      font-size: 10px;
-      padding-left: 140px;
-    }
+
+@media (max-width:768px){
+  .cancelAndSaveBtn{
+    width: 100px;
   }
-  @media (min-width:577px) and (max-width:992px){
-    .error-msg{
-      font-size: 14px;
-      padding-left: 310px;
-    }
+}
+@media (max-width:576px){
+  .error-msg{
+    font-size: 10px;
+    padding-left: 140px;
   }
- 
-  @media only screen and (max-width : 767px) {
-    input.transferInputs {
-      width: 216px ;
-      height: 36px;
-      flex-shrink: 0;
-      float: inline-end;
-    }
-    select.transferInputs{
-      width: 216px;
-      height: 36px;
-      flex-shrink: 0;
-      float: inline-end;
-    }
+}
+@media (min-width:577px) and (max-width:992px){
+  .error-msg{
+    font-size: 14px;
+    padding-left: 310px;
   }
-  @media only screen and (min-width:375px) and (max-width: 576px) {
-    p.summaryheading {
-      font-size: 12px ; 
-      padding: 14px;
-    }
-    .card{
-      border: none;
-    }
+}
+
+@media only screen and (max-width : 767px) {
+  input.transferInputs {
+    width: 216px ;
+    height: 36px;
+    flex-shrink: 0;
+    float: inline-end;
   }
+  select.transferInputs{
+    width: 216px;
+    height: 36px;
+    flex-shrink: 0;
+    float: inline-end;
+  }
+}
+@media only screen and (min-width:375px) and (max-width: 576px) {
+  p.summaryheading {
+    font-size: 12px ; 
+    padding: 14px;
+  }
+  .card{
+    border: none;
+  }
+}
 
   
