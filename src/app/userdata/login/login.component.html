@@ -6,78 +6,33 @@
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" #formElement>
         <div class="form-group mt-4">
           <label for="email">Email<span class="text-danger">*</span></label>
-          <input
-            type="email"
-            id="email"
-            class="form-control"
-            formControlName="email"
-            placeholder="Enter Email"
-            aria-autocomplete="list"
-          />
-
-          @if (formControls['email'].hasError('required') &&
-          formControls['email'].touched) {
-          <p class="text-danger">Email is required.</p>
-          } @if (formControls['email'].hasError('pattern') &&
-          formControls['email'].touched) {
+          <input type="email" id="email" class="form-control" formControlName="email" placeholder="Enter Email" aria-autocomplete="list"/>
+            @if (formControls['email'].hasError('required') && formControls['email'].touched) {
+            <p class="text-danger">Email is required.</p>
+             } @if (formControls['email'].hasError('pattern') && formControls['email'].touched) {
           <p class="text-danger">Please enter a valid email address.</p>
           }
         </div>
         <div class="form-group mt-3">
-          <label for="password"
-            >Password<span class="text-danger">*</span></label
-          >
-          <input
-            type="password"
-            id="password"
-            class="form-control"
-            formControlName="password"
-            placeholder="Enter Password"
-          />
-          @if (formControls['password'].hasError('required') &&
-          formControls['password'].touched) {
+          <label for="password">Password<span class="text-danger">*</span></label>
+          <input type="password" id="password" class="form-control" formControlName="password" placeholder="Enter Password"/>
+          @if (formControls['password'].hasError('required') && formControls['password'].touched) {
           <p class="text-danger">Password is required.</p>
-          } @if (formControls['password'].hasError('pattern') &&
-          formControls['password'].touched) {
-          <p class="text-danger">
-            Password must be at least 8 characters long and contain at least one
-            letter and one number.
-          </p>
+          } @if (formControls['password'].hasError('pattern') && formControls['password'].touched) {
+          <p class="text-danger">Password must be at least 8 characters long and contain at least one letter and one number.</p>
           }
         </div>
         <div class="mt-3">
-          <a
-            class="cursor-pointer"
-            (click)="openForgotPasswordPopup(copyContent)"
-            >Forgot Password?</a
-          >
-          |
-          <a
-            class="cursor-pointer"
-            ng-click="register()"
-            (click)="getRegistration()"
-            >Register</a
-          >
+          <a class="cursor-pointer" (click)="openForgotPasswordPopup(copyContent)" >Forgot Password?</a>|
+          <a class="cursor-pointer" ng-click="register()" (click)="getRegistration()">Register</a>
         </div>
         <div class="d-grid gap-2 mt-5">
-          <button
-            type="submit"
-            class="btn btn-primary"
-            [disabled]="loginForm.invalid"
-            id="login"
-          >
-            Login
-          </button>
+          <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid" id="login"> Login </button>
         </div>
       </form>
     </div>
     <div class="col-md-6 col-lg-7 ">
-      <img class="d-none d-lg-block"
-        [src]="imagePath"
-        [width]="imageWidth"
-        [height]="imageHeight"
-        alt="Description"
-      />
+      <img class="d-none d-lg-block login-image" [src]="imagePath" alt="Description"/>
     </div>
   </div>
 </div>
