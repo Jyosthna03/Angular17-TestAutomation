@@ -74,10 +74,10 @@
             </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col dueDate">
           <!-- <div> -->
-            <p class="sub-text float-start">Due Date</p>
+            <p class="sub-text float-start">Due Date:- </p>
           <!-- </div> -->
           <div class="ps-5">
-            <p class="savingsAccNumber">{{dueDate | date}}</p>
+            <p class="savingsAccNumber savings-duedate">{{dueDate | date:'dd/MM/yy'}}</p>
             <p class="balance d-none d-sm-block ">Min Balance - 18405.00</p>
           </div>
         </div>
@@ -156,10 +156,10 @@
             <div class="col-lg-4 col-md-3 col-sm-6 col dueDate">
               @if(isDueDateDisabled){
                 <div>
-                  <p class="sub-text float-start">Due Date</p>
+                  <p class="sub-text float-start">Due Date:- </p>
                 </div>
                 <div class="">
-                  <p class="savingsAccNumber">{{dueDate | date}}</p>
+                  <p class="savingsAccNumber savings-duedate">{{dueDate | date:'dd/MM/yy'}}</p>
                   <p class="balance d-none d-sm-block">Min Balance - 18405.00</p>
                 </div>
               }
@@ -181,10 +181,10 @@
          </select>
           </div>
           <div class=" sub-text-account col-lg-5 col-md-5 col-sm-3 col">
-            <p class="sub-text float-start">Account Details</p>
+            <p class="sub-text float-start d-none d-sm-block">Account Details</p>
             <div class="">
               <p class="savingsAccNumber">Savings - 12345678910111213</p>
-              <p class="balance">Balance - ₹ {{availBalance}}/-</p>
+              <p class="balance sel-balance">Balance - ₹ {{availBalance}}/-</p>
             </div>
           </div>
         </div>
