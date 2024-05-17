@@ -15,19 +15,9 @@
             @for(option of selectOptions;track $index){
               <option id="biller" [value]="option">{{option}}</option>
             }
-            
           </select>
         </div>
       </div>
-      <!-- <div class="d-flex flex-row">
-        <label for="id_select" class="sub-text ps-5">Select Billers for</label>
-        <select id="id_select" class="transferInputs selectBiller" formControlName="billerType" autofocus>
-          @for(option of selectOptions;track $index){
-            <option id="biller" [value]="option">{{option}}</option>
-          }
-          
-        </select>
-      </div> -->
       <div class="d-flex">
         <p class="bold-text mt-5">Biller Details</p>
       </div>
@@ -45,20 +35,6 @@
           </div>
         }
       </div>
-      <!-- <div class="d-flex">
-        @if(!showRechargeForm){
-          <div>
-             <label for="id_select" class="sub-text ps-5"> Biller Details </label>
-         <select id="id_select" class="transferInputs cre-card" formControlName="billerdetails" autofocus="true">
-          @for (data of biller; track $index) {
-            <option [value]="data" id="billerDetails">{{data}}</option>
-          }
-            
-          </select>
-          </div>
-          
-        }
-       </div> -->
        <div class="row mt-4">
         @if(!showRechargeForm){
           <div class="col-lg-2 col-md-3 col-sm-6 col">
@@ -73,9 +49,7 @@
              </div>
             </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col dueDate">
-          <!-- <div> -->
             <p class="sub-text float-start">Due Date:- </p>
-          <!-- </div> -->
           <div class="ps-5">
             <p class="savingsAccNumber savings-duedate">{{dueDate | date:'dd/MM/yy'}}</p>
             <p class="balance d-none d-sm-block ">Min Balance - 18405.00</p>
@@ -83,30 +57,7 @@
         </div>
       }
        </div>
-       <!-- <div class="d-flex mt-5">
-          @if(!showRechargeForm){
-            <label for="id_select" class="sub-text mt-2 ps-5"> Bill Amount</label>
-          <div class="d-flex flex-column">
-              <input type="text" class="transferInputs billDetails" formControlName="billDetailsAmount" maxlength="5"  (keypress)="onKeyPress($event)">
-              <div  class="text-danger error-txt">
-                 @if(billerForm.get('billDetailsAmount')?.hasError('required') && billerForm.get('billDetailsAmount')?.touched){
-                  <p>Enter Amount</p>
-                 }
-               </div>
-          </div>
-         <div class="d-flex flex-row justify-content-between dueDate">
-          <div>
-            <p class="sub-text">Due Date</p>
-          </div>
-          <div class="ps-4">
-            <p class="savingsAccNumber">{{dueDate | date}}</p>
-            <p class="balance">Min Balance - 18405.00</p>
-          </div>
-        </div>
-          }
-        </div> -->
       <!-- Conditional Mobile Recharge Form -->
-    
       <form  [formGroup]="rechargeForm" class="mt-4" #formElement>
         @if(showRechargeForm){
           <div class="row">
@@ -188,28 +139,11 @@
             </div>
           </div>
         </div>
-        <!-- <div class="d-flex">
-          <label for="id_select" class="sub-text mt-2 ps-5"> Paying From</label>
-          <select id="id_select" class="transferInputs billerCard" autofocus="true" formControlName="PayingFrom">
-               <option value="Savings Account" id="savings">Savings Account</option>
-          </select>
-          <div class="d-flex flex-row justify-content-between dueDate">
-            <div>
-              <p class="sub-text">Account Details</p>
-            </div>
-            <div class="ps-4">
-              <p class="savingsAccNumber">Savings - 12345678910111213</p>
-              <p class="balance">Balance - ₹ {{availBalance}}/-</p>
-            </div>
-          </div>
-         
-        </div> -->
       <!-- Continue with the rest of your form -->
       <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-3"></div>
           <button class="cancelAndSaveBtn me-2 col-lg-2 col-md-2 col-sm-2 col" routerLink="/dashboard" id="back">Back</button>
           <button class="cancelAndSaveBtn ms-3 col-lg-2 col-md-2 col-sm-2 col"  (click)="onCancel()">Cancel</button>
-          <!-- Adjust the condition for disabling the Pay button as necessary -->
           <button type="submit" class="btn btn-primary cancelAndSaveBtn saveBtn col-lg-2"  [disabled]="billerForm.invalid && (!showRechargeForm || rechargeForm.invalid)" (click)="onSubmit()" id="pay">Pay</button>
       </div>
     </div>

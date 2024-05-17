@@ -16,8 +16,6 @@ export class RegistrationComponent {
   usersList: Array<Object> = []
   submitted = false;
   imagePath = 'assets/image.png';
-  imageWidth = 700; 
-  imageHeight = 800;
   maxDate!: string;
   countries: string[] = ['Select Country', 'India','USA', 'Canada', 'UK', 'Australia', 'Poland', 'Other'];
   states: string[] = ['Select State','Telangana','Andhra Pradesh','Karnataka','Tamil Nadu','Himachal Pradesh']

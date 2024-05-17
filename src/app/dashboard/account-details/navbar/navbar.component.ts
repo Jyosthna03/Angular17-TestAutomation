@@ -15,44 +15,21 @@ export class NavbarComponent {
 
   alltabNames = this.service.tabNames;
   UserSelectTab = this.service.userSelectedTab;
+  userName:string = ''
+
+  ngOnInit(){
+    this.userName = this.service.trimmedString;
+    console.log(this.userName)
+  }
 
   selectTab(name: string) {
     console.log(name);
     this.service.breadCrumb.pop();
     this.service.breadCrumb.push(name);
     this.UserSelectTab = name;
+    
   }
 
-  ngOnInit(){
-    this.addOrRemoveClassOnViewport();
-   
-  }
-
-  addOrRemoveClassOnViewport(){
-    const accountnavitem = document.getElementById('accountNavitem');
-    console.log(accountnavitem);
   
-    const paymentnavitem = document.getElementById('paymentNavitem');
-    console.log(paymentnavitem);
-
-    const transfernavitem = document.getElementById('transferNavitem');
-    console.log(transfernavitem)
-
-    const screenWidth = window.innerWidth;
-    const isLargeScreen = screenWidth<=992;
-
-    if(isLargeScreen){
-      this.render.addClass(accountnavitem,'navColor');
-      this.render.addClass(paymentnavitem,'navColor');
-      this.render.addClass(transfernavitem,'navColor');
-     
-      // console.log("Large screen");
-    }else{
-      this.render.removeClass(accountnavitem,'navColor');
-      this.render.removeClass(paymentnavitem,'navColor');
-      this.render.removeClass(transfernavitem,'navColor');
-      // console.log("small Screen");
-    }
-  }
 
 }
