@@ -31,12 +31,12 @@
 						<input type="password" class="form-control" formControlName="confirmPassword" id="confirmPassword">
 						<div class="text-danger error-txt">
 							@if(myForm.get('confirmPassword')?.hasError('required') && myForm.get('confirmPassword')?.touched){
-                                <p>Confirm password is required.</p>
+                <p>Confirm password is required.</p>
 							}
 						</div>
 						<div class="text-danger error-txt">
 							@if(myForm.hasError('mismatch')){
-                                <p>Passwords do not match.</p>
+                <p>Passwords do not match.</p>
 							}
 							
 						</div>
