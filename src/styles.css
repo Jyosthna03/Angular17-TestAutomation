@@ -292,14 +292,24 @@ body {
     float: inline-end;
   }
 }
-@media only screen and (min-width:375px) and (max-width: 576px) {
+@media only screen and (min-width:300px) and (max-width: 576px) {
   p.summaryheading {
     font-size: 12px ; 
-    padding: 14px;
+    padding: 15px;
   }
   .card{
     border: none;
   }
+}
+
+/* account summary component */
+@media screen and (max-width:767px) {
+   .accountHeading{
+    font-size: 10px;
+   }
+   .accountValues{
+    font-size: 12px;
+   }
 }
 
   
