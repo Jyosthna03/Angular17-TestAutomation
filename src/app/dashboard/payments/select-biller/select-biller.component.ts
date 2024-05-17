@@ -20,7 +20,6 @@ export class SelectBillerComponent {
   dueDate!: Date;
   availBalance: number = this.service.balance
   isDueDateDisabled: boolean = true;
-
   selectOptions = ['Credit Card', 'Debit Card', 'Utilities', 'Mobile Recharge'];
   biller = ['Credit Card', 'Debit Card']
   networkProviders = ['Airtel Post-paid', 'Airtel Pre-paid']
@@ -52,7 +51,6 @@ export class SelectBillerComponent {
   ngOnInit() {
     this.dueDate = new Date();
     this.dueDate.setDate(this.dueDate.getDate() + 3);
-    console.log(this.dueDate)
   }
 
   onSubmit() {
@@ -60,16 +58,13 @@ export class SelectBillerComponent {
     let rechargeBillValue = this.rechargeForm.value.amount;
     
     if (this.billerForm.valid && billValue <= this.availBalance) {
-      console.log("Biller Form")
       this.service.selectBillerSuccess.pop()
       this.service.selectBillerSuccess.push(this.billerForm.value);
-      console.log(this.service.selectBillerSuccess)
       this.service.rechargePaymentSuccess = false;
       this.service.balance -= billValue
       this.route.navigate(['/paymentSuccess'])
     }
     if (this.rechargeForm.valid && rechargeBillValue <= this.availBalance) {
-      console.log("Recharge Form")
       this.service.selectBillerSuccess.pop()
       this.service.selectBillerSuccess.push(this.rechargeForm.value);
       this.service.rechargePaymentSuccess = true;

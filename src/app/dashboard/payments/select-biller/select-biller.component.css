@@ -13,7 +13,6 @@
     border: 1px solid #453985 !important;
     background: #453985;
 }
-
 .form-check-input:focus{
     border: 0px !important;
 }
@@ -24,7 +23,6 @@
     margin-left: 100px;
 }
 .error-txt{
-    /* font-weight: bold; */
     padding-left: 80px;
 }
 .balance{
@@ -80,7 +78,6 @@
         margin-top: -1px !important;
     }
     .error-txt{
-        /* font-weight: bold; */
         padding-left: 1px;
     }
   }

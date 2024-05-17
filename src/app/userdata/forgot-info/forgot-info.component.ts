@@ -17,7 +17,6 @@ export class ForgotInfoComponent {
   myForm!: FormGroup;
   formGroup!: FormGroup;
   userList: any;
-
   appUsers:any;
 
   constructor(private fb: FormBuilder,private modalService: NgbModal, private service:BankingdataService) {}
@@ -40,19 +39,14 @@ export class ForgotInfoComponent {
   passwordMatchValidator(form: FormGroup) {
     const password = form.get('password')?.value;
     const confirmPassword = form.get('confirmPassword')?.value;
-    console.log(password)
-    console.log(confirmPassword)
     return password === confirmPassword ? null : { mismatch: true };
   }
  
   onSubmit() {
     if ((this.myForm.valid) && this.service.userData.includes(this.myForm.value.email)) {
-      console.log("User is in Array");
       let userIndex=this.service.userData.indexOf(this.myForm.value.email);
-      // console.log(userIndex+1);
       this.service.userData[userIndex+1] = this.myForm.value.password;
       alert('Password Changed Successfully!!');
-      // console.log(this.myForm.value.password)
       this.closePopup();
     }
     else{

@@ -31,7 +31,6 @@ export class LoginComponent {
       password: ['', [Validators.required, Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,16}$/)]],
     });
     this.userList = this.service.registerDetails;
-    console.log(this.service.userData);
   }
  
   get formControls() {
@@ -41,10 +40,9 @@ export class LoginComponent {
   onSubmit() {
     if(this.service.userData.includes(this.formControls['email'].value)&& this.service.userData.includes(this.formControls['password'].value)){
         const user = this.formControls['email'].value; 
-         this.service.setCurrentUser(user);
+        this.service.setCurrentUser(user);
         var newStr = this.formControls['email'].value.replace(/@.*$/,"");
         this.service.trimmedString = newStr;
-        console.log("TrimmedString:",this.service.trimmedString);
         var name = newStr!==user ? newStr : null;
         this.loginForm.reset();
         this.router.navigate(['/dashboard'])
@@ -53,7 +51,6 @@ export class LoginComponent {
         this.isInvalidUser = "Please Enter Valid Credentials"
         this.loginForm.reset();
     }
-   
   }
   openForgotPasswordPopup(content: any) {
     this.modalService.open(content, {
