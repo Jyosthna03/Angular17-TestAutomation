@@ -12,25 +12,25 @@
             <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
               <div class="accordion-body">
                  @for (data of accountSummary; track $index) {
-                        <div  class="row row-cols-2 row-cols-sm-2  row-cols-md-2 row-cols-lg-5 ">
+                        <div  class="row row-cols-2 row-cols-sm-2  row-cols-md-2 row-cols-lg-5">
                             <div class="col">
                                 <p class="accountHeading">Account Holder Name</p>
                                  <p class="accountValues wrap">{{accountUserName}}</p>
                             </div>
-                             <div class="col">
-                                 <p class="accountHeading">Account Type</p>
-                                 <p class="accountValues wrap">{{data.AccountType}}</p>
-                             </div>
                             <div class="col">
                                 <p class="accountHeading">Account Number</p>
-                                <p class="accountValues wrap">{{data.AccountNumber | digitSpacing}}</p>
+                                <p class="accountValues">{{data.AccountNumber}}</p>
+                            </div>
+                            <div class="col">
+                                <p class="accountHeading">Account Type</p>
+                                <p class="accountValues wrap">{{data.AccountType}}</p>
                             </div>
                             <div  class="d-none d-lg-block col">
                                 <p class="accountHeading">Account Branch</p>
                                 <p class="accountValues wrap">{{data.AccountBranch}}</p>
                             </div>
                             <div class="col">
-                                <p class="accountHeading">{{data.id == 3 ? "Credit Limit" : "Available Balance in Rupees"}}</p>
+                                <p class="accountHeading">{{data.id == 3 ? "Credit Limit" : "Available Balance"}}</p>
                                 <p class="accountValues wrap">₹{{data.AvailableBalanceinRupees}}</p>
                             </div>
                         </div>

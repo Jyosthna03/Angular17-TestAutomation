@@ -26,38 +26,33 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    width: 290px;
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: normal;
   }
   
   .eachType {
     color: #494848;
-    font-size: 14px !important;
+    font-size: 14px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    width: 300px;
+    width: 150px;
     text-align: center;
   }
   
   .eachDesc {
     color: #494848;
-    font-size: 14px !important;
+    font-size: 14px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    width: 500px;
-    overflow-wrap: break-word !important;
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: normal;
   }
 
-  #smDesc{
-    color: #494848;
-    font-size: 10px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    padding: 18px;
-    overflow-wrap: break-word !important;
-  }
+  
 
   .userData{    
     padding: 5px;
@@ -78,6 +73,9 @@
     line-height: normal;
     color: #494848;
     padding-top: 4px;
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: normal;
   }
 
   .smAmount{
@@ -100,11 +98,11 @@
   
   .eachTotamount {
     color: #082341;
-    font-size: 14px !important;
+    font-size: 14px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    width: 250px;
+    width: 100px;
     text-align: end;
   }
 
@@ -116,6 +114,18 @@
       font-style: normal;
       font-weight: 700;
       line-height: normal;
+    }
+
+    .eachDesc{
+      color: #494848;
+      font-size: 10px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      padding: 18px;
+      word-wrap: break-word;
+      word-break: break-all;
+      white-space: normal;
     }
   }
 

@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { BankingdataService } from '../../../bankingdata.service';
-import { DigitSpacingPipe } from '../digit-spacing.pipe';
 
 @Component({
   selector: 'app-account-summary',
   standalone: true,
-  imports: [DigitSpacingPipe],
+  imports: [],
   templateUrl: './account-summary.component.html',
   styleUrl: './account-summary.component.css'
 })

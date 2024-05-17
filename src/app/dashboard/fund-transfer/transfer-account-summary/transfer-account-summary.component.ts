@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { BankingdataService } from '../../../bankingdata.service';
 import { CommonModule, CurrencyPipe } from '@angular/common';
-import { DigitSpacingPipe } from '../../account-details/digit-spacing.pipe';
 
 @Component({
   selector: 'app-transfer-account-summary',
   standalone: true,
-  imports: [CurrencyPipe,DigitSpacingPipe,CommonModule],
+  imports: [CurrencyPipe,CommonModule],
   templateUrl: './transfer-account-summary.component.html',
   styleUrl: './transfer-account-summary.component.css'
 })
