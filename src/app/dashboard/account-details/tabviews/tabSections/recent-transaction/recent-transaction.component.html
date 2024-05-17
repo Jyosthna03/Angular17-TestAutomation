@@ -5,7 +5,7 @@
           <ng-container>
             <td class="data d-lg-table-cell d-none d-sm-table-cell d-md-none"><img [src]="eachData.symbol" alt="Symbol" class="eachArrow" /></td>
             <td class="eachName d-lg-table-cell d-none d-sm-table-cell d-md-none">{{ eachData.name }}</td>
-            <td class="smData d-sm-block d-lg-none d-md-none">
+            <td class="d-sm-block d-lg-none d-md-none">
               <div class="userData">
                 <div class="smuserDate">{{eachData.transDate}}</div>
                 <div class="smuserTrans">{{eachData.transDesc}}</div>
@@ -21,10 +21,10 @@
               }
             </div>
           </td>
-            <td class="eachDate d-lg-table-cell d-none d-md-table-cell" id="smDate">{{ eachData.transDate }}</td>
+            <td class="d-lg-table-cell d-none d-md-table-cell" id="smDate">{{ eachData.transDate }}</td>
             <td class="eachType d-none d-lg-table-cell d-sm-table-cell d-md-none">{{ eachData.transtype }}</td>
-            <td class="eachDesc d-none d-lg-table-cell d-sm-table-cell text-wrap" id="smDesc">{{ eachData.transDesc }}</td>
-            <td class="eachAmountCredit d-none d-lg-table-cell d-sm-table-cell" id="smMoney" [style.color]="eachData.transtype === 'Debited' ? '#D31B03' : '#3D8300'">₹{{ eachData.amountcredit}}</td>
+            <td class="eachDesc d-none d-lg-table-cell d-sm-table-cell">{{ eachData.transDesc }}</td>
+            <td class="d-none d-lg-table-cell d-sm-table-cell" id="smMoney" [style.color]="eachData.transtype === 'Debited' ? '#D31B03' : '#3D8300'">₹{{ eachData.amountcredit}}</td>
             <td class="eachTotamount d-none d-lg-table-cell d-sm-table-cell d-md-none">{{ eachData.totAmount }}</td>
           </ng-container>
         }
