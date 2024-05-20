@@ -36,4 +36,9 @@ export class DashboardComponent {
     this.service.userSelectTab(this.service.userSelectedTab)
     this.route.navigate(['/paymentDashboard']);
   }
+
+  logOut(){
+    this.route.navigate(['/login'])
+    localStorage.removeItem('logindata')
+  }
 }

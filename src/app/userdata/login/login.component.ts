@@ -17,8 +17,6 @@ export class LoginComponent {
   imagePath = 'assets/login-img.png';
   isShowPopup: boolean = false;
   submitted = false;
-  uEmail: any;
-  uPassword:any;
   userList: any;
   isInvalidUser:string = ''
   constructor(private fb: FormBuilder,private router: Router,private modalService: NgbModal,private service:BankingdataService) {}
@@ -44,6 +42,7 @@ export class LoginComponent {
         var newStr = this.formControls['email'].value.replace(/@.*$/,"");
         this.service.trimmedString = newStr;
         var name = newStr!==user ? newStr : null;
+        localStorage.setItem("logindata",JSON.stringify(this.loginForm.value))
         this.loginForm.reset();
         this.router.navigate(['/dashboard'])
    }

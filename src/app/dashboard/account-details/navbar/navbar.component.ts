@@ -1,7 +1,7 @@
 import { Component, ElementRef, Renderer2 } from '@angular/core';
 import { BankingdataService } from '../../../bankingdata.service';
 import { NgClass, NgStyle } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +11,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-  constructor(private service: BankingdataService,private render:Renderer2,private elementRef:ElementRef) {}
+  constructor(private service: BankingdataService,private route:Router) {}
 
   alltabNames = this.service.tabNames;
   UserSelectTab = this.service.userSelectedTab;
@@ -29,7 +29,11 @@ export class NavbarComponent {
     this.UserSelectTab = name;
     
   }
-
+ 
+  OnLogOut(){
+     localStorage.removeItem('logindata')
+     this.route.navigate(['/login'])
+  }
   
 
 }
