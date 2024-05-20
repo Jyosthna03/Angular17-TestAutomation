@@ -81,17 +81,16 @@
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
-    margin: 0;
+     margin: 0;
   }
   .btn-primary ,.btn-primary:active{
     border: 1px solid #453985 !important;
     background: #453985;
 }
-.formFields{
-    width: 212px;
-}
-.labeltext{
-    width: 260px;
+.bottom-buttons{
+    text-align: center;
+    margin-top: 35px;
+    margin-bottom: 20px;
 }
 .addPayee{
     color: #069;
@@ -102,6 +101,9 @@ input::-webkit-inner-spin-button {
     text-decoration: none;
     float: inline-end;
     padding-top: 5px;
+}
+.backbtn{
+    margin-right: 15px;
 }
 .formInputs{
     margin-left: 55px;
@@ -124,6 +126,7 @@ input::-webkit-inner-spin-button {
     }
     .paymentModeLabel{
         font-size: 12px;
+        padding-top: 4px;
     }
     .formInputs{
         margin-left: 0px;
