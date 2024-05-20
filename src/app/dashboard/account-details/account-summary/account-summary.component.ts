@@ -14,13 +14,10 @@ export class AccountSummaryComponent {
   isDisplay:boolean = false;
   accountSummary:any;
   accountUserName:any;
-  accountBalance:any;
   
   ngOnInit(){
     this.accountSummary = this.service.accountData
-    this.accountBalance = this.service.balance
     this.accountUserName = this.service.trimmedString
-    // console.log(this.accountSummary);
   }
 
 

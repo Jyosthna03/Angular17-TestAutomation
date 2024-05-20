@@ -154,7 +154,7 @@ body {
     letter-spacing: 0.32px;
     padding: 14px;
   }
-.switch {
+.toggleSwitchContent {
     color: #082341;
     text-align: right;
     font-family: Mulish;
