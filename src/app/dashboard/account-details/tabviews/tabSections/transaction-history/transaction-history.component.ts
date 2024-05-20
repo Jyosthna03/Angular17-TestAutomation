@@ -13,6 +13,30 @@ import { RouterLink } from '@angular/router';
 })
 export class TransactionHistoryComponent {
 
+  leftpaginationMode = false;
+  rightpaginationMode = true;
+  TransHistory: any = [];
+  isDisablebyDatefield = false;
+  isDisableByPeriodfield = false;
+  selectedOpt: string = '';
+  fromTransDate = '';
+  toTransDate = '';
+  showMode = '';
+  showData = false;
+  todayDate = Date();
+  showflag = '';
+  periodicDays = ['Last 7 Days', 'Last 14 Days'];
+  selectedperidocday = this.periodicDays[0];
+  selectedShowperPage = 5;
+  startIndex = 0;
+  endIndex = 5;
+  currentPage = 1;
+  totalPages = this.getpageList(
+    this.TransHistory.length,
+    this.selectedShowperPage
+  );
+  rightPaginationItems: number[] = [];
+
   constructor(private serv: BankingdataService) {
     this.rightPaginationItems = this.totalPages;
   }
@@ -25,9 +49,7 @@ export class TransactionHistoryComponent {
     );
   }
 
-  leftpaginationMode = false;
-  rightpaginationMode = true;
-  TransHistory: any = [];
+  
 
   generateTransactionData() {
     for (let i = 1; i <= 60; i++) {
@@ -47,17 +69,7 @@ export class TransactionHistoryComponent {
 
   
 
-  isDisablebyDatefield = false;
-  isDisableByPeriodfield = false;
-  selectedOpt: string = '';
-  fromTransDate = '';
-  toTransDate = '';
-  showMode = '';
-  showData = false;
-  todayDate = Date();
-  showflag = '';
-  periodicDays = ['Last 7 Days', 'Last 14 Days'];
-  selectedperidocday = this.periodicDays[0];
+  
 
   onSelectPeriodicDays(event: any) {
     this.selectedperidocday = event.target.value;
@@ -72,6 +84,7 @@ export class TransactionHistoryComponent {
     this.showflag = 'Show With Period';
     this.fromTransDate='';
     this.toTransDate='';
+    this.showData=false;
   }
 
 
@@ -124,14 +137,7 @@ export class TransactionHistoryComponent {
     }
   }
 
-  selectedShowperPage = 5;
-  startIndex = 0;
-  endIndex = 5;
-  currentPage = 1;
-  totalPages = this.getpageList(
-    this.TransHistory.length,
-    this.selectedShowperPage
-  );
+  
 
   onPageChange(pageNo: number) {
     this.leftpaginationMode = false;
@@ -160,7 +166,7 @@ export class TransactionHistoryComponent {
     );
   }
 
-  rightPaginationItems: number[] = [];
+  
 
   onSelectPageRows(event: any) {
     this.selectedShowperPage = event.target.value;

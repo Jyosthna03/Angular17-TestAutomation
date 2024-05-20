@@ -13,7 +13,6 @@ import { CurrencyPipe } from '@angular/common';
 export class RecentTransactionComponent {
   constructor(private serv:BankingdataService){}
   RecentTrans!:recent[];
-
   recentTrans = signal(this.RecentTrans);
 
   ngOnInit(){

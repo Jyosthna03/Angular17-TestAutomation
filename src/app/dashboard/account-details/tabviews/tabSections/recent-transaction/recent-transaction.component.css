@@ -83,6 +83,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    padding-left: 40px;
   }
 
   .smCredit{
@@ -127,6 +128,8 @@
       word-break: break-all;
       white-space: normal;
     }
+
+
   }
 
   

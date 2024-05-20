@@ -10,6 +10,7 @@ import { PaymentSuccessComponent } from './dashboard/payments/payment-success/pa
 import { ForgotInfoComponent } from './userdata/forgot-info/forgot-info.component';
 import { TransferSuccessfullComponent } from './dashboard/fund-transfer/transfer-successfull/transfer-successfull.component';
 import { AddpayeesmComponent } from './dashboard/fund-transfer/addpayeesm/addpayeesm.component';
+import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
 
 export const routes: Routes = [
     {path: '', component:LoginComponent},
@@ -24,5 +25,6 @@ export const routes: Routes = [
     {path:'addpayee',component:AddpayeeComponent},
     {path:'transferSuccess',component:TransferSuccessfullComponent},
     {path:'paymentSuccess',component:PaymentSuccessComponent},
-    {path:'addpayeesm',component:AddpayeesmComponent}
+    {path:'addpayeesm',component:AddpayeesmComponent},
+    {path:'**',component:PageNotFoundComponent}
 ];
