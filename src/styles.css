@@ -37,21 +37,20 @@ body {
   .cancelAndSaveBtn {
     width: 160px;
     height: 28px;
-    flex-shrink: 0;
     border: 1px solid #082341;
     color: #082341;
     text-align: center;
     font-size: 12px;
-    font-style: normal;
     font-weight: 400;
-    line-height: normal;
     letter-spacing: 0.12px;
     text-transform: uppercase;
     background: #fff;
   }
   .saveBtn {
+    background: #082341 !important;
     color: #fff;
-    margin-left: 20px;
+    margin-left: 15px;
+    text-align: center;
     cursor: pointer;
     border-radius: 0px !important;
   }
@@ -125,6 +124,7 @@ body {
     font-weight: 500;
     line-height: normal;
     text-align: start;
+    padding-bottom: 12px;
   }
   .accountValues {
     color: #082341;
@@ -135,6 +135,7 @@ body {
     letter-spacing: 0.36px;
     text-align: start;
     text-transform: capitalize;
+    padding-bottom: 16px;
   }
   .accountSummary {
     background-color: #ecf3ff;
@@ -153,7 +154,7 @@ body {
     letter-spacing: 0.32px;
     padding: 14px;
   }
-.switch {
+.toggleSwitchContent {
     color: #082341;
     text-align: right;
     font-family: Mulish;
@@ -162,7 +163,7 @@ body {
     font-weight: 400;
     line-height: normal;
     text-transform: capitalize;
-    padding-top: 4px;
+    padding-top: 6px;
   }
   .inputBox {
     width: 216px;
@@ -306,6 +307,7 @@ body {
 @media screen and (max-width:767px) {
    .accountHeading{
     font-size: 10px;
+    padding-bottom: 6px;
    }
    .accountValues{
     font-size: 12px;

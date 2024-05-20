@@ -1,12 +1,10 @@
 import { CurrencyPipe } from '@angular/common';
-import { Component, HostListener } from '@angular/core';
+import { Component} from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BankingdataService } from '../../../bankingdata.service';
 import { Router, RouterLink } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddpayeeComponent } from '../addpayee/addpayee.component';
-import { PaymentMode } from '../../../modal';
-
 
 @Component({
   selector: 'app-money-transfer',
@@ -18,14 +16,13 @@ import { PaymentMode } from '../../../modal';
 export class MoneyTransferComponent {
 
   moneyTransferForm!:FormGroup;
-
-  isSmallScreen: boolean = false;
-  isMediumScreen: boolean = false;
-
-  isFormControlDisabled: boolean = false;
-  payeeName:boolean = false
+  amountlimit:number = 5000;
+  payeeNames = this.service.addPayee;
+  totalAmount:number = 0;
+  availBalance:number = this.service.balance;
   defaultPayee:string = "Select Payee"
-  constructor(private service:BankingdataService,private fb:FormBuilder,private route:Router,private modalService: NgbModal){
+
+  constructor(private fb:FormBuilder,private service:BankingdataService,private route:Router,private modalService: NgbModal){
     this.moneyTransferForm = fb.group({
        "payee":[this.defaultPayee,Validators.required],
        "accountNumber":['',[Validators.required,Validators.pattern(/^\d*$/),Validators.minLength(8),Validators.maxLength(18)]],
@@ -40,20 +37,13 @@ export class MoneyTransferComponent {
     });
    }
 
-  
- 
    accountNoMatchValidator(form: FormGroup) {
     const accNumber = form.get('accountNumber')?.value;
     const reEnterAccNumber = form.get('reEnterAccountNo')?.value;
 
     return accNumber === reEnterAccNumber ? null : { mismatch: true };
   }
-
-  amountlimit:number = 5000;
-  payeeNames = this.service.addPayee;
-  totalAmount:number = 0;
-  availBalance:number = this.service.balance;
-
+ 
   calculateTotalAmount(){
     let mytotal=0;
     for(let i=0;i<this.service.paymentHistory.length;i++){
@@ -120,20 +110,6 @@ export class MoneyTransferComponent {
     }
   }
 
- 
-  paymentModeData:PaymentMode[] = [
-    {
-      "paymentMode":"IMPS",
-     "paymentModeLimit":"Max Rs. 50,000 per day. Instant transfer 24*7 transferable"
-   },
-   {
-    "paymentMode":"NEFT",
-    "paymentModeLimit":"Max Rs. 1,00,000 Lakh per day. Receiver gets money in 2 to 24 Hrs"
-   },
-   {
-    "paymentMode":"RTGS",
-    "paymentModeLimit":"Min Rs. 75,000, Max Rs. 10 Lakh per day. Real time transaction"
-   }]
 
   
 }
