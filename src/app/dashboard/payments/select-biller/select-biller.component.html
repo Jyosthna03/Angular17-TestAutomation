@@ -7,10 +7,10 @@
   <form [formGroup]="billerForm">
     <div class="card-body">
       <div class="row">
-        <div class="col-lg-2 col-md-5 col-sm-5 col ">
+        <div class="col-lg-2 col-md-3 col-sm-5 col ">
            <label for="id_select" class="sub-text">Select Billers for</label>
         </div>
-        <div class="col-lg-2 col-md-5 col-sm-5 col">
+        <div class="col-lg-2 col-md-3 col-sm-5 col">
           <select id="id_select" class="transferInputs selectBiller" formControlName="billerType" autofocus>
             @for(option of selectOptions;track $index){
               <option id="biller" [value]="option">{{option}}</option>
@@ -49,7 +49,7 @@
              </div>
             </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col dueDate">
-            <p class="sub-text float-start">Due Date:- </p>
+            <p class="sub-text float-start">Due Date: </p>
           <div class="ps-5">
             <p class="savingsAccNumber savings-duedate">{{dueDate | date:'dd/MM/yy'}}</p>
             <p class="balance d-none d-sm-block ">Min Balance - 18405.00</p>
