@@ -9,6 +9,7 @@
 .btn-primary {
     background-color: #e1934b !important;
     color: white;
+    --bs-btn-border-color:none !important;
 }
 .navbar-text{
     text-transform: capitalize;
@@ -26,5 +27,14 @@ text-transform: lowercase;
 }
 .bg-light{
 background: #082341 !important;
-box-shadow: 4px 4px 24px 4px rgba(255, 255, 255, 0.10);
+box-shadow: none !important;
+}
+
+.navbar-toggler:focus {
+    text-decoration: none;
+    outline: none !important;
+    box-shadow: none !important;
+}
+.offcanvas{
+    width: 260px;
 }
