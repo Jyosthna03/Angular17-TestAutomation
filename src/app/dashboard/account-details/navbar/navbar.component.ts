@@ -27,7 +27,6 @@ export class NavbarComponent {
     this.service.breadCrumb.pop();
     this.service.breadCrumb.push(name);
     this.UserSelectTab = name;
-    
   }
  
   OnLogOut(){
