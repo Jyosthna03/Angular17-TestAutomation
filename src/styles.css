@@ -299,9 +299,9 @@ body {
     font-size: 12px ; 
     padding: 15px;
   }
-  .card{
-    border: none;
-  }
+.select-mobile{
+  border: none !important;
+}
 }
 
 /* account summary component */
