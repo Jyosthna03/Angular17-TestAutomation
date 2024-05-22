@@ -4,13 +4,14 @@ import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { BankingdataService } from '../../bankingdata.service';
 import { ForgotInfoComponent } from "../forgot-info/forgot-info.component";
+import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-login',
     standalone: true,
     templateUrl: './login.component.html',
     styleUrl: './login.component.css',
-    imports: [ReactiveFormsModule, ForgotInfoComponent]
+    imports: [ReactiveFormsModule, ForgotInfoComponent,CommonModule]
 })
 export class LoginComponent {
   loginForm!: FormGroup;
