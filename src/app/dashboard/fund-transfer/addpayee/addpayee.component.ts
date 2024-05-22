@@ -38,8 +38,9 @@ export class AddpayeeComponent {
   }
  
   submitPayee(formData:any){
-        // console.log(formData);
         this.service.addPayee.push(this.addPayeeForm.value.fullname);
+        this.service.addpayeeData.push(formData)
+        console.log(this.service.addpayeeData)
         alert('Payee Added Sucessfully')
         this.closePopup()
   }

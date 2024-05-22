@@ -61,7 +61,6 @@
                         @if (addPayeeForm.get('bankName')?.hasError('pattern') || addPayeeForm.get('bankName')?.hasError('minlength')) {
                             <p class="error-text">Bank Name must be alphabetical and should contain atleast 3 characters</p>
                         }
-                        
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -124,11 +123,11 @@
             <p class="ms-3 Det">Note</p>
             <div class="pt-2 ps-4">
                 <ol>
-                    <li class="eachNote sub-text p-1">As per the RBI circular dated Oct 14, 2010, transfer of funds through electronic mode will be executed only on the basis of the account number of the beneficiary provided while initiating the transaction, name will not be considered as a criteria for providing credit. Kindly ensure that you enter the correct beneficiary account number.</li>
-                    <li class="eachNote sub-text p-1">A maximum of 10 Payees can be added in one day.</li>
-                    <li class="eachNote sub-text p-1">Waiting period post Payee addition is 30 minutes.</li>
-                    <li class="eachNote sub-text p-1">Ensure that the Payee Account Number entered by you is correct.</li>
-                    <li class="eachNote sub-text p-1">ICICI Bank does not take any responsibility and shall not be liable for claims on incorrect details entered.</li>
+                    <li class="eachNote sub-text">A maximum of 10 Payees can be added in one day.</li>
+                    <li class="eachNote sub-text">As per the RBI circular dated Oct 14, 2010, transfer of funds through electronic mode will be executed only on the basis of the account number of the beneficiary provided while initiating the transaction, name will not be considered as a criteria for providing credit. Kindly ensure that you enter the correct beneficiary account number.</li>
+                    <li class="eachNote sub-text">Waiting period post Payee addition is 30 minutes.</li>
+                    <li class="eachNote sub-text">Ensure that the Payee Account Number entered by you is correct.</li>
+                    <li class="eachNote sub-text">ICICI Bank does not take any responsibility and shall not be liable for claims on incorrect details entered.</li>
                 </ol>
             </div>
         </form>

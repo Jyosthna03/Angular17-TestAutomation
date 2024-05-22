@@ -21,29 +21,22 @@ export class MoneyTransferComponent {
   totalAmount:number = 0;
   availBalance:number = this.service.balance;
   defaultPayee:string = "Select Payee"
+  newPayeeData = this.service.addpayeeData
 
   constructor(private fb:FormBuilder,private service:BankingdataService,private route:Router,private modalService: NgbModal){
     this.moneyTransferForm = fb.group({
        "payee":[this.defaultPayee,Validators.required],
        "accountNumber":['',[Validators.required,Validators.pattern(/^\d*$/),Validators.minLength(8),Validators.maxLength(18)]],
-       "reEnterAccountNo":['',[Validators.required,Validators.pattern(/^\d*$/),Validators.minLength(8),Validators.maxLength(18)]],
+       "bankName":['',[Validators.required, Validators.pattern(/^[a-zA-Z ]*$/),Validators.minLength(3),Validators.maxLength(20)]],
        "amount":['',[Validators.required,Validators.pattern(/^\d*$/),Validators.maxLength(5)]],
        "remarks":['',[Validators.required,Validators.maxLength(10)]],
        "paymentModeInput":['',Validators.required],
-       "paymentModeInputSelector": ['IMPS', Validators.required], 
-    },
-    {
-      validators: this.accountNoMatchValidator
     });
    }
 
-   accountNoMatchValidator(form: FormGroup) {
-    const accNumber = form.get('accountNumber')?.value;
-    const reEnterAccNumber = form.get('reEnterAccountNo')?.value;
-
-    return accNumber === reEnterAccNumber ? null : { mismatch: true };
-  }
- 
+   ngOnInit(){
+    console.log(this.newPayeeData)
+   }
   calculateTotalAmount(){
     let mytotal=0;
     for(let i=0;i<this.service.paymentHistory.length;i++){
@@ -110,6 +103,27 @@ export class MoneyTransferComponent {
     }
   }
 
+  ischecked:boolean = false
+  paymentModeData =[
+    {
+       label:"IMPS",
+       description:'Max Rs. 50,000 per day. Instant transfer 24*7 transferable'
+    },
+    {
+        label:"NEFT",
+        description:'Max Rs. 1,00,000 Lakh per day. Receiver gets money in 2 to 24 Hrs'
+    },
+    {
+        label:"RTGS",
+        description:'Min Rs. 75,000, Max Rs. 10 Lakh per day. Real time transaction'
+    },
 
+  ]
+
+  paymentChoosed:string = ''
+  check(mode:any){
+     console.log(mode)
+     this.paymentChoosed = mode.description
+  }
   
 }

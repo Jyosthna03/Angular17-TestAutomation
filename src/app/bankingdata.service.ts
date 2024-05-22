@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { addPayee } from './modal';
 
 @Injectable({
   providedIn: 'root'
@@ -45,6 +46,8 @@ export class BankingdataService {
   trimmedString:string = "";
 
   addPayee:any = ['Select Payee','Dileep']
+
+  addpayeeData:addPayee[] = []
 
   accountData:any= [
     {
