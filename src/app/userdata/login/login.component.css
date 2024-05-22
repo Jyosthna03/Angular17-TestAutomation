@@ -1,9 +1,8 @@
-.or-devider {
-    width: 100%;
-    text-align: center;
-    border-bottom: 1px solid #DCDCDC;
-    line-height: 0.1em;
-    margin: 10px 0 20px;
+body{
+  overflow: hidden;
+}
+.welcome{
+  margin-bottom: 120px;
 }
 .email,.password{
   color: #000;
@@ -12,18 +11,11 @@
   font-weight: 600;
   line-height: 20px; /* 142.857% */
 }
-
 input[type=text][type=password]{
-    border: 1px solid #525252
-}
-body{
-    overflow: hidden;
+  border: 1px solid #525252
 }
 .cursor-pointer{
     cursor: pointer;
-  }
-  .mobile-margin{
-    margin-top: 10vw; 
   }
   .login-image{
     width:700px ;
@@ -63,6 +55,9 @@ body{
   .form-control:focus {
     box-shadow: none !important;
     border-color: #6E6E70 !important;
+  }
+  .login-btn-margin{
+    margin-top: 90px;
   }
   @media (min-width:320px) {
     .mrg-t-mobile{
