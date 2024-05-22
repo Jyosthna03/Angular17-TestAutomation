@@ -23,3 +23,13 @@ export interface PaymentMode {
     paymentMode: string;
     paymentModeLimit: string;
 }
+
+export interface addPayee{
+    fullname:string,
+    nickname:string,
+    bankName:string,
+    ifscCode:string,
+    accountNo:string,
+    reEnteraccountNo:string
+}
+

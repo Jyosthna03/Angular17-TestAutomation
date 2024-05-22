@@ -54,6 +54,7 @@ body {
     letter-spacing: 0.12px;
     text-transform: uppercase;
     background: #fff;
+    border-radius: 4px;
   }
   .saveBtn {
     background: #082341 !important;
@@ -61,7 +62,6 @@ body {
     margin-left: 15px;
     text-align: center;
     cursor: pointer;
-    border-radius: 0px !important;
   }
   .error-msg {
     color: red;
@@ -78,52 +78,45 @@ body {
     line-height: normal;
     margin-left: 47px;
   }
-.bold-text {
-    color: #082341;
+  .side-text {
+    color: #777;
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    margin-left: 47px;
-}
+    padding-top: 6px;
+  }
   .card-header {
     background: #ecf3ff !important;
     color: #082341;
-    font-size: 20px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 700;
-    line-height: normal;
     padding: 12px;
     margin-bottom: 30px;
     border-radius: 0px !important;
+    letter-spacing: 0.32px;
   }
   .savingsAccNumber {
     font-size: 16px;
     color: #082341;
-    font-style: normal;
     font-weight: 700;
-    line-height: normal;
   }
   .balance {
     color: #717171;
     font-size: 12px;
-    font-style: normal;
     font-weight: 700;
-    line-height: normal;
+    letter-spacing: 0.5px;
   }
   .transferInputs {
     width: 288px;
     height: 36px;
-    flex-shrink: 0;
     border-radius: 2px;
     border: 1px solid #d2d2d2;
     color: #082341;
     font-size: 14px;
-    font-style: normal;
     font-weight: 700;
-    line-height: normal;
     border-radius: 2px;
-    border: 1px solid #d2d2d2;
     padding: 5px;
   }
   .accountHeading {
@@ -241,37 +234,17 @@ body {
       /* All media-breakpoint */
 
       /* Fund Transfer Screen */
-  @media (max-width:767px){
+  @media screen and (min-width:375px) and (max-width:767px){
     label.sub-text{
       font-size: 12px;
       margin-left: 5px;
     }
-    p.sub-text{
+    label.side-text{
       font-size: 12px;
       margin-left: 5px;
     }
   }
-
-  @media (max-width:767px){
-    label.bold-text{
-      font-size: 12px;
-      margin-left: 5px;
-      
-    }
-  }
-  @media (min-width:992px){
-    label.bold-text{
-      margin-left: 0px;
-    }
-  }
-  @media (max-width:992px){
-    label.bold-text{
-      color: #777;
-    }
-
-  }
-
-@media (max-width:768px){
+ @media (max-width:768px){
   .cancelAndSaveBtn{
     width: 100px;
   }
@@ -308,9 +281,9 @@ body {
     font-size: 12px ; 
     padding: 15px;
   }
-.select-mobile{
-  border: none !important;
-}
+  .select-mobile{
+    border: none !important;
+  }
 }
 
 /* account summary component */
