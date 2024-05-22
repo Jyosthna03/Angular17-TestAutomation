@@ -9,6 +9,15 @@ body {
   ::placeholder {
     color: #b8b8b8;
   }
+  .btn-enabled, .btn .btn-primary:active{
+    background: #1B154C !important;
+    border: none !important;
+
+  }
+  .btn-disabled{
+    border: none !important;
+    background: #888888 !important;
+  }
   .text-color {
     color: #1b154c;
     color: var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1b154c);
