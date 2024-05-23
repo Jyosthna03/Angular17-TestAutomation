@@ -1,16 +1,22 @@
 
-body{
-    overflow-x: hidden !important;
+.container-fluid{
+  overflow-x: hidden !important;
+}
+.welcome-text{
+  color: var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1B154C);
+  text-align: center;
+  font-size: 38px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 60px;
+  margin-top: 60px;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-.reg-image{
-  width: 700px;
-  height: 800px;
-} 
+  -webkit-appearance: none;
+  margin: 0;
+}
 .lable-name{
   color: #000;
   font-size: 14px;
@@ -28,4 +34,9 @@ input::-webkit-inner-spin-button {
 }
 .register-btn{
   margin-top: 60px;
+}
+@media screen and (min-width: 360px) and (max-width: 576px){
+.left-content{
+  padding: 20px;
+}
 }

@@ -1,8 +1,8 @@
-<div class="container container-without-scrollbars">
+<div class="container-fluid container-without-scrollbars">
   <div class="row">
-    <div class="col-md-8 col-lg-5 col mrg-t-mobile">
+    <div class="col-md-8 col-lg-5 col mrg-t-mobile left-content">
       <span class="text-center text-danger">{{ isInvalidUser }}</span>
-      <h2 class="text-center welcome">Welcome.!</h2>
+      <h2 class="welcome">Welcome.!</h2>
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" #formElement>
         <div class="form-group">
           <label for="email" class="email">Email<span class="text-danger">*</span></label>
