@@ -48,48 +48,6 @@ describe('TransactionHistoryComponent', () => {
     expect(component.TransHistory.length).toEqual(60);
   });
 
-  it('should set showflag to Show With Date when calling showWithDate()', () => {
-    component.showWithDate();
-    expect(component.showflag).toEqual('Show With Date');
-  });
-
-  it('should set showflag to Show With Period when calling showWithPeriod()', () => {
-    component.showWithPeriod();
-    expect(component.showflag).toEqual('Show With Period');
-  });
-
-  it('should reset fields when calling cancelField()', () => {
-    component.cancelField();
-    expect(component.showData).toBeFalse();
-    expect(component.fromTransDate).toEqual('');
-    expect(component.toTransDate).toEqual('');
-  });
-
-  it('should set showData to true and fetch data when showflag is Show With Date and fromTransDate and toTransDate are not empty', () => {
-    component.showflag = 'Show With Date';
-    component.fromTransDate = '2024-01-01';
-    component.toTransDate = '2024-01-31';
-    spyOn(window, 'alert');
-    component.submitField();
-    expect(component.showData).toBeTrue();
-    expect(myservice.getData).toHaveBeenCalled();
-  });
-
-  it('should set showData to true and fetch data when showflag is Show With Period and selectedperidocday is not empty', () => {
-    component.showflag = 'Show With Period';
-    component.selectedperidocday = 'Last 7 Days';
-    spyOn(window, 'alert');
-    component.submitField();
-    expect(component.showData).toBeTrue();
-    expect(myservice.getData).toHaveBeenCalled();
-  });
-
-  it('should show alert when showflag is not set correctly', () => {
-    spyOn(window, 'alert');
-    component.submitField();
-    expect(window.alert).toHaveBeenCalledWith('Choose Option and Select The Fields To Download');
-  });
-
   it('should initialize selectedShowperPage to 5', () => {
     expect(component.selectedShowperPage).toEqual(5);
   });

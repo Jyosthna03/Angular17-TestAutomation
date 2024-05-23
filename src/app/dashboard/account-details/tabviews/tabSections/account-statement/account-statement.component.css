@@ -21,11 +21,13 @@
   border: 1px solid var(--Neutral-Colors-Light-Gray, #C3C2CC);
   background: var(--Primary-White, #FFF);
   cursor: pointer;
+  margin-top: 6px;
 }
 .form-check-input:checked {
   border: 5px solid var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1B154C);
   background: var(--Primary-White, #FFF);
   cursor: pointer;
+  margin-top: 6px;
 }
 
 input[type="date"]:before{
@@ -36,6 +38,8 @@ input[type="date"]:before{
   color: #FFF;
   background: #082341;
 }
+
+
 
 @media (max-width:576px){
   .smTop{

@@ -1,30 +1,21 @@
 import { Component } from '@angular/core';
 import { BankingdataService } from '../../../../../bankingdata.service';
-import { FormsModule } from '@angular/forms';
-import {  DatePipe, NgStyle } from '@angular/common';
-
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import {  DatePipe, NgClass, NgStyle } from '@angular/common';
 import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-transaction-history',
   standalone: true,
-  imports: [FormsModule, DatePipe, NgStyle, RouterLink],
+  imports: [FormsModule, DatePipe, NgStyle, RouterLink,ReactiveFormsModule,NgClass],
   templateUrl: './transaction-history.component.html',
   styleUrl: './transaction-history.component.css'
 })
 export class TransactionHistoryComponent {
-
   leftpaginationMode = false;
   rightpaginationMode = true;
-  TransHistory: any = [];
-  isDisablebyDatefield = false;
-  isDisableByPeriodfield = false;
-  selectedOpt: string = '';
-  fromTransDate = '';
-  toTransDate = '';
-  showMode = '';
-  showData = false;
+  TransHistory:any=[];
+  showData=false;
   todayDate = Date();
-  showflag = '';
   periodicDays = ['Last 7 Days', 'Last 14 Days'];
   selectedperidocday = this.periodicDays[0];
   selectedShowperPage = 5;
@@ -36,20 +27,7 @@ export class TransactionHistoryComponent {
     this.selectedShowperPage
   );
   rightPaginationItems: number[] = [];
-
-  constructor(private serv: BankingdataService) {
-    this.rightPaginationItems = this.totalPages;
-  }
-
-  ngOnInit() {
-    this.generateTransactionData();
-    this.rightPaginationItems = this.getpageList(
-      this.TransHistory.length,
-      this.selectedShowperPage
-    );
-  }
-
-  
+  transactionForm!:FormGroup;
 
   generateTransactionData() {
     for (let i = 1; i <= 60; i++) {
@@ -67,44 +45,37 @@ export class TransactionHistoryComponent {
     }
   }
 
-  
-
-  
-
-  onSelectPeriodicDays(event: any) {
-    this.selectedperidocday = event.target.value;
-    console.log(this.selectedperidocday);
+  constructor(private serv: BankingdataService,private fb:FormBuilder) {
+    this.rightPaginationItems = this.totalPages;
+    this.transactionForm = this.fb.group({
+      inputType: ['', Validators.required],
+      fromDate: ['', Validators.required],
+      toDate: ['', Validators.required],
+      selectedOption: ['', Validators.required]
+    });
+    this.transactionForm.get('inputType')!.valueChanges.subscribe(value => {
+      if (value === 'dateRange') {
+        this.transactionForm.get('selectedOption')!.disable();
+        this.transactionForm.get('fromDate')!.enable();
+        this.transactionForm.get('toDate')!.enable();
+      } else if (value === 'dropdown') {
+        this.transactionForm.get('fromDate')!.disable();
+        this.transactionForm.get('toDate')!.disable();
+        this.transactionForm.get('selectedOption')!.enable();
+      }
+    });
   }
 
-  showWithDate() {
-    this.showflag = 'Show With Date';
+  ngOnInit() {
+    this.generateTransactionData();
+    this.rightPaginationItems = this.getpageList(
+      this.TransHistory.length,
+      this.selectedShowperPage
+    );
   }
 
-  showWithPeriod() {
-    this.showflag = 'Show With Period';
-    this.fromTransDate='';
-    this.toTransDate='';
-    this.showData=false;
-  }
-
-
-  cancelField() {
-    this.showData = false;
-    this.fromTransDate = '';
-    this.toTransDate = '';
-  }
-
-  submitField() {
-    console.log(this.showflag);
-    console.log(this.fromTransDate);
-    console.log(this.toTransDate);
-    console.log(this.selectedperidocday);
-    if (
-      this.showflag == 'Show With Date' &&
-      this.fromTransDate != '' &&
-      this.toTransDate != ''
-    ) {
-      this.showData = true;
+  submitForm(){
+    if(this.transactionForm.valid){
       this.serv.getData().subscribe((data: any) => {
         if (data['TransHistory'].length != 0) {
           console.log(data['TransHistory']);
@@ -115,29 +86,20 @@ export class TransactionHistoryComponent {
           );
         }
       });
-      this.showflag = '';
-    } else if (
-      this.showflag == 'Show With Period' &&
-      this.selectedperidocday != ''
-    ) {
-      this.showData = true;
-      this.serv.getData().subscribe((data: any) => {
-        if (data['TransHistory'].length != 0) {
-          console.log(data['TransHistory']);
-          this.TransHistory = data['TransHistory'];
-          this.totalPages = this.getpageList(
-            this.TransHistory.length,
-            this.selectedShowperPage
-          );
-        }
-      });
-      this.showflag = '';
-    } else {
-      alert('Choose Option and Select The Fields To Download');
+      this.showData=true;
     }
   }
-
   
+  cancelForm() {
+    this.transactionForm.get('selectedOption')!.enable();
+    this.transactionForm.get('fromDate')!.enable();
+    this.transactionForm.get('toDate')!.enable();
+    this.transactionForm.reset();
+    this.transactionForm.patchValue({
+      selectedOption:this.selectedperidocday
+    });
+    this.showData =false;
+  }
 
   onPageChange(pageNo: number) {
     this.leftpaginationMode = false;
@@ -166,8 +128,6 @@ export class TransactionHistoryComponent {
     );
   }
 
-  
-
   onSelectPageRows(event: any) {
     this.selectedShowperPage = event.target.value;
     console.log(this.selectedShowperPage);
@@ -194,3 +154,39 @@ export class TransactionHistoryComponent {
     }
   }
 }
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+ 
+

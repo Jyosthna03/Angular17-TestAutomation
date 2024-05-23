@@ -180,7 +180,6 @@ body {
   }
   .form-check-input,.form-check-label{
     cursor: pointer;
-    margin-top: 0.4rem;
   }
 .cancelBtn {
     width: 100px;
