@@ -6,3 +6,6 @@
 /* .acc-sty{
     margin-top: 10px;
 } */
+ul {
+    list-style-type: none;
+  }
