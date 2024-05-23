@@ -1,10 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { addPayee } from './modal';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BankingdataService {
+  private accountNumberSource = new BehaviorSubject<string>('');
+  currentAccountNumber = this.accountNumberSource.asObservable();
+
+  changeAccountNumber(accountNumber: string) {
+    this.accountNumberSource.next(accountNumber);
+  }
 
   constructor(private http:HttpClient) { }
 
@@ -45,6 +53,8 @@ export class BankingdataService {
   trimmedString:string = "";
 
   addPayee:any = ['Select Payee','Dileep']
+
+  addpayeeData:addPayee[] = []
 
   accountData:any= [
     {

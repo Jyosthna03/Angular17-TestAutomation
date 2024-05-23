@@ -49,19 +49,11 @@
                 <div class="col-lg-6">
                     <div class="eachBlock mb-2">
                         <label class="payee-details mt-1">Bank Name<span class="text-danger">*</span></label>
-                        <input type="text" class="transferInputs" id="bankName" formControlName="bankName" minlength="3" maxlength="20">
-                    </div>
-                    <div class="text-danger">
-                        @if(addPayeeForm.get('bankName')?.hasError('required') && addPayeeForm.get('bankName')?.touched){
-                            <p class="error-text"> Please Enter Bank Name </p>
-                        }
-                        
-                    </div>
-                    <div class="text-danger">
-                        @if (addPayeeForm.get('bankName')?.hasError('pattern') || addPayeeForm.get('bankName')?.hasError('minlength')) {
-                            <p class="error-text">Bank Name must be alphabetical and should contain atleast 3 characters</p>
-                        }
-                        
+                        <select class="transferInputs" formControlName="bankName">
+                            @for (bank of bankNames; track $index) {
+                                <option>{{bank}}</option>
+                            }
+                        </select>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -122,20 +114,20 @@
                 </div>
             </div>
             <p class="ms-3 Det">Note</p>
-            <div class="pt-2 ps-4">
+            <div>
                 <ol>
-                    <li class="eachNote sub-text p-1">As per the RBI circular dated Oct 14, 2010, transfer of funds through electronic mode will be executed only on the basis of the account number of the beneficiary provided while initiating the transaction, name will not be considered as a criteria for providing credit. Kindly ensure that you enter the correct beneficiary account number.</li>
-                    <li class="eachNote sub-text p-1">A maximum of 10 Payees can be added in one day.</li>
-                    <li class="eachNote sub-text p-1">Waiting period post Payee addition is 30 minutes.</li>
-                    <li class="eachNote sub-text p-1">Ensure that the Payee Account Number entered by you is correct.</li>
-                    <li class="eachNote sub-text p-1">ICICI Bank does not take any responsibility and shall not be liable for claims on incorrect details entered.</li>
+                    <li class="eachNote"><p>A maximum of 10 Payees can be added in one day.</p></li>
+                    <li class="eachNote"><p>As per the RBI circular dated Oct 14, 2010, transfer of funds through electronic mode will be executed only on the basis of the account number of the beneficiary provided while initiating the transaction, name will not be considered as a criteria for providing credit. Kindly ensure that you enter the correct beneficiary account number.</p></li>
+                    <li class="eachNote"><p>>Waiting period post Payee addition is 30 minutes.</p></li>
+                    <li class="eachNote"><p>Ensure that the Payee Account Number entered by you is correct.</p></li>
+                    <li class="eachNote"><p>ICICI Bank does not take any responsibility and shall not be liable for claims on incorrect details entered.</p></li>
                 </ol>
             </div>
         </form>
         </section>
         <div class="modal-footer">
             <button class="cancelAndSaveBtn ms-3" (click)="onCancel()" id="cancel">cancel</button>
-            <button type="submit" class="btn btn-primary cancelAndSaveBtn saveBtn" [disabled]="addPayeeForm.invalid" (click)="submitPayee(addPayeeForm.value)" id="addPayee">Add Payee</button>
+            <button type="submit" class="btn btn-primary cancelAndSaveBtn saveBtn" [disabled]="addPayeeForm.invalid" (click)="submitPayee(addPayeeForm.value)" id="addPayee" [ngClass]="{'btn-enabled': !addPayeeForm.invalid, 'btn-disabled': addPayeeForm.invalid}">Add Payee</button>
         </div>
 </div>
 </div>

@@ -6,10 +6,8 @@
 .transaction{
     color: #082341;
     font-size: 16px;
-    font-style: normal;
     font-weight: 700;
-    line-height: normal;
-    padding: 30px;
+    padding: 20px;
 }
 .transfer{
     color: #082341;
@@ -35,17 +33,12 @@
 .savings{
     padding-left: 140px;
 }
-.addPayeeBtn{
-    width: 140px;
-    font-weight: 700;
-}
 .paymentMode{
     width: 280px;
     height: 90px;
     flex-shrink: 0;
     border-radius: 2px;
     border: 1px solid #082341;
-    background: #FFF;
     margin-left: 13px;
     padding: 10px;
 }
@@ -58,15 +51,8 @@
     letter-spacing: 0.36px;
     padding-left: 10px;
 }
-.or{
-    color: #082341;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    padding-left: 60px;
-    padding-right: 30px;
-    padding-top: 5px;
+.modes{
+    margin-left: 40px;
 }
 .form-check-input:not(:checked) {
     border: 1px solid var(--Neutral-Colors-Light-Gray, #C3C2CC);
@@ -83,10 +69,6 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
      margin: 0;
   }
-  .btn-primary ,.btn-primary:active{
-    border: 1px solid #453985 !important;
-    background: #453985;
-}
 .bottom-buttons{
     text-align: center;
     margin-top: 35px;
@@ -94,14 +76,13 @@ input::-webkit-inner-spin-button {
 }
 .addPayee{
     color: #069;
-    font-size: 10px;
-    font-style: normal;
+    font-size: 14px;
     font-weight: 600;
-    line-height: normal;
-    text-decoration: none;
+    text-decoration: underline;
     float: inline-end;
     padding-top: 5px;
-}
+    cursor: pointer;
+ }
 .backbtn{
     margin-right: 15px;
 }
@@ -116,19 +97,33 @@ input::-webkit-inner-spin-button {
 }
 @media screen and (min-width:375px) and (max-width:992px) {
     .paymentMode{
-        width:223px;
-        margin: 5px;
-        overflow-wrap:break-word;
-        margin: 0px 3px 8px 16px;
+        display: none;
     }
     .instantTransfer{
         font-size: 10px;
     }
     .paymentModeLabel{
         font-size: 12px;
-        padding-top: 4px;
+        padding-left: 8px;
     }
     .formInputs{
         margin-left: 0px;
     }
+    .addPayee{
+        font-size: 10px;
+    }
+    .form-check-input{
+        margin-top: 6px;
+    }
+    .transferFund{
+        padding-top: 12px;
+        color: #082341;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.2px;
+    }
+    .smpayMode{
+        margin-left: 7px;
+    }
+    
 }

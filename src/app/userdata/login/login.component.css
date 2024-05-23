@@ -1,29 +1,57 @@
-.or-devider {
-    width: 100%;
-    text-align: center;
-    border-bottom: 1px solid #DCDCDC;
-    line-height: 0.1em;
-    margin: 10px 0 20px;
+body{
+  overflow: hidden;
 }
-.btn-primary,.btn-primary:active{
-    border: 1px solid #453985 !important;
-    background: #453985;
+.welcome{
+  margin-bottom: 120px;
+}
+.email,.password{
+  color: #000;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px; /* 142.857% */
 }
 input[type=text][type=password]{
-    border: 1px solid #525252
-}
-body{
-    overflow: hidden;
+  border: 1px solid #525252
 }
 .cursor-pointer{
     cursor: pointer;
   }
-  .mobile-margin{
-    margin-top: 10vw; 
-  }
   .login-image{
     width:700px ;
     height:600px ;
+  }
+  .forgot-info{
+    color: #1B154C;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration: none !important;
+  }
+  .text-content{
+    color: #707070;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  .register-content{
+    color: var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1B154C);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    text-decoration: none;
+  }
+ 
+  .form-control:focus {
+    box-shadow: none !important;
+    border-color: #6E6E70 !important;
+  }
+  .login-btn-margin{
+    margin-top: 90px;
   }
   @media (min-width:320px) {
     .mrg-t-mobile{
