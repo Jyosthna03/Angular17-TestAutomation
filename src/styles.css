@@ -18,6 +18,13 @@ body {
     border: none !important;
     background: #888888 !important;
   }
+  .error-text{
+    color: var(--Secondary-Colors-EV-Imperial---Danger-Error-EV-IMP, #F22F46);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px; /* 133.333% */
+  }
   .text-color {
     color: #1b154c;
     color: var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1b154c);

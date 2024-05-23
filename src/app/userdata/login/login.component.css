@@ -45,13 +45,7 @@ input[type=text][type=password]{
     line-height: normal;
     text-decoration: none;
   }
-  .error-text{
-    color: var(--Secondary-Colors-EV-Imperial---Danger-Error-EV-IMP, #F22F46);
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 16px; /* 133.333% */
-  }
+ 
   .form-control:focus {
     box-shadow: none !important;
     border-color: #6E6E70 !important;
