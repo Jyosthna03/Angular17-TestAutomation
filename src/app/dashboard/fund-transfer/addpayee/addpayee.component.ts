@@ -18,7 +18,7 @@ export class AddpayeeComponent {
   addPayeeForm!:FormGroup
   bankNames = ['Hdfc', 'Axis', 'SBI', 'ICICI', 'StandardChart'];
   constructor(private service:BankingdataService,private fb:FormBuilder, private route:Router, private modalService:NgbModal){
-    this.addPayeeForm = fb.group ({
+    this.addPayeeForm = this.fb.group ({
       fullname: new FormControl('',[Validators.required, Validators.pattern(/^[a-zA-Z ]*$/),Validators.minLength(3),Validators.maxLength(15)]),
       nickname: new FormControl('',[Validators.required, Validators.pattern(/^[a-zA-Z ]*$/),Validators.minLength(3),Validators.maxLength(10)]),
       bankName: new FormControl('',[Validators.required]),
@@ -28,6 +28,11 @@ export class AddpayeeComponent {
     },
     {
        validators : this.accountNoMatchValidator
+    });
+  }
+  ngOnInit() {
+    this.addPayeeForm.get('accountNo')?.valueChanges.subscribe(value => {
+      this.service.changeAccountNumber(value);
     });
   }
 
@@ -44,6 +49,9 @@ export class AddpayeeComponent {
         console.log(this.service.addpayeeData)
         alert('Payee Added Sucessfully')
         this.closePopup()
+  }
+  get f() {
+    return this.addPayeeForm.controls;
   }
 
   onCancel() {

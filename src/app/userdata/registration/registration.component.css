@@ -1,20 +1,31 @@
-.btn-primary {
-    border: 1px solid #453985 !important;
-    background: #453985;
- }
+
 body{
-    overflow-x: hidden;
+    overflow-x: hidden !important;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
-.error-txt{
-    font-size: 14px;
-    font-weight: bold;
-  }
 .reg-image{
   width: 700px;
   height: 800px;
 } 
+.lable-name{
+  color: #000;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px; /* 142.857% */
+}
+.login-here{
+  color: var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1B154C);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  text-decoration: none;
+}
+.register-btn{
+  margin-top: 60px;
+}
