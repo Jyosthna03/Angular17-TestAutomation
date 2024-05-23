@@ -1,65 +1,54 @@
 <section>
   <div class="offset-md-2 offset-sm-0 col-md-9">
-    <form>
+    <form [formGroup]="transactionForm">
       <div class="d-lg-flex mt-4 ms-4 d-sm-block mt-4">
         <div class="form-check form-check-label mt-2">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault"
-            (click)="showWithDate()" />
+          <input class="form-check-input" type="radio" formControlName="inputType" value="dateRange" id="flexRadioDefault"/>
           <label class="form-check-label mt-1 bold-text" for="flexRadioDefault">Transaction Date</label>
         </div>
         <div class="row d-flex justify-content-center">
           <div class="col-md-6 col-sm-12 d-flex mt-2 smTop wholesmTop">
             <label class="lablespace balance lblText">
-              <p class="dateplace">From</p>
+              <span class="dateplace">From</span>
             </label>
-            <input class="form-control Field inputBox" type="date" [(ngModel)]="fromTransDate" name="fromTransDate" />
+            <input class="form-control inputBox" type="date" formControlName="fromDate"/>
           </div>
           <div class="col-md-6 col-sm-12 d-flex mt-2 wholesmTop">
-            <label class="lablespace balance lblText">
-              <p class="dateplace" id="toDate">To</p>
+            <label class="lablespace balance lblText dateplace">
+              <span id="toDate">To</span>
             </label>
-            <input class="form-control Field inputBox" type="date" [(ngModel)]="toTransDate" name="toTransDate"
-              max="{{ todayDate | date : 'yyyy-MM-dd' }}" />
+            <input class="form-control inputBox" type="date" formControlName="toDate" max="{{ todayDate | date : 'yyyy-MM-dd' }}" />
           </div>
         </div>
       </div>
     
-      <div class=" mt-2 ms-4 d-lg-flex" id="periodBox">
+      <div class="mt-4 ms-4 d-lg-flex" id="periodBox">
         <div class="form-check transfield form-check-label">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
-            (click)="showWithPeriod()" />
+          <input class="form-check-input" type="radio" id="flexRadioDefault2" formControlName="inputType" value="dropdown"/>
           <label class="form-check-label mt-1 bold-text" for="flexRadioDefault2">Transaction Period</label>
         </div>
         <div class="d-flex mt-lg-0 mt-4">
           <label class="lablespace balance lblText">
-            <p>Select</p>
+            <span>Select</span>
           </label>
-          <select class="form-select Field inputBox" name="duration" id="duration" (change)="onSelectPeriodicDays($event)">
+          <select class="form-select inputBox" formControlName="selectedOption">
             @for (eachday of periodicDays ; track $index) {
-            <option [value]="eachday">{{ eachday }}</option>
+            <option >{{ eachday }}</option>
             }
           </select>
         </div>
       </div>
+      <div class="btnArea">
+        <button class="cancelAndSaveBtn me-2 d-lg-inline" routerLink="/dashboard" id="back">Back</button>
+        <button class="cancelAndSaveBtn ms-3" (click)="cancelForm()">CANCEL</button>
+        <button class="btn btn-primary cancelAndSaveBtn saveBtn me-2" type="submit" [disabled]="transactionForm.invalid" (click)="submitForm()" [ngClass]="{'btn-enabled': !transactionForm.invalid, 'btn-disabled': transactionForm.invalid}">SHOW</button>
+      </div>
     </form>
-    
-  
-  
-  
   </div>
-  
-  <div class="d-flex mb-4 mt-3 justify-content-center">
-    <button class="cancelAndSaveBtn me-2 d-lg-inline" routerLink="/dashboard" id="back">Back</button>
-    <button class="cancelAndSaveBtn ms-3" (click)="cancelField()">CANCEL</button>
-    <button class="btn btn-primary cancelAndSaveBtn saveBtn me-2" (click)="submitField()">SHOW</button>
-  </div>
-  
-  <!-- Displaying Transaction Data -->
   <div class="tabArea mt-2">
     @if (showData) {
     <table class="table tabFont">
       <thead class="tabHead">
-        <!-- Table Headers -->
         <th class="p-2 text-center">Sl.No</th>
         <th class="p-2">Value Date</th>
         <th class="p-2">Transaction Date</th>
@@ -71,7 +60,6 @@
       </thead>
       @if ((leftpaginationMode==false)&&(rightpaginationMode==true)) {
       <tbody class="tabData">
-        <!-- Rows with Pagination -->
         @for (data of getPageTransactions(); track $index) {
           <tr class="eachRow">
             <td class="text-center data">{{ data.sno }}</td>
@@ -84,8 +72,6 @@
             <td class="text-end data">{{ data.dayClosingBalance }}</td>
           </tr>
         }
-        
-        <!-- Pagination Controls -->
         <tr class="lastRow">
           <td colspan="8">
             <div class="Pagearea">
@@ -155,7 +141,6 @@
             <td class="text-end data">{{ data.dayClosingBalance }}</td>
           </tr>
         }
-        <!-- Pagination Controls -->
         <tr class="lastRow">
           <td colspan="8">
             <div class="Pagearea">

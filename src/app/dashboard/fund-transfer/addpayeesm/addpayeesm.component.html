@@ -49,21 +49,57 @@
                     <label class="payee-details">Bank Name<span class="text-danger">*</span></label>
                 </div>
                 <div class="col-md-7 col-sm-6 col-7 payeeInputs">
-                    <input type="text" class="transferInputs" id="bankName" formControlName="bankName" minlength="3" maxlength="20">
+                       <select formControlName="bankName" class="transferInputs">
+                            @for (bank of bankNames; track $index) {
+                                <option>{{bank}}</option>
+                             }
+                       </select>
+                </div>
+                <div class="col-sm-2"></div>
+             </div>
+
+             <div class="row">
+                <div class="col-md-5 col-sm-4 col-5">
+                    <label class="payee-details">Account Number<span class="text-danger">*</span></label>
+                </div>
+                <div class="col-md-7 col-sm-6 col-7 payeeInputs">
+                    <input type="text" class="transferInputs" id="accountNo" formControlName="accountNo" maxlength="18" (keypress)="onKeyPress($event)">
                     <div>
-                        @if(addPayeesmForm.get('bankName')?.hasError('required') && addPayeesmForm.get('bankName')?.touched){
-                            <p class="error-text"> Please Enter Bank Name </p>
+                        @if (addPayeesmForm.get('accountNo')?.hasError('required') && addPayeesmForm.get('accountNo')?.touched) {
+                            <p class="error-text"> Please Enter Account Number</p>
                         }
+                        
                     </div>
                     <div>
-                        @if (addPayeesmForm.get('bankName')?.hasError('pattern') || addPayeesmForm.get('bankName')?.hasError('minlength')) {
-                            <p class="error-text">Bank Name must be alphabetical and should contain atleast 3 characters</p>
+                        @if (addPayeesmForm.get('accountNo')?.hasError('pattern') || addPayeesmForm.get('accountNo')?.hasError('minlength')) {
+                            <p class="error-text"> Account Number must be numerical and atleast 8 digits</p>
                         }
                     </div>
                 </div>
                 <div class="col-sm-2"></div>
              </div>
-
+    
+             <div class="row">
+                <div class="col-md-5 col-sm-4 col-5">
+                    <label class="payee-details">Confirm Account<span class="text-danger">*</span></label>
+                </div>
+                <div class="col-md-7 col-sm-6 col-7 payeeInputs">
+                    <input type="text" class="transferInputs" id="reEnterAccNo" formControlName="reEnteraccountNo" (keypress)="onKeyPress($event)" maxlength="18">
+                    <div>
+                        @if (addPayeesmForm.get('reEnteraccountNo')?.hasError('required') && addPayeesmForm.get('reEnteraccountNo')?.touched) {
+                            <p class="error-text"> Please Re-Enter Account Number</p>
+                        }
+    
+                    </div>
+                    <div>
+                        @if (addPayeesmForm.hasError('mismatch') && addPayeesmForm.get('reEnteraccountNo')?.touched) {
+                            <p class="error-text"> Account Number do not match.</p>
+                        }
+                       
+                    </div>
+                </div>
+                <div class="col-sm-2"></div>
+             </div>
              <div class="row">
                 <div class="col-md-5 col-sm-4 col-5">
                     <label class="payee-details">IFSC Code<span class="text-danger">*</span></label>
@@ -84,55 +120,10 @@
                 </div>
                 <div class="col-sm-2"></div>
              </div>
-
-
-        <div class="row">
-            <div class="col-md-5 col-sm-4 col-5">
-                <label class="payee-details">Account Number<span class="text-danger">*</span></label>
-            </div>
-            <div class="col-md-7 col-sm-6 col-7 payeeInputs">
-                <input type="text" class="transferInputs" id="accountNo" formControlName="accountNo" maxlength="18" (keypress)="onKeyPress($event)">
-                <div>
-                    @if (addPayeesmForm.get('accountNo')?.hasError('required') && addPayeesmForm.get('accountNo')?.touched) {
-                        <p class="error-text"> Please Enter Account Number</p>
-                    }
-                    
-                </div>
-                <div>
-                    @if (addPayeesmForm.get('accountNo')?.hasError('pattern') || addPayeesmForm.get('accountNo')?.hasError('minlength')) {
-                        <p class="error-text"> Account Number must be numerical and atleast 8 digits</p>
-                    }
-                </div>
-            </div>
-            <div class="col-sm-2"></div>
-         </div>
-
-         <div class="row">
-            <div class="col-md-5 col-sm-4 col-5">
-                <label class="payee-details">Re-Enter Account Number<span class="text-danger">*</span></label>
-            </div>
-            <div class="col-md-7 col-sm-6 col-7 payeeInputs">
-                <input type="text" class="transferInputs" id="reEnterAccNo" formControlName="reEnteraccountNo" (keypress)="onKeyPress($event)" maxlength="18">
-                <div>
-                    @if (addPayeesmForm.get('reEnteraccountNo')?.hasError('required') && addPayeesmForm.get('reEnteraccountNo')?.touched) {
-                        <p class="error-text"> Please Re-Enter Account Number</p>
-                    }
-
-                </div>
-                <div>
-                    @if (addPayeesmForm.hasError('mismatch') && addPayeesmForm.get('reEnteraccountNo')?.touched) {
-                        <p class="error-text"> Account Number do not match.</p>
-                    }
-                   
-                </div>
-            </div>
-            <div class="col-sm-2"></div>
-         </div>
-
-         <div class="d-flex flex-row justify-content-center mt-5">
+            <div class="d-flex flex-row justify-content-center mt-5">
                 <button class="cancelAndSaveBtn me-4" routerLink="/transferDashboard" id="back">Back</button>
                 <button class="cancelAndSaveBtn" (click)="onCancel()" id="cancel">cancel</button>
-                <button type="submit" class="btn btn-primary cancelAndSaveBtn saveBtn" [disabled]="addPayeesmForm.invalid" (click)="submitPayee(addPayeesmForm.value)" id="addPayee">Add Payee</button>
-         </div>
+                <button type="submit" class="btn btn-primary cancelAndSaveBtn saveBtn" [disabled]="addPayeesmForm.invalid" (click)="submitPayee(addPayeesmForm.value)" id="addPayee" [ngClass]="{'btn-enabled': !addPayeesmForm.invalid, 'btn-disabled': addPayeesmForm.invalid}">Add Payee</button>
+            </div>
     </form>
 </div>

@@ -1,4 +1,4 @@
-import { CurrencyPipe } from '@angular/common';
+import { CommonModule, CurrencyPipe, NgClass } from '@angular/common';
 import { Component} from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BankingdataService } from '../../../bankingdata.service';
@@ -9,7 +9,7 @@ import { AddpayeeComponent } from '../addpayee/addpayee.component';
 @Component({
   selector: 'app-money-transfer',
   standalone: true,
-  imports: [ReactiveFormsModule,AddpayeeComponent,CurrencyPipe,RouterLink],
+  imports: [ReactiveFormsModule,AddpayeeComponent,CurrencyPipe,RouterLink,CommonModule],
   templateUrl: './money-transfer.component.html',
   styleUrl: './money-transfer.component.css'
 })
@@ -24,8 +24,8 @@ export class MoneyTransferComponent {
   newPayeeData = this.service.addpayeeData
 
   constructor(private fb:FormBuilder,private service:BankingdataService,private route:Router,private modalService: NgbModal){
-    this.moneyTransferForm = fb.group({
-       "payee":[this.defaultPayee,Validators.required],
+    this.moneyTransferForm = this.fb.group({
+       "payee":['',Validators.required],
        "accountNumber":['',[Validators.required,Validators.pattern(/^\d*$/),Validators.minLength(8),Validators.maxLength(18)]],
        "bankName":['',[Validators.required, Validators.pattern(/^[a-zA-Z ]*$/),Validators.minLength(3),Validators.maxLength(20)]],
        "amount":['',[Validators.required,Validators.pattern(/^\d*$/),Validators.maxLength(5)]],
@@ -34,7 +34,7 @@ export class MoneyTransferComponent {
     });
    }
 
-   ngOnInit(){
+  ngOnInit(){
     console.log(this.newPayeeData)
     this.service.currentAccountNumber.subscribe(accountNumber => {
       this.moneyTransferForm.get('accountNumber')?.setValue(accountNumber, { emitEvent: false });
@@ -109,7 +109,6 @@ export class MoneyTransferComponent {
     }
   }
 
-  ischecked:boolean = false
   paymentModeData =[
     {
        label:"IMPS",

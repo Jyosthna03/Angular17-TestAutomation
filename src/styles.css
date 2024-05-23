@@ -80,7 +80,6 @@ body {
     border-radius: 4px;
   }
   .saveBtn {
-    background: #082341 !important;
     color: #fff;
     margin-left: 15px;
     text-align: center;
@@ -205,7 +204,6 @@ body {
   }
   .form-check-input,.form-check-label{
     cursor: pointer;
-    margin-top: 0.4rem;
   }
 .cancelBtn {
     width: 100px;

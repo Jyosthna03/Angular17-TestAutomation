@@ -3,24 +3,25 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { BankingdataService } from '../../../bankingdata.service';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-addpayee',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,CommonModule],
   templateUrl: './addpayee.component.html',
   styleUrl: './addpayee.component.css'
 })
 export class AddpayeeComponent {
 
   addPayeeForm!:FormGroup
-  banks = ['Hdfc', 'Axis', 'SBI', 'ICICI', 'StandardChart'];
+  bankNames = ['Hdfc', 'Axis', 'SBI', 'ICICI', 'StandardChart'];
   constructor(private service:BankingdataService,private fb:FormBuilder, private route:Router, private modalService:NgbModal){
     this.addPayeeForm = this.fb.group ({
       fullname: new FormControl('',[Validators.required, Validators.pattern(/^[a-zA-Z ]*$/),Validators.minLength(3),Validators.maxLength(15)]),
       nickname: new FormControl('',[Validators.required, Validators.pattern(/^[a-zA-Z ]*$/),Validators.minLength(3),Validators.maxLength(10)]),
-      bankName: new FormControl('',[Validators.required, Validators.pattern(/^[a-zA-Z ]*$/),Validators.minLength(3),Validators.maxLength(20)]),
+      bankName: new FormControl('',[Validators.required]),
       ifscCode: new FormControl('',[Validators.required,Validators.pattern('^[A-Za-z]{4}0[A-Z0-9a-z]{6}$'),Validators.maxLength(11)]),
       accountNo: new FormControl('',[Validators.required,Validators.pattern(/^\d*$/),Validators.minLength(8),Validators.maxLength(18)]),
       reEnteraccountNo: new FormControl('',[Validators.required,Validators.pattern(/^\d*$/)])

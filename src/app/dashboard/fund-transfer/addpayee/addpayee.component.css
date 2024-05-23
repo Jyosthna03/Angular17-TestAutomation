@@ -39,9 +39,12 @@ input::-webkit-inner-spin-button {
     margin: 0;
   }
 .eachNote {
-    line-height: 22px; /* 175% */
+    color: #777;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
     letter-spacing: 0.32px;
-    font-size: 12px !important;
+    line-height: 20px; /* 175% */
   }
 .payeeBtns {
     display: flex;

@@ -8,7 +8,6 @@
     font-size: 16px;
     font-weight: 700;
     padding: 20px;
-
 }
 .transfer{
     color: #082341;
@@ -70,11 +69,6 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
      margin: 0;
   }
-  .btn-primary ,.btn-primary:active{
-    border: 1px solid #453985 !important;
-    border-radius: 4px;
-    background: #453985;
-}
 .bottom-buttons{
     text-align: center;
     margin-top: 35px;

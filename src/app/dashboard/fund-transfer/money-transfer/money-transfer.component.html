@@ -30,7 +30,7 @@
                                             <div class="col-lg-4 col-md-8 formInputs">
                                                 <select class="transferInputs" formControlName="payee" required>
                                                     @for (payee of payeeNames; track $index) {
-                                                        <option [value]="payee">{{payee}}</option>
+                                                        <option>{{payee}}</option>
                                                     }
                                                 </select>
                                                 <div class="d-sm-block d-md-block d-lg-none">
@@ -160,7 +160,7 @@
                                  <div class="d-lg-none d-sm-block d-md-block d-flex flex-row justify-content-between smpayMode">
                                        @for(data of paymentModeData;track $index){
                                         <div>
-                                            <input type="radio" class="form-check-input" formControlName="paymentModeInput" name="paymentModeInput" (click)="check(data)">
+                                            <input type="radio" class="form-check-input" formControlName="paymentModeInput" name="paymentModeInput" (click)="check(data)" value="{{data.label}}">
                                             <label class="paymentModeLabel">{{data.label}}</label>
                                         </div>
                                         }
@@ -176,7 +176,7 @@
                         <div class="col-lg-12 col-md-12 col-sm-12 col bottom-buttons">
                             <button class="cancelAndSaveBtn backbtn" routerLink="/dashboard" id="back">Back</button>
                             <button class="cancelAndSaveBtn" (click)="onCancel()" id="cancel">cancel</button>
-                            <button type="submit" id="send" class="btn btn-primary cancelAndSaveBtn saveBtn" [disabled]="moneyTransferForm.invalid" (click)="onSubmit(moneyTransferForm.value)">Send</button>
+                            <button type="submit" id="send" class="btn btn-primary cancelAndSaveBtn saveBtn" [disabled]="moneyTransferForm.invalid" (click)="onSubmit(moneyTransferForm.value)" [ngClass]="{'btn-enabled': !moneyTransferForm.invalid, 'btn-disabled': moneyTransferForm.invalid}">Send</button>
                         </div>
                     </div>
             </form>
