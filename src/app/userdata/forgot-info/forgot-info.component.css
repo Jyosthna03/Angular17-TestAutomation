@@ -3,17 +3,21 @@
 	color: white;
 }
 .can-btn{
-	padding: 8px 12px;
+	color: var(--Text-Colors-Text-Tints-Text-80, #434345);
 	border-radius: 4px;
-	gap: 4px;
-	background: #E5E6E6;
+	border: 1px solid var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1B154C);
+	background: var(--Card-Tile-Text, #FFF);
 }
-.fet-btn{
+.fet-btn,.fet-btn:active{
+	color: var(--White, var(--Color, #FFF));
+}
+.button-style{
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 24px; /* 150% */
+	width: 160px;
 	padding: 8px 12px;
-	border-radius: 4px;
-	gap: 4px;
-  	background: #1B154C;
-	color: #FFFFFF;
 }
 .br-none{
 	border-top: none !important;

@@ -1,8 +1,15 @@
-body{
-  overflow: hidden;
+.container-without-scrollbars{
+  overflow-x: hidden !important;
+
 }
 .welcome{
-  margin-bottom: 120px;
+  margin-bottom: 60px;
+  color: #1B154C;
+  text-align: center;
+  font-size: 38px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 .email,.password{
   color: #000;
@@ -17,44 +24,30 @@ input[type=text][type=password]{
 .cursor-pointer{
     cursor: pointer;
   }
-  .login-image{
-    width:700px ;
-    height:600px ;
+.forgot-info{
+  color: #1B154C;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-decoration: none !important;
+}
+.register-content{
+  color: var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1B154C);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  text-decoration: none;
+}
+.login-btn-margin{
+  margin-top: 90px;
+}
+@media screen and (min-width: 360px) and (max-width: 576px){
+  .mrg-t-mobile{
+    margin-top: 110px;
+}
+  .left-content{
+    padding: 20px;
   }
-  .forgot-info{
-    color: #1B154C;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    text-decoration: none !important;
-  }
-  .text-content{
-    color: #707070;
-    text-align: center;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-  }
-  .register-content{
-    color: var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1B154C);
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
-    text-decoration: none;
-  }
- 
-  .form-control:focus {
-    box-shadow: none !important;
-    border-color: #6E6E70 !important;
-  }
-  .login-btn-margin{
-    margin-top: 90px;
-  }
-  @media (min-width:320px) {
-    .mrg-t-mobile{
-        margin-top: 110px;
-    }
   }

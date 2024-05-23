@@ -34,6 +34,22 @@ body {
     line-height: 20px; /* 125% */
     padding: 33px 30px;
   }
+  .form-control:focus {
+    box-shadow: none !important;
+    border-color: #6E6E70 !important;
+  }
+  .text-content{
+    color: #707070;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-top: 20px;
+  }
+  .left-content{
+    padding: 0px 60px;
+  }
   .acc-sty {
     background: #e14b57;
     border-radius: 5px 0px 0px 5px;
