@@ -2,6 +2,12 @@
   margin-right: 5px;
 }
 
+.pglbl{
+  color: #082341;
+  font-size: 16px;
+  font-weight: 700;
+}
+
 .lblText{
   color: #082341;
   margin-right: 1.5rem;
@@ -21,19 +27,20 @@
   border: 1px solid var(--Neutral-Colors-Light-Gray, #C3C2CC);
   background: var(--Primary-White, #FFF);
   cursor: pointer;
-  margin-top: 6px;
+  margin-top: 8px;
 }
 .form-check-input:checked {
   border: 5px solid var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1B154C);
   background: var(--Primary-White, #FFF);
   cursor: pointer;
-  margin-top: 6px;
+  margin-top: 8px;
 }
 
 input[type="date"]:before{
   color: black;
   content:attr(placeholder);
 }
+
 .btn-primary,.btn-primary:active{
   color: #FFF;
   background: #082341;
