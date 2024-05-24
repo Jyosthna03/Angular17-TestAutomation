@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-8 col-lg-5 col mrg-t-mobile left-content">
       <span class="text-center text-danger">{{ isInvalidUser }}</span>
-      <h2 class="welcome">Welcome.!</h2>
+      <h2 class="welcome-text">Welcome.!</h2>
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" #formElement>
         <div class="form-group">
           <label for="email" class="email">Email<span class="text-danger">*</span></label>
@@ -25,8 +25,8 @@
         <div class="mt-3">
           <a class="cursor-pointer float-end forgot-info" (click)="openForgotPasswordPopup(copyContent)" >Forgot Info</a>
         </div>
-        <div class="d-grid gap-2 login-btn-margin">
-          <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid" id="login"[ngClass]="{'btn-enabled': !loginForm.invalid, 'btn-disabled': loginForm.invalid}"> Login </button>
+        <div class="d-grid login-btn-margin">
+          <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid" id="login" [ngClass]="{'btn-enabled': !loginForm.invalid, 'btn-disabled': loginForm.invalid}"> Login </button>
           <span class="text-content">If you don’t have account <a class="cursor-pointer register-content" ng-click="register()" (click)="getRegistration()">Register Here</a></span>
         </div>
       </form>

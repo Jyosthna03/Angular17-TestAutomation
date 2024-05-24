@@ -2,16 +2,7 @@
 .container-fluid{
   overflow-x: hidden !important;
 }
-.welcome-text{
-  color: var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1B154C);
-  text-align: center;
-  font-size: 38px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  margin-bottom: 60px;
-  margin-top: 60px;
-}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;

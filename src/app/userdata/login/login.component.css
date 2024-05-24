@@ -2,15 +2,6 @@
   overflow-x: hidden !important;
 
 }
-.welcome{
-  margin-bottom: 60px;
-  color: #1B154C;
-  text-align: center;
-  font-size: 38px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-}
 .email,.password{
   color: #000;
   font-size: 14px;

@@ -3,7 +3,7 @@
   <div class="card-header d-none d-sm-block">
     Select Biller
   </div>
-  <p class="d-block d-sm-none select-mob">Select Biller</p>
+  <span class="d-block d-sm-none select-mob">Select Biller</span>
   <form [formGroup]="billerForm">
     <div class="card-body">
       <div class="row">
@@ -19,7 +19,7 @@
         </div>
       </div>
       <div class="d-flex">
-        <p class="bold-text mt-5">Biller Details</p>
+        <span class="bold-text mt-5">Biller Details</span>
       </div>
       <div class="row">
         @if(!showRechargeForm){
@@ -44,15 +44,15 @@
             <input type="text" class="transferInputs billDetails" formControlName="billDetailsAmount" maxlength="5"  (keypress)="onKeyPress($event)">
             <div  class="text-danger error-txt">
                @if(billerForm.get('billDetailsAmount')?.hasError('required') && billerForm.get('billDetailsAmount')?.touched){
-                <p>Enter Amount</p>
+                <span>Enter Amount</span>
                }
              </div>
             </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col dueDate">
-            <p class="sub-text float-start">Due Date: </p>
+            <span class="sub-text float-start">Due Date: </span>
           <div class="ps-5">
-            <p class="savingsAccNumber savings-duedate">{{dueDate | date:'dd/MM/yy'}}</p>
-            <p class="balance d-none d-sm-block ">Min Balance - 18405.00</p>
+            <span class="savingsAccNumber savings-duedate">{{dueDate | date:'dd/MM/yy'}}</span>
+            <span class="balance d-none d-sm-block ">Min Balance: 18405.00</span>
           </div>
         </div>
       }
@@ -82,12 +82,12 @@
               <input type="text" class="transferInputs cre-card" formControlName="mobileNumber" (keypress)="onKeyPress($event)" maxlength="10" minlength="10" placeholder="Enter Mobile Number" aria-autocomplete="list">
               <div class="error text-danger">
                 @if(rechargeForm.get('mobileNumber')?.hasError('required') && rechargeForm.get('mobileNumber')?.touched){
-                  <p>Enter Mobile Number</p>
+                  <span>Enter Mobile Number</span>
                 }
               </div>
             <div class="error text-danger">
               @if(rechargeForm.get('mobileNumber')?.hasError('pattern') || rechargeForm.get('mobileNumber')?.hasError('minlength')){
-                <p>Enter Valid Mobile Number</p>
+                <span>Enter Valid Mobile Number</span>
               }
             </div>
             </div>
@@ -100,18 +100,18 @@
               <input type="text" class="transferInputs cre-card"  placeholder="Enter amount" formControlName="amount" (keypress)="onKeyPress($event)" maxlength="5">
               <div class="error text-danger">
                 @if(rechargeForm.get('amount')?.hasError('required') && rechargeForm.get('amount')?.touched){
-                  <p>Enter Amount</p>
+                  <span>Enter Amount</span>
                 }
               </div>
             </div>
             <div class="col-lg-4 col-md-3 col-sm-6 col dueDate">
               @if(isDueDateDisabled){
                 <div>
-                  <p class="sub-text float-start">Due Date:- </p>
+                  <span class="sub-text float-start">Due Date:</span>
                 </div>
                 <div class="">
-                  <p class="savingsAccNumber savings-duedate">{{dueDate | date:'dd/MM/yy'}}</p>
-                  <p class="balance d-none d-sm-block">Min Balance - 18405.00</p>
+                  <span class="savingsAccNumber savings-duedate">{{dueDate | date:'dd/MM/yy'}}</span>
+                  <span class="balance d-none d-sm-block">Min Balance: 18405.00</span>
                 </div>
               }
             </div>
@@ -120,7 +120,7 @@
       </form>
      <!-- Add more fields or information as needed -->
         <div class="d-flex">
-          <p class="bold-text mt-5">Payment Details</p>
+          <span class="bold-text mt-5">Payment Details</span>
         </div>
         <div class="row">
           <div class="col-lg-2 col-md-3 col-sm-6 col">
@@ -132,10 +132,10 @@
          </select>
           </div>
           <div class=" sub-text-account col-lg-5 col-md-5 col-sm-3 col">
-            <p class="sub-text float-start d-none d-sm-block">Account Details</p>
+            <span class="sub-text float-start d-none d-sm-block">Account Details</span>
             <div class="">
-              <p class="savingsAccNumber">Savings - 12345678910111213</p>
-              <p class="balance sel-balance">Balance - ₹ {{availBalance}}/-</p>
+              <span class="savingsAccNumber float-start">Savings: 12345678910111213</span>
+              <span class="balance sel-balance">Balanc: ₹ {{availBalance}}/-</span>
             </div>
           </div>
         </div>
@@ -144,7 +144,7 @@
         <div class="col-lg-3 col-md-3 col-sm-3"></div>
           <button class="cancelAndSaveBtn me-2 col-lg-2 col-md-2 col-sm-2 col" routerLink="/dashboard" id="back">Back</button>
           <button class="cancelAndSaveBtn ms-3 col-lg-2 col-md-2 col-sm-2 col"  (click)="onCancel()">Cancel</button>
-          <button type="submit" class="btn btn-primary cancelAndSaveBtn saveBtn col-lg-2"  [disabled]="billerForm.invalid && (!showRechargeForm || rechargeForm.invalid)" (click)="onSubmit()" id="pay">Pay</button>
+          <button type="submit" class="btn btn-primary cancelAndSaveBtn saveBtn col-lg-2"  [disabled]="billerForm.invalid && (!showRechargeForm || rechargeForm.invalid)" (click)="onSubmit()" id="pay" [ngClass]="{'btn-enabled': !billerForm.invalid && !rechargeForm.invalid, 'btn-disabled': billerForm.invalid && rechargeForm.invalid}">Pay</button>
       </div>
     </div>
   </form>

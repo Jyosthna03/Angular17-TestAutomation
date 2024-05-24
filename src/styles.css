@@ -32,7 +32,7 @@ body {
     font-style: normal;
     font-weight: 600;
     line-height: 24px; /* 125% */
-    padding: 33px 30px;
+    padding: 20px 20px;
   }
   .form-control:focus {
     box-shadow: none !important;
@@ -50,6 +50,21 @@ body {
   .left-content{
     padding: 0px 60px;
   }
+  ul.dashboard-cards {
+    list-style-type: none;
+    padding-left: 5px;
+    margin-bottom: 0 !important;
+  }
+  .li-styles{
+    margin-bottom: 8px;
+  }
+  .card-text{
+    color: var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1B154C);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 150% */
+  }
   .acc-sty {
     background: #e14b57;
     border-radius: 5px 0px 0px 5px;
@@ -62,9 +77,16 @@ body {
     background: #15b2ec;
     border-radius: 5px 0px 0px 5px;
   }
-  /* .card-body {
-    padding: 15px 20px !important;
-  } */
+  .welcome-text{
+    color: var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1B154C);
+    text-align: center;
+    font-size: 38px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 60px;
+    margin-top: 60px;
+  }
   /* transfer and payment screen css  */
   .cancelAndSaveBtn {
     width: 160px;
