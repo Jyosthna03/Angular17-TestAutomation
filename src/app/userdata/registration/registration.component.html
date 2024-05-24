@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-md-5 ps-3">
-      <h2 class="text-center mt-3">Welcome!</h2>
+    <div class="col-md-5 left-content">
+      <h2 class="welcome-text">Welcome.!</h2>
       <form #formElement [formGroup]="registrationForm" (ngSubmit)="onSubmit(registrationForm.value)">
         <div class="row">
           <div class="col-md-6">
@@ -127,7 +127,7 @@
         <div class="d-grid gap-2 register-btn">
           <button type="submit" class="btn btn-primary" [disabled]="registrationForm.invalid" [ngClass]="{'btn-enabled': !registrationForm.invalid, 'btn-disabled': registrationForm.invalid}"> Register </button>
         </div>
-        <div class="text-center mt-4 mb-4">
+        <div class="text-content">
           <span>Already had an account?<a aria-current="page" class="login-here" routerLink="/login" id="login">Login Here</a></span>
         </div>
       </form>

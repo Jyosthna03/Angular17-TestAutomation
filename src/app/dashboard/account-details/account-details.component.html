@@ -6,10 +6,12 @@
 		</div>
 		<div class="col-md-7 col-6">
 			<div class="card-body text-color" id="card-inside-text">
-				<p class="card-text" id="accountNo">Account Number</p>
-				<p class="card-text" id="accountBalance">Account Balance</p>
-				<p class="card-text" (click)="getTransction()" id="transHistory">Transaction History</p>
-				<p class="card-text" (click)="getStatements()" id="statements">Statements</p>
+				<ul class="dashboard-cards">
+					<li class="card-text li-styles" id="accountNo">Account Number</li>
+					<li class="card-text li-styles" id="accountBalance">Account Balance</li>
+					<li class="card-text li-styles" (click)="getTransction()" id="transHistory">Transaction History</li>
+					<li class="card-text" (click)="getStatements()" id="statements">Statements</li>
+				</ul>
 			</div>
 		</div>
 	</div>

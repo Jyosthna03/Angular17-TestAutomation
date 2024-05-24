@@ -40,9 +40,7 @@ export class LoginComponent {
     if(this.service.userData.includes(this.formControls['email'].value)&& this.service.userData.includes(this.formControls['password'].value)){
         const user = this.formControls['email'].value; 
         this.service.setCurrentUser(user);
-        var newStr = this.formControls['email'].value.replace(/@.*$/,"");
-        this.service.trimmedString = newStr;
-        var name = newStr!==user ? newStr : null;
+        this.service.trimmedString = this.service.trimNameFromEmail(user);
         localStorage.setItem("logindata",JSON.stringify(this.loginForm.value))
         this.loginForm.reset();
         this.router.navigate(['/dashboard'])

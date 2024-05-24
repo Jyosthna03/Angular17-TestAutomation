@@ -29,7 +29,9 @@ text-transform: lowercase;
 background: #082341 !important;
 box-shadow: none !important;
 }
-
+.login-user{
+    margin-top: 7px;
+}
 .navbar-toggler:focus {
     text-decoration: none;
     outline: none !important;

@@ -29,8 +29,9 @@
     margin-left: 80px;
 }
 .sub-text{
-    margin-right: 23px;
+    margin-right: 16px;
     margin-left: 30px !important;
+    margin-top: 5px;
 }
 .bold-text{
     margin-left: 18px !important;
@@ -38,46 +39,44 @@
 .sub-text-account{
     margin-left: 100px;
 }
-.sel-balance{
+/* .sel-balance{
     margin-left: 174px;
+} */
+@media screen and (min-width: 360px) and (max-width: 576px) {
+.sub-text{
+    margin-left: -17px !important;
+    margin-right: 0 !important
 }
-@media only screen and (min-width: 360px) and (max-width: 576px) {
-    .sub-text{
-        margin-left: -17px !important;
-        margin-right: 0 !important
-    }
-    .bold-text{
-        margin-left: -16px !important;
-        margin-top: 2rem !important;
-    }
-    .select-mob{
-    color: #082341;
+.bold-text{
+    margin-left: -16px !important;
+    margin-top: 2rem !important;
+}
+.select-mob{
+color: #082341;
+font-size: 14px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+margin-left: 15px;
+margin-top: 20px;
+}
+  
+.dueDate{
+    margin-left: 120px;
+    margin-top: 15px;
+}
+.savingsAccNumber{
     font-size: 14px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    margin-left: 15px;
-    margin-top: 20px;
-    }
-    /* .card{
-        border: none;
-    } */
-    .dueDate{
-        margin-left: 120px;
-        margin-top: 15px;
-    }
-    .savingsAccNumber{
-        font-size: 14px;
-        margin-left: 8px;
-        margin-top: 5px;
-    }
-    .sel-balance {
-        margin-left: 10px;
-    }
-    .savings-duedate{
-        margin-top: -1px !important;
-    }
-    .error-txt{
-        padding-left: 1px;
-    }
-  }
+    margin-left: 8px;
+    margin-top: 5px;
+}
+.sel-balance {
+    margin-left: 10px;
+}
+.savings-duedate{
+    margin-top: -1px !important;
+}
+.error-txt{
+    padding-left: 1px;
+}
+}

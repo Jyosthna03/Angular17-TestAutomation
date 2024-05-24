@@ -1,16 +1,13 @@
 
-body{
-    overflow-x: hidden !important;
+.container-fluid{
+  overflow-x: hidden !important;
 }
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-.reg-image{
-  width: 700px;
-  height: 800px;
-} 
+  -webkit-appearance: none;
+  margin: 0;
+}
 .lable-name{
   color: #000;
   font-size: 14px;
@@ -28,4 +25,9 @@ input::-webkit-inner-spin-button {
 }
 .register-btn{
   margin-top: 60px;
+}
+@media screen and (min-width: 360px) and (max-width: 576px){
+.left-content{
+  padding: 20px;
+}
 }
