@@ -16,7 +16,7 @@ export class TransactionHistoryComponent {
   TransHistory:any=[];
   showData=false;
   todayDate = Date();
-  periodicDays = ['Last 7 Days', 'Last 14 Days'];
+  periodicDays = ['Please select','Last 7 Days', 'Last 14 Days'];
   selectedperidocday = this.periodicDays[0];
   selectedShowperPage = 5;
   startIndex = 0;
@@ -75,7 +75,7 @@ export class TransactionHistoryComponent {
   }
 
   submitForm(){
-    if(this.transactionForm.valid){
+    if(this.transactionForm.valid && this.transactionForm.value.selectedOption!='Please select'){
       this.serv.getData().subscribe((data: any) => {
         if (data['TransHistory'].length != 0) {
           console.log(data['TransHistory']);

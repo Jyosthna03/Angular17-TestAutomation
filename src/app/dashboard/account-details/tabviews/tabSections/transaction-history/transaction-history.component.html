@@ -11,13 +11,13 @@
             <label class="lablespace balance lblText">
               <span class="dateplace">From</span>
             </label>
-            <input class="form-control inputBox" type="date" formControlName="fromDate"/>
+            <input class="form-control inputBox inptxt" type="date" formControlName="fromDate"/>
           </div>
           <div class="col-md-6 col-sm-12 d-flex mt-2 wholesmTop">
             <label class="lablespace balance lblText dateplace">
               <span id="toDate">To</span>
             </label>
-            <input class="form-control inputBox" type="date" formControlName="toDate" max="{{ todayDate | date : 'yyyy-MM-dd' }}" />
+            <input class="form-control inputBox inptxt" type="date" formControlName="toDate" max="{{ todayDate | date : 'yyyy-MM-dd' }}" />
           </div>
         </div>
       </div>
@@ -31,18 +31,18 @@
           <label class="lablespace balance lblText">
             <span>Select</span>
           </label>
-          <select class="form-select inputBox" formControlName="selectedOption">
+          <select class="form-select inputBox inptxt" formControlName="selectedOption">
             @for (eachday of periodicDays ; track $index) {
-            <option >{{ eachday }}</option>
+            <option>{{ eachday }}</option>
             }
           </select>
         </div>
       </div>
-      <div class="btnArea">
-        <button class="cancelAndSaveBtn me-2 d-lg-inline" routerLink="/dashboard" id="back">Back</button>
-        <button class="cancelAndSaveBtn ms-3" (click)="cancelForm()">CANCEL</button>
-        <button class="btn btn-primary cancelAndSaveBtn saveBtn me-2" type="submit" [disabled]="transactionForm.invalid" (click)="submitForm()" [ngClass]="{'btn-enabled': !transactionForm.invalid, 'btn-disabled': transactionForm.invalid}">SHOW</button>
-      </div>
+        <div class="btnArea">
+          <button class="cancelAndSaveBtn d-lg-inline pgbackBtn" routerLink="/dashboard" id="back">Back</button>
+          <button class="cancelAndSaveBtn " (click)="cancelForm()">CANCEL</button>
+          <button class="btn btn-primary cancelAndSaveBtn saveBtn" type="submit" [disabled]="transactionForm.invalid" (click)="submitForm()" [ngClass]="{'btn-enabled': !transactionForm.invalid, 'btn-disabled': transactionForm.invalid}">SHOW</button>
+        </div>
     </form>
   </div>
   <div class="tabArea mt-2">
