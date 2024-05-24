@@ -16,12 +16,13 @@ import { CommonModule } from '@angular/common';
 export class AddpayeeComponent {
 
   addPayeeForm!:FormGroup
-  bankNames = ['Hdfc', 'Axis', 'SBI', 'ICICI', 'StandardChart'];
+  bankNames = ['Select Bank','Hdfc', 'Axis', 'SBI', 'ICICI', 'StandardChart'];
+  defaultBank:string = 'Select Bank';
   constructor(private service:BankingdataService,private fb:FormBuilder, private route:Router, private modalService:NgbModal){
     this.addPayeeForm = this.fb.group ({
       fullname: new FormControl('',[Validators.required, Validators.pattern(/^[a-zA-Z ]*$/),Validators.minLength(3),Validators.maxLength(15)]),
       nickname: new FormControl('',[Validators.required, Validators.pattern(/^[a-zA-Z ]*$/),Validators.minLength(3),Validators.maxLength(10)]),
-      bankName: new FormControl('',[Validators.required]),
+      bankName: new FormControl(this.defaultBank,[Validators.required]),
       ifscCode: new FormControl('',[Validators.required,Validators.pattern('^[A-Za-z]{4}0[A-Z0-9a-z]{6}$'),Validators.maxLength(11)]),
       accountNo: new FormControl('',[Validators.required,Validators.pattern(/^\d*$/),Validators.minLength(8),Validators.maxLength(18)]),
       reEnteraccountNo: new FormControl('',[Validators.required,Validators.pattern(/^\d*$/)])
@@ -34,6 +35,9 @@ export class AddpayeeComponent {
     this.addPayeeForm.get('accountNo')?.valueChanges.subscribe(value => {
       this.service.changeAccountNumber(value);
     });
+    this.addPayeeForm.get('bankName')?.valueChanges.subscribe(value=>{
+      this.service.userBankName(value)
+    })
   }
 
    accountNoMatchValidator(addPayeeForm: FormGroup) {
@@ -50,13 +54,20 @@ export class AddpayeeComponent {
         alert('Payee Added Sucessfully')
         this.closePopup()
   }
-  get f() {
-    return this.addPayeeForm.controls;
-  }
+  // get f() {
+  //   return this.addPayeeForm.controls;
+  // }
 
   onCancel() {
-    this.addPayeeForm.reset();
-   }
+    if(this.addPayeeForm.valid){
+       let confirmation = confirm('Are you sure you want to Cancel?')
+       if(confirmation){
+          this.addPayeeForm.reset();
+          this.addPayeeForm.patchValue({
+            bankName:this.defaultBank
+          })
+       }
+    }}
   
   closePopup() {
     this.modalService.dismissAll();

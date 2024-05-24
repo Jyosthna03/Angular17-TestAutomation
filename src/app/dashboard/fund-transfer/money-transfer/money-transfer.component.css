@@ -33,13 +33,19 @@
 .savings{
     padding-left: 140px;
 }
+.ft-left{
+    padding-left: 18px;
+}
+.pd-left{
+    padding-left: 64px;
+}
 .paymentMode{
     width: 280px;
     height: 90px;
     flex-shrink: 0;
     border-radius: 2px;
     border: 1px solid #082341;
-    margin-left: 13px;
+    margin: 0px 16px 0px 0px;
     padding: 10px;
 }
 .paymentModeLabel{
@@ -51,15 +57,22 @@
     letter-spacing: 0.36px;
     padding-left: 10px;
 }
-.modes{
-    margin-left: 40px;
-}
 .form-check-input:not(:checked) {
     border: 1px solid var(--Neutral-Colors-Light-Gray, #C3C2CC);
     background: var(--Primary-White, #FFF);
     cursor: pointer;
 }
 .form-check-input:checked {
+    border: 5px solid var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1B154C);
+    background: var(--Primary-White, #FFF);
+    cursor: pointer;
+}
+.form-check-input-sm:not(:checked){
+    border: 1px solid var(--Neutral-Colors-Light-Gray, #C3C2CC);
+    background: var(--Primary-White, #FFF);
+    cursor: pointer;
+}
+.form-check-input-sm:checked{
     border: 5px solid var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1B154C);
     background: var(--Primary-White, #FFF);
     cursor: pointer;
@@ -74,20 +87,18 @@ input::-webkit-inner-spin-button {
     margin-top: 35px;
     margin-bottom: 20px;
 }
-.addPayee{
+.addPayeelg{
     color: #069;
     font-size: 14px;
     font-weight: 600;
     text-decoration: underline;
     float: inline-end;
+    padding-right: 40px;
     padding-top: 5px;
     cursor: pointer;
  }
 .backbtn{
     margin-right: 15px;
-}
-.formInputs{
-    margin-left: 55px;
 }
 @media screen and (max-width:575px) {
     .transaction{
@@ -106,24 +117,25 @@ input::-webkit-inner-spin-button {
         font-size: 12px;
         padding-left: 8px;
     }
-    .formInputs{
-        margin-left: 0px;
-    }
-    .addPayee{
+    .addPayeesm{
         font-size: 10px;
-    }
-    .form-check-input{
-        margin-top: 6px;
+        float: inline-end;
+        padding-top: 5px;
     }
     .transferFund{
         padding-top: 12px;
+        padding-left: 18px;
         color: #082341;
         font-size: 10px;
         font-weight: 600;
-        letter-spacing: 0.2px;
     }
-    .smpayMode{
-        margin-left: 7px;
+    .payModessm{
+        display: flex;
+        padding-left: 16px;
+        padding-top: 6px;
+    }
+    .pd-default{
+        padding: 3px !important;
     }
     
 }

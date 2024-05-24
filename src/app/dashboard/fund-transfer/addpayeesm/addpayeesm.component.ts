@@ -31,6 +31,15 @@ export class AddpayeesmComponent {
     });
   }
 
+  ngOnInit(){
+    this.addPayeesmForm.get('accountNo')?.valueChanges.subscribe(value=>{
+        this.service.changeAccountNumber(value)
+    })
+    this.addPayeesmForm.get('bankName')?.valueChanges.subscribe(value=>{
+      this.service.userBankName(value)
+    })
+  }
+
   accountNoMatchValidator(addPayeeForm: FormGroup) {
     const accNumber = addPayeeForm.get('accountNo')?.value;
     const reEnterAccNumber = addPayeeForm.get('reEnteraccountNo')?.value;

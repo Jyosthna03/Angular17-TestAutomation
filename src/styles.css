@@ -12,7 +12,6 @@ body {
   .btn-enabled, .btn .btn-primary:active{
     background: #1B154C !important;
     border: none !important;
-
   }
   .btn-disabled{
     border: none !important;
@@ -21,9 +20,10 @@ body {
   .error-text{
     color: var(--Secondary-Colors-EV-Imperial---Danger-Error-EV-IMP, #F22F46);
     font-size: 12px;
-    font-style: normal;
     font-weight: 400;
-    line-height: 16px; /* 133.333% */
+    font-weight: 400;
+    /* padding-top: 5px; */
+    margin: 0px !important;
   }
   .text-color {
     color: #1b154c;
@@ -68,13 +68,6 @@ body {
     margin-left: 15px;
     text-align: center;
     cursor: pointer;
-  }
-  .error-msg {
-    color: red;
-    font-size: 16px;
-    font-weight: bold;
-    padding-top: 5px;
-    padding-left: 258px;
   }
   .sub-text {
     color: #777;
@@ -156,10 +149,7 @@ body {
   .summaryheading {
     color: var(--Heading-Text, #1b154c);
     font-size: 16px;
-    font-style: normal;
     font-weight: 700;
-    line-height: normal;
-    letter-spacing: 0.32px;
     padding: 14px;
   }
 .toggleSwitchContent {
@@ -249,40 +239,33 @@ body {
       font-size: 12px;
       margin-left: 5px;
     }
+    input.transferInputs {
+      width: 216px ;
+      height: 36px;
+      flex-shrink: 0;
+      float: inline-end;
+    }
+    select.transferInputs{
+      width: 216px;
+      height: 36px;
+      flex-shrink: 0;
+      float: inline-end;
+    }
+    .cancelAndSaveBtn{
+      width: 100px;
+    }
   }
- @media (max-width:768px){
-  .cancelAndSaveBtn{
-    width: 100px;
+  @media screen and (max-width:992px) {
+    .card-header{
+       background-color: white !important;
+       margin-bottom: 17px;
+       border: none !important;
+       font-size: 14px;
+       padding: 2px;
+    }
   }
-}
-@media (max-width:576px){
-  .error-msg{
-    font-size: 10px;
-    padding-left: 140px;
-  }
-}
-@media (min-width:577px) and (max-width:992px){
-  .error-msg{
-    font-size: 14px;
-    padding-left: 310px;
-  }
-}
-
-@media only screen and (max-width : 767px) {
-  input.transferInputs {
-    width: 216px ;
-    height: 36px;
-    flex-shrink: 0;
-    float: inline-end;
-  }
-  select.transferInputs{
-    width: 216px;
-    height: 36px;
-    flex-shrink: 0;
-    float: inline-end;
-  }
-}
-@media only screen and (min-width:300px) and (max-width: 576px) {
+/* select-biller */
+@media only screen and (min-width:375px) and (max-width: 576px) {
   p.summaryheading {
     font-size: 12px ; 
     padding: 15px;

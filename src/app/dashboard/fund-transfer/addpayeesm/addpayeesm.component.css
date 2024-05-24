@@ -15,16 +15,12 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
-  line-height: 20px;
-  padding-left: 80px; 
+  line-height: 20px; 
+  padding-left: 80px;
 }
 .payeeInputs{
-    margin-bottom: 15px;
-}
-.error-text{
-   color: red;
-   font-weight: bold;
-   font-size: 10px;
+    margin-bottom: 12px;
+    padding-left: 0px;
 }
 .ifscCode{
    text-transform: uppercase;
@@ -32,7 +28,7 @@
 @media screen and (min-width:576px) and (max-width:767px) {
     .payee-details{
         font-size: 12px;
-        padding-left: 55px;
+        padding-left: 20px;
     }
     input.transferInputs {
         width: 216px ;
@@ -45,10 +41,10 @@
         padding-left: 40px;
     }
 }
-@media screen and (min-width:300px) and (max-width:575px) {
+@media screen and (min-width:375px) and (max-width:575px) {
     .payee-details{
         font-size: 12px;
-        padding-left: 15px;
+        padding-left: 0px;
     }
     .error-text{
         padding-left: 0px;
