@@ -17,18 +17,10 @@
     line-height: normal;
     border: 1px solid #d2d2d2;
   }
-  
   .Det {
     color: #082341;
-    font-family: Mulish;
     font-size: 16px;
-    font-style: normal;
     font-weight: 700;
-    line-height: normal;
-  }
-  
-  .accountDetField {
-    margin-left: 36px;
   }
 .form-check-input:checked {
     background-image: url("/assets/tick.svg");
@@ -40,24 +32,15 @@ input::-webkit-inner-spin-button {
   }
 .eachNote {
     color: #777;
-    font-size: 16px;
-    font-style: normal;
+    font-size: 12px;
     font-weight: 700;
-    letter-spacing: 0.32px;
-    line-height: 20px; /* 175% */
   }
 .payeeBtns {
     display: flex;
     justify-content: center;
     gap: 20px;
   }
-  
-  .error-msg{
-    color: red;
-    font-weight: bold;
-    padding-left: 218px;
-}
-.modal-header {
+  .modal-header {
   position: sticky;
   top: 0;
   background: var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1B154C);
@@ -78,7 +61,6 @@ input::-webkit-inner-spin-button {
 .modal-scroll{
   max-height: 400px; 
   overflow-y: auto;
-
 }
 .modal-body{
   padding: 0 !important;
@@ -101,14 +83,11 @@ input::-webkit-inner-spin-button {
   padding: 4px;
   margin-right: 5px;
 }
-.error-text{
-  color: red;
-  font-weight: bold;
-  font-size: 14px;
-  margin-bottom: 0 !important;
-}
 .ifscCode{
    text-transform: uppercase;
+}
+.addPayeeNote{
+  padding-left: 57px !important;
 }
 
   

@@ -7,11 +7,24 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class BankingdataService {
-  private accountNumberSource = new BehaviorSubject<string>('');
-  currentAccountNumber = this.accountNumberSource.asObservable();
+  private accountNumberpopUp = new BehaviorSubject<string>('');
+  private bankNamepopUp = new BehaviorSubject<string>('');
+  currentAccountNumber = this.accountNumberpopUp.asObservable();
+  currentBankName = this.bankNamepopUp.asObservable();
+
+  private accountNosm = new BehaviorSubject<string>('');
+  private bavkNamesm = new BehaviorSubject<string>('');
+  currentAccountNosm = this.accountNosm.asObservable();
+  currentBavkNamesm = this.bavkNamesm.asObservable();
 
   changeAccountNumber(accountNumber: string) {
-    this.accountNumberSource.next(accountNumber);
+    this.accountNumberpopUp.next(accountNumber);
+    this.accountNosm.next(accountNumber)
+  }
+
+  userBankName(bankName:string){
+    this.bankNamepopUp.next(bankName);
+    this.bavkNamesm.next(bankName)
   }
 
   constructor(private http:HttpClient) { }

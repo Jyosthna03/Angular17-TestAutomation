@@ -39,10 +39,20 @@ export class MoneyTransferComponent {
     this.service.currentAccountNumber.subscribe(accountNumber => {
       this.moneyTransferForm.get('accountNumber')?.setValue(accountNumber, { emitEvent: false });
     });
+   this.service.currentBankName.subscribe(bankName =>{
+      this.moneyTransferForm.get('bankName')?.setValue( bankName, { emitEvent: false });
+    })
+
+    this.service.currentAccountNosm.subscribe(accNo =>{
+      this.moneyTransferForm.get('accountNumber')?.setValue(accNo, { emitEvent: false });
+    })
+    this.service.currentBavkNamesm.subscribe(bkName =>{
+      this.moneyTransferForm.get('bankName')?.setValue(bkName, { emitEvent: false });
+    })
    }
-   get f() {
-    return this.moneyTransferForm.controls;
-  }
+  //  get f() {
+  //   return this.moneyTransferForm.controls;
+  // }
   calculateTotalAmount(){
     let mytotal=0;
     for(let i=0;i<this.service.paymentHistory.length;i++){

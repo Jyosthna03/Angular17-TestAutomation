@@ -21,7 +21,6 @@
                               }
                           </div>
                     </div>
-                    <div class="col-sm-2"></div>
              </div>
 
              <div class="row">
@@ -41,7 +40,6 @@
                         }
                     </div>
                  </div>
-                 <div class="col-sm-2"></div>
              </div>
 
              <div class="row">
@@ -55,7 +53,6 @@
                              }
                        </select>
                 </div>
-                <div class="col-sm-2"></div>
              </div>
 
              <div class="row">
@@ -68,8 +65,7 @@
                         @if (addPayeesmForm.get('accountNo')?.hasError('required') && addPayeesmForm.get('accountNo')?.touched) {
                             <p class="error-text"> Please Enter Account Number</p>
                         }
-                        
-                    </div>
+                     </div>
                     <div>
                         @if (addPayeesmForm.get('accountNo')?.hasError('pattern') || addPayeesmForm.get('accountNo')?.hasError('minlength')) {
                             <p class="error-text"> Account Number must be numerical and atleast 8 digits</p>
