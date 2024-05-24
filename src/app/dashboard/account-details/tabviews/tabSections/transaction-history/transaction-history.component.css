@@ -8,6 +8,12 @@
   font-weight: 700;
 }
 
+.inptxt{
+  color: #082341;
+  font-size: 12px;
+  font-weight: 700;
+}
+
 .lblText{
   color: #082341;
   margin-right: 1.5rem;
@@ -30,12 +36,9 @@
   
   .tabFont {
     height: 36px;
-    flex-shrink: 0;
     color: #37383a;
     font-size: 12px;
-    font-style: normal;
     font-weight: 700;
-    line-height: normal;
     text-transform: capitalize;
   }
   
@@ -74,14 +77,11 @@
   .rowsPg {
     color: #979797;
     font-size: 12px;
-    font-style: normal;
     font-weight: 700;
-    line-height: normal;
   }
   
   .paginationArea {
     height: 55px;
-    flex-shrink: 0;
     background: #fff;
     padding: 1px;
     cursor: pointer;
@@ -91,9 +91,7 @@
     background: #082341;
     color: #fff;
     font-size: 12px;
-    font-style: normal;
     font-weight: 700;
-    line-height: normal;
   }
   
   .pgNo {
@@ -125,12 +123,12 @@
     margin-bottom: 30px;
   }
 
-  .form-control:focus{
-    box-shadow:none;
+  .pgbackBtn{
+    margin-right: 15px;
   }
 
   
-  
+
   @media (max-width:576px){
     .smTop{
       margin-top: 1.5rem !important;

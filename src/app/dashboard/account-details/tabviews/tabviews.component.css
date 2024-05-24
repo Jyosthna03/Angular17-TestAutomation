@@ -4,9 +4,7 @@
     font-weight: 700;
     line-height: normal;
   }
-/* #tabs{
-    font-size: calc(9px + 0.8vw);
-} */
+
 
 @media (max-width: 768px) {
   .nav-link {
@@ -24,7 +22,6 @@
   }
 
   .nav-link.active {
-    /* font-size: 10px !important; */
     font-weight: bold !important;
   }
 }
