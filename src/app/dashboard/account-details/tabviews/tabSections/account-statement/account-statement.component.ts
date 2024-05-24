@@ -1,12 +1,11 @@
 import { DatePipe } from '@angular/common';
 import { Component, signal } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-account-statement',
   standalone: true,
-  imports: [FormsModule, DatePipe, RouterLink],
+  imports: [ DatePipe, RouterLink],
   templateUrl: './account-statement.component.html',
   styleUrl: './account-statement.component.css'
 })
@@ -15,8 +14,8 @@ export class AccountStatementComponent {
   toStatementDate = signal('');
   showflag = signal('');
   todayDate = signal(new Date());
-  statementPeriod = signal(['Last 7 Days', 'Last 14 Days']);
-  statementFormats = signal(['PDF File', 'Excel Sheet']);
+  statementPeriod = signal(['Select here','Last 7 Days', 'Last 14 Days']);
+  statementFormats = signal(['Please select','PDF File', 'Excel Sheet']);
   selectStatementPeriod = signal(this.statementPeriod()[0]);
   selectedStatementFormat = signal(this.statementFormats()[0]);
 

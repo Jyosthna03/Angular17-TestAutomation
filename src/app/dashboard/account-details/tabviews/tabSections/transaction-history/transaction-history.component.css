@@ -127,6 +127,8 @@
     margin-right: 15px;
   }
 
+  
+
   @media (max-width:576px){
     .smTop{
       margin-top: 1.5rem !important;
