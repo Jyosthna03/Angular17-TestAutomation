@@ -30,7 +30,7 @@
 }
 .sub-text{
     margin-right: 16px;
-    margin-left: 30px !important;
+    margin-left: 70px !important;
     margin-top: 5px;
 }
 .bold-text{
@@ -38,6 +38,14 @@
 }
 .sub-text-account{
     margin-left: 100px;
+}
+.biller-details{
+    margin-top: 50px;
+    color: #082341;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
 }
 /* .sel-balance{
     margin-left: 174px;
