@@ -1,67 +1,60 @@
 <section>
   <div class=" offset-md-2 offset-sm-0 col-md-9">
-    <form>
+    <form [formGroup]="statementForm">
       <div class="d-lg-flex mt-4 ms-4 d-sm-block mt-4">
         <div class="form-check form-check-label mt-2">
-          <input class="form-check-input" type="radio" name="flexRadioDefault3" id="flexRadioDefault3"/>
+          <input class="form-check-input" type="radio" id="flexRadioDefault3" formControlName="inputType" value="dateRange"/>
           <label class="form-check-label mt-1 pglbl" for="flexRadioDefault3">Transaction Date</label>
         </div>
         <div class="row d-flex justify-content-center">
           <div class="col-md-6 col-sm-12 d-flex mt-2 smTop wholesmTop">
             <label class="lablespace balance lblText ">
-              <p class="dateplace">From</p>
+              <span class="dateplace">From</span>
             </label>
-            <input class="form-control Field inputBox inptxt" type="date"/>
+            <input class="form-control Field inputBox inptxt" type="date" formControlName="fromDate"/>
           </div>
           <div class="col-md-6 col-sm-12 d-flex mt-2 wholesmTop">
-            <label class="lablespace balance lblText">
-              <p class="dateplace" id="toDate">To</p>
+            <label class="lablespace balance lblText dateplace">
+              <span id="toDate">To</span>
             </label>
-            <input class="form-control Field inputBox inptxt" type="date"  max="{{ todayDate() | date : 'yyyy-MM-dd' }}" />
+            <input class="form-control Field inputBox inptxt" type="date"  max="{{ todayDate() | date : 'yyyy-MM-dd' }}" formControlName="toDate" />
           </div>
         </div>
       </div>
-      <div class=" mt-2 ms-4 d-lg-flex" id="periodBox">
+      <div class="mt-4 ms-4 d-lg-flex" id="periodBox">
         <div class="form-check transfield form-check-label">
-          <input class="form-check-input" type="radio" name="flexRadioDefault3" id="flexRadioDefault4" />
+          <input class="form-check-input" type="radio" id="flexRadioDefault4" formControlName="inputType" value="dropdown" />
           <label class="form-check-label mt-1 pglbl" for="flexRadioDefault4">Transaction Period</label>
         </div>
         <div class="d-flex mt-lg-0 mt-4">
           <label class="lablespace balance lblText">
-            <p>Select</p>
+            <span>Select</span>
           </label>
-          <select class="form-select Field inputBox inptxt" name="duration" id="duration">
+          <select class="form-select Field inputBox inptxt" formControlName="selectedOption">
             @for (eachday of statementPeriod() ; track $index) {
-            <option [value]="eachday">{{ eachday }}</option>
+            <option>{{ eachday }}</option>
             }
           </select>
         </div>
       </div>
-      <div class=" mt-2 ms-4 d-lg-flex" id="downloadBox">
+      <div class="mt-4 ms-4 d-lg-flex" id="downloadBox">
         <label class="form-check-label mt-1 pglbl" for="flexRadioDefault5">Download details as</label>
       <div class="d-flex mt-lg-0 mt-4">
         <label class="lablespace balance lblText">
-          <p>Select</p>
+          <span>Select</span>
         </label>
-        <select class="form-select Field inputBox inptxt" name="duration" id="duration">
+        <select class="form-select Field inputBox inptxt" formControlName="downloadFormat">
           @for (opt of statementFormats() ; track $index) {
-          <option [value]="opt">{{ opt }}</option>
+          <option>{{ opt }}</option>
           }
         </select>
       </div>
     </div>
     <div class="btnArea">
       <button class="cancelAndSaveBtn d-lg-inline pgbackBtn" routerLink="/dashboard" id="back">Back</button>
-      <button class="cancelAndSaveBtn ">Cancel</button>
-      <button class="btn btn-primary cancelAndSaveBtn saveBtn" type="submit">Show</button>
+      <button class="cancelAndSaveBtn" (click)="cancelForm()">Cancel</button>
+      <button class="btn btn-primary cancelAndSaveBtn saveBtn" type="submit" [disabled]="statementForm.invalid" (click)="submitForm()" [ngClass]="{'btn-enabled': !statementForm.invalid, 'btn-disabled': statementForm.invalid}">Show</button>
     </div>
     </form>
-    
-    
-    
-    
-    
     </div>
-    
-    
 </section>

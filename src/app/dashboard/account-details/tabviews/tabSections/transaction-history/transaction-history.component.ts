@@ -75,7 +75,7 @@ export class TransactionHistoryComponent {
   }
 
   submitForm(){
-    if(this.transactionForm.valid && this.transactionForm.value.selectedOption!='Please select'){
+    if(this.transactionForm.valid){
       this.serv.getData().subscribe((data: any) => {
         if (data['TransHistory'].length != 0) {
           console.log(data['TransHistory']);
