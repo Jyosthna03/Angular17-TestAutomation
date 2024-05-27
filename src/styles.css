@@ -21,8 +21,6 @@ body {
     color: var(--Secondary-Colors-EV-Imperial---Danger-Error-EV-IMP, #F22F46);
     font-size: 12px;
     font-weight: 400;
-    font-weight: 400;
-    /* padding-top: 5px; */
     margin: 0px !important;
   }
   .text-color {
