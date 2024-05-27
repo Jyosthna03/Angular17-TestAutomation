@@ -65,7 +65,8 @@
 }
 @media screen and (max-width:991px) {
     .offcanvas{
-        width: 260px ;
+        width: 260px;
+        height: 500px;
      }
   .text-reset{
         width: 14px;
