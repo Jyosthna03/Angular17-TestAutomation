@@ -13,8 +13,7 @@ export class TransferAccountSummaryComponent {
 
   
   userAccountDetails:any;
-  constructor(private service:BankingdataService){}
-  ngOnInit(){
+  constructor(private service:BankingdataService){
     this.userAccountDetails = this.service.accountData;
     this.userAccountDetails[0].AccountHolder = this.service.trimmedString;
     console.log(this.userAccountDetails)

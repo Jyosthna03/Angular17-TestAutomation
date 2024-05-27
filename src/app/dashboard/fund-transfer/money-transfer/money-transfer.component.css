@@ -107,6 +107,7 @@ input::-webkit-inner-spin-button {
     .paymentModeLabel{
         font-size: 12px;
         padding-left: 8px;
+        padding-top: 4px;
     }
     .addPayeesm{
         font-size: 10px;
@@ -121,9 +122,9 @@ input::-webkit-inner-spin-button {
         font-weight: 600;
     }
     .payModessm{
-        display: flex;
+        display: inline-flex;
         padding-left: 16px;
-        padding-top: 6px;
+        padding-top: 2px;
     }
     .pd-default{
         padding: 3px !important;

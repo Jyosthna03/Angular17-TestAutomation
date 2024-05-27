@@ -120,7 +120,7 @@
         </form>
         </section>
         <div class="modal-footer">
-            <button class="cancelAndSaveBtn ms-3" (click)="onCancel()" id="cancel">cancel</button>
+            <button class="cancelAndSaveBtn ms-3" (click)="onCancel()" id="cancel">Cancel</button>
             <button type="submit" class="btn btn-primary cancelAndSaveBtn saveBtn" [disabled]="addPayeeForm.invalid" (click)="submitPayee(addPayeeForm.value)" id="addPayee" [ngClass]="{'btn-enabled': !addPayeeForm.invalid, 'btn-disabled': addPayeeForm.invalid}">Add Payee</button>
         </div>
 </div>

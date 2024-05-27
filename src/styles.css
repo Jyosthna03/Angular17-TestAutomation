@@ -88,7 +88,7 @@ body {
   /* transfer and payment screen css  */
   .cancelAndSaveBtn {
     width: 160px;
-    height: 28px;
+    padding: 5px 0px 5px 0px;
     border: 1px solid #082341;
     color: #082341;
     text-align: center;
@@ -97,6 +97,7 @@ body {
     letter-spacing: 0.12px;
     background: #fff;
     border-radius: 4px;
+    text-transform: capitalize;
   }
   .saveBtn {
     color: #fff;
