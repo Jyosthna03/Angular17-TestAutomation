@@ -1,15 +1,9 @@
 .bg-container{
     height: auto;
     margin: 8px 8px 16px 8px;
-    border: 1px 0px 0px 0px;
     border: 1px solid #D1CFCF;
 }
-.wrap{
-    overflow-wrap: break-word;
-}
-p{
-    margin-bottom: 0px !important;
-}
+
 
 
 

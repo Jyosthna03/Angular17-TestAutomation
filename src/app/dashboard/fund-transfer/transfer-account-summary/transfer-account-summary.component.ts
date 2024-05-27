@@ -10,14 +10,14 @@ import { CommonModule, CurrencyPipe } from '@angular/common';
   styleUrl: './transfer-account-summary.component.css'
 })
 export class TransferAccountSummaryComponent {
-  accbalance:number=0;
-  accountNumber:any
-  accountHolder:string = ''
+
+  
+  userAccountDetails:any;
   constructor(private service:BankingdataService){}
   ngOnInit(){
-    this.accountNumber = this.service.accountData[0].AccountNumber;
-    this.accountHolder = this.service.trimmedString;
-    this.accbalance =  this.service.balance;
+    this.userAccountDetails = this.service.accountData;
+    this.userAccountDetails[0].AccountHolder = this.service.trimmedString;
+    console.log(this.userAccountDetails)
   }
 
  

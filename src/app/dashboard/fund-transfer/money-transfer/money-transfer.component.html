@@ -154,7 +154,7 @@
                                  <div class="d-lg-none d-sm-block d-md-block d-flex flex-row justify-content-between">
                                        @for(data of paymentModeData;track $index){
                                         <div class="payModessm">
-                                            <input type="radio" class="form-check-input-sm" formControlName="paymentModeInput" name="paymentModeInput" (click)="check(data)" value="{{data.label}}">
+                                            <input type="radio" class="form-check-input" formControlName="paymentModeInput" name="paymentModeInput" (click)="check(data)" value="{{data.label}}">
                                             <label class="paymentModeLabel">{{data.label}}</label>
                                         </div>
                                         }
