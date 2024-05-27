@@ -54,6 +54,14 @@
   margin-top: 8px;
 }
 
+.btnArea{
+  display: flex;
+  justify-content: start;
+  margin-left: 150px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
 input[type="date"]:before{
   color: black;
   content:attr(placeholder);
@@ -70,10 +78,18 @@ input[type="date"]:before{
   .smTop{
     margin-top: 1.5rem !important;
   }
+
+  .btnArea{
+    margin-left: 0px;
+  }
 }
 
 @media (max-width:768px){
   .wholesmTop{
     margin-top: 1.5rem !important;
+  }
+
+  .btnArea{
+    margin-left: 0px;
   }
 }

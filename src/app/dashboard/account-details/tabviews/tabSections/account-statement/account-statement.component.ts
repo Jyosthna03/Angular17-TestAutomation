@@ -17,6 +17,8 @@ export class AccountStatementComponent {
   todayDate = signal(new Date());
   statementPeriod = signal(['Select here','Last 7 Days', 'Last 14 Days']);
   statementFormats = signal(['Please select','PDF File', 'Excel Sheet']);
+  defaultSelect:string = 'Select here'
+  defaultFile:string = 'Please select'
   selectStatementPeriod = signal(this.statementPeriod()[0]);
   selectedStatementFormat = signal(this.statementFormats()[0]);
   statementForm!:FormGroup;
@@ -26,7 +28,7 @@ export class AccountStatementComponent {
       inputType: ['', Validators.required],
       fromDate: ['', Validators.required],
       toDate: ['', Validators.required],
-      selectedOption: ['', Validators.required],
+      selectedOption: ['',Validators.required],
       downloadFormat:['',Validators.required]
     });
 
@@ -44,13 +46,9 @@ export class AccountStatementComponent {
   }
 
   cancelForm(){
-    this.statementForm.get('selectedOption')!.enable();
-    this.statementForm.get('fromDate')!.enable();
-    this.statementForm.get('toDate')!.enable();
     this.statementForm.reset();
-    this.statementForm.get('selectedOption')!.setValue(this.selectStatementPeriod());
-    this.statementForm.get('downloadFormat')!.setValue(this.selectedStatementFormat());
-    console.log(this.statementForm.value);
+    this.statementForm.get('selectedOption')!.setValue(this.defaultSelect);
+    this.statementForm.get('downloadFormat')!.setValue(this.defaultFile);
   }
 
   submitForm(){
