@@ -19,37 +19,40 @@
 .selectBiller,.cre-card,.billDetails,.billerCard{
     font-size: 12px;
 }
-.dueDate{
-    margin-left: 100px;
-}
 .error-txt{
     padding-left: 80px;
 }
-.balance{
-    margin-left: 80px;
-}
 .sub-text{
-    margin-right: 16px;
-    margin-left: 70px !important;
     margin-top: 5px;
+}
+.sub-text.due{
+    margin-right: 20px;
 }
 .bold-text{
     margin-left: 18px !important;
 }
-.sub-text-account{
-    margin-left: 100px;
+.button-margin{
+  margin-top: 50px;
 }
-.biller-details{
-    margin-top: 50px;
+.biller{
+  margin-top: 50px;
+}
+.payment{
+margin-top: 30px;
+}
+.sub-text-biller{
+    margin-top: 35px;
+}
+.sub-text-paying-from{
+    margin-top: 37px;
+}
+.common-bold-text{
     color: #082341;
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
 }
-/* .sel-balance{
-    margin-left: 174px;
-} */
 @media screen and (min-width: 360px) and (max-width: 576px) {
 .sub-text{
     margin-left: -17px !important;
