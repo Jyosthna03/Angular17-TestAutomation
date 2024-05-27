@@ -310,6 +310,7 @@ body {
 @media screen and (max-width:768px) {
    .accountHeading{
     font-size: 10px;
+    padding-bottom: 2px !important;
    }
    .accountValues{
     font-size: 12px;
