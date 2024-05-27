@@ -39,9 +39,9 @@
         </div>
       </div>
         <div class="btnArea">
-          <button class="cancelAndSaveBtn d-lg-inline pgbackBtn" routerLink="/dashboard" id="back">Back</button>
-          <button class="cancelAndSaveBtn " (click)="cancelForm()">Cancel</button>
-          <button class="btn btn-primary cancelAndSaveBtn saveBtn" type="submit" [disabled]="transactionForm.invalid" (click)="submitForm()" [ngClass]="{'btn-enabled': !transactionForm.invalid, 'btn-disabled': transactionForm.invalid}">Show</button>
+          <button class="cancelAndSaveBtn pgbackBtn" routerLink="/dashboard" id="back">Back</button>
+          <button class="cancelAndSaveBtn" (click)="cancelForm()">Cancel</button>
+          <button class="btn btn-primary cancelAndSaveBtn saveBtn" type="submit" [disabled]="transactionForm.get('selectedOption')!.value === 'Please select' || transactionForm.invalid" (click)="submitForm()" [ngClass]="{'btn-enabled': !transactionForm.invalid, 'btn-disabled': transactionForm.get('selectedOption')!.value === 'Please select' || transactionForm.invalid}">Show</button>
         </div>
     </form>
   </div>

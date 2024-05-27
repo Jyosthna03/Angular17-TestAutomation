@@ -51,9 +51,9 @@
       </div>
     </div>
     <div class="btnArea">
-      <button class="cancelAndSaveBtn d-lg-inline pgbackBtn" routerLink="/dashboard" id="back">Back</button>
+      <button class="cancelAndSaveBtn pgbackBtn" routerLink="/dashboard" id="back">Back</button>
       <button class="cancelAndSaveBtn" (click)="cancelForm()">Cancel</button>
-      <button class="btn btn-primary cancelAndSaveBtn saveBtn" type="submit" [disabled]="statementForm.invalid" (click)="submitForm()" [ngClass]="{'btn-enabled': !statementForm.invalid, 'btn-disabled': statementForm.invalid}">Show</button>
+      <button class="btn btn-primary cancelAndSaveBtn saveBtn" type="submit" [disabled]="(statementForm.get('selectedOption')!.value === 'Select here' || statementForm.get('downloadFormat')!.value === 'Please select') || statementForm.get('fromDate')!.value==='' || statementForm.invalid"  (click)="submitForm()" [ngClass]="{'btn-enabled': !statementForm.invalid, 'btn-disabled': (statementForm.get('selectedOption')!.value === 'Select here' || statementForm.get('downloadFormat')!.value === 'Please select'|| statementForm.get('fromDate')!.value==='') || statementForm.invalid}">Download</button>
     </div>
     </form>
     </div>
