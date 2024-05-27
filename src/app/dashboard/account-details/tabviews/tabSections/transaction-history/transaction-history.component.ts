@@ -95,9 +95,7 @@ export class TransactionHistoryComponent {
     this.transactionForm.get('fromDate')!.enable();
     this.transactionForm.get('toDate')!.enable();
     this.transactionForm.reset();
-    this.transactionForm.patchValue({
-      selectedOption:this.selectedperidocday
-    });
+    this.transactionForm.get('selectedOption')!.setValue(this.selectedperidocday);
     this.showData =false;
   }
 

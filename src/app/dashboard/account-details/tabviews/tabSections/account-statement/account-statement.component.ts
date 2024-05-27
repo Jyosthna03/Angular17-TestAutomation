@@ -48,12 +48,9 @@ export class AccountStatementComponent {
     this.statementForm.get('fromDate')!.enable();
     this.statementForm.get('toDate')!.enable();
     this.statementForm.reset();
-    this.statementForm.patchValue({
-      selectedOption:this.selectStatementPeriod()
-    });
-    this.statementForm.patchValue({
-      downloadFormat:this.selectedStatementFormat()
-    });
+    this.statementForm.get('selectedOption')!.setValue(this.selectStatementPeriod());
+    this.statementForm.get('downloadFormat')!.setValue(this.selectedStatementFormat());
+    console.log(this.statementForm.value);
   }
 
   submitForm(){
