@@ -16,7 +16,7 @@ import { CommonModule } from '@angular/common';
 export class AddpayeeComponent {
 
   addPayeeForm!:FormGroup
-  bankNames = ['Select Bank','Hdfc', 'Axis', 'SBI', 'ICICI', 'StandardChart'];
+  bankNames = ['Select Bank','Hdfc', 'Axis', 'SBI', 'ICICI', 'Standard Charted'];
   defaultBank:string = 'Select Bank';
   constructor(private service:BankingdataService,private fb:FormBuilder, private route:Router, private modalService:NgbModal){
     this.addPayeeForm = this.fb.group ({

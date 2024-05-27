@@ -13,9 +13,9 @@ export class BankingdataService {
   currentBankName = this.bankNamepopUp.asObservable();
 
   private accountNosm = new BehaviorSubject<string>('');
-  private bavkNamesm = new BehaviorSubject<string>('');
+  private bankNamesm = new BehaviorSubject<string>('');
   currentAccountNosm = this.accountNosm.asObservable();
-  currentBavkNamesm = this.bavkNamesm.asObservable();
+  currentBavkNamesm = this.bankNamesm.asObservable();
 
   changeAccountNumber(accountNumber: string) {
     this.accountNumberpopUp.next(accountNumber);
@@ -24,7 +24,7 @@ export class BankingdataService {
 
   userBankName(bankName:string){
     this.bankNamepopUp.next(bankName);
-    this.bavkNamesm.next(bankName)
+    this.bankNamesm.next(bankName)
   }
 
   constructor(private http:HttpClient) { }

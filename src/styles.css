@@ -21,8 +21,6 @@ body {
     color: var(--Secondary-Colors-EV-Imperial---Danger-Error-EV-IMP, #F22F46);
     font-size: 12px;
     font-weight: 400;
-    font-weight: 400;
-    /* padding-top: 5px; */
     margin: 0px !important;
   }
   .text-color {
@@ -156,24 +154,21 @@ body {
     padding: 5px;
   }
   .accountHeading {
+    display: block;
     color: #020202;
     font-size: 14px;
-    font-style: normal;
     font-weight: 500;
-    line-height: normal;
-    text-align: start;
-    padding-bottom: 12px;
+    padding-bottom: 9px;
   }
   .accountValues {
     color: #082341;
-    font-size: 18px;
-    font-style: normal;
+    font-size: 16px;
     font-weight: 800;
-    line-height: normal;
-    letter-spacing: 0.36px;
-    text-align: start;
     text-transform: capitalize;
-    padding-bottom: 16px;
+    padding-bottom: 27px;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow-wrap: break-word;
   }
   .accountSummary {
     background-color: #ecf3ff;
@@ -312,10 +307,9 @@ body {
 }
 
 /* account summary component */
-@media screen and (max-width:767px) {
+@media screen and (max-width:768px) {
    .accountHeading{
     font-size: 10px;
-    padding-bottom: 6px;
    }
    .accountValues{
     font-size: 12px;
