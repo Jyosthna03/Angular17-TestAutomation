@@ -9,6 +9,7 @@
      height: 20px;
      flex-shrink: 0;
      border-radius: 20px;
+     background-color: #1B154C;
  }
  input:focus, input.form-check-input:focus {
      outline:none !important;

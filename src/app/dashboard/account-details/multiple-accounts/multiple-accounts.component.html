@@ -14,14 +14,14 @@
             <circle cx="16" cy="16" r="16" fill="#77F800" />
             <circle opacity="0.9" cx="40" cy="16" r="16" fill="#CA9314" />
           </svg>
-          <p class="cardDetails accountType">{{data.AccountType}}</p>
+          <span class="cardDetails accountType">{{data.AccountType}}</span>
         </div>
         <div>
-          <p class="accountNumber" id="number">{{data.AccountNumber | digitSpacing}}</p>
+          <span class="accountNumber" id="number">{{data.AccountNumber | digitSpacing}}</span>
         </div>
-        <div class="d-flex flex-row justify-content-between">
-          <p class="cardDetails accountHolderName">{{data.AccountHolder}}</p>
-          <p class="cardDetails date">02/11</p>
+        <div class="d-flex flex-row justify-content-between account-expiry">
+          <span class="cardDetails accountHolderName">{{data.AccountHolder}}</span>
+          <span class="cardDetails date">02/11</span>
         </div>
       </div>
     </div>

@@ -50,9 +50,7 @@ export class MoneyTransferComponent {
       this.moneyTransferForm.get('bankName')?.setValue(bkName, { emitEvent: false });
     })
    }
-  //  get f() {
-  //   return this.moneyTransferForm.controls;
-  // }
+ 
   calculateTotalAmount(){
     let mytotal=0;
     for(let i=0;i<this.service.paymentHistory.length;i++){
