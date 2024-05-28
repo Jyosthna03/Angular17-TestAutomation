@@ -31,6 +31,7 @@
             <span>Select</span>
           </label>
           <select class="form-select Field inputBox inptxt" formControlName="selectedOption">
+            <option value="">Select here</option>
             @for (eachday of statementPeriod() ; track $index) {
             <option>{{ eachday }}</option>
             }
@@ -44,6 +45,7 @@
           <span>Select</span>
         </label>
         <select class="form-select Field inputBox inptxt" formControlName="downloadFormat">
+          <option value="">Please select</option>
           @for (opt of statementFormats() ; track $index) {
           <option>{{ opt }}</option>
           }
@@ -53,7 +55,7 @@
     <div class="btnArea">
       <button class="cancelAndSaveBtn pgbackBtn" routerLink="/dashboard" id="back">Back</button>
       <button class="cancelAndSaveBtn" (click)="cancelForm()">Cancel</button>
-      <button class="btn btn-primary cancelAndSaveBtn saveBtn" type="submit" [disabled]="(statementForm.get('selectedOption')!.value === 'Select here' || statementForm.get('downloadFormat')!.value === 'Please select') || statementForm.invalid"  (click)="submitForm()" [ngClass]="{'btn-enabled': !statementForm.invalid, 'btn-disabled': (statementForm.get('selectedOption')!.value === 'Select here' || statementForm.get('downloadFormat')!.value === 'Please select') || statementForm.invalid}">Download</button>
+      <button class="btn btn-primary cancelAndSaveBtn saveBtn" type="submit" [disabled]="statementForm.invalid"  (click)="submitForm()" [ngClass]="{'btn-enabled': !statementForm.invalid, 'btn-disabled': statementForm.invalid}">Download</button>
     </div>
     </form>
     </div>
