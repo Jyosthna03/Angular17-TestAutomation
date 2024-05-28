@@ -47,8 +47,8 @@ export class AccountStatementComponent {
 
   cancelForm(){
     this.statementForm.reset();
-    this.statementForm.get('selectedOption')!.setValue(this.defaultSelect);
-    this.statementForm.get('downloadFormat')!.setValue(this.defaultFile);
+    // this.statementForm.get('selectedOption')!.setValue(this.defaultSelect);
+    // this.statementForm.get('downloadFormat')!.setValue(this.defaultFile);
   }
 
   submitForm(){

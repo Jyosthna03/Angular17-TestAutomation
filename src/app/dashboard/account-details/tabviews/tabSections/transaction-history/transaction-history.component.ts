@@ -91,12 +91,12 @@ export class TransactionHistoryComponent {
   }
   
   cancelForm() {
-    this.transactionForm.get('selectedOption')!.enable();
-    this.transactionForm.get('fromDate')!.enable();
-    this.transactionForm.get('toDate')!.enable();
+    // this.transactionForm.get('selectedOption')!.enable();
+    // this.transactionForm.get('fromDate')!.enable();
+    // this.transactionForm.get('toDate')!.enable();
     this.transactionForm.reset();
-    this.transactionForm.get('selectedOption')!.setValue(this.selectedperidocday);
-    this.showData =false;
+    // this.transactionForm.get('selectedOption')!.setValue(this.selectedperidocday);
+    // this.showData =false;
   }
 
   onPageChange(pageNo: number) {
