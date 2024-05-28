@@ -46,7 +46,7 @@
                 <div class="col-lg-6">
                     <div class="eachBlock mb-2">
                         <label class="payee-details mt-1">Bank Name<span class="text-danger">*</span></label>
-                        <select class="transferInputs" formControlName="bankName">
+                        <select class="transferInputs dropdown-image" formControlName="bankName">
                             @for (bank of bankNames; track $index) {
                                 <option>{{bank}}</option>
                             }
