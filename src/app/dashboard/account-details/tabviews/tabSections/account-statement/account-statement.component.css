@@ -80,10 +80,6 @@ input[type="date"]:before{
   .smTop{
     margin-top: 1.5rem !important;
   }
-
-  .btnArea{
-    margin-left: 0px;
-  }
 }
 
 @media (max-width:768px){
@@ -91,7 +87,4 @@ input[type="date"]:before{
     margin-top: 1.5rem !important;
   }
 
-  .btnArea{
-    margin-left: 0px;
-  }
 }
