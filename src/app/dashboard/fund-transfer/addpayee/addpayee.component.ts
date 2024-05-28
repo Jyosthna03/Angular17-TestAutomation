@@ -18,6 +18,7 @@ export class AddpayeeComponent {
   addPayeeForm!:FormGroup
   bankNames = ['Select Bank','Hdfc', 'Axis', 'SBI', 'ICICI', 'Standard Charted'];
   defaultBank:string = 'Select Bank';
+  payeeAddMsg:string = ''
   constructor(private service:BankingdataService,private fb:FormBuilder, private route:Router, private modalService:NgbModal){
     this.addPayeeForm = this.fb.group ({
       fullname: new FormControl('',[Validators.required, Validators.pattern(/^[a-zA-Z ]*$/),Validators.minLength(3),Validators.maxLength(15)]),
@@ -51,12 +52,11 @@ export class AddpayeeComponent {
         this.service.addPayee.push(this.addPayeeForm.value.fullname);
         this.service.addpayeeData.push(formData)
         console.log(this.service.addpayeeData)
-        alert('Payee Added Sucessfully')
-        this.closePopup()
-  }
-  // get f() {
-  //   return this.addPayeeForm.controls;
-  // }
+        this.payeeAddMsg = "Payee Added Successfully!!!"
+        setTimeout(()=>{
+          this.closePopup()
+        },800);
+      }
 
   onCancel() {
     if(this.addPayeeForm.valid){
@@ -80,8 +80,8 @@ export class AddpayeeComponent {
     }
   }
 
-    @ViewChild('formElement') formElement!: ElementRef;
-    ngAfterViewInit() {
+  @ViewChild('formElement') formElement!: ElementRef;
+  ngAfterViewInit() {
     const formFields = this.formElement.nativeElement.querySelectorAll('input');
     formFields.forEach((field: HTMLInputElement) => {
       field.setAttribute('autocomplete', 'off');

@@ -74,7 +74,7 @@ export class BankingdataService {
         AccountHolder: this.trimmedString,
         AccountType:"Savings Account",
         AccountNumber:"1234567890111213",
-        AccountIFSCCode:"ABCD0001234",
+        AccountifscCode:"ABCD0001234",
         AccountBranch:"KPHB",
         AvailableBalanceinRupees: this.balance
     }

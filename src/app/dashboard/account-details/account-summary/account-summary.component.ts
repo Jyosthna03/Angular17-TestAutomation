@@ -12,12 +12,11 @@ export class AccountSummaryComponent {
   constructor(private service:BankingdataService){}
 
   isDisplay:boolean = false;
-  accountSummary:any;
-  accountUserName:any;
+  accountDetails:any;
   
   ngOnInit(){
-    this.accountSummary = this.service.accountData
-    this.accountUserName = this.service.trimmedString
+    this.accountDetails = this.service.accountData
+    this.accountDetails[0].AccountHolder = this.service.trimmedString
   }
 
 

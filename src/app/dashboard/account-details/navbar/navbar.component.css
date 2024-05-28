@@ -63,18 +63,16 @@
 .navbar-toggler-icon{
     background-color: #FFF;
 }
-@media screen and (max-width:991px) {
+@media screen and (max-width:992px) {
     .offcanvas{
         width: 260px;
-        height: 500px;
+        height: auto;
      }
   .text-reset{
         width: 14px;
         height: 14px;
   }
   .offcanvas-body{
-    display: flex;
-    flex-direction: row;
     justify-content: start !important;
   }
   .accountDetails{
@@ -85,8 +83,8 @@
     text-transform: capitalize;
   }
   .logOutBtn{
-    width: 200px;
-    height: 44px;
+    width: 160px;
+    height: 40px;
     border-radius: 5px;
     border: 1px solid var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1B154C);
     background: #FFF;
@@ -95,7 +93,10 @@
     text-align: center;
     font-size: 16px;
     font-weight: 400;
-  }
+    margin-top: 350px;
+    justify-content: center !important;
+    align-items: center !important;
+   }
   .userName{
         color: var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1B154C);
         font-size: 14px;

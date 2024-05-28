@@ -11,11 +11,11 @@
                   </div>
             <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
               <div class="accordion-body">
-                 @for (data of accountSummary; track $index) {
+                 @for (data of accountDetails; track $index) {
                         <div  class="row row-cols-2 row-cols-sm-2  row-cols-md-2 row-cols-lg-5">
                             <div class="col">
                                 <p class="accountHeading">Account Holder Name</p>
-                                 <p class="accountValues wrap">{{accountUserName}}</p>
+                                 <p class="accountValues wrap">{{data.AccountHolder}}</p>
                             </div>
                             <div class="col">
                                 <p class="accountHeading">Account Type</p>
@@ -35,8 +35,7 @@
                             </div>
                         </div>
                     }
-                 
-              </div>
+                </div>
             </div>
           </div>
     </div>

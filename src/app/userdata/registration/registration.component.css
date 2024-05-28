@@ -2,7 +2,10 @@
 .container-fluid{
   overflow-x: hidden !important;
 }
-
+.reg-image{
+  height: 100%;
+  width: 100%;
+}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;

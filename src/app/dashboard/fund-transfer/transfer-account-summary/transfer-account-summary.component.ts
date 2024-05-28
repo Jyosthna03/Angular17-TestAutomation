@@ -12,13 +12,15 @@ import { CommonModule, CurrencyPipe } from '@angular/common';
 export class TransferAccountSummaryComponent {
 
   
-  userAccountDetails:any;
-  constructor(private service:BankingdataService){
-    this.userAccountDetails = this.service.accountData;
-    this.userAccountDetails[0].AccountHolder = this.service.trimmedString;
-    console.log(this.userAccountDetails)
-  }
+  userAccountDetails:string = '';
+  balance:number = 0
+  constructor(private service:BankingdataService){}
 
+  ngOnInit(){
+    this.userAccountDetails = this.service.trimmedString;
+    this.balance = this.service.balance
+   
+  }
  
   
 }
