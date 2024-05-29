@@ -14,18 +14,11 @@
  .checkbox:not(:checked){
      background-color: #888;
 }
-
- input:focus, input.form-check-input:focus {
+input:focus, input.form-check-input:focus {
      outline:none !important;
      outline-width: 0 !important;
      box-shadow: none;
  }
- .wrap {
-    overflow-wrap: break-word;
-  }
-  p{
-    margin-bottom: 0px !important;
-  }
-  .switch{
+.switch{
     margin: 12px 25px 6px 0px;
   }

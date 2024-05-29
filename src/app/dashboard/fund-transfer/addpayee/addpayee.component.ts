@@ -50,8 +50,8 @@ export class AddpayeeComponent {
  
   submitPayee(formData:any){
         this.service.addPayee.push(this.addPayeeForm.value.fullname);
-        this.service.addpayeeData.push(formData)
-        console.log(this.service.addpayeeData)
+        // this.service.addpayeeData.push(formData)
+        // console.log(this.service.addpayeeData)
         this.payeeAddMsg = "Payee Added Successfully!!!"
         setTimeout(()=>{
           this.closePopup()

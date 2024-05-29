@@ -26,6 +26,7 @@
                                         <div class="row">
                                                 <div class="ft-left text">
                                                     <select class="transferInputs dropdown-image " formControlName="payee" required>
+                                                        <option value="">Select Payee</option>
                                                         @for (payee of payeeNames; track $index) {
                                                             <option>{{payee}}</option>
                                                         }
@@ -99,6 +100,11 @@
                                         <div>
                                             @if (moneyTransferForm.get('amount')?.hasError('required') && moneyTransferForm.get('amount')?.touched) {
                                                 <p class="error-text">Please Enter Amount</p>
+                                            }
+                                        </div>
+                                        <div>
+                                            @if(exceededLimit){
+                                                <p class="error-text">{{amountlimit}}</p>
                                             }
                                         </div>
                                     </div>

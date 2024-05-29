@@ -65,9 +65,9 @@ export class BankingdataService {
 
   trimmedString:string = "";
 
-  addPayee:any = ['Select Payee','Dileep']
+  addPayee:any = ['Dileep']
 
-  addpayeeData:addPayee[] = []
+  // addpayeeData:addPayee[] = []
 
   accountData:any= [
     {
@@ -80,6 +80,7 @@ export class BankingdataService {
     }
   ]
 
+  selectPayeeValue:boolean = true;
   isTransactionHistory=false;
   isAccountStatement=false;
   breadCrumb:any[] = ["Account Details"]
