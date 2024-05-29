@@ -51,7 +51,7 @@
                                         <label class="sub-text">Account Number<span class="text-danger">*</span></label>
                                     </div>
                                     <div class="col-lg-7 col-md-6 col-sm-6 col-7 pd-default">
-                                            <input type="text" placeholder="Enter Account Number" class="transferInputs" value="200" formControlName="accountNumber" maxlength="18" (keypress)="onKeyPress($event)">
+                                            <input type="number" placeholder="Enter Account Number" class="transferInputs" value="200" formControlName="accountNumber" maxlength="18" (keypress)="onKeyPress($event)">
                                             <div class="text-danger"> 
                                                 @if (moneyTransferForm.get('accountNumber')?.hasError('required') && moneyTransferForm.get('accountNumber')?.touched) {
                                                     <p class="error-text">Please Enter Account Number</p>
@@ -96,7 +96,7 @@
                                         <label class="sub-text">Enter the Amount<span class="text-danger">*</span></label>
                                     </div>
                                     <div class="col-lg-7 col-md-6 col-sm-7 col-7 pd-default">
-                                        <input type="text" placeholder="Enter Amount" class="transferInputs" formControlName="amount" required (keypress)="onKeyPress($event)" maxlength="5">
+                                        <input type="number" placeholder="Enter Amount" class="transferInputs" formControlName="amount" required (keypress)="onKeyPress($event)" maxlength="5">
                                         <div>
                                             @if (moneyTransferForm.get('amount')?.hasError('required') && moneyTransferForm.get('amount')?.touched) {
                                                 <p class="error-text">Please Enter Amount</p>

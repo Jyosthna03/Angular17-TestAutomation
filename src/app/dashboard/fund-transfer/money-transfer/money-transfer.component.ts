@@ -109,7 +109,7 @@ export class MoneyTransferComponent {
   }
 
   onKeyPress(event: KeyboardEvent) {
-    const inputChar = String.fromCharCode(event.charCode);
+    const inputChar = event.key;
     if (!/^\d+$/.test(inputChar)) {
       event.preventDefault();
     }
