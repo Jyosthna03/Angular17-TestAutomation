@@ -60,7 +60,7 @@
                     <label class="payee-details">Account Number<span class="text-danger">*</span></label>
                 </div>
                 <div class="col-md-7 col-sm-6 col-7 payeeInputs">
-                    <input type="text" class="transferInputs" id="accountNo" formControlName="accountNo" maxlength="18" (keypress)="onKeyPress($event)">
+                    <input type="number" class="transferInputs" id="accountNo" formControlName="accountNo" maxlength="18" (keypress)="onKeyPress($event)">
                     <div>
                         @if (addPayeesmForm.get('accountNo')?.hasError('required') && addPayeesmForm.get('accountNo')?.touched) {
                             <p class="error-text"> Please Enter Account Number</p>
@@ -80,7 +80,7 @@
                     <label class="payee-details">Confirm Account<span class="text-danger">*</span></label>
                 </div>
                 <div class="col-md-7 col-sm-6 col-7 payeeInputs">
-                    <input type="text" class="transferInputs" id="reEnterAccNo" formControlName="reEnteraccountNo" (keypress)="onKeyPress($event)" maxlength="18">
+                    <input type="number" class="transferInputs" id="reEnterAccNo" formControlName="reEnteraccountNo" (keypress)="onKeyPress($event)" maxlength="18">
                     <div>
                         @if (addPayeesmForm.get('reEnteraccountNo')?.hasError('required') && addPayeesmForm.get('reEnteraccountNo')?.touched) {
                             <p class="error-text"> Please Re-Enter Account Number</p>
