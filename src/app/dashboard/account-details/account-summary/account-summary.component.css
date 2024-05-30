@@ -22,3 +22,13 @@ input:focus, input.form-check-input:focus {
 .switch{
     margin: 12px 25px 6px 0px;
   }
+  @media screen and (max-width:992px) {
+    .col{
+        padding: 0px !important;
+        margin-bottom: 14px;
+
+    }
+    .pd-left{
+        padding-left: 20px !important;
+    }
+  }

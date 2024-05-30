@@ -3,29 +3,34 @@
           <div class="accountSummary">
             <p class="summaryheading">Account Summary</p>
           </div>
-          <div class="d-flex flex-row justify-content-between flex-wrap p-3">
-            @for (data of userAccountDetails; track $index) {
-                    <div>
-                        <span class="accountHeading">Account Holder Name</span>
-                        <span class="accountValues">{{data.AccountHolder}}</span>
-                     </div>
-                     <div>
-                        <span class="accountHeading">Account Type</span>
-                        <span class="accountValues">{{data.AccountType}}</span>
-                     </div>
-                    <div>
-                        <span class="accountHeading">Account Number</span>
-                        <span class="accountValues">{{data.AccountNumber}}</span>
-                     </div>
-                     <div>
-                        <span class="accountHeading">Available Balance</span>
-                        <span class="accountValues">{{data.AvailableBalanceinRupees | currency:'INR'}}</span>
-                     </div>
-                    <div>
-                        <span class="accountHeading">Account IFSC</span>
-                        <span class="accountValues">{{data.AccountIFSCCode}}</span>
+          <div class="d-flex flex-row justify-content-between p-3">
+            @for (data of userBankDetails; track $index) {
+                    <div class="each-block">
+                          <div class="mb-bottom">
+                            <span class="accountHeading">Account Holder Name</span>
+                            <span class="accountValues">{{data.AccountHolder}}</span>
+                        </div>
+                        <div>
+                            <span class="accountHeading">Account Type</span>
+                            <span class="accountValues">{{data.AccountType}}</span>
+                        </div>
                     </div>
-                    <div>
+                    <div class="each-block mr-left">
+                        <div class="mb-bottom">
+                          <span class="accountHeading">Account Number</span>
+                          <span class="accountValues">{{data.AccountNumber}}</span>
+                      </div>
+                      <div>
+                          
+                          <span class="accountHeading">Available balance</span>
+                          <span class="accountValues">{{data.AvailableBalanceinRupees | currency:'INR'}}</span>
+                      </div>
+                    </div>
+                    <div class="account-item">
+                        <span class="accountHeading">Account IFSC</span>
+                        <span class="accountValues">{{data.AccountifscCode}}</span>
+                    </div>
+                    <div class="account-item">
                         <span class="accountHeading">Account Branch</span>
                         <span class="accountValues">{{data.AccountBranch}}</span>
                     </div>

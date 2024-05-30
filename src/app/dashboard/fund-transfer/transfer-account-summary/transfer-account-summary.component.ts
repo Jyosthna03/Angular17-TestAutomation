@@ -11,15 +11,18 @@ import { CommonModule, CurrencyPipe } from '@angular/common';
 })
 export class TransferAccountSummaryComponent {
 
-  
-  userAccountDetails:any;
-  balance:number = 0
-  constructor(private service:BankingdataService){
-    this.userAccountDetails = this.service.accountData;
-    console.log(this.userAccountDetails)
-    console.log(this.service.accountData)
-  }
+  constructor(private service:BankingdataService){}
 
+  userBankDetails = [
+    {
+      AccountHolder: this.service.trimmedString,
+      AccountType:"Savings Account",
+      AccountNumber:"1234567890111213",
+      AccountifscCode:"ABCD0001234",
+      AccountBranch:"KPHB",
+      AvailableBalanceinRupees: this.service.balance
+  }
+  ]
  
  
   
