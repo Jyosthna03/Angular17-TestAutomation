@@ -16,7 +16,8 @@ export class AccountSummaryComponent {
   
   ngOnInit(){
     this.accountDetails = this.service.accountData
-    this.accountDetails[0].AccountHolder = this.service.trimmedString
+    this.accountDetails[0].AccountHolder = this.service.trimmedString;
+    console.log(this.accountDetails)
   }
 
 

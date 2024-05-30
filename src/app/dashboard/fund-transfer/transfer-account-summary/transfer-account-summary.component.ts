@@ -14,13 +14,14 @@ export class TransferAccountSummaryComponent {
   
   userAccountDetails:any;
   balance:number = 0
-  constructor(private service:BankingdataService){}
-
-  ngOnInit(){
+  constructor(private service:BankingdataService){
     this.userAccountDetails = this.service.accountData;
-    this.balance = this.service.balance
-   
+    console.log(this.userAccountDetails)
+    console.log(this.service.accountData)
   }
+
+ 
  
   
+
 }
