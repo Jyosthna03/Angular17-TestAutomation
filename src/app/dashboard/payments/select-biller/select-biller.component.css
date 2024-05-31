@@ -24,6 +24,7 @@
 }
 .sub-text{
     margin-top: 5px;
+    margin-right: 38px;
 }
 .sub-text.due{
     margin-right: 20px;
@@ -46,6 +47,10 @@ margin-top: 30px;
 .sub-text-paying-from{
     margin-top: 37px;
 }
+.acc-details{
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
 .common-bold-text{
     color: #082341;
     font-size: 16px;
@@ -53,10 +58,23 @@ margin-top: 30px;
     font-weight: 700;
     line-height: normal;
 }
-@media screen and (min-width: 360px) and (max-width: 576px) {
+.savings{
+    padding-left: 4px !important;
+    padding-top: 3px;
+}
+.custom-styles,.custom-styles:active{
+    border-radius: 2px;
+border: 1px solid #D2D2D2;
+background: #FFF;
+width: 288px;
+height: 36px;
+flex-shrink: 0;
+}
+@media only screen and (min-width: 360px) and (max-width: 768px) {
 .sub-text{
-    margin-left: -17px !important;
-    margin-right: 0 !important
+    margin-left: 1px !important;
+    margin-right: 0 !important;
+    margin-top: 2px;
 }
 .bold-text{
     margin-left: -16px !important;
@@ -71,7 +89,9 @@ line-height: normal;
 margin-left: 15px;
 margin-top: 20px;
 }
-  
+  .mob-rec-form{
+    padding-right: 0 !important;
+  }
 .dueDate{
     margin-left: 120px;
     margin-top: 15px;
@@ -80,6 +100,9 @@ margin-top: 20px;
     font-size: 14px;
     margin-left: 8px;
     margin-top: 5px;
+}
+.savings-mob{
+    margin-left: 124px;
 }
 .sel-balance {
     margin-left: 10px;

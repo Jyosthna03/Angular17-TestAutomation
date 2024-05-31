@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,HostListener } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink} from '@angular/router';
 import { BankingdataService } from '../../../bankingdata.service';
@@ -21,8 +21,12 @@ export class SelectBillerComponent {
   availBalance: number = this.service.balance
   isDueDateDisabled: boolean = true;
   selectOptions = ['Credit Card', 'Debit Card', 'Utilities', 'Mobile Recharge'];
+  selectedOption = 'Credit Card';
   biller = ['Credit Card', 'Debit Card']
   networkProviders = ['Airtel Post-paid', 'Airtel Pre-paid']
+  // options: string[] = ['Option 1', 'Option 2', 'Option 3'];
+  // selectedLabel: string = 'Select an option';
+  optionsVisible: boolean = false;
 
   constructor(private service: BankingdataService, private fb: FormBuilder, private route: Router) {
     this.billerForm = fb.group({
@@ -52,7 +56,28 @@ export class SelectBillerComponent {
     this.dueDate = new Date();
     this.dueDate.setDate(this.dueDate.getDate() + 3);
   }
+  // selectOption(option: string) {
+  //   this.selectedOption = option;
+  //   this.billerForm.get('billerType')?.setValue(option);
+  //   console.log(this.selectedOption);
+  // }
+  toggleOptions(event: MouseEvent) {
+    event.stopPropagation();
+    this.optionsVisible = !this.optionsVisible;
+  }
 
+  selectOption(event: MouseEvent) {
+    const target = event.target as HTMLElement;
+    if (target.tagName === 'DIV') {
+      event.stopPropagation();
+      this.selectedOption = target.textContent || 'Select an option';
+      this.optionsVisible = false;
+    }
+  }
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent) {
+    this.optionsVisible = false;
+  }
   onSubmit() {
     let billValue = this.billerForm.value.billDetailsAmount;
     let rechargeBillValue = this.rechargeForm.value.amount;
