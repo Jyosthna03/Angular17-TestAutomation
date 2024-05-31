@@ -137,4 +137,12 @@ export class MoneyTransferComponent {
      this.paymentChoosed = mode.description
   }
   
+  selectedOption:string = ''
+  selectOption(option: string){
+    this.moneyTransferForm.patchValue({
+      payee: option
+    });
+    this.selectedOption = option;
+    console.log(option)
+  }
 }

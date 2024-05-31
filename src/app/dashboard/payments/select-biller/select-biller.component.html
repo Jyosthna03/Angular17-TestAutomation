@@ -22,7 +22,7 @@
               <span class="label">{{ selectedOption }}</span>
             </div>
             <div class="options" *ngIf="optionsVisible" (click)="selectOption($event)">
-              <div *ngFor="let option of selectOptions" [ngClass]="{'selected': option === selectedOption}">
+              <div *ngFor="let option of selectOptions" [ngClass]="{'selected': option === selectedOption}" >
                 {{ option }}
               </div>
             </div>
