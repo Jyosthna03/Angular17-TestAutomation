@@ -65,7 +65,7 @@ export class BankingdataService {
 
   trimmedString:string = "";
 
-  addPayee:any = ['Dileep']
+  addPayee:any = ['Dileep','Katty','Deepak','Jyosthna']
 
   // addpayeeData:addPayee[] = []
 
