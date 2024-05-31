@@ -61,23 +61,7 @@ export class SelectBillerComponent {
   //   this.billerForm.get('billerType')?.setValue(option);
   //   console.log(this.selectedOption);
   // }
-  toggleOptions(event: MouseEvent) {
-    event.stopPropagation();
-    this.optionsVisible = !this.optionsVisible;
-  }
 
-  selectOption(event: MouseEvent) {
-    const target = event.target as HTMLElement;
-    if (target.tagName === 'DIV') {
-      event.stopPropagation();
-      this.selectedOption = target.textContent || 'Select an option';
-      this.optionsVisible = false;
-    }
-  }
-  @HostListener('document:click', ['$event'])
-  onDocumentClick(event: MouseEvent) {
-    this.optionsVisible = false;
-  }
   onSubmit() {
     let billValue = this.billerForm.value.billDetailsAmount;
     let rechargeBillValue = this.rechargeForm.value.amount;
