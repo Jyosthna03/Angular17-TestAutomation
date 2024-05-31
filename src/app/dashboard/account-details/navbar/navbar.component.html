@@ -30,15 +30,17 @@
                   <li class="userName">{{userName}}</li>
                   <li class="accountNumber">123456789101112</li>
                 </div>
-                <li class="nav-item">
-                  <a class="nav-link accountDetails" (click)="selectTab('Account Details')" [ngClass]="{activeTab:UserSelectTab=='Account Details'}" [routerLink]="'/accountDashboard'" data-bs-dismiss="offcanvas">Account Details</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link accountDetails" (click)="selectTab('Payments')" [ngClass]="{activeTab:UserSelectTab=='Payments'}" [routerLink]="'/paymentDashboard'" data-bs-dismiss="offcanvas">Payments</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link accountDetails"  (click)="selectTab('Fund Transfers')" [ngClass]="{activeTab:UserSelectTab=='Fund Transfers'}" [routerLink]="'/transferDashboard'" data-bs-dismiss="offcanvas">Fund Transfers</a>
-                </li>
+                <!-- <div class="navItems"> -->
+                  <li class="nav-item navItems">
+                    <a class="nav-link accountDetails" (click)="selectTab('Account Details')" [ngClass]="{activeTab:UserSelectTab=='Account Details'}" [routerLink]="'/accountDashboard'" data-bs-dismiss="offcanvas">Account Details</a>
+                  </li>
+                  <li class="nav-item navItems">
+                    <a class="nav-link accountDetails" (click)="selectTab('Payments')" [ngClass]="{activeTab:UserSelectTab=='Payments'}" [routerLink]="'/paymentDashboard'" data-bs-dismiss="offcanvas">Payments</a>
+                  </li>
+                  <li class="nav-item navItems">
+                    <a class="nav-link accountDetails"  (click)="selectTab('Fund Transfers')" [ngClass]="{activeTab:UserSelectTab=='Fund Transfers'}" [routerLink]="'/transferDashboard'" data-bs-dismiss="offcanvas">Fund Transfers</a>
+                  </li>
+                <!-- </div> -->
                 <li class="nav-item">
                      <button class="btn logOutBtn" routerLink="/login" id="logout" (click)="OnLogOut()">Logout</button>
                 </li>

@@ -7,6 +7,8 @@
 .bg-offCanvas{
     color: black;
 }
+
+
 .logo{
     color: var(--White, #FFF);
     font-size: 22px;
@@ -93,6 +95,7 @@
         text-align: center;
         font-size: 16px;
         font-weight: 400;
+        margin-top: 180px;
     }
     .userName{
             color: var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1B154C);
@@ -113,6 +116,11 @@
    
     .activeTab{
         color: black !important;
+    }
+
+    .navItems{
+        position: relative;
+        left: -20px;
     }
 }
 
