@@ -1,23 +1,35 @@
 import { Component } from '@angular/core';
 import { BankingdataService } from '../../../../../bankingdata.service';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import {  DatePipe, NgClass, NgStyle } from '@angular/common';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { DatePipe, NgClass, NgStyle } from '@angular/common';
 import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-transaction-history',
   standalone: true,
-  imports: [FormsModule, DatePipe, NgStyle, RouterLink,ReactiveFormsModule,NgClass],
+  imports: [
+    FormsModule,
+    DatePipe,
+    NgStyle,
+    RouterLink,
+    ReactiveFormsModule,
+    NgClass,
+  ],
   templateUrl: './transaction-history.component.html',
-  styleUrl: './transaction-history.component.css'
+  styleUrl: './transaction-history.component.css',
 })
 export class TransactionHistoryComponent {
   leftpaginationMode = false;
   rightpaginationMode = true;
-  TransHistory:any=[];
-  showData=false;
+  TransHistory: any = [];
+  showData = false;
   todayDate = Date();
-  periodicDays = ['Please select','Last 7 Days', 'Last 14 Days'];
-  selectedperidocday = this.periodicDays[0];
+  periodicDays = ['Last 7 Days', 'Last 14 Days'];
   selectedShowperPage = 5;
   startIndex = 0;
   endIndex = 5;
@@ -27,7 +39,7 @@ export class TransactionHistoryComponent {
     this.selectedShowperPage
   );
   rightPaginationItems: number[] = [];
-  transactionForm!:FormGroup;
+  transactionForm!: FormGroup;
 
   generateTransactionData() {
     for (let i = 1; i <= 60; i++) {
@@ -45,15 +57,15 @@ export class TransactionHistoryComponent {
     }
   }
 
-  constructor(private serv: BankingdataService,private fb:FormBuilder) {
+  constructor(private serv: BankingdataService, private fb: FormBuilder) {
     this.rightPaginationItems = this.totalPages;
     this.transactionForm = this.fb.group({
       inputType: ['', Validators.required],
       fromDate: ['', Validators.required],
       toDate: ['', Validators.required],
-      selectedOption: ['', Validators.required]
+      selectedOption: ['', Validators.required],
     });
-    this.transactionForm.get('inputType')!.valueChanges.subscribe(value => {
+    this.transactionForm.get('inputType')!.valueChanges.subscribe((value) => {
       if (value === 'dateRange') {
         this.transactionForm.get('selectedOption')!.disable();
         this.transactionForm.get('fromDate')!.enable();
@@ -74,8 +86,8 @@ export class TransactionHistoryComponent {
     );
   }
 
-  submitForm(){
-    if(this.transactionForm.valid){
+  submitForm() {
+    if (this.transactionForm.valid) {
       this.serv.getData().subscribe((data: any) => {
         if (data['TransHistory'].length != 0) {
           console.log(data['TransHistory']);
@@ -86,19 +98,17 @@ export class TransactionHistoryComponent {
           );
         }
       });
-      this.showData=true;
+      this.showData = true;
     }
   }
-  
+
   cancelForm() {
     this.transactionForm.get('selectedOption')!.enable();
     this.transactionForm.get('fromDate')!.enable();
     this.transactionForm.get('toDate')!.enable();
     this.transactionForm.reset();
-    this.transactionForm.patchValue({
-      selectedOption:this.selectedperidocday
-    });
-    this.showData =false;
+    this.transactionForm.get('selectedOption')!.setValue('');
+    this.showData = false;
   }
 
   onPageChange(pageNo: number) {
@@ -154,39 +164,3 @@ export class TransactionHistoryComponent {
     }
   }
 }
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
- 
-

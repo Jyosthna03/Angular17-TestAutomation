@@ -4,6 +4,31 @@
     border: 1px solid #D1CFCF;
 }
 
+@media screen and (max-width:992px) {
+    .account-item{
+        display: none;
+    }
+    .each-block{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .mr-left{
+        margin-left: 40px;
+    }
+    .mb-bottom{
+        margin-bottom: 20px;
+    }
+}
+@media screen and (min-width:992px) {
+    .each-block{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 90px !important;
+    }
+}
+
 
 
 

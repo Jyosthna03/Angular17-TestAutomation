@@ -11,32 +11,31 @@
                   </div>
             <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
               <div class="accordion-body">
-                 @for (data of accountSummary; track $index) {
+                 @for (data of accountDetails; track $index) {
                         <div  class="row row-cols-2 row-cols-sm-2  row-cols-md-2 row-cols-lg-5">
                             <div class="col">
-                                <p class="accountHeading">Account Holder Name</p>
-                                 <p class="accountValues wrap">{{accountUserName}}</p>
+                                <span class="accountHeading">Account Holder Name</span>
+                                 <span class="accountValues">{{data.AccountHolder}}</span>
+                            </div>
+                            <div class="col pd-left">
+                                <span class="accountHeading">Account Type</span>
+                                <span class="accountValues wrap">{{data.AccountType}}</span>
                             </div>
                             <div class="col">
-                                <p class="accountHeading">Account Type</p>
-                                <p class="accountValues wrap">{{data.AccountType}}</p>
-                            </div>
-                            <div class="col">
-                                <p class="accountHeading">Account Number</p>
-                                <p class="accountValues">{{data.AccountNumber}}</p>
+                                <span class="accountHeading">Account Number</span>
+                                <span class="accountValues">{{data.AccountNumber}}</span>
                             </div>
                             <div  class="d-none d-lg-block col">
-                                <p class="accountHeading">Account Branch</p>
-                                <p class="accountValues wrap">{{data.AccountBranch}}</p>
+                                <span class="accountHeading">Account Branch</span>
+                                <span class="accountValues wrap">{{data.AccountBranch}}</span>
                             </div>
-                            <div class="col">
-                                <p class="accountHeading">{{data.id == 3 ? "Credit Limit" : "Available Balance"}}</p>
-                                <p class="accountValues wrap">₹{{data.AvailableBalanceinRupees}}</p>
+                            <div class="col pd-left">
+                                <span class="accountHeading">{{data.id == 3 ? "Credit Limit" : "Available Balance"}}</span>
+                                <span class="accountValues wrap">₹{{data.AvailableBalanceinRupees}}</span>
                             </div>
                         </div>
                     }
-                 
-              </div>
+                </div>
             </div>
           </div>
     </div>

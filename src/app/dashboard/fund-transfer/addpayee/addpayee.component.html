@@ -6,6 +6,7 @@
     <div class="modal-body modal-scroll">
         <section class="container-fluid mt-3 mb-5">
             <form [formGroup]="addPayeeForm" #formElement>
+                <p style="color: green; font-weight:bold; text-align:center">{{payeeAddMsg}}</p>
             <div class="row d-flex justify-content-start mt-4 ms-4">
                 <div class="col-lg-6">
                     <div class="eachBlock mb-2">
@@ -46,7 +47,7 @@
                 <div class="col-lg-6">
                     <div class="eachBlock mb-2">
                         <label class="payee-details mt-1">Bank Name<span class="text-danger">*</span></label>
-                        <select class="transferInputs" formControlName="bankName">
+                        <select class="transferInputs dropdown-image" formControlName="bankName">
                             @for (bank of bankNames; track $index) {
                                 <option>{{bank}}</option>
                             }
@@ -120,7 +121,7 @@
         </form>
         </section>
         <div class="modal-footer">
-            <button class="cancelAndSaveBtn ms-3" (click)="onCancel()" id="cancel">cancel</button>
+            <button class="cancelAndSaveBtn ms-3" (click)="onCancel()" id="cancel">Cancel</button>
             <button type="submit" class="btn btn-primary cancelAndSaveBtn saveBtn" [disabled]="addPayeeForm.invalid" (click)="submitPayee(addPayeeForm.value)" id="addPayee" [ngClass]="{'btn-enabled': !addPayeeForm.invalid, 'btn-disabled': addPayeeForm.invalid}">Add Payee</button>
         </div>
 </div>

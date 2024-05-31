@@ -1,31 +1,4 @@
-<!-- <nav class="navbar navbar-expand-lg bg-container">
-    <div class="container-fluid col-lg-12 col-md-12 col-sm-12">
-       <div class="d-flex flex-row">
-             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-                <path d="M32 0C32 4.2023 31.1723 8.36345 29.5641 12.2459C27.956 16.1283 25.5989 19.6559 22.6274 22.6274C19.6559 25.5989 16.1283 27.956 12.2459 29.5641C8.36345 31.1723 4.2023 32 0 32L1.39876e-06 0H32Z" fill="#F16A22"/>
-            </svg>
-            <a class="navbar-brand logo">LOGO</a>
-       </div>
-      <div class="d-flex flex-row justify-content-end" id="navbarNav">
-          <ul class="navbar-nav" style="padding: 10px;">
-            <li class="nav-item">
-              <a class="nav-link accountDetails" (click)="selectTab('Account Details')" [ngClass]="{activeTab:UserSelectTab=='Account Details'}" [routerLink]="'/accountDashboard'">Account Details</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link accountDetails" (click)="selectTab('Payments')" [ngClass]="{activeTab:UserSelectTab=='Payments'}" [routerLink]="'/paymentDashboard'">Payments</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link accountDetails" (click)="selectTab('Fund Transfers')" [ngClass]="{activeTab:UserSelectTab=='Fund Transfers'}" [routerLink]="'/transferDashboard'">Fund Transfers</a>
-            </li>
-            <li class="nav-item">
-              <button class="btn logOutBtn" routerLink="/login" id="logout">Logout</button>
-            </li>
-         </ul>
-      </div>
-    </div>
-  </nav>  -->
-
-  <nav class="navbar navbar-expand-lg navbar-light  bg-container">
+<nav class="navbar navbar-expand-lg navbar-light  bg-container">
     <div class="container-fluid">
       <div class="d-flex flex-row">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -39,7 +12,7 @@
             </div>
             <div class="offcanvas-body d-flex flex-row justify-content-end">
               <ul class="navbar-nav">
-                <div class="d-lg-none d-flex flex-column justify-content-center loggedInUser">
+                <div class="d-lg-none loggedInUser">
                   <li style="padding: 10px;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="66" height="66" viewBox="0 0 66 66" fill="none">
                       <g clip-path="url(#clip0_1444_144)">
@@ -57,25 +30,27 @@
                   <li class="userName">{{userName}}</li>
                   <li class="accountNumber">123456789101112</li>
                 </div>
+                <!-- <div class="navItems"> -->
+                  <li class="nav-item navItems">
+                    <a class="nav-link accountDetails" (click)="selectTab('Account Details')" [ngClass]="{activeTab:UserSelectTab=='Account Details'}" [routerLink]="'/accountDashboard'" data-bs-dismiss="offcanvas">Account Details</a>
+                  </li>
+                  <li class="nav-item navItems">
+                    <a class="nav-link accountDetails" (click)="selectTab('Payments')" [ngClass]="{activeTab:UserSelectTab=='Payments'}" [routerLink]="'/paymentDashboard'" data-bs-dismiss="offcanvas">Payments</a>
+                  </li>
+                  <li class="nav-item navItems">
+                    <a class="nav-link accountDetails"  (click)="selectTab('Fund Transfers')" [ngClass]="{activeTab:UserSelectTab=='Fund Transfers'}" [routerLink]="'/transferDashboard'" data-bs-dismiss="offcanvas">Fund Transfers</a>
+                  </li>
+                <!-- </div> -->
                 <li class="nav-item">
-                  <a class="nav-link accountDetails" (click)="selectTab('Account Details')" [ngClass]="{activeTab:UserSelectTab=='Account Details'}" [routerLink]="'/accountDashboard'" data-bs-dismiss="offcanvas">Account Details</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link accountDetails" (click)="selectTab('Payments')" [ngClass]="{activeTab:UserSelectTab=='Payments'}" [routerLink]="'/paymentDashboard'" data-bs-dismiss="offcanvas">Payments</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link accountDetails"  (click)="selectTab('Fund Transfers')" [ngClass]="{activeTab:UserSelectTab=='Fund Transfers'}" [routerLink]="'/transferDashboard'" data-bs-dismiss="offcanvas">Fund Transfers</a>
-                </li>
-                <li class="nav-item">
-                  <button class="btn logOutBtn" routerLink="/login" id="logout" (click)="OnLogOut()">Logout</button>
+                     <button class="btn logOutBtn" routerLink="/login" id="logout" (click)="OnLogOut()">Logout</button>
                 </li>
              </ul>
             </div>
         </div>
       
-        <button class="d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <button class="navbar-toggler d-md-none d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+          <img src="assets/hamburger.png" class="hamburger-alignment" alt="Hamburger Icon" width="30" height="20">
+      </button>
     </div>
 </nav>
 

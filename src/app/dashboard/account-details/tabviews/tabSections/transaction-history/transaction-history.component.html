@@ -32,17 +32,25 @@
             <span>Select</span>
           </label>
           <select class="form-select inputBox inptxt" formControlName="selectedOption">
+          <option value="">Please Select</option>
             @for (eachday of periodicDays ; track $index) {
             <option>{{ eachday }}</option>
             }
           </select>
         </div>
       </div>
-        <div class="btnArea">
-          <button class="cancelAndSaveBtn d-lg-inline pgbackBtn" routerLink="/dashboard" id="back">Back</button>
-          <button class="cancelAndSaveBtn " (click)="cancelForm()">Cancel</button>
-          <button class="btn btn-primary cancelAndSaveBtn saveBtn" type="submit" [disabled]="transactionForm.invalid" (click)="submitForm()" [ngClass]="{'btn-enabled': !transactionForm.invalid, 'btn-disabled': transactionForm.invalid}">Show</button>
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col bottom-buttons">
+            <button class="cancelAndSaveBtn backbtn" routerLink="/dashboard" id="back">Back</button>
+            <button class="cancelAndSaveBtn" (click)="cancelForm()" id="cancel">cancel</button>
+            <button type="submit" id="send" class="btn btn-primary cancelAndSaveBtn saveBtn" [disabled]="transactionForm.invalid" (click)="submitForm()" [ngClass]="{'btn-enabled': !transactionForm.invalid, 'btn-disabled': transactionForm.invalid}">Show</button>
         </div>
+      </div>
+        <!-- <div class="btnArea">
+          <button class="cancelAndSaveBtn pgbackBtn" routerLink="/dashboard" id="back">Back</button>
+          <button class="cancelAndSaveBtn" (click)="cancelForm()">Cancel</button>
+          <button class="btn btn-primary cancelAndSaveBtn saveBtn" type="submit" [disabled]="transactionForm.invalid" (click)="submitForm()" [ngClass]="{'btn-enabled': !transactionForm.invalid, 'btn-disabled': transactionForm.invalid}">Show</button>
+        </div> -->
     </form>
   </div>
   <div class="tabArea mt-2">
@@ -76,8 +84,8 @@
           <td colspan="8">
             <div class="Pagearea">
               <div class="perPageArea d-flex">
-                <div>
-                  <p class="mt-3 rowsPg">Rows Per Page</p>
+                <div class="mt-3">
+                  <span class="rowsPg">Rows Per Page</span>
                 </div>
                 <div>
                   <select class="form-select mt-2 ms-3 ps-3 pe-3 rounded-0" [(ngModel)]="selectedShowperPage"
@@ -145,8 +153,8 @@
           <td colspan="8">
             <div class="Pagearea">
               <div class="perPageArea d-flex">
-                <div>
-                  <p class="mt-3 rowsPg">Rows Per Page</p>
+                <div class="mt-3">
+                  <span class="rowsPg">Rows Per Page</span>
                 </div>
                 <div>
                   <select class="form-select mt-2 ms-3 ps-3 pe-3 rounded-0" [(ngModel)]="selectedShowperPage"

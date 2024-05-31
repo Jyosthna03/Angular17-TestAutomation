@@ -1,7 +1,7 @@
 
 /* You can add global styles to this file, and also import other style files */
 body {
-    font-family: Mulish;
+    font-family: Lato;
   }
   .ng-invalid.ng-touched {
     border-color: red;
@@ -27,7 +27,6 @@ body {
     color: #1b154c;
     color: var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1b154c);
     font-size: 16px;
-    font-style: normal;
     font-weight: 600;
     line-height: 24px; /* 125% */
     padding: 20px 20px;
@@ -40,9 +39,7 @@ body {
     color: #707070;
     text-align: center;
     font-size: 16px;
-    font-style: normal;
     font-weight: 600;
-    line-height: normal;
     margin-top: 20px;
   }
   .left-content{
@@ -59,7 +56,6 @@ body {
   .card-text{
     color: var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1B154C);
     font-size: 16px;
-    font-style: normal;
     font-weight: 700;
     line-height: 24px; /* 150% */
   }
@@ -79,16 +75,14 @@ body {
     color: var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1B154C);
     text-align: center;
     font-size: 38px;
-    font-style: normal;
     font-weight: 600;
-    line-height: normal;
     margin-bottom: 60px;
     margin-top: 60px;
   }
   /* transfer and payment screen css  */
   .cancelAndSaveBtn {
     width: 160px;
-    height: 28px;
+    padding: 5px 0px 5px 0px;
     border: 1px solid #082341;
     color: #082341;
     text-align: center;
@@ -97,6 +91,7 @@ body {
     letter-spacing: 0.12px;
     background: #fff;
     border-radius: 4px;
+    text-transform: capitalize;
   }
   .saveBtn {
     color: #fff;
@@ -107,24 +102,19 @@ body {
   .sub-text {
     color: #777;
     font-size: 16px;
-    font-style: normal;
     font-weight: 700;
-    line-height: normal;
     margin-left: 47px;
   }
   .side-text {
     color: #777;
     font-size: 16px;
-    font-style: normal;
     font-weight: 700;
-    line-height: normal;
     padding-top: 6px;
   }
   .card-header {
     background: #ecf3ff !important;
     color: #082341;
     font-size: 16px;
-    font-style: normal;
     font-weight: 700;
     padding: 12px;
     margin-bottom: 30px;
@@ -161,14 +151,12 @@ body {
     padding-bottom: 9px;
   }
   .accountValues {
+    display: block;
     color: #082341;
     font-size: 16px;
     font-weight: 800;
     text-transform: capitalize;
-    padding-bottom: 27px;
-    word-wrap: break-word;
-    word-break: break-all;
-    overflow-wrap: break-word;
+    padding-bottom: 5px;
   }
   .accountSummary {
     background-color: #ecf3ff;
@@ -189,11 +177,9 @@ body {
     text-align: right;
     font-family: Mulish;
     font-size: 12px;
-    font-style: normal;
     font-weight: 400;
-    line-height: normal;
     text-transform: capitalize;
-    padding-top: 6px;
+    padding-top: 4px;
   }
   .inputBox {
     width: 216px;
@@ -206,47 +192,13 @@ body {
   .form-check-label {
     width:100%;
     max-width:169px;
-    
   }
   .form-check-input,.form-check-label{
     cursor: pointer;
   }
-.cancelBtn {
-    width: 100px;
-    height: 28px;
-    flex-shrink: 0;
-    border: 1px solid #082341;
-    background: #fff;
-    color: #082341;
-    text-align: center;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: 0.12px;
-    text-transform: uppercase;
-  }
-.addBtn {
-    background: #082341;
-    width: 100px;
-    height: 28px;
-    flex-shrink: 0;
-    color: #fff;
-    text-align: center;
-    font-family: Mulish;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    letter-spacing: 0.12px;
-    text-transform: uppercase;
-    border-radius: 0px !important;
-  }
-
-  .account-style{
+.account-style{
     color: var(--Neutral-Colors-Smokey-White, var(--Neutral-Colors-Smoky-White, #F8F8F9));
     font-size: 16px;
-    font-style: normal;
     font-weight: 600;
     line-height: 20px; /* 125% */
     }
@@ -257,6 +209,13 @@ body {
   .cursor{
     cursor: pointer;
   }
+  .dropdown-image{
+    -webkit-appearance: none; /* Remove default arrow in Chrome/Safari */
+    -moz-appearance: none; /* Remove default arrow in Firefox */
+    appearance: none; /* Remove default arrow in other browsers */
+    background: transparent url(assets/chevron-down.svg) no-repeat right 10px center;
+  }
+ 
  
       /* All media-breakpoint */
 
@@ -310,6 +269,7 @@ body {
 @media screen and (max-width:768px) {
    .accountHeading{
     font-size: 10px;
+    padding-bottom: 2px !important;
    }
    .accountValues{
     font-size: 12px;

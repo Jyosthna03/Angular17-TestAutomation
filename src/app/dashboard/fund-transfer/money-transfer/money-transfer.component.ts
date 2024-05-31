@@ -16,12 +16,14 @@ import { AddpayeeComponent } from '../addpayee/addpayee.component';
 export class MoneyTransferComponent {
 
   moneyTransferForm!:FormGroup;
-  amountlimit:number = 5000;
+  amountlimit:string = '';
+  exceededLimit:boolean = false;
   payeeNames = this.service.addPayee;
   totalAmount:number = 0;
   availBalance:number = this.service.balance;
   defaultPayee:string = "Select Payee"
-  newPayeeData = this.service.addpayeeData
+  // newPayeeData = this.service.addpayeeData;
+
 
   constructor(private fb:FormBuilder,private service:BankingdataService,private route:Router,private modalService: NgbModal){
     this.moneyTransferForm = this.fb.group({
@@ -35,7 +37,8 @@ export class MoneyTransferComponent {
    }
 
   ngOnInit(){
-    console.log(this.newPayeeData)
+    // console.log(this.newPayeeData)
+    
     this.service.currentAccountNumber.subscribe(accountNumber => {
       this.moneyTransferForm.get('accountNumber')?.setValue(accountNumber, { emitEvent: false });
     });
@@ -50,9 +53,7 @@ export class MoneyTransferComponent {
       this.moneyTransferForm.get('bankName')?.setValue(bkName, { emitEvent: false });
     })
    }
-  //  get f() {
-  //   return this.moneyTransferForm.controls;
-  // }
+ 
   calculateTotalAmount(){
     let mytotal=0;
     for(let i=0;i<this.service.paymentHistory.length;i++){
@@ -69,8 +70,9 @@ export class MoneyTransferComponent {
       alert("Insufficient Funds");
       return;
     }
-    if (amount > this.amountlimit || this.amountVal > this.amountlimit) {
-      alert("Exceeded Limit");
+    if (amount > 5000 || this.amountVal > 5000) {
+      this.exceededLimit = true;
+      this.amountlimit = "Enter amount less than 5000";
       return;
     }
     if(this.moneyTransferForm.value.payee === 'Select Payee'){
@@ -78,8 +80,9 @@ export class MoneyTransferComponent {
       return;
     }
     this.calculateTotalAmount();
-    if (this.totalAmount > this.amountlimit) {
-      alert("Exceeded Limit");
+    if (this.totalAmount >= 5000) {
+      this.exceededLimit = true;
+      this.amountlimit = "Exceeded Limit";
       return;
     }
     console.log(this.moneyTransferForm.value)
@@ -101,19 +104,12 @@ export class MoneyTransferComponent {
   }
 
   onCancel(){
-     if(this.moneyTransferForm.valid){
-       let confirmation = confirm("Are you sure you want to Cancel the Payment?")
-       if(confirmation){
-        this.moneyTransferForm.reset();
-        this.moneyTransferForm.patchValue({
-          payee:this.defaultPayee
-        })
-       }
-    }
+    this.moneyTransferForm.reset();
+    this.moneyTransferForm.get('payee')?.setValue('')
   }
 
   onKeyPress(event: KeyboardEvent) {
-    const inputChar = String.fromCharCode(event.charCode);
+    const inputChar = event.key;
     if (!/^\d+$/.test(inputChar)) {
       event.preventDefault();
     }

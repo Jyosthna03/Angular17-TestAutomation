@@ -21,7 +21,7 @@
 }
 
 #toDate{
-  margin-left: 1rem;
+  margin-left: 1.3rem;
 }
 
 .lablespace{
@@ -115,17 +115,17 @@
     background: #082341;
   }
 
-  .btnArea{
-    display: flex;
-    justify-content: start;
-    margin-left: 130px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-  }
-
-  .pgbackBtn{
+  .backbtn{
     margin-right: 15px;
   }
+  
+  .bottom-buttons{
+    text-align: center;
+    margin-top: 35px;
+    margin-bottom: 20px;
+  }
+
+  
 
   
 
@@ -134,9 +134,7 @@
       margin-top: 1.5rem !important;
     }
 
-    .btnArea{
-      margin-left: 0px;
-    }
+    
   }
 
   @media (max-width:768px){
@@ -144,8 +142,6 @@
       margin-top: 1.5rem !important;
     }
 
-    .btnArea{
-      margin-left: 0px;
-    }
+    
   }
   

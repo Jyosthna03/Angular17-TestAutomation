@@ -33,7 +33,7 @@
 }
 
 #toDate{
-  margin-left: 1rem;
+  margin-left: 1.3rem;
 }
 
 .lablespace{
@@ -52,6 +52,16 @@
   background: var(--Primary-White, #FFF);
   cursor: pointer;
   margin-top: 8px;
+}
+
+.backbtn{
+  margin-right: 15px;
+}
+
+.bottom-buttons{
+  text-align: center;
+  margin-top: 35px;
+  margin-bottom: 20px;
 }
 
 input[type="date"]:before{
@@ -76,4 +86,5 @@ input[type="date"]:before{
   .wholesmTop{
     margin-top: 1.5rem !important;
   }
+
 }

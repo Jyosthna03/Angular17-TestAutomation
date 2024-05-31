@@ -65,21 +65,22 @@ export class BankingdataService {
 
   trimmedString:string = "";
 
-  addPayee:any = ['Select Payee','Dileep']
+  addPayee:any = ['Dileep']
 
-  addpayeeData:addPayee[] = []
+  // addpayeeData:addPayee[] = []
 
   accountData:any= [
     {
         AccountHolder: this.trimmedString,
         AccountType:"Savings Account",
         AccountNumber:"1234567890111213",
-        AccountIFSCCode:"ABCD0001234",
+        AccountifscCode:"ABCD0001234",
         AccountBranch:"KPHB",
         AvailableBalanceinRupees: this.balance
     }
   ]
 
+  selectPayeeValue:boolean = true;
   isTransactionHistory=false;
   isAccountStatement=false;
   breadCrumb:any[] = ["Account Details"]

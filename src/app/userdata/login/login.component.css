@@ -35,7 +35,8 @@ input[type=text][type=password]{
   margin-top: 90px;
 }
 .login-image{
-  height: auto;
+  height: 100vh;
+  width: 100%;
 }
 @media screen and (min-width: 360px) and (max-width: 576px){
   .mrg-t-mobile{
