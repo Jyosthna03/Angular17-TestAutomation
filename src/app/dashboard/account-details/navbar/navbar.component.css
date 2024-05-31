@@ -68,51 +68,49 @@
         width: 260px;
         height: auto;
      }
-  .text-reset{
+   .text-reset{
         width: 14px;
         height: 14px;
-  }
-  .offcanvas-body{
-    justify-content: start !important;
-  }
-  .accountDetails{
-    color: #050505;
-    font-size: 16px;
-    font-weight: bold;
-    letter-spacing: 0.16px;
-    text-transform: capitalize;
-  }
-  .logOutBtn{
-    width: 160px;
-    height: 40px;
-    border-radius: 5px;
-    border: 1px solid var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1B154C);
-    background: #FFF;
-    box-shadow: 0px 10px 20px 0px rgba(33, 22, 9, 0.15);
-    color: var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1B154C);
-    text-align: center;
-    font-size: 16px;
-    font-weight: 400;
-    margin-top: 350px;
-    justify-content: center !important;
-    align-items: center !important;
-   }
-  .userName{
-        color: var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1B154C);
-        font-size: 14px;
+    }
+    .offcanvas-body{
+        justify-content: center !important;
+    }
+    .accountDetails{
+        color: #050505;
+        font-size: 16px;
         font-weight: bold;
+        letter-spacing: 0.16px;
         text-transform: capitalize;
-        padding-bottom: 5px;
-   }
-   .accountNumber{
-        color: #000;
-        font-size: 12px;
-        font-weight: bold;
+    }
+    .logOutBtn{
+        width: 160px;
+        height: 40px;
+        border-radius: 5px;
+        border: 1px solid var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1B154C);
+        background: #FFF;
+        box-shadow: 0px 10px 20px 0px rgba(33, 22, 9, 0.15);
+        color: var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1B154C);
+        text-align: center;
+        font-size: 16px;
+        font-weight: 400;
+    }
+    .userName{
+            color: var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1B154C);
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: capitalize;
+            padding-bottom: 5px;
+            padding-left: 30px;
+    }
+    .accountNumber{
+            color: #000;
+            font-size: 12px;
+            font-weight: bold;
     }
     .loggedInUser{
-        align-items: center;
-        padding: 10px;
+        padding-left: 40px;
     }
+   
     .activeTab{
         color: black !important;
     }
