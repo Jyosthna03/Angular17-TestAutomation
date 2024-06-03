@@ -56,11 +56,11 @@ export class SelectBillerComponent {
     this.dueDate = new Date();
     this.dueDate.setDate(this.dueDate.getDate() + 3);
   }
-  // selectOption(option: string) {
-  //   this.selectedOption = option;
-  //   this.billerForm.get('billerType')?.setValue(option);
-  //   console.log(this.selectedOption);
-  // }
+  selectOption(option: string) {
+    this.selectedOption = option;
+    this.billerForm.get('billerType')?.setValue(option);
+    console.log(this.selectedOption);
+  }
 
   onSubmit() {
     let billValue = this.billerForm.value.billDetailsAmount;

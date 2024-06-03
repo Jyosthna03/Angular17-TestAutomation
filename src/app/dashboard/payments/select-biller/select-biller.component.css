@@ -63,12 +63,25 @@ margin-top: 30px;
     padding-top: 3px;
 }
 .custom-styles,.custom-styles:active{
-    border-radius: 2px;
+border-radius: 2px;
 border: 1px solid #D2D2D2;
 background: #FFF;
 width: 288px;
 height: 36px;
 flex-shrink: 0;
+}
+.dropdown-style{
+color: #082341;
+font-size: 12px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+.dropdown-toggle::after{
+    content: none !important;
+}
+.dropdown-image{
+    content: "";
 }
 @media only screen and (min-width: 360px) and (max-width: 768px) {
 .sub-text{
