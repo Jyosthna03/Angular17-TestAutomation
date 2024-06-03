@@ -1,7 +1,9 @@
 <div class="container-fluid container-without-scrollbars">
   <div class="row">
     <div class="col-md-8 col-lg-5 col mrg-t-mobile left-content">
-      <span class="text-center text-danger">{{ isInvalidUser }}</span>
+      @if(invalidUser){
+        <span class="invalidCredentials text-center">Please Enter Valid Credentials</span>
+      }
       <h2 class="welcome-text">Welcome.!</h2>
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" #formElement>
         <div class="form-group">
