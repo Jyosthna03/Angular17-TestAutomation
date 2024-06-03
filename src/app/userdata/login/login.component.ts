@@ -36,20 +36,26 @@ export class LoginComponent {
     return this.loginForm.controls;
   }
 
+  invalidUser:boolean = false;
   onSubmit() {
-    if(this.service.userData.includes(this.formControls['email'].value)&& this.service.userData.includes(this.formControls['password'].value)){
+    if(this.service.userData.includes(this.formControls['email'].value) && this.service.userData.includes(this.formControls['password'].value)){
         const user = this.formControls['email'].value; 
+        let passwordIndex = this.service.userData.indexOf(user) + 1
+        if(this.loginForm.value.password === this.service.userData[passwordIndex]){
+          console.log(this.loginForm.value)
+          this.router.navigate(['/dashboard']);
+          this.loginForm.reset();
+        }
+        else{
+          this.invalidUser = true;
+          this.loginForm.reset();
+      }
         this.service.setCurrentUser(user);
         this.service.trimmedString = this.service.trimNameFromEmail(user);
         localStorage.setItem("logindata",JSON.stringify(this.loginForm.value))
-        this.loginForm.reset();
-        this.router.navigate(['/dashboard'])
-   }
-   else{
-        this.isInvalidUser = "Please Enter Valid Credentials"
-        this.loginForm.reset();
+      }
     }
-  }
+
   openForgotPasswordPopup(content: any) {
     this.modalService.open(content, {
       centered: true,
