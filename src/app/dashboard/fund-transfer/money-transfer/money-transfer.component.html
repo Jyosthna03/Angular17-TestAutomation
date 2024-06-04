@@ -25,12 +25,12 @@
                                 <div class="col-lg-7 col-md-7 col-sm-7 col-7 pd-default">
                                         <div class="row">
                                                 <div class="ft-left text">
-                                                    <!-- <select class="transferInputs dropdown-image " formControlName="payee" required>
+                                                    <select class="transferInputs dropdown-image " formControlName="payee" required>
                                                         <option value="">Select Payee</option>
                                                         @for (payee of payeeNames; track $index) {
                                                             <option>{{payee}}</option>
                                                         }
-                                                    </select> -->
+                                                    </select>
                                                     <!-- <ul class="transferInputs dropdown" required >
                                                         @for(payee of payeeNames; track $index){
                                                             <li (click)="selectOption(payee)">{{payee}}</li>
@@ -38,19 +38,18 @@
                                                     </ul> -->
                                                         <!-- dropdown.component.html -->
 
-                                                <div class="dropdown transferInputs dropdown-image">
+                                                <!-- <div class="dropdown transferInputs dropdown-image">
                                                     <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none;">
                                                                     {{ selectedOption || 'Select Payee' }}
                                                     </a>
-  
-                                                    <ul class="dropdown-menu">
+                                                    <ul class="dropdown-menu dropdown-menu-center">
                                                             <li *ngFor="let item of payeeNames">
                                                                  <a class="dropdown-item" (click)="selectOption(item)">
                                                                                 {{ item }}
                                                                   </a>
                                                              </li>
-                                                      </ul>
-                                                     </div>
+                                                    </ul>
+                                                </div> -->
   
                                                      
                                                     <div class="d-sm-block d-md-block d-lg-none">
