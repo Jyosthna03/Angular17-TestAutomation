@@ -136,5 +136,16 @@ input::-webkit-inner-spin-button {
     .pd-default{
         padding: 3px !important;
     }
+    .bottom-buttons{
+        background-color:aqua;
+        position: fixed !important;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 0px;
+        padding: 5px;
+    }
+    
     
 }
