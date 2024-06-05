@@ -9,16 +9,16 @@
       <div class="row">
         <div class="col-lg-6 ">
           <div class="row">
-          <div class="col-lg-5 col-md-3 col-sm-5 col text-end">
+          <div class="col-lg-5 col-md-3 col-sm-5 col text-lg-end text-sm-start">
            <label for="id_select" class="sub-text">Select Billers for</label>
           </div>
           <div class="col-lg-7 col-md-3 col-sm-5 col">
-            <!-- <select id="id_select" class="transferInputs selectBiller" formControlName="billerType" autofocus>
+            <select id="id_select" class="transferInputs selectBiller" formControlName="billerType" autofocus>
               @for(option of selectOptions;track $index){
                 <option id="biller" [value]="option">{{option}}</option>
               }
-            </select> -->
-            <div class="dropdown transferInputs dropdown-image">
+            </select>
+            <!-- <div class="dropdown transferInputs selectBiller dropdown-image">
               <a class="dropdown-toggle dropdown-style" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none;">{{ selectedOption || 'Select Payee' }}
               </a>
               <ul class="dropdown-menu">
@@ -26,7 +26,7 @@
                   <a class="dropdown-item" (click)="selectOption(option)">{{ option }}</a>
                 </li>
               </ul>
-            </div>
+            </div> -->
           </div>
           </div>
         </div>
@@ -39,7 +39,7 @@
         @if(!showRechargeForm){
           <div class="col-lg-6">
             <div class="row sub-text-biller">
-              <div class="col-lg-5 col-md-3 col-sm-6 col text-end">
+              <div class="col-lg-5 col-md-3 col-sm-6 col text-lg-end text-sm-start">
                <label for="id_select" class="sub-text"> Biller Details </label>
               </div>
               <div class="col-lg-7 col-md-3 col-sm-6 col">
@@ -58,7 +58,7 @@
         @if(!showRechargeForm){
           <div class="col-lg-6 ">
             <div class="row">
-              <div class="col-lg-5 col-md-3 col-sm-6 col text-end">
+              <div class="col-lg-5 col-md-3 col-sm-6 col text-lg-end text-sm-start">
                 <label for="id_select" class="sub-text"> Bill Amount</label>
               </div>
               <div class="col-lg-5 col-md-3 col-sm-6 col">
@@ -86,7 +86,7 @@
           <div class="row">
             <div class="col-lg-6 ">
               <div class="row">
-                <div class="col-lg-5 col-md-3 col-sm-6 col mob-rec-form text-end">
+                <div class="col-lg-5 col-md-3 col-sm-6 col mob-rec-form text-lg-end text-sm-start">
                   <label class="sub-text mt-2">Network provider</label>
                 </div>
                 <div class="col-lg-7 col-md-3 col-sm-6 col">
@@ -104,7 +104,7 @@
           <div class="row mt-4">
             <div class="col-lg-6">
               <div class="row">
-                <div class="col-lg-5 col-md-3 col-sm-6 col mob-rec-form text-end">
+                <div class="col-lg-5 col-md-3 col-sm-6 col mob-rec-form text-lg-end text-sm-start">
                   <label class="sub-text">Mobile number</label>
                 </div>
                 <div class="col-lg-7 col-md-3 col-sm-6 col">
@@ -126,7 +126,7 @@
            <div class="row mt-4">
             <div class="col-lg-6 ">
               <div class="row">
-                <div class="col-lg-5 col-md-3 col-sm-6 col mob-rec-form text-end">
+                <div class="col-lg-5 col-md-3 col-sm-6 col mob-rec-form text-lg-end text-sm-start">
                   <label for="id_select" class="sub-text">Recharge amount</label>
                 </div>
                 <div class="col-lg-7 col-md-3 col-sm-6 col">
@@ -163,7 +163,7 @@
         <div class="row sub-text-paying-from">
           <div class="col-lg-6">
             <div class="row">
-              <div class="col-lg-5 col-md-3 col-sm-6 col text-end">
+              <div class="col-lg-5 col-md-3 col-sm-6 col text-lg-end text-sm-start">
                 <label for="id_select" class="sub-text"> Paying From</label>
               </div>
               <div class="col-lg-7 col-md-4 col-sm-3 col">
@@ -179,7 +179,7 @@
               <span class="sub-text float-start d-none d-sm-block acc-details">Account Details</span>
               </div>
               <div class="col-lg-5 col-lg-5 col-md-5 col-sm-3 col savings savings-mob">
-                <span class="savingsAccNumber float-start">Savings: 12345678910111213</span>
+                <span class="savingsAccNumber float-start">Savings:12345678910111213</span>
                 <span class="balance sel-balance">Balanc: ₹ {{availBalance}}/-</span>
               </div>
             </div>

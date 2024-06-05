@@ -50,14 +50,15 @@ export class LoginComponent {
           this.invalidUser = true;
           this.loginForm.reset();
       }
+        
         this.service.setCurrentUser(user);
         this.service.trimmedString = this.service.trimNameFromEmail(user);
         localStorage.setItem("logindata",JSON.stringify(this.loginForm.value))
       }
       else{
         this.invalidUser = true;
-        this.loginForm.reset()
-      }
+        this.loginForm.reset();
+    }
     }
 
   openForgotPasswordPopup(content: any) {
