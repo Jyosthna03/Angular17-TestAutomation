@@ -31,27 +31,6 @@
                                                             <option>{{payee}}</option>
                                                         }
                                                     </select>
-                                                    <!-- <ul class="transferInputs dropdown" required >
-                                                        @for(payee of payeeNames; track $index){
-                                                            <li (click)="selectOption(payee)">{{payee}}</li>
-                                                        }
-                                                    </ul> -->
-                                                        <!-- dropdown.component.html -->
-
-                                                <!-- <div class="dropdown transferInputs dropdown-image">
-                                                    <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none;">
-                                                                    {{ selectedOption || 'Select Payee' }}
-                                                    </a>
-                                                    <ul class="dropdown-menu dropdown-menu-center">
-                                                            <li *ngFor="let item of payeeNames">
-                                                                 <a class="dropdown-item" (click)="selectOption(item)">
-                                                                                {{ item }}
-                                                                  </a>
-                                                             </li>
-                                                    </ul>
-                                                </div> -->
-  
-                                                     
                                                     <div class="d-sm-block d-md-block d-lg-none">
                                                         <a class="addPayeesm" routerLink="/addpayeesm">Add new Payee</a>
                                                     </div>
@@ -153,12 +132,12 @@
                     <div>
                         <p class="transaction">Select the payment mode</p>
                         <div class="row">
-                            <div class="col-lg-2 col-4">
+                            <div class="col-lg-2 col-12">
                                 <label class="sub-text">Payment Mode<span class="text-danger">*</span></label>
                             </div>
-                            <div class="col-lg-10 col-7">
+                            <div class="col-lg-10 col-12">
                                 <div class="row pd-left">
-                                    <div class="paymentMode">
+                                    <div class="paymentMode pt-xs">
                                           <input type="radio" name="paymentModeInput" class="form-check-input" formControlName="paymentModeInput" value="IMPS">
                                            <label class="paymentModeLabel">IMPS</label>
                                            <p class="instantTransfer">Max Rs. 50,000 per day. Instant transfer 24*7
@@ -177,23 +156,12 @@
                                             transaction.</p>
                                     </div>
                                 </div>
-                                 <div class="d-lg-none d-sm-block d-md-block d-flex flex-row justify-content-between">
-                                       @for(data of paymentModeData;track $index){
-                                        <div class="payModessm">
-                                            <input type="radio" class="form-check-input" formControlName="paymentModeInput" name="paymentModeInput" (click)="check(data)" value="{{data.label}}">
-                                            <label class="paymentModeLabel">{{data.label}}</label>
-                                        </div>
-                                        }
-                                   </div>
-                                   <div>
-                                    <p class="transferFund d-lg-none">{{paymentChoosed}}</p>
-                                  </div>
                             </div>
                         </div>
                     </div>
     
-                    <footer class="footer">
-                        <div class="container">
+                    <!-- <footer class="footer"> -->
+                        <!-- <div class="container"> -->
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col bottom-buttons">
                                     <button class="btn btn-primary cancelAndSaveBtn backbtn" routerLink="/dashboard" id="back">Back</button>
@@ -201,11 +169,10 @@
                                     <button type="submit" id="send" class="btn btn-primary cancelAndSaveBtn saveBtn" [disabled]="moneyTransferForm.invalid" (click)="onSubmit(moneyTransferForm.value)" [ngClass]="{'btn-enabled': !moneyTransferForm.invalid, 'btn-disabled': moneyTransferForm.invalid}">Send</button>
                                 </div>
                            </div>
-                        </div>
-                    </footer>
+                        <!-- </div> -->
+                    <!-- </footer> -->
             </form>
-           
-          </div>
+         </div>
     </div>
 </div> 
 

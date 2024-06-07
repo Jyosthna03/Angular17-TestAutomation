@@ -91,61 +91,26 @@ input::-webkit-inner-spin-button {
 .backbtn{
     margin-right: 15px;
 }
-/* .text select option{
-    border-radius: 0px !important;
-    background-color: red;
-    border: 0;
-    outline: 1px solid #ccc;
-    outline-offset: -1px;
-} */
+.addPayeesm{
+    float: inline-end;
+}
 @media screen and (max-width:575px) {
     .transaction{
         padding: 30px 0px 10px 0px;
         font-size: 14px;
     }
-}
-@media screen and (min-width:375px) and (max-width:992px) {
+    .pd-left{
+        padding-left: 15px;
+    }
     .paymentMode{
-        display: none;
+        width: 400px;
+        border: none;
     }
-    .instantTransfer{
-        font-size: 10px;
-    }
-    .paymentModeLabel{
-        font-size: 12px;
-        padding-left: 8px;
-        padding-top: 4px;
-    }
-    .addPayeesm{
-        font-size: 10px;
-        float: inline-end;
-        padding-top: 5px;
-    }
-    .transferFund{
-        padding-top: 12px;
-        padding-left: 18px;
-        color: #082341;
-        font-size: 10px;
-        font-weight: 600;
-    }
-    .payModessm{
-        display: inline-flex;
-        padding-left: 16px;
-        padding-top: 4px;
+    .pt-xs{
+        padding-top: 20px;
     }
     .pd-default{
-        padding: 3px !important;
+        padding: 2px;
     }
-    .bottom-buttons{
-        background-color:aqua;
-        position: fixed !important;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        margin-top: 20px;
-        margin-bottom: 0px;
-        padding: 5px;
-    }
-    
-    
 }
+

@@ -22,7 +22,6 @@ export class MoneyTransferComponent {
   totalAmount:number = 0;
   availBalance:number = this.service.balance;
   defaultPayee:string = "Select Payee"
-  // newPayeeData = this.service.addpayeeData;
 
 
   constructor(private fb:FormBuilder,private service:BankingdataService,private route:Router,private modalService: NgbModal){
@@ -37,9 +36,7 @@ export class MoneyTransferComponent {
    }
 
   ngOnInit(){
-    // console.log(this.newPayeeData)
-    
-    this.service.currentAccountNumber.subscribe(accountNumber => {
+      this.service.currentAccountNumber.subscribe(accountNumber => {
       this.moneyTransferForm.get('accountNumber')?.setValue(accountNumber, { emitEvent: false });
     });
    this.service.currentBankName.subscribe(bankName =>{

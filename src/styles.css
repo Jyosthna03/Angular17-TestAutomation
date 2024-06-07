@@ -222,10 +222,12 @@ body {
 /* Fund Transfer Screen */
   @media screen and (min-width:375px) and (max-width:767px){
     label.sub-text{
+      color: #082341;
       font-size: 12px;
       margin-left: 5px;
     }
     label.side-text{
+      color: #082341;
       font-size: 12px;
       margin-left: 5px;
     }
