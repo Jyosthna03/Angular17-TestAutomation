@@ -127,21 +127,84 @@
 
   
 
-  
+  .smwithDrawal{
+    color: #D31B03;
+    font-size: 12px;
+    font-weight: 700;
+    padding-top: 1.5rem;
+    padding-right: 1rem;
+  }
 
-  @media (max-width:576px){
-    .smTop{
-      margin-top: 1.5rem !important;
-    }
+  .smDeposit{
+    color: #3D8300;
+    font-size: 12px;
+    font-weight: 700;
+    padding-top: 1.5rem;
+    padding-right: 1rem;
+  }
 
+  .smtransDate{
+    color: #082341;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .smtransRemarks{
+    color: #494848;
+    font-size: 10px;
+    font-weight: 500;
     
   }
 
-  @media (max-width:768px){
-    .wholesmTop{
-      margin-top: 1.5rem !important;
+  .smBalance{
+    color: #082341;
+    font-size: 12px;
+    padding-top: 1.5rem;
+    font-weight: 700;
+  }
+
+  .smtabPart{
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .smdatePart{
+    padding: 5px;
+  }
+
+    .mdwithDrawal{
+      color: #D31B03;
+      font-size: 12px;
+      font-weight: 700;
+      padding-right: 1rem;
+    }
+
+    .mdDeposit{
+      color: #3D8300;
+      font-size: 12px;
+      font-weight: 700;
+      padding-right: 1rem;
+    }
+
+    .mdtransDate{
+      color: #082341;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .mdtransRemarks{
+      color: #494848;
+      font-size: 10px;
+      font-weight: 500;
+    }
+
+    @media (max-width:576px){
+      .smTop{
+        margin-top: 1.5rem;
+      }
     }
 
     
-  }
+ 
+
   

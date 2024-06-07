@@ -78,16 +78,21 @@ input::-webkit-inner-spin-button {
   font-weight: 700;
   line-height: 20px; 
 }
-.cross{
-  background-color: white;
-  padding: 4px;
-  margin-right: 5px;
-}
 .ifscCode{
    text-transform: uppercase;
 }
 .addPayeeNote{
   padding-left: 57px !important;
 }
-
+.addpayeeMsg{
+  color: green; 
+  font-weight:bold; 
+  text-align:center;
+}
+.cross-btn{
+  width: 25px;
+  height: 25px;
+  padding: 5px;
+  cursor: pointer;
+}
   

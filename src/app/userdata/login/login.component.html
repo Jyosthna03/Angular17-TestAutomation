@@ -29,7 +29,7 @@
         </div>
         <div class="d-grid login-btn-margin">
           <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid" id="login" [ngClass]="{'btn-enabled': !loginForm.invalid, 'btn-disabled': loginForm.invalid}"> Login </button>
-          <p class="text-content">If you don’t have account? <a class="cursor-pointer register-content" routerLink="/registration">Register Here</a></p>
+          <span class="text-content">If you don’t have account ? <a class="cursor-pointer register-content" (click)="getRegistration()">Register Here</a></span>
         </div>
       </form>
     </div>
