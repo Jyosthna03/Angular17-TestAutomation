@@ -39,7 +39,9 @@ input[type=text][type=password]{
   width: 100%;
 }
 .invalidCredentials{
-  color: red;
+  color: var(--Secondary-Colors-EV-Imperial---Danger-Error-EV-IMP, #F22F46);
+  font-size: 14px;
+  margin-top: 20px;
 
 }
 @media screen and (min-width: 360px) and (max-width: 576px){

@@ -1,12 +1,13 @@
-<div class="modal-content eachBlock ">
-    <div class="modal-header">
+<div class="modal-content eachBlock">
+    <div class="modal-header d-flex flex-row justify-content-between">
       <h5 class="modal-title" id="exampleModalLabel">Add Payee</h5>
-      <button type="button" class="btn-close cross" data-bs-dismiss="modal" aria-label="Close" (click)="closePopup()" id="crossBtn"></button>
+      <!-- <button type="button" class="btn-close cross" data-bs-dismiss="modal" aria-label="Close" (click)="closePopup()" id="crossBtn"></button> -->
+      <img src="assets/cancel.svg" class="cross-btn" data-bs-dismiss="modal" aria-label="Close" (click)="closePopup()" id="crossBtn">
     </div>
     <div class="modal-body modal-scroll">
         <section class="container-fluid mt-3 mb-5">
             <form [formGroup]="addPayeeForm" #formElement>
-                <p style="color: green; font-weight:bold; text-align:center">{{payeeAddMsg}}</p>
+                <p class="addpayeeMsg">{{payeeAddMsg}}</p>
             <div class="row d-flex justify-content-start mt-4 ms-4">
                 <div class="col-lg-6">
                     <div class="eachBlock mb-2">

@@ -192,13 +192,17 @@
                         </div>
                     </div>
     
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col bottom-buttons">
-                            <button class="cancelAndSaveBtn backbtn" routerLink="/dashboard" id="back">Back</button>
-                            <button class="cancelAndSaveBtn" (click)="onCancel()" id="cancel">cancel</button>
-                            <button type="submit" id="send" class="btn btn-primary cancelAndSaveBtn saveBtn" [disabled]="moneyTransferForm.invalid" (click)="onSubmit(moneyTransferForm.value)" [ngClass]="{'btn-enabled': !moneyTransferForm.invalid, 'btn-disabled': moneyTransferForm.invalid}">Send</button>
+                    <footer class="footer">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col bottom-buttons">
+                                    <button class="btn btn-primary cancelAndSaveBtn backbtn" routerLink="/dashboard" id="back">Back</button>
+                                    <button class="btn btn-primary cancelAndSaveBtn" (click)="onCancel()" id="cancel">cancel</button>
+                                    <button type="submit" id="send" class="btn btn-primary cancelAndSaveBtn saveBtn" [disabled]="moneyTransferForm.invalid" (click)="onSubmit(moneyTransferForm.value)" [ngClass]="{'btn-enabled': !moneyTransferForm.invalid, 'btn-disabled': moneyTransferForm.invalid}">Send</button>
+                                </div>
+                           </div>
                         </div>
-                    </div>
+                    </footer>
             </form>
            
           </div>

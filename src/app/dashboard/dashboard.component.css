@@ -1,10 +1,10 @@
 .logo{
     color: var(--White, #FFF);
-    font-family: Mulish;
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+font-family: Montserrat;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
 }
 .btn-primary {
     background-color: #e1934b !important;

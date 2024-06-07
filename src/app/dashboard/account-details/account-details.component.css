@@ -6,3 +6,18 @@
 /* .acc-sty{
     margin-top: 10px;
 } */
+.dashboard-cards{
+    text-wrap: nowrap;
+}
+@media (max-width: 576px) {
+.dashboard-cards {
+    /* display: flex;
+    flex-direction: row; */
+    flex-wrap: nowrap;
+}
+
+.dashboard-cards li {
+    /* padding: 0 10px; */
+    white-space: nowrap;
+}
+}

@@ -217,11 +217,9 @@ body {
     appearance: none; /* Remove default arrow in other browsers */
     background: transparent url(assets/chevron-down.svg) no-repeat right 10px center;
   }
- 
- 
-      /* All media-breakpoint */
+ /* All media-breakpoint */
 
-      /* Fund Transfer Screen */
+/* Fund Transfer Screen */
   @media screen and (min-width:375px) and (max-width:767px){
     label.sub-text{
       font-size: 12px;
