@@ -45,14 +45,12 @@ export class TransactionHistoryComponent {
     for (let i = 1; i <= 60; i++) {
       this.TransHistory.push({
         sno: i.toString().padStart(2, '0'),
-        valueDate: '18/03/2024',
         transactionDate: '18/03/2024',
         transctionRemarks:
           'VIN/BLINKIT/202403031436/4063-09545745/Phone pe/Blinkit',
         withDrawalAmount: '314.45',
         depositAmount: '',
         balance: '1109.82',
-        dayClosingBalance: '1109.82',
       });
     }
   }

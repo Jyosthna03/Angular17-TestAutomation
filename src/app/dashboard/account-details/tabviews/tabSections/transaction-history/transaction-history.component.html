@@ -46,139 +46,62 @@
             <button type="submit" id="send" class="btn btn-primary cancelAndSaveBtn saveBtn" [disabled]="transactionForm.invalid" (click)="submitForm()" [ngClass]="{'btn-enabled': !transactionForm.invalid, 'btn-disabled': transactionForm.invalid}">Show</button>
         </div>
       </div>
-        <!-- <div class="btnArea">
-          <button class="cancelAndSaveBtn pgbackBtn" routerLink="/dashboard" id="back">Back</button>
-          <button class="cancelAndSaveBtn" (click)="cancelForm()">Cancel</button>
-          <button class="btn btn-primary cancelAndSaveBtn saveBtn" type="submit" [disabled]="transactionForm.invalid" (click)="submitForm()" [ngClass]="{'btn-enabled': !transactionForm.invalid, 'btn-disabled': transactionForm.invalid}">Show</button>
-        </div> -->
     </form>
   </div>
   <div class="tabArea mt-2">
     @if (showData) {
-    <table class="table tabFont">
-      <thead class="tabHead">
-        <th class="p-2 text-center">Sl.No</th>
-        <th class="p-2">Value Date</th>
-        <th class="p-2">Transaction Date</th>
-        <th class="p-2">Transaction Remarks</th>
-        <th class="p-2 text-end">Withdrawal Amount</th>
-        <th class="p-2">Deposit Amount</th>
-        <th class="p-2">Balance</th>
-        <th class="p-2 text-end">Day Closing Balance</th>
-      </thead>
-      @if ((leftpaginationMode==false)&&(rightpaginationMode==true)) {
-      <tbody class="tabData">
-        @for (data of getPageTransactions(); track $index) {
-          <tr class="eachRow">
-            <td class="text-center data">{{ data.sno }}</td>
-            <td class="data">{{ data.valueDate }}</td>
-            <td class="data">{{ data.transactionDate }}</td>
-            <td class="data">{{ data.transctionRemarks }}</td>
-            <td class="data text-end">{{ data.withDrawalAmount }}</td>
-            <td class="data">{{ data.depositAmount }}</td>
-            <td class="data">{{ data.balance }}</td>
-            <td class="text-end data">{{ data.dayClosingBalance }}</td>
-          </tr>
-        }
-        <tr class="lastRow">
-          <td colspan="8">
-            <div class="Pagearea">
-              <div class="perPageArea d-flex">
-                <div class="mt-3">
-                  <span class="rowsPg">Rows Per Page</span>
+    <div class="d-none d-lg-block">
+      <table class="table tabFont">
+        <thead class="tabHead">
+          <th class="p-2 text-center">Sl.No</th>
+          <th class="p-2">Transaction Date</th>
+          <th class="p-2">Transaction Remarks</th>
+          <th class="p-2 text-end">Withdrawal Amount</th>
+          <th class="p-2 text-center">Deposit Amount</th>
+          <th class="p-2 ">Balance</th>
+        </thead>
+        @if ((leftpaginationMode==false)&&(rightpaginationMode==true)) {
+        <tbody class="tabData">
+          @for (data of getPageTransactions(); track $index) {
+            <tr class="eachRow">
+              <td class="text-center data">{{ data.sno }}</td>
+              <td class="data">{{ data.transactionDate }}</td>
+              <td class="data">{{ data.transctionRemarks }}</td>
+              <td class="data text-end">{{ data.withDrawalAmount }}</td>
+              <td class="data text-center">{{ data.depositAmount }}</td>
+              <td class="data">{{ data.balance }}</td>
+            </tr>
+          }
+          <tr class="lastRow">
+            <td colspan="8">
+              <div class="Pagearea">
+                <div class="perPageArea d-flex">
+                  <div class="mt-3">
+                    <span class="rowsPg">Rows Per Page</span>
+                  </div>
+                  <div>
+                    <select class="form-select mt-2 ms-3 ps-3 pe-3 rounded-0" [(ngModel)]="selectedShowperPage"
+                      (change)="onSelectPageRows($event)">
+                      <option value="5" [selected]="selectedShowperPage==5">5</option>
+                      <option value="10" [selected]="selectedShowperPage==10">10</option>
+                      <option value="15" [selected]="selectedShowperPage==15">15</option>
+                      <option value="20" [selected]="selectedShowperPage==20">20</option>
+                    </select>
+                  </div>
                 </div>
-                <div>
-                  <select class="form-select mt-2 ms-3 ps-3 pe-3 rounded-0" [(ngModel)]="selectedShowperPage"
-                    (change)="onSelectPageRows($event)">
-                    <option value="5" [selected]="selectedShowperPage==5">5</option>
-                    <option value="10" [selected]="selectedShowperPage==10">10</option>
-                    <option value="15" [selected]="selectedShowperPage==15">15</option>
-                    <option value="20" [selected]="selectedShowperPage==20">20</option>
-                  </select>
-                </div>
-              </div>
-              <div class="d-flex paginationArea">
-                <nav aria-label="Page navigation example">
-                  <ul class="pagination">
-                    <li class="page-item">
-                      <a class="page-link mt-1 rounded-0 border-0" aria-label="Previous" (click)="previousPage()">
-                        <img src="assets/left-arrow.svg" alt="" class="mt-2" />
-                      </a>
-                    </li>
-                    @for (eachpgno of rightPaginationItems; track $index) {
-                      <div>
-                        <li class="page-item" [class.active]="eachpgno===currentPage">
-                          <a class="page-link pgNo mt-2 ms-2 border-0 rowsPg" (click)="onPageChange(eachpgno)"
-                            [class.active]="eachpgno===currentPage" [ngStyle]="{
-                              'background': eachpgno===currentPage ? '#082341' : '#fff',
-                              'font-weight':eachpgno===currentPage ?'700' : 'bold',
-                              'font-size':eachpgno===currentPage ?'12px':'16px',
-                              'color': eachpgno===currentPage?'#FFF':'#979797',
-                              'font-style':'normal',
-                              'padding-left':'10px',
-                              'padding-right':'10px',
-                              'text-transform':'capitalize',
-                            }">{{eachpgno}}</a>
-                        </li>
-                      </div>
-                    }
-                    
-                    <li class="page-item">
-                      <a class="page-link mt-1 rounded-0 border-0" (click)="nextPage()">
-                        <img src="assets/right-arrow.svg" alt="RightArrow" class="mt-2" />
-                      </a>
-                    </li>
-                  </ul>
-                </nav>
-              </div>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-      }@else {
-      <tbody class="tabData">
-        @for (data of getPageTransactions(); track $index) {
-          <tr class="eachRow">
-            <td class="text-center data">{{ data.sno }}</td>
-            <td class="data">{{ data.valueDate }}</td>
-            <td class="data">{{ data.transactionDate }}</td>
-            <td class="data">{{ data.transctionRemarks }}</td>
-            <td class="data text-end">{{ data.withDrawalAmount }}</td>
-            <td class="data">{{ data.depositAmount }}</td>
-            <td class="data">{{ data.balance }}</td>
-            <td class="text-end data">{{ data.dayClosingBalance }}</td>
-          </tr>
-        }
-        <tr class="lastRow">
-          <td colspan="8">
-            <div class="Pagearea">
-              <div class="perPageArea d-flex">
-                <div class="mt-3">
-                  <span class="rowsPg">Rows Per Page</span>
-                </div>
-                <div>
-                  <select class="form-select mt-2 ms-3 ps-3 pe-3 rounded-0" [(ngModel)]="selectedShowperPage"
-                    (change)="onSelectPageRows($event)">
-                    <option value="5" [selected]="selectedShowperPage==5">5</option>
-                    <option value="10" [selected]="selectedShowperPage==10">10</option>
-                    <option value="15" [selected]="selectedShowperPage==15">15</option>
-                    <option value="20" [selected]="selectedShowperPage==20">20</option>
-                  </select>
-                </div>
-              </div>
-              <div class="d-flex paginationArea">
-                <nav aria-label="Page navigation example">
-                  <ul class="pagination">
-                    <li class="page-item">
-                      <a class="page-link mt-1 rounded-0 border-0" aria-label="Previous">
-                        <img src="assets/left-arrow.svg" alt="" class="mt-2" />
-                      </a>
-                    </li>
-                    @for (eachpgno of rightPaginationItems; track $index) {
-                      <div>
-                        <li class="page-item" [class.active]="eachpgno===currentPage">
-                          <a class="page-link pgNo mt-2 ms-2 border-0 rowsPg" (click)="onPageChange(eachpgno)"
-                            [class.active]="eachpgno===currentPage" [ngStyle]="{
+                <div class="d-flex paginationArea">
+                  <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                      <li class="page-item">
+                        <a class="page-link mt-1 rounded-0 border-0" aria-label="Previous" (click)="previousPage()">
+                          <img src="assets/left-arrow.svg" alt="" class="mt-2" />
+                        </a>
+                      </li>
+                      @for (eachpgno of rightPaginationItems; track $index) {
+                        <div>
+                          <li class="page-item" [class.active]="eachpgno===currentPage">
+                            <a class="page-link pgNo mt-2 ms-2 border-0 rowsPg" (click)="onPageChange(eachpgno)"
+                              [class.active]="eachpgno===currentPage" [ngStyle]="{
                                 'background': eachpgno===currentPage ? '#082341' : '#fff',
                                 'font-weight':eachpgno===currentPage ?'700' : 'bold',
                                 'font-size':eachpgno===currentPage ?'12px':'16px',
@@ -188,24 +111,136 @@
                                 'padding-right':'10px',
                                 'text-transform':'capitalize',
                               }">{{eachpgno}}</a>
-                        </li>
-                      </div>
-                    }
-                    
-                    <li class="page-item">
-                      <a class="page-link mt-1 rounded-0 border-0">
-                        <img src="assets/right-arrow.svg" alt="RightArrow" class="mt-2" />
-                      </a>
-                    </li>
-                  </ul>
-                </nav>
+                          </li>
+                        </div>
+                      }
+                      
+                      <li class="page-item">
+                        <a class="page-link mt-1 rounded-0 border-0" (click)="nextPage()">
+                          <img src="assets/right-arrow.svg" alt="RightArrow" class="mt-2" />
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+        }@else {
+        <tbody class="tabData">
+          @for (data of getPageTransactions(); track $index) {
+            <tr class="eachRow">
+              <td class="text-center data">{{ data.sno }}</td>
+              <td class="data">{{ data.transactionDate }}</td>
+              <td class="data">{{ data.transctionRemarks }}</td>
+              <td class="data text-end">{{ data.withDrawalAmount }}</td>
+              <td class="data text-center">{{ data.depositAmount }}</td>
+              <td class="data">{{ data.balance }}</td>
+            </tr>
+          }
+          <tr class="lastRow">
+            <td colspan="8">
+              <div class="Pagearea">
+                <div class="perPageArea d-flex">
+                  <div class="mt-3">
+                    <span class="rowsPg">Rows Per Page</span>
+                  </div>
+                  <div>
+                    <select class="form-select mt-2 ms-3 ps-3 pe-3 rounded-0" [(ngModel)]="selectedShowperPage"
+                      (change)="onSelectPageRows($event)">
+                      <option value="5" [selected]="selectedShowperPage==5">5</option>
+                      <option value="10" [selected]="selectedShowperPage==10">10</option>
+                      <option value="15" [selected]="selectedShowperPage==15">15</option>
+                      <option value="20" [selected]="selectedShowperPage==20">20</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="d-flex paginationArea">
+                  <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                      <li class="page-item">
+                        <a class="page-link mt-1 rounded-0 border-0" aria-label="Previous">
+                          <img src="assets/left-arrow.svg" alt="" class="mt-2" />
+                        </a>
+                      </li>
+                      @for (eachpgno of rightPaginationItems; track $index) {
+                        <div>
+                          <li class="page-item" [class.active]="eachpgno===currentPage">
+                            <a class="page-link pgNo mt-2 ms-2 border-0 rowsPg" (click)="onPageChange(eachpgno)"
+                              [class.active]="eachpgno===currentPage" [ngStyle]="{
+                                  'background': eachpgno===currentPage ? '#082341' : '#fff',
+                                  'font-weight':eachpgno===currentPage ?'700' : 'bold',
+                                  'font-size':eachpgno===currentPage ?'12px':'16px',
+                                  'color': eachpgno===currentPage?'#FFF':'#979797',
+                                  'font-style':'normal',
+                                  'padding-left':'10px',
+                                  'padding-right':'10px',
+                                  'text-transform':'capitalize',
+                                }">{{eachpgno}}</a>
+                          </li>
+                        </div>
+                      }
+                      
+                      <li class="page-item">
+                        <a class="page-link mt-1 rounded-0 border-0">
+                          <img src="assets/right-arrow.svg" alt="RightArrow" class="mt-2" />
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+        }
+      </table>
+    </div>
+    }
+  </div>
+  <div class="smTable mt-2">
+    @if (showData) {
+      <div class="d-md-none d-lg-none d-sm-block">
+        <div class="row">
+          @for (item of getPageTransactions(); track $index) {
+            <div class="col-sm-6 d-flex justify-content-between">
+              <div class="smdatePart">
+                <span class="smtransDate">{{item.transactionDate}}</span>
+                <p class="smtransRemarks">{{item.transctionRemarks}}</p>
+              </div>
+              <div class="p-2">
+                @if (item.withDrawalAmount!='---') {
+                  <span class="smwithDrawal">{{item.withDrawalAmount}}</span>
+                }@else {
+                  <span class="smDeposit">{{item.depositAmount}}</span>
+                }
+                <span class="smBalance">{{item.balance}}</span>
               </div>
             </div>
-          </td>
-        </tr>
-      </tbody>
-      }
-    </table>
+            
+          }
+        </div>
+      </div>
+    }
+  </div>
+  <div class="mdData mt-2 d-flex p-2">
+    @if (showData) {
+      <div class="d-none d-lg-none d-sm-none d-md-block">
+        <div class="row">
+          @for (item of getPageTransactions(); track $index) {
+            <div class="col-md-12 d-flex justify-content-between">
+              <span class="mdtransDate">{{item.transactionDate}}</span>
+              <p class="mdtransRemarks">{{item.transctionRemarks}}</p>
+              @if (item.withDrawalAmount!='---') {
+                <span class="mdwithDrawal">{{item.withDrawalAmount}}</span>
+              }@else {
+                <span class="mdDeposit">{{item.depositAmount}}</span>
+              }
+            </div>
+          }
+        </div>
+      </div>
     }
   </div>
 </section>
