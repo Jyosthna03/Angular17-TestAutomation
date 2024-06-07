@@ -42,7 +42,7 @@
           <div class="col-md-6">
             <div class="form-group mt-3">
               <label for="phoneNumber" class="lable-name">Phone Number<span class="text-danger">*</span></label>
-              <input type="text" id="phoneNumber" class="form-control mt-1" formControlName="phoneNumber" placeholder="PhoneNumber" maxlength="10" (keypress)="onKeyPress($event)"/>
+              <input type="tel" id="phoneNumber" class="form-control mt-1" formControlName="phoneNumber" placeholder="PhoneNumber" maxlength="10" (keypress)="onKeyPress($event)"/>
               @if (registrationForm.get('phoneNumber')?.hasError('required') && registrationForm.get('phoneNumber')?.touched) {
               <p class="error-text">Phone number is required.</p>
               } @if (registrationForm.get('phoneNumber')?.hasError('pattern') || registrationForm.get('phoneNumber')?.hasError('minlength')) {
