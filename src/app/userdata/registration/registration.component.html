@@ -1,8 +1,11 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-5 left-content">
+      <!-- @if(validUser){
+        <p class=" vaidUser text-center">{{regData}}</p>
+      } -->
       <h2 class="welcome-text">Welcome.!</h2>
-      <form #formElement [formGroup]="registrationForm" (ngSubmit)="onSubmit(registrationForm.value)">
+      <form #formElement [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
@@ -131,6 +134,11 @@
           <p>Already had an account?<a aria-current="page" class="login-here" routerLink="/login" id="login">Login Here</a></p>
         </div>
       </form>
+      <div *ngIf="validUser" class="modal">
+        <div class="modal-content">
+          <p class="text-center">{{ regData }}</p>
+        </div>
+      </div>
     </div>
     <div class="col-md-7 ps-4">
       <img class="d-none d-sm-block reg-image" [src]="imagePath" alt="Description"/>

@@ -9,10 +9,7 @@
     background-color:#082341 ;
     border-color: #082341;
 }
-.btn-primary,.btn-primary:active {
-    border: 1px solid #453985 !important;
-    background: #453985;
-}
+
 .form-check-input:focus{
     border: 0px !important;
 }
@@ -28,6 +25,7 @@
 }
 .sub-text.due{
     margin-right: 20px;
+    margin-top: 0 !important;
 }
 .bold-text{
     margin-left: 18px !important;
@@ -62,14 +60,7 @@ margin-top: 30px;
     padding-left: 4px !important;
     padding-top: 3px;
 }
-.custom-styles,.custom-styles:active{
-border-radius: 2px;
-border: 1px solid #D2D2D2;
-background: #FFF;
-/* width: 288px; */
-/* height: 36px; */
-flex-shrink: 0;
-}
+
 .dropdown-style{
 color: #082341;
 font-size: 12px;
@@ -79,15 +70,28 @@ line-height: normal;
 }
 .dropdown-toggle::after{
     content: none !important;
+    text-align: end;
 }
 .dropdown-image{
     content: "";
+}
+.dropdown-menu{
+    margin-left: 150px !important;
+    margin-top: 10px !important;
+}
+.balance{
+    margin-left: 96px;
+}
+.sel-balance{
+    margin-left: 3px !important;
+}
+.dueDate{
+    margin-top: 4px;
 }
 @media only screen and (min-width: 360px) and (max-width: 768px) {
 .sub-text{
     margin-left: 1px !important;
     margin-right: 0 !important;
-    /* margin-top: 2px; */
 }
 .bold-text{
     margin-left: -16px !important;
@@ -118,15 +122,15 @@ margin-top: 20px;
     margin-left: 124px;
 }
 .sel-balance {
-    margin-left: 10px;
+    margin-left: 10px !important;
 }
-/* .savings-duedate{
-    margin-top: -1px !important;
-} */
 .error-txt{
     padding-left: 1px;
 }
 .sub-text.due, .savings-duedate{
     font-size: 12px;
+}
+.sub-text.due{
+    margin-top: 5px !important;
 }
 }

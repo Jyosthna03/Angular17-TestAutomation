@@ -1,5 +1,5 @@
 .logo{
-    color: var(--White, #FFF);
+color: var(--White, #FFF);
 font-family: Montserrat;
 font-size: 16px;
 font-style: normal;
@@ -16,9 +16,8 @@ line-height: normal;
     color: #FFF;
 }
 .specific-text{
-    opacity: 0.5;
+opacity: 0.5;
 color: #37383A;
-/* font-family: Lato; */
 font-size: 14px;
 font-style: normal;
 font-weight: 400;
@@ -37,6 +36,9 @@ box-shadow: none !important;
     outline: none !important;
     box-shadow: none !important;
 }
-.offcanvas{
+/* .offcanvas{
     width: 260px;
+} */
+.img-style{
+    padding-right: 5px;
 }

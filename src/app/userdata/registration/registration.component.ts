@@ -14,10 +14,11 @@ import { CommonModule } from '@angular/common';
 })
 export class RegistrationComponent {
   registrationForm!: FormGroup;
-  usersList: Array<Object> = []
   submitted = false;
   imagePath = 'assets/image.png';
   maxDate!: string;
+  regData ='';
+  validUser:boolean = false;
   countries: string[] = ['Select Country', 'India','USA', 'Canada', 'UK', 'Australia', 'Poland', 'Other'];
   states: string[] = ['Select State','Telangana','Andhra Pradesh','Karnataka','Tamil Nadu','Himachal Pradesh']
   constructor(private fb: FormBuilder,private router: Router, private register: BankingdataService ) { 
@@ -50,16 +51,17 @@ export class RegistrationComponent {
     return password === confirmPassword ? null : { mismatch: true };
   }
 
-  onSubmit(data:any) {
+  onSubmit() {
+    // console.log(this.registrationForm.value)
     if(this.registrationForm.valid){
       this.register.registerDetails.push(this.registrationForm.value)
       this.register.userData.push(this.registrationForm.value.email,this.registrationForm.value.password)
-      console.log(this.register.registerDetails)
-      alert('You are Registered Sucessfully')
-      this.router.navigateByUrl('/login')
-    }else{
-      alert('please enter the details!')
+      this.validUser = true
+      this.regData ='You are Registered Sucessfully';
     }
+    setTimeout(() => {
+      this.router.navigateByUrl('/login');
+    }, 1000);
   }
   
   ngAfterViewInit() {
