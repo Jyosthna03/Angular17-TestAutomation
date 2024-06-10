@@ -69,12 +69,18 @@ font-weight: 700;
 line-height: normal;
 }
 .dropdown-toggle::after{
-    content: none !important;
+    /* content: none !important; */
     text-align: end;
+    background-image: url('/src/assets/chevron-down.png');
+   
 }
 .dropdown-image{
     content: "";
+   
 }
+/* .image{
+    padding-left: 10px;
+} */
 .dropdown-menu{
     margin-left: 150px !important;
     margin-top: 10px !important;

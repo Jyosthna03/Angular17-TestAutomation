@@ -21,7 +21,8 @@
             <div class="dropdown transferInputs selectBiller">
               <a class="dropdown-toggle dropdown-style" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none;">{{ selectedOption || 'Select Payee' }}
               </a>
-              <ul class="dropdown-menu">
+              <img src="assets/chevron-down.png" alt="Dropdown-image">
+              <ul class="dropdown-menu ">
                 <li *ngFor="let option of selectOptions">
                   <a class="dropdown-item" (click)="selectOption(option)">{{ option }}</a>
                 </li>
