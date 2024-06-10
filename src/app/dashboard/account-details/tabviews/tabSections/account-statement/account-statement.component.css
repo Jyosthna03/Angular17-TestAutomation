@@ -46,12 +46,25 @@
   background: var(--Primary-White, #FFF);
   cursor: pointer;
   margin-top: 8px;
+  outline:none !important;
+  outline-width: 0 !important;
+  box-shadow: none !important;
 }
 .form-check-input:checked {
   border: 5px solid var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1B154C);
   background: var(--Primary-White, #FFF);
   cursor: pointer;
   margin-top: 8px;
+  outline:none !important;
+  outline-width: 0 !important;
+  box-shadow: none !important;
+}
+
+select:focus{
+  outline:none !important;
+  outline-width: 0 !important;
+  box-shadow: none !important;
+  border: 1px solid var(--Neutral-Colors-Light-Gray, #C3C2CC);
 }
 
 .backbtn{
