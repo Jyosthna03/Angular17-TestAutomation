@@ -18,7 +18,7 @@
                 <option id="biller" [value]="option">{{option}}</option>
               }
             </select> -->
-            <div class="dropdown transferInputs selectBiller">
+            <!-- <div class="dropdown transferInputs selectBiller">
               <a class="dropdown-toggle dropdown-style" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none;">{{ selectedOption || 'Select Payee' }}
               </a>
               <img src="assets/chevron-down.png" class="dropdown-image" alt="Dropdown-image" data-bs-toggle="dropdown" aria-expanded="false">
@@ -27,6 +27,17 @@
                   <a class="dropdown-item" (click)="selectOption(option)">{{ option }}</a>
                 </li>
               </ul>
+            </div> -->
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle selectBar" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ selectedOption }} <!-- Bind selectedOption here -->
+              </button>
+              <ul class="dropdown-menu selectBaropt" aria-labelledby="dropdownMenuButton1">
+                <li *ngFor="let opt of selectOptions; let $index = index;">
+                  <span class="dropdown-item" (click)="selectOption(opt)">{{ opt }}</span>
+                </li>
+              </ul>
+              <img src="assets/chevron-down.png" alt="" style="position: relative;right: 30px;" data-bs-toggle="dropdown">
             </div>
           </div>
           </div>
