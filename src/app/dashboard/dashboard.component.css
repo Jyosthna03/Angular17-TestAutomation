@@ -1,11 +1,3 @@
-.logo{
-    color: var(--White, #FFF);
-font-family: Montserrat;
-font-size: 16px;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
-}
 .btn-primary {
     background-color: #e1934b !important;
     color: white;
@@ -17,17 +9,14 @@ line-height: normal;
 }
 .specific-text{
     opacity: 0.5;
-color: #37383A;
-/* font-family: Lato; */
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-text-transform: lowercase;
+    color: #37383A;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: lowercase;
 }
 .bg-light{
-background: #082341 !important;
-box-shadow: none !important;
+    background: #082341 !important;
+    box-shadow: none !important;
 }
 .login-user{
     margin-top: 7px;
