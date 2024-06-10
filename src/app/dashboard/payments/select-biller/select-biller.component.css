@@ -141,3 +141,27 @@ margin-top: 20px;
     margin-top: 5px !important;
 }
 }
+
+.selectBar{
+    width: 288px;
+    height: 36px;
+    border-radius: 2px;
+    border: 1px solid #D2D2D2;
+    background: #FFF;
+    color: #082341;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: start;
+  }
+
+  .dropdown-toggle::after {
+    content: none;
+    
+  }
+
+  .selectBaropt{
+    width: 288px;
+    margin: 0;
+    padding: 0;
+  }
+

@@ -27,6 +27,17 @@
                   <a class="dropdown-item" (click)="selectOption(option)">{{ option }}</a>
                 </li>
               </ul>
+            </div> 
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle selectBar" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ selectedOption }} <!-- Bind selectedOption here -->
+              </button>
+              <ul class="dropdown-menu selectBaropt" aria-labelledby="dropdownMenuButton1">
+                <li *ngFor="let opt of selectOptions; let $index = index;">
+                  <span class="dropdown-item" (click)="selectOption(opt)">{{ opt }}</span>
+                </li>
+              </ul>
+              <img src="assets/chevron-down.png" alt="" style="position: relative;right: 30px;" data-bs-toggle="dropdown">
             </div>
           </div>
           </div>
@@ -66,7 +77,7 @@
                 <input type="text" class="transferInputs billDetails" formControlName="billDetailsAmount" maxlength="5"  (keypress)="onKeyPress($event)">
                 <div  class="text-danger error-text">
                    @if(billerForm.get('billDetailsAmount')?.hasError('required') && billerForm.get('billDetailsAmount')?.touched){
-                    <p>Enter Amount</p>
+                    <span>Enter Amount</span>
                    }
                  </div>
               </div>
@@ -112,12 +123,12 @@
                   <input type="text" class="mobile transferInputs cre-card" formControlName="mobileNumber" (keypress)="onKeyPress($event)" maxlength="10" minlength="10" placeholder="Enter Mobile Number" aria-autocomplete="list">
                   <div class="error text-danger">
                     @if(rechargeForm.get('mobileNumber')?.hasError('required') && rechargeForm.get('mobileNumber')?.touched){
-                      <p>Enter Mobile Number</p>
+                      <span>Enter Mobile Number</span>
                     }
                   </div>
                 <div class="error text-danger">
                   @if(rechargeForm.get('mobileNumber')?.hasError('pattern') || rechargeForm.get('mobileNumber')?.hasError('minlength')){
-                    <p>Enter Valid Mobile Number</p>
+                    <span>Enter Valid Mobile Number</span>
                   }
                 </div>
                 </div>

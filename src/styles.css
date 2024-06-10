@@ -81,9 +81,11 @@ body {
   }
   .logo{
     color: var(--White, #FFF);
+    font-family: Montserrat;
     font-size: 16px;
     font-weight: 600;
     text-decoration: none;
+    padding-top: 3px;
 }
   /* transfer and payment screen css  */
   .cancelAndSaveBtn {
@@ -132,8 +134,7 @@ body {
     color: #082341;
     font-weight: 700;
     margin-right: 20px;
-
-  }
+}
   .balance {
     color: #717171;
     font-size: 12px;
@@ -183,7 +184,6 @@ body {
 .toggleSwitchContent {
     color: #082341;
     text-align: right;
-    font-family: Mulish;
     font-size: 12px;
     font-weight: 400;
     text-transform: capitalize;
@@ -221,8 +221,7 @@ body {
     -webkit-appearance: none; /* Remove default arrow in Chrome/Safari */
     -moz-appearance: none; /* Remove default arrow in Firefox */
     appearance: none; /* Remove default arrow in other browsers */
-     float: right;
-    /* background: transparent url(assets/chevron-down.svg) no-repeat right 10px center; */
+    background: transparent url(assets/chevron-down.svg) no-repeat right 10px center;
   }
  /* All media-breakpoint */
 

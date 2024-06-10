@@ -1,11 +1,11 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid"> -->
   @if (isloaded) {
   <app-account-holder-details></app-account-holder-details>
-  <app-multiple-accounts></app-multiple-accounts>
-  <div>
-    <app-account-summary></app-account-summary>
-  </div>
-  <app-tabviews></app-tabviews>
+  <section>
+      <app-multiple-accounts></app-multiple-accounts>
+      <app-account-summary></app-account-summary>
+      <app-tabviews></app-tabviews>
+  </section>
   }@else{
   <div class="d-flex justify-content-center mt-2">
     <div class="spinner-border" role="status">
@@ -13,4 +13,4 @@
     </div>
   </div>
   }
-</div>
+<!-- </div> -->

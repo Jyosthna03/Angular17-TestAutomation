@@ -8,14 +8,13 @@
     color: #FFF;
 }
 .specific-text{
+    display: block;
     opacity: 0.5;
-color: #37383A;
-/* font-family: Lato; */
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-text-transform: lowercase;
+    color: #37383A;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: lowercase;
+    text-align: center !important;
 }
 .bg-light{
     background: #082341 !important;

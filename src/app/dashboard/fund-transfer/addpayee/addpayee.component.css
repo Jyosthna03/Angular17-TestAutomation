@@ -34,6 +34,7 @@ input::-webkit-inner-spin-button {
     color: #777;
     font-size: 12px;
     font-weight: 700;
+    line-height: 28px;
   }
 .payeeBtns {
     display: flex;
@@ -85,9 +86,11 @@ input::-webkit-inner-spin-button {
   padding-left: 57px !important;
 }
 .addpayeeMsg{
+  display: block;
   color: green; 
   font-weight:bold; 
-  text-align:center;
+  text-align:center !important;
+  align-items: center;
 }
 .cross-btn{
   width: 25px;
