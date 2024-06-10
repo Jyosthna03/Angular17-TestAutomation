@@ -221,7 +221,8 @@ body {
     -webkit-appearance: none; /* Remove default arrow in Chrome/Safari */
     -moz-appearance: none; /* Remove default arrow in Firefox */
     appearance: none; /* Remove default arrow in other browsers */
-    background: transparent url(assets/chevron-down.svg) no-repeat right 10px center;
+     float: right;
+    /* background: transparent url(assets/chevron-down.svg) no-repeat right 10px center; */
   }
  /* All media-breakpoint */
 
