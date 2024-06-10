@@ -1,8 +1,11 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-5 left-content">
+      <!-- @if(validUser){
+        <p class=" vaidUser text-center">{{regData}}</p>
+      } -->
       <h2 class="welcome-text">Welcome.!</h2>
-      <form #formElement [formGroup]="registrationForm" (ngSubmit)="onSubmit(registrationForm.value)">
+      <form #formElement [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
@@ -42,7 +45,7 @@
           <div class="col-md-6">
             <div class="form-group mt-3">
               <label for="phoneNumber" class="lable-name">Phone Number<span class="text-danger">*</span></label>
-              <input type="text" id="phoneNumber" class="form-control mt-1" formControlName="phoneNumber" placeholder="PhoneNumber" maxlength="10" (keypress)="onKeyPress($event)"/>
+              <input type="tel" id="phoneNumber" class="form-control mt-1" formControlName="phoneNumber" placeholder="PhoneNumber" maxlength="10" (keypress)="onKeyPress($event)"/>
               @if (registrationForm.get('phoneNumber')?.hasError('required') && registrationForm.get('phoneNumber')?.touched) {
                 <span class="error-text">Phone number is required.</span>
               } @if (registrationForm.get('phoneNumber')?.hasError('pattern') || registrationForm.get('phoneNumber')?.hasError('minlength')) {
@@ -128,6 +131,11 @@
           <span>Already had an account ? <a aria-current="page" class="login-here" routerLink="/login" id="login">Login Here</a></span>
         </div>
       </form>
+      <div *ngIf="validUser" class="modal">
+        <div class="modal-content">
+          <p class="text-center">{{ regData }}</p>
+        </div>
+      </div>
     </div>
     <div class="col-md-7 ps-4">
       <img class="d-none d-sm-block reg-image" [src]="imagePath" alt="Description"/>

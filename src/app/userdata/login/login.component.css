@@ -1,6 +1,5 @@
 .container-without-scrollbars{
   overflow-x: hidden !important;
-
 }
 .email,.password{
   color: #000;

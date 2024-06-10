@@ -13,20 +13,21 @@
            <label for="id_select" class="sub-text">Select Billers for</label>
           </div>
           <div class="col-lg-7 col-md-3 col-sm-5 col">
-            <select id="id_select" class="transferInputs selectBiller" formControlName="billerType" autofocus>
+            <!-- <select id="id_select" class="transferInputs selectBiller" formControlName="billerType" autofocus>
               @for(option of selectOptions;track $index){
                 <option id="biller" [value]="option">{{option}}</option>
               }
-            </select>
-            <!-- <div class="dropdown transferInputs selectBiller dropdown-image">
+            </select> -->
+            <div class="dropdown transferInputs selectBiller">
               <a class="dropdown-toggle dropdown-style" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none;">{{ selectedOption || 'Select Payee' }}
               </a>
-              <ul class="dropdown-menu">
+              <img src="assets/chevron-down.png" alt="Dropdown-image">
+              <ul class="dropdown-menu ">
                 <li *ngFor="let option of selectOptions">
                   <a class="dropdown-item" (click)="selectOption(option)">{{ option }}</a>
                 </li>
               </ul>
-            </div> -->
+            </div>
           </div>
           </div>
         </div>
@@ -72,9 +73,9 @@
             </div>
           </div>
           <div class="col-lg-6 col-md-4 col-sm-4 col dueDate">
-            <span class="sub-text due float-start">Due Date: </span>
+            <span class="sub-text due float-start">Due Date:</span>
                 <div class="ps-5">
-                <span class="savingsAccNumber savings-duedate">{{dueDate | date:'dd/MM/yy'}}</span>
+                <span class="savingsAccNumber savings-duedate mt-2">{{dueDate | date:'dd/MM/yy'}}</span>
                 <span class="balance d-none d-sm-block ">Min Balance: 18405.00</span>
               </div>
           </div>
@@ -139,20 +140,15 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-6 col-md-3 col-sm-6 col dueDate">
+            <div class="col-lg-6 col-md-4 col-sm-4 col dueDate">
               @if(isDueDateDisabled){
-                <div>
                   <span class="sub-text due float-start">Due Date:</span>
-                </div>
-                <div class="">
-                  <span class="savingsAccNumber savings-duedate">{{dueDate | date:'dd/MM/yy'}}</span>
+                <div class="ps-5">
+                  <span class="savingsAccNumber savings-duedate mt-2">{{dueDate | date:'dd/MM/yy'}}</span>
                   <span class="balance d-none d-sm-block">Min Balance: 18405.00</span>
                 </div>
               }
             </div>
-            <!-- <div class="col-lg-4 ">
-            
-            </div> -->
            </div>
         }
       </form>
@@ -183,11 +179,7 @@
                 <span class="balance sel-balance">Balanc: ₹ {{availBalance}}/-</span>
               </div>
             </div>
-          
           </div>
-          <!-- <div class="  col-lg-5 col-md-5 col-sm-3 col">
-           
-          </div> -->
         </div>
       <!-- Continue with the rest of your form -->
       <div class="row button-margin">
