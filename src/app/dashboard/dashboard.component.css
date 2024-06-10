@@ -8,6 +8,7 @@
     color: #FFF;
 }
 .specific-text{
+    display: block;
     opacity: 0.5;
     color: #37383A;
     font-size: 14px;

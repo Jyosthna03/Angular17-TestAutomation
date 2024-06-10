@@ -54,12 +54,12 @@
                                             <input type="number" placeholder="Enter Account Number" class="transferInputs" value="200" formControlName="accountNumber" maxlength="18" (keypress)="onKeyPress($event)">
                                             <div class="text-danger"> 
                                                 @if (moneyTransferForm.get('accountNumber')?.hasError('required') && moneyTransferForm.get('accountNumber')?.touched) {
-                                                    <p class="error-text">Please Enter Account Number</p>
+                                                    <span class="error-text">Please Enter Account Number</span>
                                                 }
                                             </div>
                                             <div class="text-danger">
                                                 @if (moneyTransferForm.get('accountNumber')?.hasError('pattern') || moneyTransferForm.get('accountNumber')?.hasError('minlength')) {
-                                                    <p class="error-text">Account Number must be atleast 8 characters</p>
+                                                    <span class="error-text">Account Number must be atleast 8 characters</span>
                                                 }
                                             </div>
                                         </div>
@@ -74,12 +74,12 @@
                                     <input type="text" class="transferInputs" placeholder="Enter Bank Name" formControlName="bankName" required minlength="3" maxlength="20">
                                     <div class="text-danger">
                                         @if (moneyTransferForm.get('bankName')?.hasError('required') && moneyTransferForm.get('bankName')?.touched) {
-                                            <p class="error-text"> Please Enter Bank Name</p>
+                                            <span class="error-text"> Please Enter Bank Name</span>
                                         }    
                                     </div>
                                     <div class="text-danger">
                                         @if (moneyTransferForm.get('bankName')?.hasError('pattern') || moneyTransferForm.get('bankName')?.hasError('minlength')) {
-                                            <p class="error-text">Bank Name must be alphabetical and should contain atleast 3 characters</p>
+                                            <span class="error-text">Bank Name must be alphabetical and should contain atleast 3 characters</span>
                                         }
                                     </div>
                                    </div>
@@ -99,12 +99,12 @@
                                         <input type="number" placeholder="Enter Amount" class="transferInputs" formControlName="amount" required (keypress)="onKeyPress($event)" maxlength="5">
                                         <div>
                                             @if (moneyTransferForm.get('amount')?.hasError('required') && moneyTransferForm.get('amount')?.touched) {
-                                                <p class="error-text">Please Enter Amount</p>
+                                                <span class="error-text">Please Enter Amount</span>
                                             }
                                         </div>
                                         <div>
                                             @if(exceededLimit){
-                                                <p class="error-text">{{amountlimit}}</p>
+                                                <span class="error-text">{{amountlimit}}</span>
                                             }
                                         </div>
                                     </div>
@@ -120,7 +120,7 @@
                                         <input type="text" placeholder="Enter Remarks" class="transferInputs" formControlName="remarks"  maxlength="10">
                                         <div>
                                             @if (moneyTransferForm.get('remarks')?.hasError('required') && moneyTransferForm.get('remarks')?.touched) {
-                                                <p class="error-text">Please Enter Remarks</p>
+                                                <span class="error-text">Please Enter Remarks</span>
                                             }
                                         </div>
                                     </div>
