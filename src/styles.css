@@ -84,6 +84,7 @@ body {
     font-size: 16px;
     font-weight: 600;
     text-decoration: none;
+    padding-top: 3px;
 }
   /* transfer and payment screen css  */
   .cancelAndSaveBtn {
@@ -221,8 +222,7 @@ body {
     -webkit-appearance: none; /* Remove default arrow in Chrome/Safari */
     -moz-appearance: none; /* Remove default arrow in Firefox */
     appearance: none; /* Remove default arrow in other browsers */
-     float: right;
-    /* background: transparent url(assets/chevron-down.svg) no-repeat right 10px center; */
+    background: transparent url(assets/chevron-down.svg) no-repeat right 10px center;
   }
  /* All media-breakpoint */
 

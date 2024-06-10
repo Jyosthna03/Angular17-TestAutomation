@@ -19,9 +19,9 @@
           <label for="password" class="password">Password<span class="text-danger">*</span></label>
           <input type="password" id="password" class="form-control mt-1" formControlName="password" placeholder="Enter Password"/>
           @if (formControls['password'].hasError('required') && formControls['password'].touched) {
-          <p class="error-text">Password is required.</p>
+            <span class="error-text">Password is required.</span>
           } @if (formControls['password'].hasError('pattern') && formControls['password'].touched) {
-          <p class="error-text">Password must be at least 8 characters long and contain at least one letter and one number.</p>
+            <span class="error-text">Password must be at least 8 characters long and contain at least one letter and one number.</span>
           }
         </div>
         <div class="mt-3">
