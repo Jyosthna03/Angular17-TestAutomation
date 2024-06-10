@@ -18,11 +18,11 @@
                 <option id="biller" [value]="option">{{option}}</option>
               }
             </select> -->
-            <div class="dropdown transferInputs selectBiller">
+            <div class=" mobile transferInputs selectBiller">
               <a class="dropdown-toggle dropdown-style" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none;">{{ selectedOption || 'Select Payee' }}
               </a>
               <img src="assets/chevron-down.png" class="dropdown-image" alt="Dropdown-image" data-bs-toggle="dropdown" aria-expanded="false">
-              <ul class="dropdown-menu ">
+              <ul class="dropdown-menu cursor-pointer">
                 <li *ngFor="let option of selectOptions">
                   <a class="dropdown-item" (click)="selectOption(option)">{{ option }}</a>
                 </li>
@@ -44,7 +44,7 @@
                <label for="id_select" class="sub-text"> Biller Details </label>
               </div>
               <div class="col-lg-7 col-md-3 col-sm-6 col">
-                <select id="id_select" class="transferInputs cre-card" formControlName="billerdetails" autofocus="true">
+                <select id="id_select" class=" mobile transferInputs cre-card" formControlName="billerdetails" autofocus="true">
                   @for (data of biller; track $index) {
                     <option [value]="data" id="billerDetails">{{data}}</option>
                   }
@@ -91,7 +91,7 @@
                   <label class="sub-text mt-2">Network provider</label>
                 </div>
                 <div class="col-lg-7 col-md-3 col-sm-6 col">
-                  <select class="transferInputs cre-card" formControlName="networkProvider">
+                  <select class="mobile transferInputs cre-card" formControlName="networkProvider">
                     @for(provider of networkProviders;track $index){
                       <option id="network" [value]="provider">
                              {{provider}}
@@ -109,7 +109,7 @@
                   <label class="sub-text">Mobile number</label>
                 </div>
                 <div class="col-lg-7 col-md-3 col-sm-6 col">
-                  <input type="text" class="transferInputs cre-card" formControlName="mobileNumber" (keypress)="onKeyPress($event)" maxlength="10" minlength="10" placeholder="Enter Mobile Number" aria-autocomplete="list">
+                  <input type="text" class="mobile transferInputs cre-card" formControlName="mobileNumber" (keypress)="onKeyPress($event)" maxlength="10" minlength="10" placeholder="Enter Mobile Number" aria-autocomplete="list">
                   <div class="error text-danger">
                     @if(rechargeForm.get('mobileNumber')?.hasError('required') && rechargeForm.get('mobileNumber')?.touched){
                       <p>Enter Mobile Number</p>
@@ -131,7 +131,7 @@
                   <label for="id_select" class="sub-text">Recharge amount</label>
                 </div>
                 <div class="col-lg-7 col-md-3 col-sm-6 col">
-                  <input type="text" class="transferInputs cre-card"  placeholder="Enter amount" formControlName="amount" (keypress)="onKeyPress($event)" maxlength="5">
+                  <input type="text" class="mobile transferInputs cre-card"  placeholder="Enter amount" formControlName="amount" (keypress)="onKeyPress($event)" maxlength="5">
                   <div class="error text-danger">
                     @if(rechargeForm.get('amount')?.hasError('required') && rechargeForm.get('amount')?.touched){
                       <span>Enter Amount</span>
@@ -163,7 +163,7 @@
                 <label for="id_select" class="sub-text"> Paying From</label>
               </div>
               <div class="col-lg-7 col-md-4 col-sm-3 col">
-                <select id="id_select" class="transferInputs billerCard" autofocus="true" formControlName="PayingFrom">
+                <select id="id_select" class="mobile transferInputs billerCard" autofocus="true" formControlName="PayingFrom">
                   <option value="Savings Account" id="savings">Savings Account</option>
                 </select>
               </div>

@@ -244,7 +244,7 @@ body {
       flex-shrink: 0;
       float: inline-end;
     }
-    select.transferInputs{
+    .mobile.transferInputs{
       width: 216px;
       height: 36px;
       flex-shrink: 0;
