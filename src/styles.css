@@ -81,6 +81,7 @@ body {
   }
   .logo{
     color: var(--White, #FFF);
+    font-family: Montserrat;
     font-size: 16px;
     font-weight: 600;
     text-decoration: none;
@@ -133,8 +134,7 @@ body {
     color: #082341;
     font-weight: 700;
     margin-right: 20px;
-
-  }
+}
   .balance {
     color: #717171;
     font-size: 12px;
@@ -184,7 +184,6 @@ body {
 .toggleSwitchContent {
     color: #082341;
     text-align: right;
-    font-family: Mulish;
     font-size: 12px;
     font-weight: 400;
     text-transform: capitalize;

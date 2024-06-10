@@ -6,20 +6,14 @@
 }
 .accountHolderName{
     color: #FFF;
-    font-family: Mulish;
     font-size: 24px;
-    font-style: normal;
     font-weight: 600;
-    line-height: normal;
     text-transform: capitalize;
 }
 .accountType{
     color: #FFF;
-    font-family: Mulish;
     font-size: 12px;
-    font-style: normal;
     font-weight: 400;
-    line-height: normal;
     text-transform: capitalize;
     margin: 10px;
 }
@@ -30,51 +24,36 @@
 .date{
     color: #FFF;
     text-align: right;
-    font-family: Mulish;
     font-size: 12px;
-    font-style: normal;
     font-weight: 400;
-    line-height: normal;
     text-transform: capitalize;
     margin: 10px;
 }
 .account{
     color: #E9E9E9;
     text-align: right;
-    font-family: Mulish;
     font-size: 12px;
-    font-style: normal;
     font-weight: 400;
-    line-height: normal;
     text-transform: capitalize;
 }
 .accountNumber{
     color: #FFF;
-    font-family: Mulish;
     font-size: 12px;
-    font-style: normal;
     font-weight: 700;
-    line-height: normal;
     text-transform: capitalize;
 }
 .dashboard{
     color: #FFF;
-    font-family: Mulish;
     font-size: 14px;
-    font-style: normal;
     font-weight: 400;
-    line-height: normal;
     text-transform: capitalize;
     opacity: 0.5;
     cursor: pointer;
 }
 .accountDetails{
     color: #FFF;
-    font-family: Mulish;
     font-size: 14px;
-    font-style: normal;
     font-weight: 500;
-    line-height: normal;
     text-transform: capitalize;
     cursor: pointer;
 }

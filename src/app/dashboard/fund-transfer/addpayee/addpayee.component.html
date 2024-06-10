@@ -7,7 +7,7 @@
     <div class="modal-body modal-scroll">
         <section class="container-fluid mt-3 mb-5">
             <form [formGroup]="addPayeeForm" #formElement>
-                <p class="addpayeeMsg">{{payeeAddMsg}}</p>
+                <span class="addpayeeMsg text-center">{{payeeAddMsg}}</span>
             <div class="row d-flex justify-content-start mt-4 ms-4">
                 <div class="col-lg-6">
                     <div class="eachBlock mb-2">
@@ -15,12 +15,12 @@
                         <input type="text" class="transferInputs" id="fullname" formControlName="fullname" maxlength="15">
                         <div class="text-danger">
                             @if (addPayeeForm.get('fullname')?.hasError('required') && addPayeeForm.get('fullname')?.touched) {
-                                <p class="error-text"> Please Enter Fullname</p>
+                                <span class="error-text"> Please Enter Fullname</span>
                             }
                         </div>
                         <div class="text-danger">
                             @if (addPayeeForm.get('fullname')?.hasError('pattern') || addPayeeForm.get('fullname')?.hasError('minlength')) {
-                                <p class="error-text">Full Name must be alphabetical and should contain atleast 3 characters</p>
+                                <span class="error-text">Full Name must be alphabetical and should contain atleast 3 characters</span>
                             }
                         </div>
                     </div>
@@ -32,12 +32,12 @@
                         <input type="text" class="transferInputs" id="nickname" formControlName="nickname" maxlength="15">
                         <div class="text-danger">
                             @if (addPayeeForm.get('nickname')?.hasError('required') && addPayeeForm.get('nickname')?.touched) {
-                                <p class="error-text"> Please Enter Nickname</p>
+                                <span class="error-text"> Please Enter Nickname</span>
                             }
                         </div>
                         <div class="text-danger">
                             @if (addPayeeForm.get('nickname')?.hasError('pattern') || addPayeeForm.get('nickname')?.hasError('minlength')) {
-                                <p class="error-text">Nick Name must be alphabetical and should contain atleast 3 characters</p>
+                                <span class="error-text">Nick Name must be alphabetical and should contain atleast 3 characters</span>
                             }
                         </div>
                     </div>
@@ -61,13 +61,13 @@
                         <input type="text" class="transferInputs ifscCode" id="ifscCode" formControlName="ifscCode" maxlength="11">
                         <div class="text-danger">
                             @if (addPayeeForm.get('ifscCode')?.hasError('required') && addPayeeForm.get('ifscCode')?.touched) {
-                                <p class="error-text"> Please Enter IFSC Code</p>
+                                <span class="error-text"> Please Enter IFSC Code</span>
                             }
                             
                         </div>
                         <div class="text-danger">
                             @if (addPayeeForm.get('ifscCode')?.hasError('pattern') || addPayeeForm.get('ifscCode')?.hasError('maxlength')) {
-                                <p class="error-text"> IFSC Code must be atleast 11 alphanumerical characters</p>
+                                <span class="error-text"> IFSC Code must be atleast 11 alphanumerical characters</span>
                             }
                         </div>
                     </div>
@@ -80,13 +80,13 @@
                         <input type="text" class="transferInputs" id="accountNo" formControlName="accountNo" maxlength="18" (keypress)="onKeyPress($event)">
                         <div class="text-danger">
                             @if (addPayeeForm.get('accountNo')?.hasError('required') && addPayeeForm.get('accountNo')?.touched) {
-                                <p class="error-text"> Please Enter Account Number</p>
+                                <span class="error-text"> Please Enter Account Number</span>
                             }
                             
                         </div>
                         <div class="text-danger">
                             @if (addPayeeForm.get('accountNo')?.hasError('pattern') || addPayeeForm.get('accountNo')?.hasError('minlength')) {
-                                <p class="error-text"> Account Number must be numerical and atleast 8 digits</p>
+                                <span class="error-text"> Account Number must be numerical and atleast 8 digits</span>
                             }
                         </div>
                     </div>
@@ -97,13 +97,13 @@
                         <input type="text" class="transferInputs" id="reEnterAccNo" formControlName="reEnteraccountNo" (keypress)="onKeyPress($event)" maxlength="18">
                         <div class="text-danger">
                             @if (addPayeeForm.get('reEnteraccountNo')?.hasError('required') && addPayeeForm.get('reEnteraccountNo')?.touched) {
-                                <p class="error-text"> Please Re-Enter Account Number</p>
+                                <span class="error-text"> Please Re-Enter Account Number</span>
                             }
     
                         </div>
                         <div class="text-danger">
-                            @if (addPayeeForm.hasError('mismatch') && addPayeeForm.get('reEnteraccountNo')?.touched) {
-                                <p class="error-text"> Account Number do not match.</p>
+                            @if (addPayeeForm.hasError('mismatch')) {
+                                <span class="error-text"> Account Number do not match.</span>
                             }
                         </div>
                     </div>
@@ -112,11 +112,11 @@
             <p class="ms-3 Det">Note</p>
             <div>
                 <ol class="addPayeeNote">
-                    <li class="eachNote"><p>A maximum of 10 Payees can be added in one day.</p></li>
-                    <li class="eachNote"><p>As per the RBI circular dated Oct 14, 2010, transfer of funds through electronic mode will be executed only on the basis of the account number of the beneficiary provided while initiating the transaction, name will not be considered as a criteria for providing credit. Kindly ensure that you enter the correct beneficiary account number.</p></li>
-                    <li class="eachNote"><p>Waiting period post Payee addition is 30 minutes.</p></li>
-                    <li class="eachNote"><p>Ensure that the Payee Account Number entered by you is correct.</p></li>
-                    <li class="eachNote"><p>ICICI Bank does not take any responsibility and shall not be liable for claims on incorrect details entered.</p></li>
+                    <li class="eachNote">A maximum of 10 Payees can be added in one day</li>
+                    <li class="eachNote">As per the RBI circular dated Oct 14, 2010, transfer of funds through electronic mode will be executed only on the basis of the account number of the beneficiary provided while initiating the transaction, name will not be considered as a criteria for providing credit. Kindly ensure that you enter the correct beneficiary account number</li>
+                    <li class="eachNote">Waiting period post Payee addition is 30 minutes.</li>
+                    <li class="eachNote">Ensure that the Payee Account Number entered by you is correct.</li>
+                    <li class="eachNote">ICICI Bank does not take any responsibility and shall not be liable for claims on incorrect details entered.</li>
                 </ol>
             </div>
         </form>

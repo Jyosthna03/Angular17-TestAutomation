@@ -20,16 +20,18 @@
     </div>
 </nav>
 <div class="container-fluid">
-    <p class="specific-text mt-4"><img class="img-style" src="assets/Group.png" alt="Icon">  CLICK ON SPECIFIC CATEGORY TO ENTER INTO APPLICATION</p>
-	<div class="row mt-5">
-		<div class="col-md-4 col-sm-12">
-			<app-account-details (click)="gotoAccountDashboard()"></app-account-details>
-		</div>
-		<div class="col-md-4 col-sm-12">
-			<app-payments (click)="gotoPaymentDashboard()"></app-payments>
-		</div>
-		<div class="col-md-4 col-sm-12">
-			<app-fund-transfer (click)="gotoTransferDashboard()"></app-fund-transfer>
-		</div>
-	</div>
+    <span class="specific-text mt-4"><img class="img-style" src="assets/Group.png" alt="Icon">  CLICK ON SPECIFIC CATEGORY TO ENTER INTO APPLICATION</span>
+	<section>
+        <div class="row mt-5">
+            <div class="col-md-4 col-sm-12">
+                <app-account-details (click)="gotoAccountDashboard()"></app-account-details>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <app-payments (click)="gotoPaymentDashboard()"></app-payments>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <app-fund-transfer (click)="gotoTransferDashboard()"></app-fund-transfer>
+            </div>
+        </div>
+    </section>
 </div>
