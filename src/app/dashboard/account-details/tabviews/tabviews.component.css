@@ -1,14 +1,12 @@
 .nav-item {
     cursor: pointer;
-    font-style: normal;
     font-weight: 700;
-    line-height: normal;
   }
 
 
 @media (max-width: 768px) {
   .nav-link {
-    font-size: 12px !important;
+    font-size: 9px !important;
   }
 
   .nav-link.active {
@@ -18,7 +16,7 @@
 
 @media (max-width:406px){
   .nav-link {
-    font-size: 10px !important;
+    font-size: 9px !important;
   }
 
   .nav-link.active {
