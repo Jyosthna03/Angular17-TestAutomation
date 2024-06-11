@@ -4,7 +4,7 @@ import { BankingdataService } from '../../../../../bankingdata.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { of } from 'rxjs';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 describe('TransactionHistoryComponent', () => {
   let component: TransactionHistoryComponent;
@@ -15,7 +15,7 @@ describe('TransactionHistoryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TransactionHistoryComponent,HttpClientModule,FormsModule,ReactiveFormsModule],
+      imports: [TransactionHistoryComponent,HttpClientModule,ReactiveFormsModule],
       providers:[BankingdataService,{
         provide: ActivatedRoute,
         useValue: {
