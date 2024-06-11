@@ -27,6 +27,7 @@ export class SelectBillerComponent {
   // options: string[] = ['Option 1', 'Option 2', 'Option 3'];
   // selectedLabel: string = 'Select an option';
   optionsVisible: boolean = false;
+ 
 
   constructor(private service: BankingdataService, private fb: FormBuilder, private route: Router) {
     this.billerForm = fb.group({
@@ -51,7 +52,7 @@ export class SelectBillerComponent {
       this.isDueDateDisabled = val === "Airtel Post-paid"
     })
   }
-
+ 
   ngOnInit() {
     this.dueDate = new Date();
     this.dueDate.setDate(this.dueDate.getDate() + 3);

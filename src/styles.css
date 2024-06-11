@@ -221,7 +221,7 @@ body {
     -webkit-appearance: none; /* Remove default arrow in Chrome/Safari */
     -moz-appearance: none; /* Remove default arrow in Firefox */
     appearance: none; /* Remove default arrow in other browsers */
-    background: transparent url(assets/chevron-down.svg) no-repeat right 10px center;
+    float: right;
   }
  /* All media-breakpoint */
 
@@ -243,7 +243,7 @@ body {
       flex-shrink: 0;
       float: inline-end;
     }
-    select.transferInputs{
+    .mobile.transferInputs{
       width: 216px;
       height: 36px;
       flex-shrink: 0;
