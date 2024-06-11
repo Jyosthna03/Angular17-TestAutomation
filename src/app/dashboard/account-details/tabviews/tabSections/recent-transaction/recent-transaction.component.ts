@@ -1,12 +1,12 @@
 import { Component, signal } from '@angular/core';
 import { BankingdataService } from '../../../../../bankingdata.service';
 import { recent } from '../../../../../modal';
-import { CommonModule, CurrencyPipe, NgFor } from '@angular/common';
+import { CurrencyPipe, NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-recent-transaction',
   standalone: true,
-  imports: [CurrencyPipe,CommonModule],
+  imports: [CurrencyPipe,NgFor],
   templateUrl: './recent-transaction.component.html',
   styleUrl: './recent-transaction.component.css'
 })
