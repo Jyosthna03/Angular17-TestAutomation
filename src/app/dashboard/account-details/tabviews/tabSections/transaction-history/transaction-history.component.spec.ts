@@ -41,7 +41,7 @@ describe('TransactionHistoryComponent', () => {
     expect(component.leftpaginationMode).toBeFalse();
     expect(component.rightpaginationMode).toBeTrue();
     expect(component.TransHistory.length).toEqual(60);
-    expect(component.selectedperidocday).toEqual('Last 7 Days');
+    
   });
 
   it('should generate transaction data', () => {

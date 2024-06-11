@@ -1,136 +1,106 @@
 .data {
-    padding: 10px 30px 10px 10px;
-    height: 26px;
-    width: 26px;
-  }
-
+  padding: 10px 30px 10px 10px;
+  height: 26px;
+  width: 26px;
+}
+#smDate{
+  color: #494848;
+  font-weight: 400;
+  font-size: 14px;
+  padding: 0px 18px 0px 0px;
+}
+#smMoney{
+  font-size: 14px;
+  font-weight: 700;
+}
+.eachName {
+  color: #1f1f1f;
+  font-size: 16px !important;
+  font-weight: 700;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: normal;
+}
+.eachType {
+  color: #494848;
+  font-size: 14px;
+  font-weight: 500;
+  width: 150px;
+  text-align: center;
+}
+.eachDesc {
+  color: #494848;
+  font-size: 14px;
+  font-weight: 500;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: normal;
+}
+.userData{    
+  padding: 5px;
+}
+.smuserDate{
+  color: #082341;
+  font-size: 12px;
+  font-weight: 700;
+} 
+.smuserTrans{
+  font-size: 10px;
+  font-weight: 500;
+  color: #494848;
+  padding-top: 4px;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: normal;
+}
+.smAmount{
+  font-size: 14px;
+  font-weight: 700;
+  padding-left: 40px;
+}  
+.smCredit{
+  padding-top: 2px;
+  font-size: 10px;
+}
+.userAmount{
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 10px;
+} 
+.eachTotamount {
+  color: #082341;
+  font-size: 14px;
+  font-weight: 700;
+  width: 100px;
+  text-align: end;
+}
+@media (max-width: 768px) {
   #smDate{
-    color: #494848;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: normal;
-    padding: 0px 18px 0px 0px;
-  }
-
-  #smMoney{
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-  }
-  
-  .eachName {
-    color: #1f1f1f;
-    font-size: 16px !important;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    word-wrap: break-word;
-    word-break: break-all;
-    white-space: normal;
-  }
-  
-  .eachType {
-    color: #494848;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    width: 150px;
-    text-align: center;
-  }
-  
-  .eachDesc {
-    color: #494848;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    word-wrap: break-word;
-    word-break: break-all;
-    white-space: normal;
-  }
-
-  
-
-  .userData{    
-    padding: 5px;
-  }
-
-  .smuserDate{
-    color: #082341;
+    color: #363636;
     font-size: 12px;
-    font-style: normal;
     font-weight: 700;
-    line-height: normal;
   }
-
-  .smuserTrans{
-    font-size: 10px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+  .eachDesc{
     color: #494848;
-    padding-top: 4px;
+    font-size: 10px;
+    font-weight: 500;
+    padding: 18px;
     word-wrap: break-word;
     word-break: break-all;
     white-space: normal;
   }
+}  
 
-  .smAmount{
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    padding-left: 40px;
-  }
-
-  .smCredit{
-    padding-top: 2px;
-    font-size: 10px;
-  }
-
-  .userAmount{
-    display: flex;
-    justify-content: flex-end;
-    padding-top: 10px;
-  }
   
-  .eachTotamount {
-    color: #082341;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    width: 100px;
-    text-align: end;
-  }
+
+  
+
+  
+  
+  
 
 
 
-  @media (max-width: 768px) {
-    #smDate{
-      color: #363636;
-      font-size: 12px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: normal;
-    }
-
-    .eachDesc{
-      color: #494848;
-      font-size: 10px;
-      font-style: normal;
-      font-weight: 500;
-      line-height: normal;
-      padding: 18px;
-      word-wrap: break-word;
-      word-break: break-all;
-      white-space: normal;
-    }
-
-
-  }
+  
 
   
