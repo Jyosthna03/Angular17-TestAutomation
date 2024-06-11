@@ -40,7 +40,6 @@ export class LoginComponent {
   onSubmit() {
     const email = this.formControls['email'].value;
     const password = this.formControls['password'].value;
-    
     // Check if email exists in userData
     const userIndex = this.service.userData.indexOf(email);
     if (userIndex !== -1 && this.service.userData[userIndex + 1] === password) {
