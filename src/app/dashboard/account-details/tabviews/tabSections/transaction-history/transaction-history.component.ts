@@ -12,14 +12,7 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-transaction-history',
   standalone: true,
-  imports: [
-    FormsModule,
-    DatePipe,
-    NgStyle,
-    RouterLink,
-    ReactiveFormsModule,
-    NgClass,
-  ],
+  imports: [FormsModule,DatePipe,NgStyle,RouterLink,ReactiveFormsModule,NgClass],
   templateUrl: './transaction-history.component.html',
   styleUrl: './transaction-history.component.css',
 })
