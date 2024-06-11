@@ -2,18 +2,18 @@
   <div class="offset-md-2 offset-sm-0 col-md-9">
     <form [formGroup]="transactionForm">
       <div class="d-lg-flex mt-4 ms-4 d-sm-block mt-4">
-        <div class="form-check form-check-label mt-2">
+        <div class="form-check form-check-label">
           <input class="form-check-input" type="radio" formControlName="inputType" value="dateRange" id="flexRadioDefault"/>
           <label class="form-check-label mt-1 pglbl" for="flexRadioDefault">Transaction Date</label>
         </div>
         <div class="row d-flex justify-content-center">
-          <div class="col-md-6 col-sm-12 d-flex mt-2 smTop wholesmTop">
+          <div class="col-md-6 col-sm-12 d-flex smTop wholesmTop">
             <label class="lablespace balance lblText">
               <span class="dateplace">From</span>
             </label>
             <input class="form-control inputBox inptxt" type="date" formControlName="fromDate"/>
           </div>
-          <div class="col-md-6 col-sm-12 d-flex mt-2 wholesmTop">
+          <div class="col-md-6 col-sm-12 d-flex smTop wholesmTop">
             <label class="lablespace balance lblText dateplace">
               <span id="toDate">To</span>
             </label>
@@ -82,10 +82,10 @@
                   <div>
                     <select class="form-select mt-2 ms-3 ps-3 pe-3 rounded-0" [value]="selectedShowperPage"
                       (change)="onSelectPageRows($event)">
-                      <option value="5" [selected]="selectedShowperPage==5">5</option>
-                      <option value="10" [selected]="selectedShowperPage==10">10</option>
-                      <option value="15" [selected]="selectedShowperPage==15">15</option>
-                      <option value="20" [selected]="selectedShowperPage==20">20</option>
+                      <option value="5" [selected]="selectedShowperPage===5">5</option>
+                      <option value="10" [selected]="selectedShowperPage===10">10</option>
+                      <option value="15" [selected]="selectedShowperPage===15">15</option>
+                      <option value="20" [selected]="selectedShowperPage===20">20</option>
                     </select>
                   </div>
                 </div>
@@ -149,10 +149,10 @@
                   <div>
                     <select class="form-select mt-2 ms-3 ps-3 pe-3 rounded-0" [value]="selectedShowperPage"
                       (change)="onSelectPageRows($event)">
-                      <option value="5" [selected]="selectedShowperPage==5">5</option>
-                      <option value="10" [selected]="selectedShowperPage==10">10</option>
-                      <option value="15" [selected]="selectedShowperPage==15">15</option>
-                      <option value="20" [selected]="selectedShowperPage==20">20</option>
+                      <option value="5" [selected]="selectedShowperPage===5">5</option>
+                      <option value="10" [selected]="selectedShowperPage===10">10</option>
+                      <option value="15" [selected]="selectedShowperPage===15">15</option>
+                      <option value="20" [selected]="selectedShowperPage===20">20</option>
                     </select>
                   </div>
                 </div>

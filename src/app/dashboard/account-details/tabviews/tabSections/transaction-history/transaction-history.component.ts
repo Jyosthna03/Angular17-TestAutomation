@@ -28,6 +28,14 @@ export class TransactionHistoryComponent {
   rightPaginationItems: number[] = [];
   transactionForm!: FormGroup;
 
+  ngOnInit() {
+    this.generateTransactionData();
+    this.rightPaginationItems = this.getpageList(
+      this.TransHistory.length,
+      this.selectedShowperPage
+    );
+  }
+
   generateTransactionData() {
     for (let i = 1; i <= 60; i++) {
       this.TransHistory.push({
@@ -63,13 +71,7 @@ export class TransactionHistoryComponent {
     });
   }
 
-  ngOnInit() {
-    this.generateTransactionData();
-    this.rightPaginationItems = this.getpageList(
-      this.TransHistory.length,
-      this.selectedShowperPage
-    );
-  }
+  
 
   submitForm() {
     if (this.transactionForm.valid) {
