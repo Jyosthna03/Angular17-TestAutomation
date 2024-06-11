@@ -1,18 +1,12 @@
 import { Component } from '@angular/core';
 import { BankingdataService } from '../../../../../bankingdata.service';
-import {
-  FormBuilder,
-  FormGroup,
-  FormsModule,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import {FormBuilder,FormGroup,ReactiveFormsModule,Validators} from '@angular/forms';
 import { DatePipe, NgClass, NgStyle } from '@angular/common';
 import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-transaction-history',
   standalone: true,
-  imports: [FormsModule,DatePipe,NgStyle,RouterLink,ReactiveFormsModule,NgClass],
+  imports: [DatePipe,NgStyle,RouterLink,ReactiveFormsModule,NgClass],
   templateUrl: './transaction-history.component.html',
   styleUrl: './transaction-history.component.css',
 })

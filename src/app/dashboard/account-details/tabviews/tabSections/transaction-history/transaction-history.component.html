@@ -80,7 +80,7 @@
                     <span class="rowsPg">Rows Per Page</span>
                   </div>
                   <div>
-                    <select class="form-select mt-2 ms-3 ps-3 pe-3 rounded-0" [(ngModel)]="selectedShowperPage"
+                    <select class="form-select mt-2 ms-3 ps-3 pe-3 rounded-0" [value]="selectedShowperPage"
                       (change)="onSelectPageRows($event)">
                       <option value="5" [selected]="selectedShowperPage==5">5</option>
                       <option value="10" [selected]="selectedShowperPage==10">10</option>
@@ -147,7 +147,7 @@
                     <span class="rowsPg">Rows Per Page</span>
                   </div>
                   <div>
-                    <select class="form-select mt-2 ms-3 ps-3 pe-3 rounded-0" [(ngModel)]="selectedShowperPage"
+                    <select class="form-select mt-2 ms-3 ps-3 pe-3 rounded-0" [value]="selectedShowperPage"
                       (change)="onSelectPageRows($event)">
                       <option value="5" [selected]="selectedShowperPage==5">5</option>
                       <option value="10" [selected]="selectedShowperPage==10">10</option>
