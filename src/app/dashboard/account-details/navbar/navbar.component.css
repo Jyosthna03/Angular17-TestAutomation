@@ -53,6 +53,10 @@
 .navbar-toggler-icon{
     background-color: #FFF;
 }
+.navbar-toggler:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
 @media screen and (max-width:992px) {
     .offcanvas{
         width: 260px;

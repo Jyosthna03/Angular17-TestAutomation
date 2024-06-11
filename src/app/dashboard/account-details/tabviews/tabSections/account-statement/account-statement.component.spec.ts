@@ -34,63 +34,68 @@ describe('AccountStatementComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should initialize default values', () => {
-    const currentDate = new Date();
-    expect(component.fromStatementDate()).toEqual('');
-    expect(component.toStatementDate()).toEqual('');
-    expect(component.showflag()).toEqual('');
-    expect(component.todayDate().getDate()).toEqual(currentDate.getDate());
-    expect(component.selectStatementPeriod()).toEqual('Last 7 Days');
-    expect(component.selectedStatementFormat()).toEqual('PDF File');
+  it('should disable selectedOption and enable fromDate and toDate when inputType is dateRange', () => {
+    component.statementForm.get('inputType')!.setValue('dateRange');
+
+    expect(component.statementForm.get('selectedOption')!.disabled).toBe(true);
+    expect(component.statementForm.get('fromDate')!.enabled).toBe(true);
+    expect(component.statementForm.get('toDate')!.enabled).toBe(true);
   });
 
-  it('should set showflag to Show With Date when calling showWithDate()', () => {
-    component.showWithDate();
-    expect(component.showflag()).toEqual('Show With Date');
+  it('should disable fromDate and toDate and enable selectedOption when inputType is dropdown', () => {
+    component.statementForm.get('inputType')!.setValue('dropdown');
+
+    expect(component.statementForm.get('selectedOption')!.enabled).toBe(true);
+    expect(component.statementForm.get('fromDate')!.disabled).toBe(true);
+    expect(component.statementForm.get('toDate')!.disabled).toBe(true);
   });
 
-  it('should set showflag to Show With Period when calling showWithPeriod()', () => {
-    component.showWithPeriod();
-    expect(component.showflag()).toEqual('Show With Period');
+  it('should reset form values and enable selectedOption, fromDate, and toDate on cancelForm()', () => {
+    component.cancelForm();
+
+    expect(component.statementForm.get('selectedOption')!.enabled).toBe(true);
+    expect(component.statementForm.get('fromDate')!.enabled).toBe(true);
+    expect(component.statementForm.get('toDate')!.enabled).toBe(true);
+    expect(component.statementForm.value).toEqual({
+      inputType: '',
+      fromDate: '',
+      toDate: '',
+      selectedOption: '',
+      downloadFormat: ''
+    });
   });
 
-  it('should update selectStatementPeriod when calling onSelectStatementPeriod()', () => {
-    const selectedValue = { target: { value: 'Last 14 Days' }};
-    component.onSelectStatementPeriod(selectedValue);
-    expect(component.selectStatementPeriod()).toEqual('Last 14 Days');
+  it('should log form value on submitForm()', () => {
+    spyOn(console, 'log');
+    component.statementForm.setValue({
+      inputType: 'dateRange',
+      fromDate: '2024-06-01',
+      toDate: '2024-06-10',
+      selectedOption: 'Last 7 Days',
+      downloadFormat: 'PDF File'
+    });
+    component.submitForm();
+    expect(console.log).toHaveBeenCalledWith({
+      inputType: 'dateRange',
+      fromDate: '2024-06-01',
+      toDate: '2024-06-10',
+      selectedOption: 'Last 7 Days',
+      downloadFormat: 'PDF File'
+    });
   });
 
-  it('should update selectedStatementFormat when calling onSelectStatementFormat()', () => {
-    const selectedValue = { target: { value: 'Excel Sheet' }};
-    component.onSelectStatementFormat(selectedValue);
-    expect(component.selectedStatementFormat()).toEqual('Excel Sheet');
-  });
+  
 
-  it('should display alert message when calling submitStatement() with valid data', () => {
-    spyOn(window, 'alert');
-    component.showflag.set('Show With Date');
-    component.fromStatementDate.set('2024-04-20');
-    component.toStatementDate.set('2024-04-23');
-    component.selectedStatementFormat.set('PDF File');
-    component.submitStatement();
-    expect(window.alert).toHaveBeenCalledWith(`Downloaded Statement from 2024-04-20 to 2024-04-23 in PDF File Format`);
-  });
+  
 
-  it('should display alert message when calling submitStatement() with invalid data', () => {
-    spyOn(window, 'alert');
-    component.submitStatement();
-    expect(window.alert).toHaveBeenCalledWith('Choose Option and Select The Fields To Download');
-  });
+  
 
-  it('should reset selectedStatementFormat, fromStatementDate, and toStatementDate when calling cancelStatement()', () => {
-    component.selectedStatementFormat.set('PDF File');
-    component.fromStatementDate.set('2024-04-20');
-    component.toStatementDate.set('2024-04-23');
-    component.cancelStatement();
-    expect(component.selectedStatementFormat()).toEqual('PDF File');
-    expect(component.fromStatementDate()).toEqual('');
-    expect(component.toStatementDate()).toEqual('');
-  });
+  
+
+
+  
+
+  
 
   it('should navigate to dashboard when back button is clicked', () => {
     const navigateSpy = spyOn(router, 'navigateByUrl');

@@ -83,6 +83,9 @@
   box-shadow: none !important;
   margin-top: 8px;
 }
+#toDate{
+  margin-left: 1.3rem;
+}
 select:focus{
   outline:none !important;
   outline-width: 0 !important;
