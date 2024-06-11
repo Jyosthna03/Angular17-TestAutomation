@@ -22,7 +22,7 @@
               <a class="dropdown-toggle dropdown-style" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none;">{{ selectedOption || 'Select Payee' }}
               </a>
               <img src="assets/chevron-down.png" class="dropdown-image" alt="Dropdown-image" data-bs-toggle="dropdown" aria-expanded="false">
-              <ul class="dropdown-menu cursor-pointer">
+              <ul class="dropdown-menu cursor-pointer" data-bs-toggle="dropdown" aria-expanded="false">
                 <li *ngFor="let option of selectOptions">
                   <a class="dropdown-item" (click)="selectOption(option)">{{ option }}</a>
                 </li>

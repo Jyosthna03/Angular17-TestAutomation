@@ -75,9 +75,12 @@ line-height: normal;
     content: '' !important;
 }
 .dropdown-menu{
-    margin-top: 9px !important;
+    margin-top: 12px !important;
     padding-right: 137px;
     margin-left: 26px !important;
+       
+   
+    transform: translate3d(243.6667px, 118px, 0px) !important;
 }
 .balance{
     margin-left: 96px;
@@ -140,28 +143,13 @@ margin-top: 20px;
 .sub-text.due{
     margin-top: 5px !important;
 }
+.dropdown-menu{
+    margin-top: -30px !important;
+    padding-right: 64px;
+    /* margin-left: 26px !important; */
+    transform: translate3d(113.6667px, 118px, 0px) !important;
+  }
 }
 
-.selectBar{
-    width: 288px;
-    height: 36px;
-    border-radius: 2px;
-    border: 1px solid #D2D2D2;
-    background: #FFF;
-    color: #082341;
-    font-size: 12px;
-    font-weight: 700;
-    text-align: start;
-  }
-
-  .dropdown-toggle::after {
-    content: none;
-    
-  }
-
-  .selectBaropt{
-    width: 288px;
-    margin: 0;
-    padding: 0;
-  }
+  
 
