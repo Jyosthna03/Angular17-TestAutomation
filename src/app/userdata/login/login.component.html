@@ -2,7 +2,9 @@
   <div class="row">
     <div class="col-md-8 col-lg-5 col mrg-t-mobile left-content">
       @if(invalidUser){
-        <span class=" invalidCredentials text-center">Please Enter Valid Credentials</span>
+        <div class="text-center">
+        <span class=" invalidCredentials ">Please Enter Valid Credentials</span>
+        </div>
       }
       <h2 class="welcome-text">Welcome.!</h2>
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" #formElement>

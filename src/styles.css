@@ -237,16 +237,9 @@ body {
       font-size: 12px;
       margin-left: 5px;
     }
-    input.transferInputs {
-      width: 216px ;
-      height: 36px;
-      flex-shrink: 0;
-      float: inline-end;
-    }
-    .mobile.transferInputs{
+    .mobile.transferInputs, input.transferInputs, select.transferInputs{
       width: 216px;
       height: 36px;
-      flex-shrink: 0;
       float: inline-end;
     }
     .cancelAndSaveBtn{

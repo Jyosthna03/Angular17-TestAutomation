@@ -15,7 +15,7 @@ export class BankingdataService {
   private accountNosm = new BehaviorSubject<string>('');
   private bankNamesm = new BehaviorSubject<string>('');
   currentAccountNosm = this.accountNosm.asObservable();
-  currentBavkNamesm = this.bankNamesm.asObservable();
+  currentBankNamesm = this.bankNamesm.asObservable();
 
   changeAccountNumber(accountNumber: string) {
     this.accountNumberpopUp.next(accountNumber);
