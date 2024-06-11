@@ -23,14 +23,6 @@
 .login-user{
     margin-top: 7px;
 }
-.navbar-toggler:focus {
-    text-decoration: none;
-    outline: none !important;
-    box-shadow: none !important;
-}
-/* .offcanvas{
-    width: 260px;
-} */
 .img-style{
     padding-right: 5px;
 }

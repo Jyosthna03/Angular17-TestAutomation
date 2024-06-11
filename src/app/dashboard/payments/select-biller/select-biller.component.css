@@ -102,12 +102,12 @@ line-height: normal;
     margin-right: 0 !important;
 }
 .bold-text{
-    margin-left: -16px !important;
+    margin-left: -1px !important;
     margin-top: 2rem !important;
 }
 .select-mob{
 color: #082341;
-font-size: 14px;
+font-size: 14px !important;
 font-style: normal;
 font-weight: 700;
 line-height: normal;
@@ -145,7 +145,7 @@ margin-top: 20px;
     margin-top: -30px !important;
     padding-right: 64px;
     /* margin-left: 26px !important; */
-    transform: translate3d(113.6667px, 118px, 0px) !important;
+    transform: translate3d(107.6667px, 118px, 0px) !important;
   }
 }
 
