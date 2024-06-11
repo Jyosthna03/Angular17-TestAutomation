@@ -60,10 +60,11 @@ export class SelectBillerComponent {
   selectOption(option: string) {
     this.selectedOption = option;
     this.billerForm.get('billerType')?.setValue(option);
-    console.log(this.selectedOption);
+    // console.log(this.selectedOption);
   }
 
   onSubmit() {
+    console.log(this.billerForm)
     let billValue = this.billerForm.value.billDetailsAmount;
     let rechargeBillValue = this.rechargeForm.value.amount;
     

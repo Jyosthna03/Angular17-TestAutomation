@@ -22,7 +22,7 @@
               <a class="dropdown-toggle dropdown-style" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none;">{{ selectedOption || 'Select Payee' }}
               </a>
               <img src="assets/chevron-down.png" class="dropdown-image" alt="Dropdown-image" data-bs-toggle="dropdown" aria-expanded="false">
-              <ul class="dropdown-menu cursor-pointer" data-bs-toggle="dropdown" aria-expanded="false">
+              <ul class="dropdown-menu cursor-pointer">
                 <li *ngFor="let option of selectOptions">
                   <a class="dropdown-item" (click)="selectOption(option)">{{ option }}</a>
                 </li>
@@ -186,7 +186,7 @@
         <div class="col-lg-3 col-md-3 col-sm-3"></div>
           <button class="cancelAndSaveBtn me-2 col-lg-2 col-md-2 col-sm-2 col" routerLink="/dashboard" id="back">Back</button>
           <button class="cancelAndSaveBtn ms-3 col-lg-2 col-md-2 col-sm-2 col"  (click)="onCancel()">Cancel</button>
-          <button type="submit" class="btn btn-primary cancelAndSaveBtn saveBtn col-lg-2"  [disabled]="billerForm.invalid && (!showRechargeForm || rechargeForm.invalid)" (click)="onSubmit()" id="pay" [ngClass]="{'btn-enabled': !billerForm.invalid && !rechargeForm.invalid, 'btn-disabled': billerForm.invalid && rechargeForm.invalid}">Pay</button>
+          <button type="submit" class="btn btn-primary cancelAndSaveBtn saveBtn col-lg-2"  [disabled]="billerForm.invalid && (!showRechargeForm || rechargeForm.invalid)" (click)="onSubmit()" id="pay" [ngClass]="{'btn-enabled': !billerForm.invalid || !rechargeForm.invalid, 'btn-disabled': billerForm.invalid && rechargeForm.invalid}">Pay</button>
       </div>
     </div>
   </form>
