@@ -64,7 +64,7 @@ export class SelectBillerComponent {
   }
 
   onSubmit() {
-    console.log(this.billerForm)
+    console.log(this.billerForm.value)
     let billValue = this.billerForm.value.billDetailsAmount;
     let rechargeBillValue = this.rechargeForm.value.amount;
     

@@ -45,7 +45,7 @@ export class MoneyTransferComponent {
       this.service.currentAccountNosm.subscribe(accNo =>{
       this.moneyTransferForm.get('accountNumber')?.setValue(accNo, { emitEvent: false });
     })
-      this.service.currentBavkNamesm.subscribe(bkName =>{
+      this.service.currentBankNamesm.subscribe(bkName =>{
       this.moneyTransferForm.get('bankName')?.setValue(bkName, { emitEvent: false });
     })
    }
