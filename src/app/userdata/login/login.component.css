@@ -40,7 +40,7 @@ input[type=text][type=password]{
 .invalidCredentials{
   color: var(--Secondary-Colors-EV-Imperial---Danger-Error-EV-IMP, #F22F46);
   font-size: 14px;
-  margin-top: 20px;
+  margin-top: 40px;
 
 }
 @media screen and (min-width: 360px) and (max-width: 576px){
