@@ -61,7 +61,7 @@ export class RegistrationComponent {
     }
     setTimeout(() => {
       this.router.navigateByUrl('/login');
-    }, 1000);
+    }, 3000);
   }
   
   ngAfterViewInit() {
