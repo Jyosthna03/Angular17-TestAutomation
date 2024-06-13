@@ -1,7 +1,7 @@
 <div class="container-fluid bg-container" id="scrollbar">
   <div class="d-flex flex-row col-lg-12 col-md-12 col-sm-12">
-    @for (data of cardDetails; track $index) {
-    <div class="userCard savingsAccount" (click)="selectedCard(data)" [ngStyle]="{
+    @for (data of accountData; track $index) {
+    <div class="userCard" (click)="selectedCard(data)" [ngStyle]="{
             'background': data.id == 1 ? 'linear-gradient(0deg, #da22ff 0%, #9733ee 100%)' :
                           data.id == 2 ? 'linear-gradient(0deg, #ec6f66 0%, #f3a183 100%)' :
                           data.id == 3 ? 'linear-gradient(284deg, #00fff0 -19.4%, #0083fe 54.6%)' :

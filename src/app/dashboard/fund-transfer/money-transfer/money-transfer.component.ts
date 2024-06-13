@@ -119,34 +119,4 @@ export class MoneyTransferComponent {
     }
   }
 
-  paymentModeData =[
-    {
-       label:"IMPS",
-       description:'Max Rs. 50,000 per day. Instant transfer 24*7 transferable'
-    },
-    {
-        label:"NEFT",
-        description:'Max Rs. 1,00,000 Lakh per day. Receiver gets money in 2 to 24 Hrs'
-    },
-    {
-        label:"RTGS",
-        description:'Min Rs. 75,000, Max Rs. 10 Lakh per day. Real time transaction'
-    },
-
-  ]
-
-  paymentChoosed:string = ''
-  check(mode:any){
-     console.log(mode)
-     this.paymentChoosed = mode.description
-  }
-  
-  selectedOption:string = ''
-  selectOption(option: string){
-    this.moneyTransferForm.patchValue({
-      payee: option
-    });
-    this.selectedOption = option;
-    console.log(option)
-  }
 }

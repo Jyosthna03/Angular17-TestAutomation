@@ -53,7 +53,7 @@ export class AddpayeeComponent {
         this.payeeAddMsg = "Payee Added Successfully!!!"
         setTimeout(()=>{
           this.closePopup()
-        },800);
+        },3000);
       }
 
   onCancel() {
