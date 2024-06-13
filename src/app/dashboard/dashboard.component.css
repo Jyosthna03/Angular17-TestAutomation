@@ -15,6 +15,7 @@
     font-weight: 400;
     text-transform: lowercase;
     text-align: center !important;
+    padding-top: 30px;
 }
 .bg-light{
     background: #082341 !important;
@@ -35,6 +36,19 @@
     width: 260px;
     height: auto;
 }
-/* @media screen and (max-width:992px) {
+.bg-color{
+    background-color:#E8E8ED;
+    height: calc(100vh - 56px);
+}
+.section-style{
+    padding-top: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+@media screen and (max-width:992px) {
+    .bg-color{
+        background-color:#E8E8ED;
+        height: calc(100vh - 48px);
+    }
 
-} */
+}
