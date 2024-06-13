@@ -31,3 +31,11 @@ export interface addPayee{
     reEnteraccountNo:string
 }
 
+export interface CardDetails {
+    id: number;
+    AccountHolder: string;
+    AccountType: string;
+    AccountNumber: string;
+    AccountBranch: string;
+    AvailableBalanceinRupees: number;
+  }
