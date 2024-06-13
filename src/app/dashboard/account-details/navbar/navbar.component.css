@@ -57,7 +57,8 @@
     outline: none !important;
     box-shadow: none !important;
 }
-@media screen and (max-width:992px) {
+@media (min-width:340px) and (max-width:992px) {
+    
     .offcanvas{
         width: 260px;
         height: auto;
