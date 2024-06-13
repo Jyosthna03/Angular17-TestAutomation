@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 template:`
 <div class="bg-danger text-warning">
     <h2>404 - page Not found</h2>
-    <p>The page you are searching is not found
+    <p>The page you are searching is not found</p>
 </div>`
 })
 

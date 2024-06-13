@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { BankingdataService } from '../../bankingdata.service';
 
+
 @Component({
   selector: 'app-account-details',
   standalone: true,
