@@ -31,7 +31,6 @@ export class NavbarComponent {
  
   OnLogOut(){
      localStorage.removeItem('logindata')
-     this.route.navigate(['/login'])
   }
   
 
