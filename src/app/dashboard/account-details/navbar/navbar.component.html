@@ -10,9 +10,9 @@
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body d-flex flex-row justify-content-end">
-              <ul class="navbar-nav">
-                <div class="d-lg-none loggedInUser">
-                  <li style="padding: 10px;">
+              <ul class="navbar-nav mt-2">
+                <div class="d-lg-none smNav">
+                  <li class="iconImg">
                     <svg xmlns="http://www.w3.org/2000/svg" width="66" height="66" viewBox="0 0 66 66" fill="none">
                       <g clip-path="url(#clip0_1444_144)">
                         <path d="M33 12.1761C26.6529 12.1761 21.4886 17.3399 21.4886 23.6875C21.4886 30.0346 26.6529 35.1984 33 35.1984C39.3471 35.1984 44.5114 30.0346 44.5114 23.6875C44.5114 17.3399 39.3471 12.1761 33 12.1761Z" fill="#B6B6B6"/>
@@ -29,20 +29,22 @@
                   <li class="userName">{{userName}}</li>
                   <li class="accountNumber">123456789101112</li>
                 </div>
-                <!-- <div class="navItems"> -->
-                  <li class="nav-item navItems">
+                  <li class="nav-item" id="smNavItem">
                     <a class="nav-link accountDetails" (click)="selectTab('Account Details')" [ngClass]="{activeTab:UserSelectTab=='Account Details'}" [routerLink]="'/accountDashboard'" data-bs-dismiss="offcanvas">Account Details</a>
                   </li>
-                  <li class="nav-item navItems">
+                  <li class="nav-item">
                     <a class="nav-link accountDetails" (click)="selectTab('Payments')" [ngClass]="{activeTab:UserSelectTab=='Payments'}" [routerLink]="'/paymentDashboard'" data-bs-dismiss="offcanvas">Payments</a>
                   </li>
-                  <li class="nav-item navItems">
+                  <li class="nav-item">
                     <a class="nav-link accountDetails"  (click)="selectTab('Fund Transfers')" [ngClass]="{activeTab:UserSelectTab=='Fund Transfers'}" [routerLink]="'/transferDashboard'" data-bs-dismiss="offcanvas">Fund Transfers</a>
                   </li>
-                <!-- </div> -->
-                <li class="nav-item">
-                     <button class="btn logOutBtn" routerLink="/login" id="logout" (click)="OnLogOut()">Logout</button>
-                </li>
+                <div class="mt-auto mb-3"> 
+                  <ul class="navbar-nav">
+                      <li class="nav-item">
+                          <button class="btn logOutBtn" routerLink="/login" id="logout" (click)="OnLogOut()">Logout</button>
+                      </li>
+                  </ul>
+                </div>
              </ul>
             </div>
         </div>
