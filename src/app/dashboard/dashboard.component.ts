@@ -38,7 +38,7 @@ export class DashboardComponent {
   }
 
   logOut(){
-    this.route.navigate(['/login'])
+    this.route.navigate(['/'])
     localStorage.removeItem('logindata')
   }
 }
