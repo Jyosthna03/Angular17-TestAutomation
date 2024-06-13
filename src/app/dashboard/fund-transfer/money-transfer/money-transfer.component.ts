@@ -76,11 +76,11 @@ export class MoneyTransferComponent {
       return;
     }
     this.calculateTotalAmount();
-    if (this.totalAmount >= 5000) {
-      this.exceededLimit = true;
-      this.amountlimit = "Exceeded Limit";
-      return;
-    }
+    // if (this.totalAmount >= 5000) {
+    //   this.exceededLimit = true;
+    //   this.amountlimit = "Exceeded Limit";
+    //   return;
+    // }
     console.log(this.moneyTransferForm.value)
     this.service.balance -= amount;
     this.service.paymentHistory.push(Number(amount));
@@ -106,6 +106,14 @@ export class MoneyTransferComponent {
 
   onKeyPress(event: KeyboardEvent) {
     const inputChar = event.key;
+    console.log("InputChar: ",inputChar)
+    const inputValue = parseInt((event.target as HTMLInputElement).value);
+    console.log("Payee-Amount: ", inputValue);
+    if (inputValue >= 5000) {
+      this.exceededLimit = true;
+      this.amountlimit = "Exceeded Limit";
+      return;
+    }
     if (!/^\d+$/.test(inputChar)) {
       event.preventDefault();
     }
