@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <div>
             <img src="assets/logo.png" alt="EVOKE LOGO">
@@ -18,6 +18,39 @@
             </li>
         </ul>
     </div>
+</nav> -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<div class="container-fluid">
+			<div class="d-flex align-items-center">
+					<img src="assets/logo.png" alt="EVOKE LOGO" class="me-2">
+					<a class="navbar-brand logo">Test Automation</a>
+			</div>
+			<!-- Offcanvas Toggle Button with Hamburger Icon -->
+			<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false" aria-label="Toggle navigation">
+					<img src="assets/hamburger.png" alt="Hamburger">
+			</button>
+			<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+					<div class="offcanvas-header">
+							<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+					</div>
+					<div class="offcanvas-body">
+							<ul class="navbar-nav ms-auto d-flex align-items-center">
+									<li class="nav-item">
+											<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none" id="avatar">
+													<path d="M20 0C31.04 0 40 8.96 40 20C40 31.04 31.04 40 20 40C8.96 40 0 31.04 0 20C0 8.96 8.96 0 20 0ZM8.046 26.832C10.982 31.212 15.39 34 20.32 34C25.248 34 29.658 31.214 32.592 26.832C29.2635 23.7212 24.8759 21.9936 20.32 22C15.7634 21.9931 11.375 23.7207 8.046 26.832ZM20 18C21.5913 18 23.1174 17.3679 24.2426 16.2426C25.3679 15.1174 26 13.5913 26 12C26 10.4087 25.3679 8.88258 24.2426 7.75736C23.1174 6.63214 21.5913 6 20 6C18.4087 6 16.8826 6.63214 15.7574 7.75736C14.6321 8.88258 14 10.4087 14 12C14 13.5913 14.6321 15.1174 15.7574 16.2426C16.8826 17.3679 18.4087 18 20 18Z" fill="#F16A22" />
+											</svg>
+									</li>
+									<li class="login-user navbar-text me-3 ms-2">{{username}}</li>
+									<li class="accountNumber d-block d-sm-none">123456789101112</li>
+
+									<li class="nav-item">
+											<button class="btn btn-primary" onclick="logOut()">LogOut</button>
+									</li>
+							</ul>
+					</div>
+			</div>
+	</div>
 </nav>
 <div class="container-fluid">
     <span class="specific-text mt-4"><img class="img-style" src="assets/Group.png" alt="Icon">  CLICK ON SPECIFIC CATEGORY TO ENTER INTO APPLICATION</span>

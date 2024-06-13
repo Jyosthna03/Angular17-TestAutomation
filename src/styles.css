@@ -61,15 +61,16 @@ body {
   }
   .acc-sty {
     background: #e14b57;
-    border-radius: 5px 0px 0px 5px;
   }
   .pay-sty {
     background: #e1934b;
-    border-radius: 5px 0px 0px 5px;
   }
   .fund-sty {
     background: #15b2ec;
+  }
+  .acc-sty, .pay-sty, .fund-sty{
     border-radius: 5px 0px 0px 5px;
+    padding: 45px 23px;
   }
   .welcome-text{
     color: var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1B154C);
