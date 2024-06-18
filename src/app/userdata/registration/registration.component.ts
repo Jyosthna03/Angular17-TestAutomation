@@ -52,7 +52,6 @@ export class RegistrationComponent {
   }
 
   onSubmit() {
-    // console.log(this.registrationForm.value)
     if(this.registrationForm.valid){
       this.register.registerDetails.push(this.registrationForm.value)
       this.register.userData.push(this.registrationForm.value.email,this.registrationForm.value.password)

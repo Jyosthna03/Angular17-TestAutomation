@@ -6,7 +6,7 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  line-height: 20px; /* 142.857% */
+  line-height: 20px; 
 }
 input[type=text][type=password]{
   border: 1px solid #525252
@@ -22,6 +22,9 @@ input[type=text][type=password]{
   line-height: normal;
   text-decoration: none !important;
 }
+.forgot-text{
+  margin-top: 20px;
+}
 .register-content{
   color: var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1B154C);
   font-size: 16px;
@@ -31,7 +34,7 @@ input[type=text][type=password]{
   text-decoration: none;
 }
 .login-btn-margin{
-  margin-top: 90px;
+  margin-top: 80px;
 }
 .login-image{
   height: 100vh;
@@ -40,7 +43,6 @@ input[type=text][type=password]{
 .invalidCredentials{
   color: var(--Secondary-Colors-EV-Imperial---Danger-Error-EV-IMP, #F22F46);
   font-size: 14px;
-  /* margin-top: 40px; */
   margin-bottom: 30px;
 
 }
@@ -51,4 +53,4 @@ input[type=text][type=password]{
   .left-content{
     padding: 20px;
   }
-  }
+}
