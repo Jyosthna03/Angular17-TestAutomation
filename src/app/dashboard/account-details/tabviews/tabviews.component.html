@@ -39,11 +39,15 @@
     <!-- User Transaction History Tab -->
     <div class="tab-pane" [ngClass]="{ active: activeTab === 2 }">
       <!-- Tansaction Inputs -->
-      <app-transaction-history></app-transaction-history>
+      @defer (on timer(1s)) {
+        <app-transaction-history></app-transaction-history>
+      }
     </div>
     <!-- Account Statement Tab -->
     <div class="tab-pane" [ngClass]="{ active: activeTab === 3 }">
-      <app-account-statement></app-account-statement>
+      @defer (on timer(1s)) {
+        <app-account-statement></app-account-statement>
+      }
     </div>
   </main>
 </section>
