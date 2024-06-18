@@ -42,7 +42,7 @@ describe('PaymentsComponent', () => {
   it('should render the image element with correct attributes', () => {
     const imgElement = fixture.debugElement.query(By.css('img'));
     expect(imgElement).toBeTruthy();
-    expect(imgElement.nativeElement.getAttribute('src')).toBe('assets/payment-icon.svg');
+    expect(imgElement.nativeElement.getAttribute('src')).toBe('assets/Images/payment-icon.svg');
     expect(imgElement.nativeElement.getAttribute('class')).toContain('img-fluid');
     expect(imgElement.nativeElement.getAttribute('alt')).toBe('Payments');
     expect(imgElement.nativeElement.style.maxHeight).toBe('fit-content');

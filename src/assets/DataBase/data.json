@@ -1,7 +1,7 @@
 {
     "RecentTrans":[
         {
-            "symbol":"assets/down-arrow.svg",
+            "symbol":"assets/Images/down-arrow.svg",
             "name":"Natasha Davel",
             "transDate":"15/03/2024",
             "transtype":"Credited",
@@ -10,7 +10,7 @@
             "totAmount":"₹1,11,256.00"
           },
           {
-            "symbol":"assets/upward-arrow.svg",
+            "symbol":"assets/Images/upward-arrow.svg",
             "name":"Fusion Restro",
             "transDate":"15/03/2024",
             "transtype":"Debited",
@@ -19,7 +19,7 @@
             "totAmount":"₹1,10,256.00"
           },
           {
-            "symbol":"assets/down-arrow.svg",
+            "symbol":"assets/Images/down-arrow.svg",
             "name":"Evoke Technologies",
             "transDate":"15/03/2024",
             "transtype":"Credited",
@@ -28,7 +28,7 @@
             "totAmount":"₹1,11,256.00"
           },
           {
-            "symbol":"assets/down-arrow.svg",
+            "symbol":"assets/Images/down-arrow.svg",
             "name":"Bilnk It",
             "transDate":"15/03/2024",
             "transtype":"Credited",
@@ -37,7 +37,7 @@
             "totAmount":"₹1,11,256.00"
           },
           {
-            "symbol":"assets/down-arrow.svg",
+            "symbol":"assets/Images/down-arrow.svg",
             "name":"Bilnk It",
             "transDate":"15/03/2024",
             "transtype":"Credited",
@@ -46,7 +46,7 @@
             "totAmount":"₹1,11,256.00"
           },
           {
-            "symbol":"assets/upward-arrow.svg",
+            "symbol":"assets/Images/upward-arrow.svg",
             "name":"Zerofourty Brewering",
             "transDate":"15/03/2024",
             "transtype":"Debited",
@@ -55,7 +55,7 @@
             "totAmount":"₹1,10,256.00"
           },
           {
-            "symbol":"assets/down-arrow.svg",
+            "symbol":"assets/Images/down-arrow.svg",
             "name":"Bilnk It",
             "transDate":"15/03/2024",
             "transtype":"Credited",
@@ -64,7 +64,7 @@
             "totAmount":"₹1,11,256.00"
           },
           {
-            "symbol":"assets/upward-arrow.svg",
+            "symbol":"assets/Images/upward-arrow.svg",
             "name":"Zerofourty Brewering",
             "transDate":"15/03/2024",
             "transtype":"Debited",
@@ -73,7 +73,7 @@
             "totAmount":"₹1,10,256.00"
           },
           {
-            "symbol":"assets/upward-arrow.svg",
+            "symbol":"assets/Images/upward-arrow.svg",
             "name":"Zerofourty Brewering",
             "transDate":"15/03/2024",
             "transtype":"Debited",
@@ -82,7 +82,7 @@
             "totAmount":"₹1,10,256.00"
           },
           {
-            "symbol":"assets/down-arrow.svg",
+            "symbol":"assets/Images/down-arrow.svg",
             "name":"Bilnk It",
             "transDate":"15/03/2024",
             "transtype":"Credited",

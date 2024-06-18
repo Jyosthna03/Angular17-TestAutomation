@@ -29,7 +29,7 @@ describe('AccountDetailsComponent', () => {
     const imgElement = fixture.debugElement.query(By.css('img'));
     expect(imgElement).toBeTruthy();
     expect(imgElement.nativeElement.getAttribute('src')).toBe(
-      'assets/account-icon.svg'
+      'assets/Images/account-icon.svg'
     );
     expect(imgElement.nativeElement.getAttribute('alt')).toBe(
       'Account-Details'
