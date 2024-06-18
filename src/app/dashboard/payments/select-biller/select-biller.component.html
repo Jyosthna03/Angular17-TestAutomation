@@ -13,21 +13,11 @@
            <label for="id_select" class="sub-text">Select Billers for</label>
           </div>
           <div class="col-lg-7 col-md-3 col-sm-5 col">
-            <!-- <select id="id_select" class="transferInputs selectBiller" formControlName="billerType" autofocus>
+            <select id="id_select" class="transferInputs selectBiller" formControlName="billerType" autofocus>
               @for(option of selectOptions;track $index){
                 <option id="biller" [value]="option">{{option}}</option>
               }
-            </select> -->
-            <div class=" mobile transferInputs selectBiller">
-              <a class="dropdown-toggle dropdown-style" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none;">{{ selectedOption || 'Select Payee' }}
-              </a>
-              <img src="assets/chevron-down.png" class="dropdown-image" alt="Dropdown-image" data-bs-toggle="dropdown" aria-expanded="false">
-              <ul class="dropdown-menu cursor-pointer">
-                <li *ngFor="let option of selectOptions" >
-                  <a class="dropdown-item" (click)="selectOption(option)">{{ option }}</a>
-                </li>
-              </ul>
-            </div> 
+            </select>
           </div>
           </div>
         </div>

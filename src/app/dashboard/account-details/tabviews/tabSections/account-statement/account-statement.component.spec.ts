@@ -36,7 +36,6 @@ describe('AccountStatementComponent', () => {
 
   it('should disable selectedOption and enable fromDate and toDate when inputType is dateRange', () => {
     component.statementForm.get('inputType')!.setValue('dateRange');
-
     expect(component.statementForm.get('selectedOption')!.disabled).toBe(true);
     expect(component.statementForm.get('fromDate')!.enabled).toBe(true);
     expect(component.statementForm.get('toDate')!.enabled).toBe(true);
@@ -44,7 +43,6 @@ describe('AccountStatementComponent', () => {
 
   it('should disable fromDate and toDate and enable selectedOption when inputType is dropdown', () => {
     component.statementForm.get('inputType')!.setValue('dropdown');
-
     expect(component.statementForm.get('selectedOption')!.enabled).toBe(true);
     expect(component.statementForm.get('fromDate')!.disabled).toBe(true);
     expect(component.statementForm.get('toDate')!.disabled).toBe(true);
@@ -52,7 +50,6 @@ describe('AccountStatementComponent', () => {
 
   it('should reset form values and enable selectedOption, fromDate, and toDate on cancelForm()', () => {
     component.cancelForm();
-
     expect(component.statementForm.get('selectedOption')!.enabled).toBe(true);
     expect(component.statementForm.get('fromDate')!.enabled).toBe(true);
     expect(component.statementForm.get('toDate')!.enabled).toBe(true);

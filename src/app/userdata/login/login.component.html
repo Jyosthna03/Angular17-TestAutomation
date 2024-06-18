@@ -2,6 +2,11 @@
   <div class="row">
     <div class="col-md-8 col-lg-5 col mrg-t-mobile left-content">
       <h2 class="welcome-text">Welcome.!</h2>
+      @if(invalidUser){
+        <div class="text-center invalidCredentials">
+        <span>Please Enter Valid Credentials</span>
+        </div>
+      }
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" #formElement>
         <div class="form-group">
           <label for="email" class="email">Email<span class="text-danger">*</span></label>
@@ -21,15 +26,15 @@
             <span class="error-text">Password must be at least 8 characters long and contain at least one letter and one number.</span>
           }
         </div>
-        <div class="mt-3">
+        <div class="forgot-text">
           <a class="cursor-pointer float-end forgot-info" (click)="openForgotPasswordPopup(copyContent)" >Forgot Info</a>
         </div>
         <div class="d-grid login-btn-margin">
-          @if(invalidUser){
+          <!-- @if(invalidUser){
             <div class="text-center invalidCredentials">
             <span>Please Enter Valid Credentials</span>
             </div>
-          }
+          } -->
           <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid" id="login" [ngClass]="{'btn-enabled': !loginForm.invalid, 'btn-disabled': loginForm.invalid}"> Login </button>
           <span class="text-content">If you don’t have account ? <a class="cursor-pointer register-content" routerLink="/registration">Register Here</a></span>
         </div>
