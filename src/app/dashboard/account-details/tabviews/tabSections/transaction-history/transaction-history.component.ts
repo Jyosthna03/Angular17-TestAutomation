@@ -7,7 +7,7 @@ import { history } from '../../../../../modal';
 @Component({
   selector: 'app-transaction-history',
   standalone: true,
-  imports: [DatePipe,NgStyle,RouterLink,ReactiveFormsModule,NgClass],
+  imports: [DatePipe, NgStyle, RouterLink, ReactiveFormsModule, NgClass],
   templateUrl: './transaction-history.component.html',
   styleUrl: './transaction-history.component.css',
 })
@@ -72,8 +72,6 @@ export class TransactionHistoryComponent {
     });
   }
 
-  
-
   submitForm() {
     if (this.transactionForm.valid) {
       this.serv.getData().subscribe((data: any) => {
@@ -126,8 +124,9 @@ export class TransactionHistoryComponent {
     );
   }
 
-  onSelectPageRows(event: any) {
-    this.selectedShowperPage = parseInt(event.target.value, 10);
+  onSelectPageRows(event: Event) {
+    const target = event.target as HTMLSelectElement;
+    this.selectedShowperPage = parseInt(target.value, 10);
     console.log(this.selectedShowperPage);
     this.leftpaginationMode = true;
     this.rightpaginationMode = false;
