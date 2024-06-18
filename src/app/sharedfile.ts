@@ -49,5 +49,8 @@ export class SharedFile{
             AvailableBalanceinRupees: this.service.balance
         }
         ]
+        selectOptions = ['Credit Card', 'Debit Card', 'Utilities', 'Mobile Recharge'];
+        biller = ['Credit Card', 'Debit Card']
+        networkProviders = ['Airtel Post-paid', 'Airtel Pre-paid']
 }
 

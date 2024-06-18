@@ -14,7 +14,7 @@
           </div>
           <div class="col-lg-7 col-md-3 col-sm-5 col">
             <select id="id_select" class="transferInputs selectBiller" formControlName="billerType" autofocus>
-              @for(option of selectOptions;track $index){
+              @for(option of cardOptions;track $index){
                 <option id="biller" [value]="option">{{option}}</option>
               }
             </select>
@@ -34,7 +34,7 @@
               </div>
               <div class="col-lg-7 col-md-3 col-sm-6 col">
                 <select id="id_select" class=" mobile transferInputs cre-card" formControlName="billerdetails" autofocus="true">
-                  @for (data of biller; track $index) {
+                  @for (data of billerOptions; track $index) {
                     <option [value]="data" id="billerDetails">{{data}}</option>
                   }
                   </select>
@@ -80,7 +80,7 @@
                 </div>
                 <div class="col-lg-7 col-md-3 col-sm-6 col">
                   <select class="mobile transferInputs cre-card" formControlName="networkProvider">
-                    @for(provider of networkProviders;track $index){
+                    @for(provider of netWorkOptions;track $index){
                       <option id="network" [value]="provider">
                              {{provider}}
                       </option>

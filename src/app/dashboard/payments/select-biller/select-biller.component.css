@@ -144,7 +144,6 @@ margin-top: 20px;
 .dropdown-menu{
     margin-top: -30px !important;
     padding-right: 64px;
-    /* margin-left: 26px !important; */
     transform: translate3d(107.6667px, 118px, 0px) !important;
   }
 }
