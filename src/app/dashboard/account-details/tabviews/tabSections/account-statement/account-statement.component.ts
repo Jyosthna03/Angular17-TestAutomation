@@ -56,6 +56,6 @@ export class AccountStatementComponent {
   }
 
   submitForm() {
-    console.log(this.statementForm.value);
+    
   }
 }
