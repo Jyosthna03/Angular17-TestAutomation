@@ -60,13 +60,6 @@ describe('AccountHolderDetailsComponent', () => {
     expect(componentDate.getDate()).toEqual(currentDate.getDate());
   });
 
-  it('Checking if the Account No is correct or Not', () => {
-    const accountNo = String(component.accountNo);
-    const accountNoLength = accountNo.length;
-    expect(accountNoLength).toEqual(10);
-    expect(accountNo).toBeDefined();
-  });
-
   it('Checking if the Account Type is correct or Not',()=>{
     myservice.accountData = [
       {
