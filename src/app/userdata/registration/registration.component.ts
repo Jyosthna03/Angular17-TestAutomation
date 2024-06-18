@@ -15,7 +15,7 @@ import { CommonModule } from '@angular/common';
 export class RegistrationComponent {
   registrationForm!: FormGroup;
   submitted = false;
-  imagePath = 'assets/image.png';
+  imagePath = 'assets/Images/image.png';
   maxDate!: string;
   regData ='';
   validUser:boolean = false;
