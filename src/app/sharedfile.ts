@@ -1,5 +1,5 @@
 import { BankingdataService } from "./bankingdata.service";
-import { CardDetails } from "./modal";
+import { AccountData, CardDetails } from "./modal";
 
 export class SharedFile{
     constructor(private service:BankingdataService){}
@@ -37,5 +37,17 @@ export class SharedFile{
           AccountBranch:"KPHB",
           AvailableBalanceinRupees: this.service.balance
         }]
+
+
+        userBankDetails:AccountData[] = [
+          {
+            AccountHolder: this.service.trimmedString,
+            AccountType:"Savings Account",
+            AccountNumber:"1234567890111213",
+            AccountifscCode:"ABCD0001234",
+            AccountBranch:"KPHB",
+            AvailableBalanceinRupees: this.service.balance
+        }
+        ]
 }
 

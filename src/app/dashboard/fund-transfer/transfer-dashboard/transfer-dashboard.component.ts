@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { BankingdataService } from '../../../bankingdata.service';
 import { AccountHolderDetailsComponent } from '../../account-details/account-holder-details/account-holder-details.component';
 import { TransferAccountSummaryComponent } from '../transfer-account-summary/transfer-account-summary.component';
 import { MoneyTransferComponent } from '../money-transfer/money-transfer.component';
@@ -13,10 +12,7 @@ import { MoneyTransferComponent } from '../money-transfer/money-transfer.compone
 })
 export class TransferDashboardComponent {
 
-  constructor(private service:BankingdataService){}
 
-  ngOnInit(){
-    console.log(this.service.userSelectedTab);
-  }
+  
 
 }
