@@ -24,11 +24,6 @@ body {
     margin: 0px !important;
   }
   .text-color {
-    color: #1b154c;
-    color: var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1b154c);
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 24px; /* 125% */
     padding: 20px 20px;
   }
   .form-control:focus {
@@ -182,14 +177,7 @@ body {
     font-weight: 700;
     padding: 14px;
   }
-.toggleSwitchContent {
-    color: #082341;
-    text-align: right;
-    font-size: 12px;
-    font-weight: 400;
-    text-transform: capitalize;
-    padding-top: 4px;
-  }
+
   .inputBox {
     width: 216px;
     height: 36px;

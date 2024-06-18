@@ -3,6 +3,7 @@ import { BankingdataService } from '../../../bankingdata.service';
 import { DatePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { DigitSpacingPipe } from '../digit-spacing.pipe';
+import { CardDetails } from '../../../modal';
 
 @Component({
   selector: 'app-account-holder-details',
@@ -15,10 +16,9 @@ export class AccountHolderDetailsComponent {
 
   constructor(private service: BankingdataService) {}
   userName: string = '';
-  breadCrumbPath: any[] = [];
-  accountDetails: any;
+  breadCrumbPath: string[] = [];
+  accountDetails!: CardDetails[];
   currentDate = new Date();
-  accountNo:string = '1234567890111213';
 
   ngOnInit() {
     this.accountDetails = this.service.accountData;

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { addPayee } from './modal';
-import { BehaviorSubject } from 'rxjs';
+import { addPayee, recent } from './modal';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -46,9 +46,11 @@ export class BankingdataService {
     return name;
   }
 
-  getData(){
-    return this.http.get('assets/DataBase/data.json');
+  getData():Observable<recent[]>{
+    return this.http.get<recent[]>('assets/DataBase/data.json');
   }
+
+  
 
   getUserData() {
     return this.userData;

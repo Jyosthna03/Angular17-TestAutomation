@@ -13,17 +13,14 @@ import { Router, RouterLink } from '@angular/router';
 export class NavbarComponent {
   constructor(private service: BankingdataService,private route:Router) {}
 
-  alltabNames = this.service.tabNames;
   UserSelectTab = this.service.userSelectedTab;
   userName:string = ''
 
   ngOnInit(){
     this.userName = this.service.trimmedString;
-    console.log(this.userName)
   }
 
   selectTab(name: string) {
-    console.log(name);
     this.service.breadCrumb.pop();
     this.service.breadCrumb.push(name);
     this.UserSelectTab = name;

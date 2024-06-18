@@ -3,6 +3,7 @@ import { BankingdataService } from '../../../../../bankingdata.service';
 import {FormBuilder,FormGroup,ReactiveFormsModule,Validators} from '@angular/forms';
 import { DatePipe, NgClass, NgStyle } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { history } from '../../../../../modal';
 @Component({
   selector: 'app-transaction-history',
   standalone: true,
@@ -13,7 +14,7 @@ import { RouterLink } from '@angular/router';
 export class TransactionHistoryComponent {
   leftpaginationMode = false;
   rightpaginationMode = true;
-  TransHistory: any = [];
+  TransHistory: history[] = [];
   showData = false;
   todayDate = Date();
   periodicDays = ['Last 7 Days', 'Last 14 Days'];
@@ -126,7 +127,7 @@ export class TransactionHistoryComponent {
   }
 
   onSelectPageRows(event: any) {
-    this.selectedShowperPage = event.target.value;
+    this.selectedShowperPage = parseInt(event.target.value, 10);
     console.log(this.selectedShowperPage);
     this.leftpaginationMode = true;
     this.rightpaginationMode = false;

@@ -3,6 +3,7 @@ import { BankingdataService } from '../../../../../bankingdata.service';
 import { recent } from '../../../../../modal';
 import { CurrencyPipe, NgFor } from '@angular/common';
 
+
 @Component({
   selector: 'app-recent-transaction',
   standalone: true,
@@ -10,9 +11,11 @@ import { CurrencyPipe, NgFor } from '@angular/common';
   templateUrl: './recent-transaction.component.html',
   styleUrl: './recent-transaction.component.css'
 })
+
+
 export class RecentTransactionComponent {
   constructor(private serv:BankingdataService){}
-  RecentTrans!:recent[];
+  RecentTrans:recent[]=[];
   recentTrans = signal(this.RecentTrans);
   
   ngOnInit(){
@@ -26,7 +29,7 @@ export class RecentTransactionComponent {
         console.log(this.recentTrans());
       }
     });
-  }
-
+  } 
+  
   
 } 
