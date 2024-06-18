@@ -1,28 +1,27 @@
 import { Component } from '@angular/core';
 import { BankingdataService } from '../../../bankingdata.service';
-import { CommonModule, CurrencyPipe } from '@angular/common';
+import { CurrencyPipe } from '@angular/common';
+import { SharedFile } from '../../../sharedfile';
+import { AccountData } from '../../../modal';
 
 @Component({
   selector: 'app-transfer-account-summary',
   standalone: true,
-  imports: [CurrencyPipe,CommonModule],
+  imports: [CurrencyPipe],
   templateUrl: './transfer-account-summary.component.html',
   styleUrl: './transfer-account-summary.component.css'
 })
 export class TransferAccountSummaryComponent {
 
   constructor(private service:BankingdataService){}
+  sharedData = new SharedFile(this.service);
+  userBankDetails!:AccountData[]
 
-  userBankDetails = [
-    {
-      AccountHolder: this.service.trimmedString,
-      AccountType:"Savings Account",
-      AccountNumber:"1234567890111213",
-      AccountifscCode:"ABCD0001234",
-      AccountBranch:"KPHB",
-      AvailableBalanceinRupees: this.service.balance
+  ngOnInit(){
+    this.userBankDetails = this.sharedData.userBankDetails
   }
-  ]
+
+   
  
  
   
