@@ -42,7 +42,7 @@
     font-weight: 700;
     text-transform: capitalize;
 }
-.dashboard{
+.bc-dashboard{
     color: #FFF;
     font-size: 14px;
     font-weight: 400;
@@ -51,9 +51,6 @@
     cursor: pointer;
 }
 .accountDetails{
-    color: #FFF;
-    font-size: 14px;
     font-weight: 500;
-    text-transform: capitalize;
-    cursor: pointer;
+    opacity: 1;
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { BankingdataService } from '../../../bankingdata.service';
+import { CardDetails } from '../../../modal';
 
 @Component({
   selector: 'app-account-summary',
@@ -12,12 +13,11 @@ export class AccountSummaryComponent {
   constructor(private service:BankingdataService){}
 
   isDisplay:boolean = false;
-  accountDetails:any;
+  accountDetails!:CardDetails[];
   
   ngOnInit(){
     this.accountDetails = this.service.accountData
-    this.accountDetails[0].AccountHolder = this.service.trimmedString;
-    console.log(this.accountDetails)
+
   }
 
 

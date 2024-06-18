@@ -3,14 +3,11 @@
     text-wrap: nowrap;
 }
 @media (max-width: 576px) {
-.dashboard-cards {
-    /* display: flex;
-    flex-direction: row; */
-    flex-wrap: nowrap;
-}
+    .dashboard-cards {
+        flex-wrap: nowrap;
+    }
 
-.dashboard-cards li {
-    /* padding: 0 10px; */
-    white-space: nowrap;
-}
+    .dashboard-cards li {
+        white-space: nowrap;
+    }
 }

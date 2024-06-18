@@ -17,6 +17,7 @@
 }
 .nav-item{
     padding-right: 20px;
+    padding-top: 3px;
 }
 .notification{
     width: 24px;
@@ -41,7 +42,6 @@
     text-transform: capitalize;
     cursor: pointer;
 }
-
 .activeTab {
     color: #FFF !important;
     font-weight: normal;
@@ -59,16 +59,17 @@
     box-shadow: none !important;
 }
 @media (min-width:340px) and (max-width:992px) {
-    
-    .offcanvas{
+     .offcanvas{
         width: 260px;
         height: auto;
      }
-
-     .iconImg{
+    .iconImg{
         padding: 10px;
      }
-
+     .nav-item{
+        padding-right: 0px !important;
+        padding-left: 10px !important;
+    }
      .smNav{
         display: flex;
         justify-content: center;
@@ -114,19 +115,15 @@
             font-weight: bold;
             text-transform: capitalize;
             padding-bottom: 5px;
-            
     }
     .accountNumber{
             color: #000;
             font-size: 12px;
             font-weight: bold;
     }
-    
-   
     .activeTab{
         color: black !important;
     }
-
     .navItems{
         position: relative;
         left: -20px;
