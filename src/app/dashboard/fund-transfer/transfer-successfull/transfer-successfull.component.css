@@ -33,6 +33,11 @@
   }
 
   @media (max-width: 798px) {
+    .sucImg{
+        width: 345px;
+        height: 218px;
+        flex-shrink: 0;
+      }
     .transText {
         color: #2d455f;
         text-align: center;
