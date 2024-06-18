@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angula
 import { Router, RouterLink} from '@angular/router';
 import { BankingdataService } from '../../../bankingdata.service';
 import { CommonModule, DatePipe } from '@angular/common';
+import { BillerFormValues, RechargeFormValues } from '../../../modal';
 
 
 @Component({
@@ -21,11 +22,8 @@ export class SelectBillerComponent {
   availBalance: number = this.service.balance
   isDueDateDisabled: boolean = true;
   selectOptions = ['Credit Card', 'Debit Card', 'Utilities', 'Mobile Recharge'];
-  selectedOption = 'Credit Card';
   biller = ['Credit Card', 'Debit Card']
   networkProviders = ['Airtel Post-paid', 'Airtel Pre-paid']
-  // options: string[] = ['Option 1', 'Option 2', 'Option 3'];
-  // selectedLabel: string = 'Select an option';
   optionsVisible: boolean = false;
  
 
@@ -43,11 +41,9 @@ export class SelectBillerComponent {
       amount: ['', [Validators.required, Validators.pattern(/^\d*$/)]],
       PayingFrom: ['Savings Account']
     });
-
     this.billerForm.get('billerType')?.valueChanges.subscribe(val => {
       this.showRechargeForm = val === 'Mobile Recharge';
     });
-
     this.rechargeForm.get('networkProvider')?.valueChanges.subscribe(val => {
       this.isDueDateDisabled = val === "Airtel Post-paid"
     })
@@ -57,62 +53,49 @@ export class SelectBillerComponent {
     this.dueDate = new Date();
     this.dueDate.setDate(this.dueDate.getDate() + 3);
   }
-  selectOption(option: string) {
-    this.selectedOption = option;
-    this.billerForm.get('billerType')?.setValue(option);
-    // console.log(this.selectedOption);
-  }
-
   onSubmit() {
-    console.log(this.billerForm.value)
-    let billValue = this.billerForm.value.billDetailsAmount;
-    let rechargeBillValue = this.rechargeForm.value.amount;
-    
+    console.log(this.billerForm.value);
+    const billValue = this.billerForm.value.billDetailsAmount;
+    const rechargeBillValue = this.rechargeForm.value.amount;
+
     if (this.billerForm.valid && billValue <= this.availBalance) {
-      this.service.selectBillerSuccess.pop()
-      this.service.selectBillerSuccess.push(this.billerForm.value);
-      this.service.rechargePaymentSuccess = false;
-      this.service.balance -= billValue
-      this.route.navigate(['/paymentSuccess'])
+        this.updateSuccessState(this.billerForm.value, billValue, false);
+    } else if (this.rechargeForm.valid && rechargeBillValue <= this.availBalance) {
+        this.updateSuccessState(this.rechargeForm.value, rechargeBillValue, true);
+    } else if (billValue > this.availBalance || rechargeBillValue > this.availBalance) {
+        alert("Insufficient Funds");
+        this.route.navigate(['/paymentDashboard']);
     }
-    if (this.rechargeForm.valid && rechargeBillValue <= this.availBalance) {
-      this.service.selectBillerSuccess.pop()
-      this.service.selectBillerSuccess.push(this.rechargeForm.value);
-      this.service.rechargePaymentSuccess = true;
-      this.service.balance -= rechargeBillValue
-      this.route.navigate(['/paymentSuccess'])
-    }
-    if(this.billerForm.value.billDetailsAmount > this.availBalance || this.rechargeForm.value.amount > this.availBalance){
-      alert("InSufficient Funds")
-      this.route.navigate(['/paymentDashboard'])
-    }
-  }
-
+}
+updateSuccessState(formValue: FormGroup, amount: number, isRecharge: boolean) {
+    this.service.selectBillerSuccess.pop();
+    this.service.selectBillerSuccess.push(formValue);
+    this.service.rechargePaymentSuccess = isRecharge;
+    this.service.balance -= amount;
+    this.route.navigate(['/paymentSuccess']);
+}
   onCancel() {
-    if (this.billerForm.valid) {
-      let confirmation = confirm("Are you sure you want to Cancel the Payment?")
-      if (confirmation) {
-        this.billerForm.reset();
-        this.billerForm.patchValue({
-          billerType: 'Credit Card',
-          billerdetails: 'Credit Card',
-          PayingFrom: 'Savings Account'
-        })
+    const handleCancel = (form: FormGroup, values: BillerFormValues | RechargeFormValues) => {
+      if (form.valid) {
+        const confirmation = confirm("Are you sure you want to Cancel the Payment?");
+        if (confirmation) {
+          form.reset();
+          form.patchValue(values);
+        }
       }
-     }
-     else if (this.rechargeForm.valid) {
-      let confirmation = confirm("Are you sure you want to Cancel the Payment?")
-      if (confirmation) {
-        this.rechargeForm.reset();
-        this.rechargeForm.patchValue({
-          billerType: 'Mobile Recharge',
-          networkProvider: "Airtel Post-paid",
-          PayingFrom: 'Savings Account'
-        })
-      }
-    }
+    };
+    handleCancel(this.billerForm, {
+      billerType: 'Credit Card',
+      billerdetails: 'Credit Card',
+      PayingFrom: 'Savings Account'
+    });
+  
+    handleCancel(this.rechargeForm, {
+      billerType: 'Mobile Recharge',
+      networkProvider: "Airtel Post-paid",
+      PayingFrom: 'Savings Account'
+    });
   }
-
   onKeyPress(event: KeyboardEvent) {
     const inputChar = String.fromCharCode(event.charCode);
     if (!/^\d+$/.test(inputChar)) {

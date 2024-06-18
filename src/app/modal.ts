@@ -39,3 +39,14 @@ export interface CardDetails {
     AccountBranch: string;
     AvailableBalanceinRupees: number;
   }
+  export interface BillerFormValues {
+    billerType: string;
+    billerdetails: string;
+    PayingFrom: string;
+  }
+  
+  export interface RechargeFormValues {
+    billerType: string;
+    networkProvider: string;
+    PayingFrom: string;
+  }
