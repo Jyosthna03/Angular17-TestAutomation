@@ -5,6 +5,7 @@ import { loginguardGuard } from './guards/loginguard.guard';
 
 export const routes: Routes = [
     {path: '', component:LoginComponent},
+    {path:'login',component:LoginComponent},
     {path:"registration",
         loadComponent:()=> import('./userdata/registration/registration.component').then(
             component => component.RegistrationComponent
