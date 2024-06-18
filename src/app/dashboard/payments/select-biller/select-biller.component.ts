@@ -4,6 +4,7 @@ import { Router, RouterLink} from '@angular/router';
 import { BankingdataService } from '../../../bankingdata.service';
 import { CommonModule, DatePipe } from '@angular/common';
 import { BillerFormValues, RechargeFormValues } from '../../../modal';
+import { SharedFile } from '../../../sharedfile';
 
 
 @Component({
@@ -17,15 +18,13 @@ export class SelectBillerComponent {
   billerForm!: FormGroup;
   rechargeForm: FormGroup;
   showRechargeForm: boolean = false;
-  showAdditionalFields = false;
   dueDate!: Date;
   availBalance: number = this.service.balance
   isDueDateDisabled: boolean = true;
-  selectOptions = ['Credit Card', 'Debit Card', 'Utilities', 'Mobile Recharge'];
-  biller = ['Credit Card', 'Debit Card']
-  networkProviders = ['Airtel Post-paid', 'Airtel Pre-paid']
-  optionsVisible: boolean = false;
- 
+  sharedData = new SharedFile(this.service);
+  cardOptions!: string[];
+  billerOptions!: string[]
+  netWorkOptions!: string[]
 
   constructor(private service: BankingdataService, private fb: FormBuilder, private route: Router) {
     this.billerForm = fb.group({
@@ -52,9 +51,11 @@ export class SelectBillerComponent {
   ngOnInit() {
     this.dueDate = new Date();
     this.dueDate.setDate(this.dueDate.getDate() + 3);
+    this.cardOptions = this.sharedData.selectOptions;
+    this.billerOptions = this.sharedData.biller;
+    this.netWorkOptions = this.sharedData.networkProviders
   }
   onSubmit() {
-    console.log(this.billerForm.value);
     const billValue = this.billerForm.value.billDetailsAmount;
     const rechargeBillValue = this.rechargeForm.value.amount;
 
