@@ -14,7 +14,7 @@
                                            <span class="savingsAccNumber">Savings Account : 12345678910111213</span>
                                        </div>
                                         <div>
-                                            <span class="balance">Balance : {{availBalance | currency:"INR"}}</span>
+                                            <span class="balance">Balance : {{availableBalance | currency:"INR"}}</span>
                                         </div>
                                     </div>
                             </div>
@@ -103,8 +103,13 @@
                                             }
                                         </div>
                                         <div>
-                                            @if(exceededLimit){
-                                                <span class="error-text">{{amountlimit}}</span>
+                                           @if(moneyTransferForm.get('amount')?.hasError('amountLimitExceeded')){
+                                                 <span class="error-text">Enter amount less than or equal to 20,000</span>
+                                            }
+                                        </div>
+                                        <div>
+                                            @if(moneyTransferForm.get('amount')?.hasError('insufficientFunds')){
+                                                <span class="error-text">Insufficient funds</span>
                                             }
                                         </div>
                                     </div>

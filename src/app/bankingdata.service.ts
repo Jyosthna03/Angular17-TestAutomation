@@ -85,8 +85,7 @@ export class BankingdataService {
   selectPayeeValue:boolean = true;
   isTransactionHistory=false;
   isAccountStatement=false;
-  breadCrumb:any[] = ["Account Details"]
-  paymentHistory:number[] = [] // to calculate total transcations amount 
+  breadCrumb:any[] = ["Account Details"] 
   paymentSucess:Array<Object> = [] //for congratulations page data
 
 
