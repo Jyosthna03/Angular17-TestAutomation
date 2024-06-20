@@ -52,7 +52,11 @@ export class SharedFile {
   selectOptions = ['Credit Card', 'Debit Card', 'Utilities', 'Mobile Recharge'];
   biller = ['Credit Card', 'Debit Card'];
   networkProviders = ['Airtel Post-paid', 'Airtel Pre-paid'];
+  banks=['ICICI', 'SBI', 'HDFC', 'Axis', 'StandardCharted'];
 
+
+  userviewByPeriod=['Last 7 Days', 'Last 14 Days'];
+  userviewByFormat=['PDF File', 'Excel Sheet'];
   userRecentTrans: recent[] = [
     {
       symbol: 'assets/Images/down-arrow.svg',

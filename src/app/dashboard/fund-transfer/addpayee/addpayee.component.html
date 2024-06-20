@@ -49,6 +49,7 @@
                     <div class="eachBlock mb-2">
                         <label class="payee-details mt-1">Bank Name<span class="text-danger">*</span></label>
                         <select class="transferInputs" formControlName="bankName">
+                            <option value="">Select Bank</option>
                             @for (bank of bankNames; track $index) {
                                 <option>{{bank}}</option>
                             }
