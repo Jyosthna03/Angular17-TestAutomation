@@ -120,7 +120,7 @@
             <div class="d-flex flex-row justify-content-center mt-5">
                 <button class="cancelAndSaveBtn me-4" routerLink="/transferDashboard" id="back">Back</button>
                 <button class="cancelAndSaveBtn" (click)="onCancel()" id="cancel">cancel</button>
-                <button type="submit" class="btn btn-primary cancelAndSaveBtn saveBtn" [disabled]="addPayeesmForm.invalid" (click)="submitPayee(addPayeesmForm.value)" id="addPayee" [ngClass]="{'btn-enabled': !addPayeesmForm.invalid, 'btn-disabled': addPayeesmForm.invalid}">Add Payee</button>
+                <button type="submit" class="btn btn-primary cancelAndSaveBtn saveBtn" [disabled]="addPayeesmForm.invalid" (click)="submitPayee()" id="addPayee" [ngClass]="{'btn-enabled': !addPayeesmForm.invalid, 'btn-disabled': addPayeesmForm.invalid}">Add Payee</button>
             </div>
     </form>
 </div>

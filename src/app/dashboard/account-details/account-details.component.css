@@ -2,6 +2,9 @@
 .dashboard-cards{
     text-wrap: nowrap;
 }
+.cards .account-style{
+    margin-top: 3px;
+}
 @media (max-width: 576px) {
     .dashboard-cards {
         flex-wrap: nowrap;

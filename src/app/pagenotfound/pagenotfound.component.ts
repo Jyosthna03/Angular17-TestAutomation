@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { NavbarComponent } from '../dashboard/account-details/navbar/navbar.component';
 
 @Component({
-template:`
-<div class="bg-danger text-warning">
-    <h2>404 - page Not found</h2>
-    <p>The page you are searching is not found</p>
-</div>`
+    selector: 'app-pagenotfound',
+    standalone: true,
+    templateUrl: './pagenotfound.component.html',
+    styleUrl: './pagenotfound.component.css',
+    imports: [NavbarComponent]
 })
 
 export class PageNotFoundComponent implements OnInit {

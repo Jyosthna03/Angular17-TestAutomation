@@ -46,6 +46,11 @@
 .offcanvas-body{
     padding-top: 2px !important;
 }
+.user-style{
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+}
 @media screen and (max-width:992px) {
     .bg-color{
         background-color:#E8E8ED;
@@ -57,6 +62,35 @@
         padding-right: 0;
     }
 .login-user{
-    color: black;
+    color: var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1B154C);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.accountNumber{
+    color: #000;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.logout-style{
+    display: flex;
+    width: 160px;
+    height: 40px;
+    padding: 0px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    border: 1px solid #1B154C;
+    background: #FFF !important;
+    color: var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1B154C);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
 }
