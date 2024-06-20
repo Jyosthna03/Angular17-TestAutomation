@@ -3,7 +3,7 @@
     <main class="mainScreen text-center mt-2">
         <img src="assets/Images/successImage.png" alt="WorkDone" class="sucImg">
         <p class="congratsText">Congratulations !!</p>
-        <div class="d-flex justify-content-center flex-wrap">
+        <div class="d-flex justify-content-center flex-wrap pd-transfer">
             @for (data of paymentData; track $index) {
                 <p class="transText">Transaction amount  ₹{{data.amount}}/- in the mode of {{data.paymentModeInput}} for the payee {{data.payee}} has been success</p>
             }

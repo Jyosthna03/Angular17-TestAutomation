@@ -48,6 +48,7 @@
                 </div>
                 <div class="col-md-7 col-sm-6 col-7 payeeInputs">
                        <select formControlName="bankName" class="transferInputs">
+                            <option value="">Select Your Bank</option>
                             @for (bank of bankNames; track $index) {
                                 <option>{{bank}}</option>
                              }

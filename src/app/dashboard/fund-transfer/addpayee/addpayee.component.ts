@@ -48,12 +48,12 @@ export class AddpayeeComponent {
     return accNumber === reEnterAccNumber ? null : { mismatch: true };
   }
  
-  submitPayee(formData:any){
+  submitPayee(){
         this.service.addPayee.push(this.addPayeeForm.value.fullname);
         this.payeeAddMsg = "Payee Added Successfully!!!"
         setTimeout(()=>{
           this.closePopup()
-        },3000);
+        },1000);
       }
 
   onCancel() {

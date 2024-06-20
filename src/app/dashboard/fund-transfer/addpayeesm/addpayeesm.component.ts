@@ -43,7 +43,6 @@ export class AddpayeesmComponent {
   accountNoMatchValidator(addPayeeForm: FormGroup) {
     const accNumber = addPayeeForm.get('accountNo')?.value;
     const reEnterAccNumber = addPayeeForm.get('reEnteraccountNo')?.value;
-
     return accNumber === reEnterAccNumber ? null : { mismatch: true };
   }
 
@@ -65,14 +64,14 @@ export class AddpayeesmComponent {
  submitPayee(formData:any){
   console.log(formData)
   this.service.addPayee.push(this.addPayeesmForm.value.fullname);
-  this.addPayeesmForm.reset()
-  alert('Payee Added Sucessfully')
-  this.route.navigate(['/transferDashboard'])
-  
-}
+  this.addPayeesmForm.reset();
+  this.route.navigate(['/transferDashboard']);
+  }
 
 onCancel() {
+  
    this.addPayeesmForm.reset();
+   this.addPayeesmForm.get('bankName')!.setValue('');
 }
 
 }
