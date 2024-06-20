@@ -1,0 +1,36 @@
+.pagenotfound{
+    margin-top: 50px;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+}
+.pagenotfound-text{
+    color: #2D455F;
+text-align: center;
+font-size: 20px;
+font-style: normal;
+font-weight: 800;
+line-height: 28px; /* 140% */
+padding-top: 10px;
+}
+.oops-style{
+    color: #082341;
+font-size: 40px;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
+}
+.tryagain{
+    /* display: flex; */
+width: 312px;
+height: 36px;
+padding: 0px 16px;
+
+gap: 8px;
+flex-shrink: 0;
+border-radius: 4px;
+border: 1px solid #1B154C;
+background: #FFF;
+/* align-items: center; */
+text-align: center;
+}
