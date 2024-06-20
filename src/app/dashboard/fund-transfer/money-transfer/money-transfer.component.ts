@@ -42,12 +42,6 @@ export class MoneyTransferComponent {
       this.service.currentBankName.subscribe(bankName =>{
       this.moneyTransferForm.get('bankName')?.setValue( bankName, { emitEvent: false });
     })
-      this.service.currentAccountNosm.subscribe(accNo =>{
-      this.moneyTransferForm.get('accountNumber')?.setValue(accNo, { emitEvent: false });
-    })
-      this.service.currentBankNamesm.subscribe(bkName =>{
-      this.moneyTransferForm.get('bankName')?.setValue(bkName, { emitEvent: false });
-    })
    }
  
   calculateTotalAmount(){
@@ -86,6 +80,8 @@ export class MoneyTransferComponent {
     this.service.paymentHistory.push(Number(amount));
     this.service.paymentSucess.pop()
     this.service.paymentSucess.push(value);
+    this.service.changeAccountNumber("");
+    this.service.userBankName("");
     this.route.navigateByUrl('/transferSuccess');
     this.moneyTransferForm.reset();
   }

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { addPayee, recent } from './modal';
+import { recent } from './modal';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
@@ -12,19 +12,12 @@ export class BankingdataService {
   currentAccountNumber = this.accountNumberpopUp.asObservable();
   currentBankName = this.bankNamepopUp.asObservable();
 
-  private accountNosm = new BehaviorSubject<string>('');
-  private bankNamesm = new BehaviorSubject<string>('');
-  currentAccountNosm = this.accountNosm.asObservable();
-  currentBankNamesm = this.bankNamesm.asObservable();
-
   changeAccountNumber(accountNumber: string) {
     this.accountNumberpopUp.next(accountNumber);
-    this.accountNosm.next(accountNumber)
   }
 
   userBankName(bankName:string){
     this.bankNamepopUp.next(bankName);
-    this.bankNamesm.next(bankName)
   }
 
   constructor(private http:HttpClient) { }
@@ -46,10 +39,6 @@ export class BankingdataService {
     return name;
   }
 
-  getData():Observable<recent[]>{
-    return this.http.get<recent[]>('assets/DataBase/data.json');
-  }
-
   
 
   getUserData() {
@@ -69,7 +58,7 @@ export class BankingdataService {
 
   addPayee:any = ['Dileep']
 
-  // addpayeeData:addPayee[] = []
+  
 
   accountData:any= [
     {
