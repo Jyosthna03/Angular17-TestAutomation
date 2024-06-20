@@ -1,11 +1,12 @@
 import { CommonModule, CurrencyPipe, NgClass } from '@angular/common';
-import { Component} from '@angular/core';
+import { Component, TemplateRef} from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BankingdataService } from '../../../bankingdata.service';
 import { Router, RouterLink } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddpayeeComponent } from '../addpayee/addpayee.component';
-
+import { amountLimitValidator } from '../../../customAmountValidator';
+ 
 @Component({
   selector: 'app-money-transfer',
   standalone: true,
@@ -14,27 +15,22 @@ import { AddpayeeComponent } from '../addpayee/addpayee.component';
   styleUrl: './money-transfer.component.css'
 })
 export class MoneyTransferComponent {
-
+ 
   moneyTransferForm!:FormGroup;
-  amountlimit:string = '';
-  exceededLimit:boolean = false;
   payeeNames = this.service.addPayee;
-  totalAmount:number = 0;
-  availBalance:number = this.service.balance;
-  defaultPayee:string = "Select Payee"
-
-
+  availableBalance:number = this.service.balance;
+ 
   constructor(private fb:FormBuilder,private service:BankingdataService,private route:Router,private modalService: NgbModal){
     this.moneyTransferForm = this.fb.group({
        "payee":['',Validators.required],
        "accountNumber":['',[Validators.required,Validators.pattern(/^\d*$/),Validators.minLength(8),Validators.maxLength(18)]],
        "bankName":['',[Validators.required, Validators.pattern(/^[a-zA-Z ]*$/),Validators.minLength(3),Validators.maxLength(20)]],
-       "amount":['',[Validators.required,Validators.pattern(/^\d*$/),Validators.maxLength(5)]],
+       "amount":['',[Validators.required,Validators.pattern(/^\d*$/),Validators.maxLength(5),amountLimitValidator(this.availableBalance)]],
        "remarks":['',[Validators.required,Validators.maxLength(10)]],
        "paymentModeInput":['',Validators.required],
     });
    }
-
+ 
   ngOnInit(){
       this.service.currentAccountNumber.subscribe(accountNumber => {
       this.moneyTransferForm.get('accountNumber')?.setValue(accountNumber, { emitEvent: false });
@@ -44,49 +40,20 @@ export class MoneyTransferComponent {
     })
    }
  
-  calculateTotalAmount(){
-    let mytotal=0;
-    for(let i=0;i<this.service.paymentHistory.length;i++){
-      mytotal += this.service.paymentHistory[i]
+  onSubmit(value: FormGroup) {
+    if(this.moneyTransferForm.valid){
+      let amount = this.moneyTransferForm.value.amount;
+      this.service.balance -= amount;
+      this.service.paymentSucess.pop()
+      this.service.paymentSucess.push(value);
+      this.service.changeAccountNumber('')
+      this.service.userBankName('')
+      this.route.navigateByUrl('/transferSuccess');
+      this.moneyTransferForm.reset();
     }
-    this.totalAmount = mytotal;
-    return this.totalAmount;
   }
-
-  amountVal = this.calculateTotalAmount()
-  onSubmit(value: Object) {
-    let amount = this.moneyTransferForm.value.amount;
-    if (amount > this.service.balance) {
-      alert("Insufficient Funds");
-      return;
-    }
-    if (amount > 5000 || this.amountVal > 5000) {
-      this.exceededLimit = true;
-      this.amountlimit = "Enter amount less than 5000";
-      return;
-    }
-    if(this.moneyTransferForm.value.payee === 'Select Payee'){
-      alert('Choose Payee')
-      return;
-    }
-    this.calculateTotalAmount();
-    if (this.totalAmount >= 5000) {
-      this.exceededLimit = true;
-      this.amountlimit = "Exceeded Limit";
-      return;
-    }
-    console.log(this.moneyTransferForm.value)
-    this.service.balance -= amount;
-    this.service.paymentHistory.push(Number(amount));
-    this.service.paymentSucess.pop()
-    this.service.paymentSucess.push(value);
-    this.service.changeAccountNumber("");
-    this.service.userBankName("");
-    this.route.navigateByUrl('/transferSuccess');
-    this.moneyTransferForm.reset();
-  }
-  
-  openAddpayeePopup(content: any) {
+ 
+  openAddpayeePopup(content: TemplateRef<FormGroup>) {
     this.modalService.open(content, {
       centered: true,
       scrollable: true,
@@ -94,17 +61,17 @@ export class MoneyTransferComponent {
       backdrop: 'static',
     });
   }
-
+ 
   onCancel(){
     this.moneyTransferForm.reset();
     this.moneyTransferForm.get('payee')?.setValue('')
   }
-
+ 
   onKeyPress(event: KeyboardEvent) {
     const inputChar = event.key;
     if (!/^\d+$/.test(inputChar)) {
       event.preventDefault();
     }
   }
-
+ 
 }
