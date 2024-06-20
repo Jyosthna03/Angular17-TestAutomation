@@ -1,12 +1,12 @@
 import { CommonModule, CurrencyPipe, NgClass } from '@angular/common';
-import { Component} from '@angular/core';
+import { Component, TemplateRef} from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BankingdataService } from '../../../bankingdata.service';
 import { Router, RouterLink } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddpayeeComponent } from '../addpayee/addpayee.component';
 import { amountLimitValidator } from '../../../customAmountValidator';
-
+ 
 @Component({
   selector: 'app-money-transfer',
   standalone: true,
@@ -15,12 +15,11 @@ import { amountLimitValidator } from '../../../customAmountValidator';
   styleUrl: './money-transfer.component.css'
 })
 export class MoneyTransferComponent {
-
+ 
   moneyTransferForm!:FormGroup;
   payeeNames = this.service.addPayee;
   availableBalance:number = this.service.balance;
-
-
+ 
   constructor(private fb:FormBuilder,private service:BankingdataService,private route:Router,private modalService: NgbModal){
     this.moneyTransferForm = this.fb.group({
        "payee":['',Validators.required],
@@ -31,7 +30,7 @@ export class MoneyTransferComponent {
        "paymentModeInput":['',Validators.required],
     });
    }
-
+ 
   ngOnInit(){
       this.service.currentAccountNumber.subscribe(accountNumber => {
       this.moneyTransferForm.get('accountNumber')?.setValue(accountNumber, { emitEvent: false });
@@ -40,19 +39,21 @@ export class MoneyTransferComponent {
       this.moneyTransferForm.get('bankName')?.setValue( bankName, { emitEvent: false });
     })
    }
-
+ 
   onSubmit(value: FormGroup) {
     if(this.moneyTransferForm.valid){
       let amount = this.moneyTransferForm.value.amount;
       this.service.balance -= amount;
       this.service.paymentSucess.pop()
       this.service.paymentSucess.push(value);
+      this.service.changeAccountNumber('')
+      this.service.userBankName('')
       this.route.navigateByUrl('/transferSuccess');
       this.moneyTransferForm.reset();
     }
   }
-  
-  openAddpayeePopup(content: any) {
+ 
+  openAddpayeePopup(content: TemplateRef<FormGroup>) {
     this.modalService.open(content, {
       centered: true,
       scrollable: true,
@@ -60,17 +61,17 @@ export class MoneyTransferComponent {
       backdrop: 'static',
     });
   }
-
+ 
   onCancel(){
     this.moneyTransferForm.reset();
     this.moneyTransferForm.get('payee')?.setValue('')
   }
-
+ 
   onKeyPress(event: KeyboardEvent) {
     const inputChar = event.key;
     if (!/^\d+$/.test(inputChar)) {
       event.preventDefault();
     }
   }
-
+ 
 }

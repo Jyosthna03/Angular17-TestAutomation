@@ -2,6 +2,7 @@ import { Component, signal } from '@angular/core';
 import { BankingdataService } from '../../../../../bankingdata.service';
 import { recent } from '../../../../../modal';
 import { CurrencyPipe, NgFor } from '@angular/common';
+import { SharedFile } from '../../../../../sharedfile';
 
 
 @Component({
@@ -15,21 +16,12 @@ import { CurrencyPipe, NgFor } from '@angular/common';
 
 export class RecentTransactionComponent {
   constructor(private serv:BankingdataService){}
+  sharedData = new SharedFile(this.serv);
   RecentTrans:recent[]=[];
   recentTrans = signal(this.RecentTrans);
   
   ngOnInit(){
-    this.showTabData();
+    this.recentTrans.set(this.sharedData.userRecentTrans);
   }
-  
-  showTabData(){
-    this.serv.getData().subscribe((data:any)=>{
-      if(data['RecentTrans'].length!=0){
-        this.recentTrans.set(data['RecentTrans']);
-        console.log(this.recentTrans());
-      }
-    });
-  } 
-  
   
 } 

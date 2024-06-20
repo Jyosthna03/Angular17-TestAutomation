@@ -1,9 +1,15 @@
 import { Component } from '@angular/core';
 import { BankingdataService } from '../../../../../bankingdata.service';
-import {FormBuilder,FormGroup,ReactiveFormsModule,Validators} from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { DatePipe, NgClass, NgStyle } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { history } from '../../../../../modal';
+import { SharedFile } from '../../../../../sharedfile';
 @Component({
   selector: 'app-transaction-history',
   standalone: true,
@@ -12,6 +18,7 @@ import { history } from '../../../../../modal';
   styleUrl: './transaction-history.component.css',
 })
 export class TransactionHistoryComponent {
+  sharedData = new SharedFile(this.serv);
   leftpaginationMode = false;
   rightpaginationMode = true;
   TransHistory: history[] = [];
@@ -74,16 +81,11 @@ export class TransactionHistoryComponent {
 
   submitForm() {
     if (this.transactionForm.valid) {
-      this.serv.getData().subscribe((data: any) => {
-        if (data['TransHistory'].length != 0) {
-          console.log(data['TransHistory']);
-          this.TransHistory = data['TransHistory'];
-          this.totalPages = this.getpageList(
-            this.TransHistory.length,
-            this.selectedShowperPage
-          );
-        }
-      });
+      this.TransHistory = this.sharedData.userTransHistory;
+      this.totalPages = this.getpageList(
+        this.TransHistory.length,
+        this.selectedShowperPage
+      );
       this.showData = true;
     }
   }
