@@ -1,15 +1,17 @@
-<div class="container-fluid mb-5">
+<div class="container-fluid">
     <app-navbar></app-navbar>
-    <main class="mainScreen text-center mt-2">
+    <div class="text-center mt-2 transfer-content">
         <img src="assets/Images/successImage.png" alt="WorkDone" class="sucImg">
-        <p class="congratsText">Congratulations !!</p>
-        <div class="d-flex justify-content-center flex-wrap pd-transfer">
+        <span class="congratsText">Congratulations !!</span>
+        <div class="col-lg-3 col-2"></div>
+        <div class="col-lg-5 col-8 pd-transfer">
             @for (data of paymentData; track $index) {
-                <p class="transText">Transaction amount  ₹{{data.amount}}/- in the mode of {{data.paymentModeInput}} for the payee {{data.payee}} has been success</p>
+                <p class="transText">Transaction amount  Rs.{{data.amount}}/- in the mode of {{data.paymentModeInput}} for the payee {{data.payee}} has been success</p>
             }
         </div>
-        <button class="dashBoardBtn" routerLink="/dashboard">Go back to Dashboard</button>
-    </main>
+        <div class="col-lg-3 col-2"></div>
+        <button class="dashBoardBtn mt-auto" routerLink="/dashboard">Go back to Dashboard</button>
+    </div>
 </div>
 
 

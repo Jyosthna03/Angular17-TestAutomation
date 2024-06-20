@@ -51,7 +51,7 @@
                                         <label class="sub-text">Account Number<span class="text-danger">*</span></label>
                                     </div>
                                     <div class="col-lg-7 col-md-6 col-sm-6 col-7 pd-default">
-                                            <input type="number" placeholder="Enter Account Number" class="transferInputs" value="200" formControlName="accountNumber" maxlength="18" (keypress)="onKeyPress($event)">
+                                            <input type="number" placeholder="Enter Account Number" class="transferInputs"  formControlName="accountNumber" maxlength="18" (keypress)="onKeyPress($event)">
                                             <div class="text-danger"> 
                                                 @if (moneyTransferForm.get('accountNumber')?.hasError('required') && moneyTransferForm.get('accountNumber')?.touched) {
                                                     <span class="error-text">Please Enter Account Number</span>
@@ -97,17 +97,17 @@
                                     </div>
                                     <div class="col-lg-7 col-md-6 col-sm-7 col-7 pd-default">
                                         <input type="number" placeholder="Enter Amount" class="transferInputs" formControlName="amount" required (keypress)="onKeyPress($event)" maxlength="5">
-                                        <div>
+                                        <div class="text-danger">
                                             @if (moneyTransferForm.get('amount')?.hasError('required') && moneyTransferForm.get('amount')?.touched) {
                                                 <span class="error-text">Please Enter Amount</span>
                                             }
                                         </div>
-                                        <div>
+                                        <div class="text-danger">
                                            @if(moneyTransferForm.get('amount')?.hasError('amountLimitExceeded')){
                                                  <span class="error-text">Enter amount less than or equal to 20,000</span>
                                             }
                                         </div>
-                                        <div>
+                                        <div class="text-danger">
                                             @if(moneyTransferForm.get('amount')?.hasError('insufficientFunds')){
                                                 <span class="error-text">Insufficient funds</span>
                                             }
@@ -123,7 +123,7 @@
                                     </div>
                                     <div class="col-lg-9 col-md-6 col-sm-7 col-7 pd-default">
                                         <input type="text" placeholder="Enter Remarks" class="transferInputs" formControlName="remarks"  maxlength="10">
-                                        <div>
+                                        <div class="text-danger">
                                             @if (moneyTransferForm.get('remarks')?.hasError('required') && moneyTransferForm.get('remarks')?.touched) {
                                                 <span class="error-text">Please Enter Remarks</span>
                                             }

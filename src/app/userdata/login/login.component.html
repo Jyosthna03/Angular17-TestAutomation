@@ -30,11 +30,6 @@
           <a class="cursor-pointer float-end forgot-info" (click)="openForgotPasswordPopup(copyContent)" >Forgot Info</a>
         </div>
         <div class="d-grid login-btn-margin">
-          <!-- @if(invalidUser){
-            <div class="text-center invalidCredentials">
-            <span>Please Enter Valid Credentials</span>
-            </div>
-          } -->
           <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid" id="login" [ngClass]="{'btn-enabled': !loginForm.invalid, 'btn-disabled': loginForm.invalid}"> Login </button>
           <span class="text-content">If you don’t have account ? <a class="cursor-pointer register-content" routerLink="/registration">Register Here</a></span>
         </div>
