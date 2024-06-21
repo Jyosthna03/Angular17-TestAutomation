@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { tabnames } from './modal';
+import { BehaviorSubject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +24,7 @@ export class BankingdataService {
 
   userData:string[]=['leela@gmail.com','Leela@123','katy@gmail.com','Katy@12354','jyosthna@gmail.com','Jyos@123'];
   registerDetails:Array<Object> = []
-  currentUser: any;
+  currentUser: string="";
   selectBillerSuccess:Array<Object> = []
   rechargePaymentSuccess:boolean = false;
 
@@ -38,12 +39,10 @@ export class BankingdataService {
     return name;
   }
 
-  
-
   getUserData() {
     return this.userData;
   }
-  setCurrentUser(user: any) {
+  setCurrentUser(user: string) {
     this.currentUser = user;
   }
 
@@ -55,9 +54,7 @@ export class BankingdataService {
 
   trimmedString:string = "";
 
-  addPayee:any = ['Dileep']
-
-  
+  addPayee:Array<String> = ['Dileep']
 
   accountData:any= [
     {
@@ -73,11 +70,11 @@ export class BankingdataService {
   selectPayeeValue:boolean = true;
   isTransactionHistory=false;
   isAccountStatement=false;
-  breadCrumb:any[] = ["Account Details"] 
+  breadCrumb:Array<string>= ["Account Details"] 
   paymentSucess:Array<Object> = [] //for congratulations page data
 
 
-  tabNames = [
+  tabNames:tabnames[] = [
     {
       displayName:'Account Details',
       routerLink:'/accountDashboard'
@@ -98,7 +95,6 @@ export class BankingdataService {
     this.breadCrumb.pop();
     this.breadCrumb.push(tab);
     this.userSelectedTab = tab;
-    console.log("Service-Tab: ",this.userSelectedTab);
   }
 
 

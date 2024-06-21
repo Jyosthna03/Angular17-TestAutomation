@@ -14,7 +14,7 @@ import { FundTransferComponent } from "./fund-transfer/fund-transfer.component";
     imports: [ReactiveFormsModule, AccountDetailsComponent, PaymentsComponent, FundTransferComponent,RouterLink]
 })
 export class DashboardComponent {
-  username!: string;
+  username:string="";
   ngOnInit(){
     this.username = this.service.trimmedString
   }

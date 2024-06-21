@@ -37,7 +37,13 @@ export class MoneyTransferComponent {
     });
       this.service.currentBankName.subscribe(bankName =>{
       this.moneyTransferForm.get('bankName')?.setValue( bankName, { emitEvent: false });
-    })
+    });
+
+    if(this.payeeNames.length>1){
+      this.moneyTransferForm.get('payee')?.setValue(this.payeeNames[1], { emitEvent: false });
+      console.log(this.moneyTransferForm.get('payee')?.value);
+      console.log(this.payeeNames);
+    }
    }
  
   onSubmit(value: FormGroup) {
@@ -48,6 +54,7 @@ export class MoneyTransferComponent {
       this.service.paymentSucess.push(value);
       this.service.changeAccountNumber('')
       this.service.userBankName('')
+      this.service.addPayee.pop();
       this.route.navigateByUrl('/transferSuccess');
       this.moneyTransferForm.reset();
     }
