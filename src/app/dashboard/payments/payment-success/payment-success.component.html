@@ -2,32 +2,35 @@
 <div class="container-fluid">
     @if (!recharge) {
         <app-navbar></app-navbar>
-    <main class="mainScreen text-center mt-2">
-        <img src="assets/Images/Work_6 1.png" alt="WorkDone" class="img-fluid">
+    <div class="text-center mt-2 transfer-content">
+        <img src="assets/Images/successImage.png" alt="WorkDone" class="sucImg">
         <p class="congratsText">Congratulations !!</p>
-        <div class="d-flex justify-content-center flex-wrap">
+        <div class="col-lg-3 col-2"></div>
+        <div class="col-lg-5 col-8 transfer">
             @for(data of selectBillerPayment;track data.id ){
                 <p class="transText">Transaction amount  ₹{{data.billDetailsAmount}}/- for {{data.billerType}} has been success</p>
             }
         </div>
+        <div class="col-lg-3 col-2"></div>
         <button class="dashBoardBtn" routerLink="/dashboard">Go back to Dashboard</button>
-    </main>
+    </div>
     }
 </div>
 
 <div class="container-fluid">
     @if (recharge) {
         <app-navbar></app-navbar>
-    <main class="mainScreen text-center mt-2">
-        <img src="assets/Images/Work_6 1.png" alt="WorkDone" class="img-fluid">
+    <div class="transfer-content text-center mt-2">
+        <img src="assets/Images/successImage.png" alt="WorkDone" class="sucImg">
         <p class="congratsText">Congratulations !!</p>
-        <div class="d-flex justify-content-center flex-wrap">
+        <div class="col-lg-3 col-2"></div>
+        <div class="col-lg-5 col-8 transfer">
             @for(data of mobileRechargePayment;track data.id){
                 <p class="transText">{{data.networkProvider}} Plan of ₹{{data.amount}}/- for Mobile Number {{data.mobileNumber}} has been success</p>
             }
         </div>
+        <div class="col-lg-3 col-2"></div>
         <button class="dashBoardBtn" routerLink="/dashboard">Go back to Dashboard</button>
-    </main>
+    </div>
     }
 </div>
-

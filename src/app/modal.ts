@@ -60,4 +60,12 @@ export interface AccountData {
     PayingFrom: string;
   }
 
+  export interface successData {
+    payee:string;
+    accountNumber:number;
+    bankName:string;
+    amount:number;
+    remarks:string;
+    paymentModeInput:string;
+  }
  
