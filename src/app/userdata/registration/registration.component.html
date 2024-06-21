@@ -1,9 +1,6 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-5 left-content">
-      <!-- @if(validUser){
-        <span class=" vaidUser text-center">{{regData}}</span>
-      } -->
       <h2 class="welcome-text">Welcome.!</h2>
       <form #formElement [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
         <div class="row">
@@ -20,7 +17,7 @@
           </div>
           <div class="col-md-6">
             <div class="form-group">
-              <label for="lastName" class="lable-name">Last Name<span class="text-danger">*</span></label>
+              <label for="lastName" class="lable-name mb-lable">Last Name<span class="text-danger">*</span></label>
               <input type="text" id="lastName" class="form-control mt-1" formControlName="lastName" placeholder="LastName" minlength="3" maxlength="10"/>
               @if (registrationForm.get('lastName')?.hasError('required') && registrationForm.get('lastName')?.touched) {
                   <span class="error-text">Last Name is required.</span>
@@ -79,7 +76,7 @@
           </div>
           <div class="col-md-6">
             <div class="form-group">
-              <label for="state" class="lable-name">State:</label>
+              <label for="state" class="lable-name mb-lable">State:</label>
               <select id="state" class="form-select mt-1" formControlName="state">
                 @for (state of states; track state){
                 <option [value]="state">{{ state }}</option>
@@ -103,7 +100,7 @@
         <div class="row mt-3">
           <div class="col-md-6">
             <div class="form-group">
-              <label for="password" class="form-label lable-name">Password<span class="text-danger">*</span></label>
+              <label for="password" class="lable-name">Password<span class="text-danger">*</span></label>
               <input type="password" class="form-control mt-1" id="password" formControlName="password" placeholder="Password" aria-autocomplete="list"/>
               @if (registrationForm.get('password')?.hasError('required') && registrationForm.get('password')?.touched) {
                 <span class="error-text">Password is required</span>
@@ -114,7 +111,7 @@
           </div>
           <div class="col-md-6">
             <div class="form-group">
-              <label for="confirmPassword" class="form-label lable-name">Confirm Password<span class="text-danger">*</span></label>
+              <label for="confirmPassword" class="lable-name mb-lable">Confirm Password<span class="text-danger">*</span></label>
               <input type="password" class="form-control mt-1" id="confirmPassword" formControlName="confirmPassword" placeholder="ConfirmPassword" aria-autocomplete="list"/>
               @if (registrationForm.hasError('mismatch')) {
                 <span class="error-text">Passwords do not match.</span>

@@ -14,27 +14,28 @@ import { FundTransferComponent } from "./fund-transfer/fund-transfer.component";
     imports: [ReactiveFormsModule, AccountDetailsComponent, PaymentsComponent, FundTransferComponent,RouterLink]
 })
 export class DashboardComponent {
-  username:any;
+  username!: string;
   ngOnInit(){
     this.username = this.service.trimmedString
   }
   constructor(private service:BankingdataService,private route:Router) { }
-  
+
+  gotoDashboard(tabIndex: number, routePath: string){
+    this.service.userSelectedTab = this.service.tabNames[tabIndex].displayName;
+    this.service.userSelectTab(this.service.userSelectedTab);
+    this.route.navigate([routePath]);
+  }
+
   gotoAccountDashboard(){
-    this.service.userSelectedTab = this.service.tabNames[0].displayName;
-    this.service.userSelectTab(this.service.userSelectedTab)
-    this.route.navigate(["/accountDashboard"]);
+    this.gotoDashboard(0, "/accountDashboard");
   }
 
   gotoTransferDashboard(){
-    this.service.userSelectedTab = this.service.tabNames[2].displayName;
-    this.service.userSelectTab(this.service.userSelectedTab)
-    this.route.navigate(["/transferDashboard"]);
+    this.gotoDashboard(2, "/transferDashboard");
   }
+
   gotoPaymentDashboard(){
-    this.service.userSelectedTab = this.service.tabNames[1].displayName;
-    this.service.userSelectTab(this.service.userSelectedTab)
-    this.route.navigate(['/paymentDashboard']);
+    this.gotoDashboard(1, "/paymentDashboard");
   }
 
   logOut(){

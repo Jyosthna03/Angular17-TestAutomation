@@ -18,7 +18,6 @@ export class LoginComponent {
   imagePath = 'assets/Images/login-img.png';
   isShowPopup: boolean = false;
   submitted = false;
-  userList: any;
   isInvalidUser:string = ''
   constructor(private fb: FormBuilder,private router: Router,private modalService: NgbModal,private service:BankingdataService) {}
  
@@ -29,7 +28,6 @@ export class LoginComponent {
       email: ['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)]],
       password: ['', [Validators.required, Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,16}$/)]],
     });
-    this.userList = this.service.registerDetails;
   }
  
   get formControls() {

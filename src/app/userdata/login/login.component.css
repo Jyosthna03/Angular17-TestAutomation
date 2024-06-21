@@ -23,7 +23,12 @@ input[type=text][type=password]{
   text-decoration: none !important;
 }
 .forgot-text{
-  margin-top: 20px;
+  padding-top: 20px;
+  padding-bottom: 60px;
+}
+.reduced-padding{
+  padding-top: 20px;
+  padding-bottom: 28px;
 }
 .register-content{
   color: var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1B154C);
@@ -32,9 +37,6 @@ input[type=text][type=password]{
   font-weight: 800;
   line-height: normal;
   text-decoration: none;
-}
-.login-btn-margin{
-  margin-top: 80px;
 }
 .login-image{
   height: 100vh;

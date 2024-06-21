@@ -26,6 +26,20 @@
     font-size: 14px;
     font-weight: bold;
   }
+  .success-message{
+	display: block;
+  color: green; 
+  font-weight:bold; 
+  text-align:center !important;
+  align-items: center;
+  }
+  .error-message{
+	display: block;
+  color: red; 
+  font-weight:bold; 
+  text-align:center !important;
+  align-items: center;
+  }
   @media screen and (min-width: 360px) and (max-width: 576px){
 	.modal-footer{
 		flex-wrap: nowrap;
