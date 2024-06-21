@@ -64,3 +64,13 @@ export interface AccountData {
     networkProvider: string;
     PayingFrom: string;
   }
+
+  export interface successData {
+    payee:string;
+    accountNumber:number;
+    bankName:string;
+    amount:number;
+    remarks:string;
+    paymentModeInput:string;
+  }
+ 

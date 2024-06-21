@@ -70,7 +70,7 @@
         padding-right: 0px !important;
         padding-left: 10px !important;
     }
-     .smNav{
+    .smNav{
         display: flex;
         justify-content: center;
         align-items: center;
@@ -83,7 +83,6 @@
     .offcanvas-body{
         justify-content: center !important;
     }
-
     #smNavItem{
         padding-top: 42px;
     }
@@ -95,7 +94,6 @@
         text-transform: capitalize;
         position: relative;
         left: -30px;
-        
     }
     .logOutBtn{
         width: 160px;

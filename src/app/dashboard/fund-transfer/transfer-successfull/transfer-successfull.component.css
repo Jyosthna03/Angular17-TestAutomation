@@ -5,7 +5,13 @@
   }
   .sucImg{
     width: 400px;
-    height: 280px;
+    height: 270px;
+  }
+  .transfer-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   .congratsText {
       color: #082341;
@@ -28,10 +34,11 @@
       font-weight: 700;
       letter-spacing: 0.56px;
       padding: 10px 50px 10px 50px;
-      margin-top: 1rem;
+      margin-top: 20px !important;
   }
-  .pd-transfer{
-    width: 500px;
+  .transfer{
+    word-wrap: break-word;
+    white-space: normal;
   }
 
   @media (max-width: 798px) {
@@ -39,15 +46,14 @@
         width: 345px;
         height: 218px;
         flex-shrink: 0;
+        margin-top: 60px;
       }
     .transText {
         color: #2d455f;
         text-align: center;
         font-size: 14px;
         font-weight: 800;
-        line-height: 24px;
-        margin-top: 1.5rem;
-        padding: 10px; 
+        margin-top: 1rem; 
     }
     .congratsText {
         color: #082341;
@@ -56,12 +62,8 @@
         margin-top: 3rem;
     }
     .dashBoardBtn {
-        color: white;
-        background: #1B154C;
-        text-align: center;
         font-size: 12px;
         padding: 5px 30px 5px 30px;
-        margin-top: 2rem;
     }
 
 }
