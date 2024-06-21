@@ -1,7 +1,14 @@
 import { DatePipe, NgClass } from '@angular/common';
 import { Component, signal } from '@angular/core';
-import {FormBuilder,FormGroup,ReactiveFormsModule,Validators,} from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { SharedFile } from '../../../../../sharedfile';
+import { BankingdataService } from '../../../../../bankingdata.service';
 
 @Component({
   selector: 'app-account-statement',
@@ -11,15 +18,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './account-statement.component.css',
 })
 export class AccountStatementComponent {
-  fromStatementDate = signal('');
-  toStatementDate = signal('');
-  showflag = signal('');
-  todayDate = signal(new Date());
-  statementPeriod = signal(['Last 7 Days', 'Last 14 Days']);
-  statementFormats = signal(['PDF File', 'Excel Sheet']);
-  statementForm!: FormGroup;
-
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private serv: BankingdataService) {
     this.statementForm = this.fb.group({
       inputType: ['', Validators.required],
       fromDate: ['', Validators.required],
@@ -40,6 +39,15 @@ export class AccountStatementComponent {
       }
     });
   }
+
+  sharedFile = new SharedFile(this.serv);
+  fromStatementDate = signal('');
+  toStatementDate = signal('');
+  showflag = signal('');
+  todayDate = signal(new Date());
+  statementPeriod = signal(this.sharedFile.userviewByPeriod);
+  statementFormats = signal(this.sharedFile.userviewByFormat);
+  statementForm!: FormGroup;
 
   cancelForm() {
     this.statementForm.get('selectedOption')!.enable();

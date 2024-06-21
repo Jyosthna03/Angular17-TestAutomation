@@ -24,7 +24,7 @@ export class TransactionHistoryComponent {
   TransHistory: history[] = [];
   showData = false;
   todayDate = Date();
-  periodicDays = ['Last 7 Days', 'Last 14 Days'];
+  periodicDays = this.sharedData.userviewByPeriod;
   selectedShowperPage = 5;
   startIndex = 0;
   endIndex = 5;
