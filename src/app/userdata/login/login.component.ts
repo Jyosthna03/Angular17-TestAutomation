@@ -15,7 +15,7 @@ import { NgClass } from '@angular/common';
 })
 export class LoginComponent {
   loginForm!: FormGroup;
-  imagePath = 'assets/Images/login-img.png';
+  imagePath = 'assets/Images/login-page.png';
   isShowPopup: boolean = false;
   submitted = false;
   isInvalidUser:string = ''
