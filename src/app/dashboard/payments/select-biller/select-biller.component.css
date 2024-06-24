@@ -9,15 +9,11 @@
     background-color:#082341 ;
     border-color: #082341;
 }
-
 .form-check-input:focus{
     border: 0px !important;
 }
 .selectBiller,.cre-card,.billDetails,.billerCard{
     font-size: 12px;
-}
-.error-txt{
-    padding-left: 80px;
 }
 .sub-text{
     margin-top: 5px;

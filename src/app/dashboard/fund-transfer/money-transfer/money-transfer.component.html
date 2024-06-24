@@ -25,20 +25,12 @@
                     <div class="col-lg-7 col-md-7 col-sm-7 col-7 pd-default">
                         <div class="row">
                             <div class="ft-left">
-                                @if (payeeNames.length===1) {
-                                    <select class="transferInputs" formControlName="payee" required id="payee">
-                                        <option value="">Select Payee</option>
-                                        @for (payee of payeeNames; track $index) {
-                                        <option>{{payee}}</option>
-                                        }
-                                    </select>
-                                }@else {
-                                    <select class="transferInputs" formControlName="payee" required>
-                                        @for (payee of payeeNames; track $index) {
-                                            <option>{{payee}}</option>
-                                        }
-                                    </select>
-                                }
+                                <select class="transferInputs" formControlName="payee" required>
+                                    <option value="">Select Payee</option>
+                                    @for (payee of payeeNames; track $index) {
+                                    <option>{{payee}}</option>
+                                    }
+                                </select>
                                 <div class="d-sm-block d-md-block d-lg-none">
                                     <a class="addPayeesm" routerLink="/addpayeesm">Add new Payee</a>
                                 </div>
