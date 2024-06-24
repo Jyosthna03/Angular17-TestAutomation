@@ -1,11 +1,5 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { Component, ElementRef,ViewChild } from '@angular/core';
+import {FormBuilder,FormControl,FormGroup,ReactiveFormsModule,Validators,} from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { BankingdataService } from '../../../bankingdata.service';
@@ -23,7 +17,6 @@ export class AddpayeeComponent {
   constructor(
     private service: BankingdataService,
     private fb: FormBuilder,
-    private route: Router,
     private modalService: NgbModal
   ) {
     this.addPayeeForm = this.fb.group(
@@ -66,6 +59,7 @@ export class AddpayeeComponent {
   addPayeeForm!: FormGroup;
   bankNames = this.sharedFile.banks;
   payeeAddMsg: string = '';
+  
 
   ngOnInit() {
     this.addPayeeForm.get('accountNo')?.valueChanges.subscribe((value) => {

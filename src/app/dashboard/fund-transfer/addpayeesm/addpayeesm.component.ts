@@ -1,14 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { NavbarComponent } from '../../account-details/navbar/navbar.component';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import {FormBuilder,FormControl,FormGroup,ReactiveFormsModule,Validators,} from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { BankingdataService } from '../../../bankingdata.service';
 import { CommonModule } from '@angular/common';
 import { SharedFile } from '../../../sharedfile';

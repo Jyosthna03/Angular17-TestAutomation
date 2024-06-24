@@ -32,6 +32,11 @@ export class MoneyTransferComponent {
    }
  
   ngOnInit(){
+    console.log(this.payeeNames);
+    if(this.payeeNames.length>1){
+      this.moneyTransferForm.get('payee')?.setValue(this.payeeNames[1]);
+      console.log(this.moneyTransferForm.value);
+    }
       this.service.currentAccountNumber.subscribe(accountNumber => {
       this.moneyTransferForm.get('accountNumber')?.setValue(accountNumber, { emitEvent: false });
     });
@@ -39,6 +44,8 @@ export class MoneyTransferComponent {
       this.moneyTransferForm.get('bankName')?.setValue( bankName, { emitEvent: false });
     });
 
+    
+    
     
    }
  
