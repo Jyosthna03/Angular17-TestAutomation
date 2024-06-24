@@ -1,3 +1,8 @@
+export interface tabnames{
+  displayName:string;
+  routerLink:string;
+}
+
 export interface recent{
     symbol:string;
     name:string;

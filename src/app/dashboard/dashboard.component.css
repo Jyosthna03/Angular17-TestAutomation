@@ -76,14 +76,10 @@
     line-height: normal;
 }
 .logout-style{
-    display: flex;
     width: 160px;
     height: 40px;
     padding: 0px 16px;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    flex-shrink: 0;
+    text-align: center;
     border-radius: 4px;
     border: 1px solid #1B154C;
     background: #FFF !important;
@@ -92,5 +88,14 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+}
+.offcanvas-body{
+    justify-content: center !important;
+}
+.sm-offcanvas{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 }

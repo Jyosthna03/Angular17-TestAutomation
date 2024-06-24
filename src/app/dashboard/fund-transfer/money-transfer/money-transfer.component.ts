@@ -37,7 +37,9 @@ export class MoneyTransferComponent {
     });
       this.service.currentBankName.subscribe(bankName =>{
       this.moneyTransferForm.get('bankName')?.setValue( bankName, { emitEvent: false });
-    })
+    });
+
+    
    }
  
   onSubmit(value: FormGroup) {
@@ -48,6 +50,7 @@ export class MoneyTransferComponent {
       this.service.paymentSucess.push(value);
       this.service.changeAccountNumber('')
       this.service.userBankName('')
+      this.service.addPayee.pop();
       this.route.navigateByUrl('/transferSuccess');
       this.moneyTransferForm.reset();
     }

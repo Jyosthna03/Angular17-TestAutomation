@@ -14,12 +14,10 @@ import { CommonModule } from '@angular/common';
 })
 export class ForgotInfoComponent {
   isOpen: boolean = false;
-  email: any;
   myForm!: FormGroup;
   formGroup!: FormGroup;
-  userList: any;
-  appUsers:any;
-
+  usersuccessfullyReset: string ="";
+  
   constructor(private fb: FormBuilder,private modalService: NgbModal, private service:BankingdataService) {}
 
   @ViewChild('formElement') formElement!: ElementRef;
@@ -33,8 +31,6 @@ export class ForgotInfoComponent {
   {
     validators: this.passwordMatchValidator
   }); 
-     this.userList = this.service.registerDetails
-     this.appUsers = this.service.userData;
   }
   
   passwordMatchValidator(form: FormGroup) {
@@ -42,16 +38,17 @@ export class ForgotInfoComponent {
     const confirmPassword = form.get('confirmPassword')?.value;
     return password === confirmPassword ? null : { mismatch: true };
   }
- 
   onSubmit() {
     if ((this.myForm.valid) && this.service.userData.includes(this.myForm.value.email)) {
       let userIndex=this.service.userData.indexOf(this.myForm.value.email);
       this.service.userData[userIndex+1] = this.myForm.value.password;
-      alert('Password Changed Successfully!!');
-      this.closePopup();
+     this.usersuccessfullyReset = 'Password Changed Successfully!!'
+      setTimeout(() =>{
+        this.closePopup();
+      },3000)
     }
     else{
-       alert("Invalid Email")
+      this.usersuccessfullyReset = "Invalid Email"
     }
   }
   openPopup() {
@@ -60,7 +57,6 @@ export class ForgotInfoComponent {
   closePopup() {
     this.modalService.dismissAll();
   }
-
   ngAfterViewInit() {
     const formFields = this.formElement.nativeElement.querySelectorAll('input');
     formFields.forEach((field: HTMLInputElement) => {

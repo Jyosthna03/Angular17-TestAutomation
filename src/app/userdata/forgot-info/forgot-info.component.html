@@ -3,6 +3,10 @@
 </div>
 <div class="modal-body">
 	<form [formGroup]="myForm" (ngSubmit)="onSubmit()" #formElement>
+		<span [ngClass]="{
+			'success-message': usersuccessfullyReset === 'Password Changed Successfully!!',
+			'error-message': usersuccessfullyReset === 'Invalid Email'
+		  }">{{usersuccessfullyReset}}</span>
 		<div class="row">
 			<div class="col-md-1"></div>
 			<div class="col-md-7">
