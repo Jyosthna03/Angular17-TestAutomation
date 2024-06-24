@@ -55,12 +55,15 @@ input::-webkit-inner-spin-button {
   max-width: 600px; /* Limit the width */
   background-color: white;
   color: green;
-  top: 30%;
+  top: 50%;
   transform: translateY(-50%);
 }
 
 @media screen and (min-width: 360px) and (max-width: 576px){
 .left-content{
   padding: 20px;
+}
+.mb-lable{
+  margin-top: 16px;
 }
 }
