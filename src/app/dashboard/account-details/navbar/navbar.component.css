@@ -58,6 +58,19 @@
     outline: none !important;
     box-shadow: none !important;
 }
+.dropdown{
+    margin-top: 5px;
+}
+.dropstart .dropdown-menu[data-bs-popper] {
+    top: 43px !important;
+    right: 0 !important;
+    left: auto;
+    margin-top: 0;
+    margin-right: var(--bs-dropdown-spacer);
+}
+.dropdown-toggle{
+    cursor: pointer;
+}
 @media (min-width:340px) and (max-width:992px) {
      .offcanvas{
         width: 260px;
