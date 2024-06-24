@@ -4,6 +4,7 @@
     margin-bottom: 20px;
   }
 .transaction{
+    display: block;
     color: #082341;
     font-size: 16px;
     font-weight: 700;
@@ -11,7 +12,6 @@
 }
 .transfer{
     color: #082341;
-    font-family: Mulish;
     font-size: 14px;
     font-style: normal;
     font-weight: 700;
@@ -22,9 +22,7 @@
 .instantTransfer{
   color: #646464;
   font-size: 12px;
-  font-style: normal;
   font-weight: 700;
-  line-height: normal;
   padding-top: 10px;
 }
 .remarks{
@@ -51,7 +49,6 @@
 .paymentModeLabel{
     color: #082341;
     font-size: 18px;
-    font-style: normal;
     font-weight: 800;
     line-height: normal;
     letter-spacing: 0.36px;
