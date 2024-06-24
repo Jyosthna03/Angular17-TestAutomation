@@ -27,10 +27,7 @@
 .bold-text{
     margin-left: 18px !important;
 }
-.button-margin{
-  margin-top: 50px;
-}
-.biller{
+.button-margin, .biller{
   margin-top: 50px;
 }
 .payment{
@@ -57,26 +54,6 @@ margin-top: 30px;
     padding-left: 4px !important;
     padding-top: 3px;
 }
-
-.dropdown-style{
-color: #082341;
-font-size: 12px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-}
-.dropdown-toggle::after{
-    content: none !important;
-}
-.dropdown-image::after{
-    content: '' !important;
-}
-.dropdown-menu{
-    margin-top: 12px !important;
-    padding-right: 137px;
-    margin-left: 26px !important;
-    transform: translate3d(243.6667px, 118px, 0px) !important;
-}
 .balance{
     margin-left: 96px;
 }
@@ -85,13 +62,6 @@ line-height: normal;
 }
 .dueDate{
     margin-top: 4px;
-}
-.cursor-pointer{
-    cursor: pointer;
-}
-.dropdown-item:active, .dropdown-item:focus, .dropdown-item:hover {
-    background-color:white !important;
-    color: black !important;
 }
 @media only screen and (min-width: 360px) and (max-width: 768px) {
 .sub-text{
@@ -138,11 +108,6 @@ margin-top: 20px;
 .sub-text.due{
     margin-top: 5px !important;
 }
-.dropdown-menu{
-    margin-top: -30px !important;
-    padding-right: 64px;
-    transform: translate3d(107.6667px, 118px, 0px) !important;
-  }
 }
 
   
