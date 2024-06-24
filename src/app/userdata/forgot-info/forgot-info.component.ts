@@ -16,7 +16,7 @@ export class ForgotInfoComponent {
   isOpen: boolean = false;
   myForm!: FormGroup;
   formGroup!: FormGroup;
-  usersuccessfullyReset!: string;
+  usersuccessfullyReset: string ="";
   
   constructor(private fb: FormBuilder,private modalService: NgbModal, private service:BankingdataService) {}
 
