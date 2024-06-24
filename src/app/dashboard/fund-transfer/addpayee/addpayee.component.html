@@ -1,8 +1,7 @@
 <div class="modal-content eachBlock">
     <div class="modal-header d-flex flex-row justify-content-between">
       <h5 class="modal-title" id="exampleModalLabel">Add Payee</h5>
-      <!-- <button type="button" class="btn-close cross" data-bs-dismiss="modal" aria-label="Close" (click)="closePopup()" id="crossBtn"></button> -->
-      <img src="assets/Images/crossimage.svg" class="cross-btn" data-bs-dismiss="modal" aria-label="Close" (click)="closePopup()" id="crossBtn">
+      <img src="assets/Images/crossimage.svg" class="cross-btn" data-bs-dismiss="modal" aria-label="Close" (click)="closePopup()" id="crossBtn" alt="cross">
     </div>
     <div class="modal-body modal-scroll">
         <section class="container-fluid mt-3 mb-5">
@@ -11,7 +10,7 @@
             <div class="row d-flex justify-content-start mt-4 ms-4">
                 <div class="col-lg-6">
                     <div class="eachBlock mb-2">
-                        <label class="payee-details mt-1">Payee Full Name<span class="text-danger">*</span></label>
+                        <label for="fullname" class="payee-details mt-1">Payee Full Name<span class="text-danger">*</span></label>
                         <input type="text" class="transferInputs" id="fullname" formControlName="fullname" maxlength="15">
                         <div class="text-danger">
                             @if (addPayeeForm.get('fullname')?.hasError('required') && addPayeeForm.get('fullname')?.touched) {
@@ -28,7 +27,7 @@
 
                 <div class="col-lg-6">
                     <div class="eachBlock mb-2">
-                        <label class="payee-details mt-1">Payee Nickname<span class="text-danger">*</span></label>
+                        <label for="nickname" class="payee-details mt-1">Payee Nickname<span class="text-danger">*</span></label>
                         <input type="text" class="transferInputs" id="nickname" formControlName="nickname" maxlength="15">
                         <div class="text-danger">
                             @if (addPayeeForm.get('nickname')?.hasError('required') && addPayeeForm.get('nickname')?.touched) {
@@ -47,8 +46,8 @@
             <div class="row d-flex justify-content-start ms-4">
                 <div class="col-lg-6">
                     <div class="eachBlock mb-2">
-                        <label class="payee-details mt-1">Bank Name<span class="text-danger">*</span></label>
-                        <select class="transferInputs" formControlName="bankName">
+                        <label for="bank" class="payee-details mt-1">Bank Name<span class="text-danger">*</span></label>
+                        <select class="transferInputs" formControlName="bankName" id="bank">
                             <option value="">Select Bank</option>
                             @for (bank of bankNames; track $index) {
                                 <option>{{bank}}</option>
@@ -58,7 +57,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="eachBlock mb-2">
-                        <label class="payee-details mt-1">IFSC Code<span class="text-danger">*</span></label>
+                        <label for="ifscCode" class="payee-details mt-1">IFSC Code<span class="text-danger">*</span></label>
                         <input type="text" class="transferInputs ifscCode" id="ifscCode" formControlName="ifscCode" maxlength="11">
                         <div class="text-danger">
                             @if (addPayeeForm.get('ifscCode')?.hasError('required') && addPayeeForm.get('ifscCode')?.touched) {
@@ -77,7 +76,7 @@
             <div class="row d-flex justify-content-start ms-4">
                 <div class="col-lg-6">
                     <div class="eachBlock mb-2">
-                        <label class="payee-details mt-1">Account Number<span class="text-danger">*</span></label>
+                        <label for="accountNo" class="payee-details mt-1">Account Number<span class="text-danger">*</span></label>
                         <input type="text" class="transferInputs" id="accountNo" formControlName="accountNo" maxlength="18" (keypress)="onKeyPress($event)">
                         <div class="text-danger">
                             @if (addPayeeForm.get('accountNo')?.hasError('required') && addPayeeForm.get('accountNo')?.touched) {
@@ -94,7 +93,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="eachBlock mb-2">
-                        <label class="payee-details mt-1">Re-Enter Account Number<span class="text-danger">*</span></label>
+                        <label for="reEnterAccNo" class="payee-details mt-1">Re-Enter Account Number<span class="text-danger">*</span></label>
                         <input type="text" class="transferInputs" id="reEnterAccNo" formControlName="reEnteraccountNo" (keypress)="onKeyPress($event)" maxlength="18">
                         <div class="text-danger">
                             @if (addPayeeForm.get('reEnteraccountNo')?.hasError('required') && addPayeeForm.get('reEnteraccountNo')?.touched) {

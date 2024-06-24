@@ -1,7 +1,7 @@
 
 /* You can add global styles to this file, and also import other style files */
 body {
-    font-family: Lato;
+    font-family: Lato , sans-serif;
   }
   .ng-invalid.ng-touched {
     border-color: red;
@@ -145,7 +145,6 @@ body {
     color: #082341;
     font-size: 14px;
     font-weight: 700;
-    border-radius: 2px;
     padding: 5px;
   }
   .accountHeading {
@@ -164,9 +163,7 @@ body {
     padding-bottom: 5px;
   }
   .accountSummary {
-    background-color: #ecf3ff;
     height: 50px;
-    border: 1px 0px 0px 0px;
     opacity: 0px;
     border: 1px solid #d1cfcf;
     background: var(--Card-Header, #ecf3ff);

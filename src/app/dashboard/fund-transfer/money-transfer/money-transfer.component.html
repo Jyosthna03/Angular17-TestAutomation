@@ -7,11 +7,11 @@
             <form [formGroup]="moneyTransferForm">
                 <div class="row col-lg-6">
                     <div class="col-lg-5 col-sm-5 col-md-5 d-none d-lg-block">
-                        <label class="sub-text">From</label>
+                        <label for="savings" class="sub-text">From</label>
                     </div>
                     <div class="col-lg-7 col-sm-6 col-md-6 d-none d-lg-block mb-4 ft-left">
                         <div>
-                            <span class="savingsAccNumber">Savings Account : 12345678910111213</span>
+                            <span class="savingsAccNumber" id="savings">Savings Account : 12345678910111213</span>
                         </div>
                         <div>
                             <span class="balance">Balance : {{availableBalance | currency:"INR"}}</span>
@@ -20,7 +20,7 @@
                 </div>
                 <div class="row col-lg-6">
                     <div class="col-lg-5 col-sm-5 col-md-5 col-5">
-                        <label class="sub-text">To<span class="text-danger">*</span></label>
+                        <label for="payee" class="sub-text">To<span class="text-danger">*</span></label>
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-7 col-7 pd-default">
                         <div class="row">
@@ -48,12 +48,10 @@
                     <div class="col-lg-6 col-md-12 col-sm-12 col-12">
                         <div class="row form-group mt-3">
                             <div class="col-lg-5 col-md-5 col-sm-5 col-5">
-                                <label class="sub-text">Account Number<span class="text-danger">*</span></label>
+                                <label for="account" class="sub-text">Account Number<span class="text-danger">*</span></label>
                             </div>
                             <div class="col-lg-7 col-md-6 col-sm-6 col-7 pd-default">
-                                <input type="number" placeholder="Enter Account Number" class="transferInputs"
-                                    value="200" formControlName="accountNumber" maxlength="18"
-                                    (keypress)="onKeyPress($event)">
+                                <input type="number" placeholder="Enter Account Number" class="transferInputs" id="account" formControlName="accountNumber" maxlength="18" (keypress)="onKeyPress($event)">
                                 <div class="text-danger">
                                     @if (moneyTransferForm.get('accountNumber')?.hasError('required') &&
                                     moneyTransferForm.get('accountNumber')?.touched) {
@@ -72,11 +70,10 @@
                     <div class="col-lg-6 col-md-12 col-sm-12 col-12">
                         <div class="row form-group mt-3">
                             <div class="col-lg-3 col-md-5 col-sm-5 col-5">
-                                <label class="side-text">Bank Name<span class="text-danger">*</span></label>
+                                <label for="bank" class="side-text">Bank Name<span class="text-danger">*</span></label>
                             </div>
                             <div class="col-lg-9 col-md-6 col-sm-6 col-7 pd-default">
-                                <input type="text" class="transferInputs" placeholder="Enter Bank Name"
-                                    formControlName="bankName" required minlength="3" maxlength="20">
+                                <input type="text" class="transferInputs" id="bank" placeholder="Enter Bank Name" formControlName="bankName" required minlength="3" maxlength="20">
                                 <div class="text-danger">
                                     @if (moneyTransferForm.get('bankName')?.hasError('required') &&
                                     moneyTransferForm.get('bankName')?.touched) {
@@ -96,16 +93,15 @@
                     </div>
                 </div>
                 <div>
-                    <p class="transaction">Transaction Details</p>
+                    <span class="transaction">Transaction Details</span>
                     <div class="row">
                         <div class="col-lg-6 col-md-12 col-sm-12">
                             <div class="row form-group">
                                 <div class="col-lg-5 col-md-5 col-sm-5 col-5">
-                                    <label class="sub-text">Enter the Amount<span class="text-danger">*</span></label>
+                                    <label for="amount" class="sub-text">Enter the Amount<span class="text-danger">*</span></label>
                                 </div>
                                 <div class="col-lg-7 col-md-6 col-sm-7 col-7 pd-default">
-                                    <input type="number" placeholder="Enter Amount" class="transferInputs"
-                                        formControlName="amount" required (keypress)="onKeyPress($event)" maxlength="5">
+                                    <input type="number" id="amount" placeholder="Enter Amount" class="transferInputs" formControlName="amount" required (keypress)="onKeyPress($event)" maxlength="5">
                                     <div>
                                         @if (moneyTransferForm.get('amount')?.hasError('required') &&
                                         moneyTransferForm.get('amount')?.touched) {
@@ -129,11 +125,10 @@
                         <div class="col-lg-6 col-md-12 col-sm-12">
                             <div class="row form-group mt-3 mt-lg-0">
                                 <div class="col-lg-3 col-md-5 col-sm-5 col-5">
-                                    <label class="side-text">Enter Remarks<span class="text-danger">*</span></label>
+                                    <label for="remarks" class="side-text">Enter Remarks<span class="text-danger">*</span></label>
                                 </div>
                                 <div class="col-lg-9 col-md-6 col-sm-7 col-7 pd-default">
-                                    <input type="text" placeholder="Enter Remarks" class="transferInputs"
-                                        formControlName="remarks" maxlength="10">
+                                    <input type="text" placeholder="Enter Remarks" id="remarks" class="transferInputs" formControlName="remarks" maxlength="10">
                                     <div>
                                         @if (moneyTransferForm.get('remarks')?.hasError('required') &&
                                         moneyTransferForm.get('remarks')?.touched) {
@@ -147,31 +142,28 @@
                 </div>
 
                 <div>
-                    <p class="transaction">Select the payment mode</p>
+                    <span class="transaction">Select the payment mode</span>
                     <div class="row">
                         <div class="col-lg-2 col-12">
-                            <label class="sub-text">Payment Mode<span class="text-danger">*</span></label>
+                            <label for="" class="sub-text">Payment Mode<span class="text-danger">*</span></label>
                         </div>
                         <div class="col-lg-10 col-12">
                             <div class="row pd-left">
                                 <div class="paymentMode pt-xs">
-                                    <input type="radio" name="paymentModeInput" class="form-check-input"
-                                        formControlName="paymentModeInput" value="IMPS">
-                                    <label class="paymentModeLabel">IMPS</label>
+                                    <input type="radio" name="paymentModeInput" class="form-check-input" id="imps" formControlName="paymentModeInput" value="IMPS">
+                                    <label for="imps" class="paymentModeLabel">IMPS</label>
                                     <p class="instantTransfer">Max Rs. 50,000 per day. Instant transfer 24*7
                                         transferable</p>
                                 </div>
                                 <div class="paymentMode">
-                                    <input type="radio" name="paymentModeInput" class="form-check-input"
-                                        formControlName="paymentModeInput" value="NEFT">
-                                    <label class="paymentModeLabel">NEFT</label>
+                                    <input type="radio" name="paymentModeInput" class="form-check-input" id="neft" formControlName="paymentModeInput" value="NEFT">
+                                    <label for="neft" class="paymentModeLabel">NEFT</label>
                                     <p class="instantTransfer">Max Rs. 1,00,000 Lakh per day. Receiver gets money in
                                         2 to 24 Hrs</p>
                                 </div>
                                 <div class="paymentMode">
-                                    <input type="radio" name="paymentModeInput" class="form-check-input"
-                                        formControlName="paymentModeInput" value="RTGS">
-                                    <label class="paymentModeLabel">RTGS</label>
+                                    <input type="radio" name="paymentModeInput" class="form-check-input" id="rtgs" formControlName="paymentModeInput" value="RTGS">
+                                    <label for="rtgs" class="paymentModeLabel">RTGS</label>
                                     <p class="instantTransfer">Min Rs. 75,000, Max Rs. 10 Lakh per day. Real time
                                         transaction.</p>
                                 </div>
@@ -183,9 +175,7 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col bottom-buttons">
                         <button class="cancelAndSaveBtn backbtn" routerLink="/dashboard" id="back">Back</button>
                         <button class="cancelAndSaveBtn" (click)="onCancel()" id="cancel">cancel</button>
-                        <button type="submit" id="send" class="cancelAndSaveBtn saveBtn"
-                            [disabled]="moneyTransferForm.invalid" (click)="onSubmit(moneyTransferForm.value)"
-                            [ngClass]="{'btn-enabled': moneyTransferForm.valid, 'btn-disabled': moneyTransferForm.invalid}">Send</button>
+                        <button type="submit" id="send" class="cancelAndSaveBtn saveBtn" [disabled]="moneyTransferForm.invalid" (click)="onSubmit(moneyTransferForm.value)" [ngClass]="{'btn-enabled': moneyTransferForm.valid, 'btn-disabled': moneyTransferForm.invalid}">Send</button>
                     </div>
                 </div>
             </form>
