@@ -84,13 +84,9 @@ export class AddpayeeComponent {
     }, 1000);
   }
 
-  onCancel() {
+  onReset() {
     if (this.addPayeeForm.valid) {
-      let confirmation = confirm('Are you sure you want to Cancel?');
-      if (confirmation) {
-        this.addPayeeForm.reset();
-        this.addPayeeForm.get('bankName')!.setValue('');
-      }
+      this.addPayeeForm.reset()
     }
   }
 
