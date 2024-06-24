@@ -1,4 +1,4 @@
-import { Component, ElementRef, Renderer2 } from '@angular/core';
+import { Component } from '@angular/core';
 import { BankingdataService } from '../../../bankingdata.service';
 import { NgClass, NgStyle } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
