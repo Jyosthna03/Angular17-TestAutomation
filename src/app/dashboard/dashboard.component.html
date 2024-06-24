@@ -22,8 +22,15 @@
 									<li class=" nav-item login-user navbar-text me-3 ms-2">{{username}}</li>
 									<li class="nav-item accountNumber d-block d-sm-none">123456789101112</li>
 								</div>
-									
-									<li class="nav-item mt-auto">
+								<li class="nav-item dropdown dropstart">
+									<img src="assets/Images/dropdown-arrow.png" class="dropdown-toggle" data-bs-toggle="dropdown" alt="dropdown">
+									<ul class="dropdown-menu">
+										<li>
+											<button type="button" class="logBtn" routerLink="/">Logout</button>
+										</li>
+									</ul>
+						</li>
+									<li class="nav-item mt-auto d-lg-none mb-4">
 										<button class="btn btn-primary logout-style" (click)="logOut()">LogOut</button>
 								</li>
 							</ul>

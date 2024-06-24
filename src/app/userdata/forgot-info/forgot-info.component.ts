@@ -49,6 +49,7 @@ export class ForgotInfoComponent {
     }
     else{
       this.usersuccessfullyReset = "Invalid Email"
+      this.myForm.reset();
     }
   }
   openPopup() {
