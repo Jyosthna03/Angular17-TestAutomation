@@ -39,11 +39,7 @@ export class MoneyTransferComponent {
       this.moneyTransferForm.get('bankName')?.setValue( bankName, { emitEvent: false });
     });
 
-    if(this.payeeNames.length>1){
-      this.moneyTransferForm.get('payee')?.setValue(this.payeeNames[1], { emitEvent: false });
-      console.log(this.moneyTransferForm.get('payee')?.value);
-      console.log(this.payeeNames);
-    }
+    
    }
  
   onSubmit(value: FormGroup) {
