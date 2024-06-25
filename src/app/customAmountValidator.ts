@@ -12,3 +12,13 @@ export function amountLimitValidator(availableBalance: number): ValidatorFn {
     return null;
   };
 }
+
+export function insufficientFunds(availableBalance: number): ValidatorFn {
+  return (control: AbstractControl): ValidationErrors | null => {
+    const amount = control.value;
+    if (amount > availableBalance) {
+        return { insufficientFunds: true };
+      }
+    return null;
+  };
+}

@@ -57,6 +57,11 @@
                     <span>Enter Amount</span>
                    }
                  </div>
+                 <div  class="text-danger error-text">
+                  @if(billerForm.get('billDetailsAmount')?.hasError('insufficientFunds')){
+                   <span>Insufficient Funds</span>
+                  }
+                </div>
               </div>
             </div>
           </div>
