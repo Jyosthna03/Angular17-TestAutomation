@@ -13,7 +13,7 @@ import { Router, RouterLink } from '@angular/router';
 export class NavbarComponent {
   constructor(private service: BankingdataService,private route:Router) {}
 
-  UserSelectTab = this.service.userSelectedTab;
+  UserSelectTab:string = this.service.userSelectedTab;
   userName:string = ''
 
   ngOnInit(){

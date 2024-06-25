@@ -57,6 +57,11 @@
                     <span>Enter Amount</span>
                    }
                  </div>
+                 <div  class="text-danger error-text">
+                  @if(billerForm.get('billDetailsAmount')?.hasError('insufficientFunds')){
+                   <span>Insufficient Funds</span>
+                  }
+                </div>
               </div>
             </div>
           </div>
@@ -98,12 +103,12 @@
                 </div>
                 <div class="col-lg-7 col-md-3 col-sm-6 col">
                   <input type="text" class="mobile transferInputs cre-card" formControlName="mobileNumber" id="mobile" (keypress)="onKeyPress($event)" maxlength="10" minlength="10" placeholder="Enter Mobile Number" aria-autocomplete="list">
-                  <div class="error text-danger">
+                  <div class="error-text text-danger">
                     @if(rechargeForm.get('mobileNumber')?.hasError('required') && rechargeForm.get('mobileNumber')?.touched){
                       <span>Enter Mobile Number</span>
                     }
                   </div>
-                <div class="error text-danger">
+                <div class="error-text text-danger">
                   @if(rechargeForm.get('mobileNumber')?.hasError('pattern') || rechargeForm.get('mobileNumber')?.hasError('minlength')){
                     <span>Enter Valid Mobile Number</span>
                   }
@@ -120,7 +125,7 @@
                 </div>
                 <div class="col-lg-7 col-md-3 col-sm-6 col">
                   <input type="text" class="mobile transferInputs cre-card"  placeholder="Enter amount" formControlName="amount" (keypress)="onKeyPress($event)" maxlength="5">
-                  <div class="error text-danger">
+                  <div class="error-text text-danger">
                     @if(rechargeForm.get('amount')?.hasError('required') && rechargeForm.get('amount')?.touched){
                       <span>Enter Amount</span>
                     }
