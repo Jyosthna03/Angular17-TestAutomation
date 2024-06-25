@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { BankingdataService } from '../../../../../bankingdata.service';
 import {FormBuilder,FormGroup,ReactiveFormsModule,Validators,} from '@angular/forms';
 import { DatePipe, NgClass, NgStyle } from '@angular/common';
@@ -13,6 +13,9 @@ import { SharedFile } from '../../../../../sharedfile';
   styleUrl: './transaction-history.component.css',
 })
 export class TransactionHistoryComponent {
+
+  
+  
   sharedData = new SharedFile(this.serv);
   leftpaginationMode = false;
   rightpaginationMode = true;
@@ -38,6 +41,8 @@ export class TransactionHistoryComponent {
       this.selectedShowperPage
     );
   }
+
+  
 
   generateTransactionData() {
     for (let i = 1; i <= 60; i++) {
