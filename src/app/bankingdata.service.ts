@@ -19,8 +19,6 @@ export class BankingdataService {
     this.bankNamepopUp.next(bankName);
   }
 
-  
-
   userData:string[]=['leela@gmail.com','Leela@123','katy@gmail.com','Katy@12354','jyosthna@gmail.com','Jyos@123'];
   registerDetails:Array<Object> = []
   currentUser: string="";
@@ -70,7 +68,7 @@ export class BankingdataService {
   isTransactionHistory=false;
   isAccountStatement=false;
   breadCrumb:Array<string>= ["Account Details"] 
-  paymentSucess:Array<Object> = [] //for congratulations page data
+  paymentSucess:Array<Object> = []
 
 
   tabNames:tabnames[] = [
@@ -95,6 +93,4 @@ export class BankingdataService {
     this.breadCrumb.push(tab);
     this.userSelectedTab = tab;
   }
-
-
 }
