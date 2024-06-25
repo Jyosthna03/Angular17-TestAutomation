@@ -2,6 +2,7 @@ import { Component} from '@angular/core';
 import { NavbarComponent } from '../../account-details/navbar/navbar.component';
 import { BankingdataService } from '../../../bankingdata.service';
 import { RouterLink} from '@angular/router';
+import { BillerFormValues } from '../../../modal';
 
 @Component({
   selector: 'app-payment-success',
@@ -12,13 +13,13 @@ import { RouterLink} from '@angular/router';
 })
 export class PaymentSuccessComponent{
 
-  selectBillerPayment:any;
+  selectBillerPayment!:BillerFormValues[];
   mobileRechargePayment:any
  
   constructor(private service:BankingdataService){}
   recharge:boolean = this.service.rechargePaymentSuccess
   ngOnInit(){
-    this.selectBillerPayment =  this.service.selectBillerSuccess;
+    this.selectBillerPayment =  this.service.selectBillerSuccess as BillerFormValues[];
     console.log(this.selectBillerPayment)
     this.mobileRechargePayment = this.service.selectBillerSuccess
   }

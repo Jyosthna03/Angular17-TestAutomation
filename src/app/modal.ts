@@ -57,7 +57,7 @@ export interface AccountData {
     billerType: string;
     billerdetails: string;
     PayingFrom: string;
-    // billDetailsAmount : string;
+    billDetailsAmount : string;
     }
   
   export interface RechargeFormValues {

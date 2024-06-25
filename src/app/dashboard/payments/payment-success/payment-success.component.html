@@ -7,7 +7,7 @@
         <p class="congratsText">Congratulations !!</p>
         <div class="col-lg-3 col-2"></div>
         <div class="col-lg-5 col-8 transfer">
-            @for(data of selectBillerPayment;track data.id ){
+            @for(data of selectBillerPayment;track $index ){
                 <p class="transText">Transaction amount  ₹{{data.billDetailsAmount}}/- for {{data.billerType}} has been success</p>
             }
         </div>
@@ -25,7 +25,7 @@
         <span class="congratsText">Congratulations !!</span>
         <div class="col-lg-3 col-2"></div>
         <div class="col-lg-5 col-8 transfer">
-            @for(data of mobileRechargePayment;track data.id){
+            @for(data of mobileRechargePayment;track $index){
                 <span class="transText">{{data.networkProvider}} Plan of ₹{{data.amount}}/- for Mobile Number {{data.mobileNumber}} has been success</span>
             }
         </div>
