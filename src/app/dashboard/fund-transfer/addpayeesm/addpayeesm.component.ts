@@ -14,53 +14,26 @@ import { SharedFile } from '../../../sharedfile';
   styleUrl: './addpayeesm.component.css',
 })
 export class AddpayeesmComponent {
-  constructor(
-    private service: BankingdataService,
-    fb: FormBuilder,
-    private route: Router  ) {
-    this.addPayeesmForm = fb.group(
+
+  sharedFile = new SharedFile(this.service);
+  addPayeesmForm!: FormGroup;
+  bankNames:string[] = this.sharedFile.banks;
+  constructor(private service: BankingdataService,private fb:FormBuilder,private route: Router  ) {
+    this.addPayeesmForm = this.fb.group(
       {
-        fullname: new FormControl('', [
-          Validators.required,
-          Validators.pattern(/^[a-zA-Z ]*$/),
-          Validators.minLength(3),
-          Validators.maxLength(15),
-        ]),
-        nickname: new FormControl('', [
-          Validators.required,
-          Validators.pattern(/^[a-zA-Z ]*$/),
-          Validators.minLength(3),
-          Validators.maxLength(10),
-        ]),
+        fullname: new FormControl('', [Validators.required,Validators.pattern(/^[a-zA-Z ]*$/),Validators.minLength(3),Validators.maxLength(15),]),
+        nickname: new FormControl('', [Validators.required,Validators.pattern(/^[a-zA-Z ]*$/),Validators.minLength(3),Validators.maxLength(10),]),
         bankName: new FormControl('', [Validators.required]),
-        ifscCode: new FormControl('', [
-          Validators.required,
-          Validators.pattern('^[A-Za-z]{4}0[A-Z0-9a-z]{6}$'),
-          Validators.maxLength(11),
-        ]),
-        accountNo: new FormControl('', [
-          Validators.required,
-          Validators.pattern(/^\d*$/),
-          Validators.minLength(8),
-          Validators.maxLength(18),
-        ]),
-        reEnteraccountNo: new FormControl('', [
-          Validators.required,
-          Validators.pattern(/^\d*$/),
-        ]),
+        ifscCode: new FormControl('', [Validators.required,Validators.pattern('^[A-Za-z]{4}0[A-Z0-9a-z]{6}$'),Validators.maxLength(11),]),
+        accountNo: new FormControl('', [Validators.required,Validators.pattern(/^\d*$/),Validators.minLength(8),Validators.maxLength(18),]),
+        reEnteraccountNo: new FormControl('', [Validators.required,Validators.pattern(/^\d*$/),]),
       },
       {
         validators: this.accountNoMatchValidator,
       }
     );
   }
-
-  sharedFile = new SharedFile(this.service);
-  addPayeesmForm!: FormGroup;
-  bankNames = this.sharedFile.banks;
-  
-
-  ngOnInit() {
+ ngOnInit() {
     this.addPayeesmForm.get('accountNo')?.valueChanges.subscribe((value) => {
       this.service.changeAccountNumber(value);
     });

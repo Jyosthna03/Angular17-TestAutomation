@@ -14,7 +14,7 @@ import { SharedFile } from '../../sharedfile';
   styleUrl: './registration.component.css'
 })
 export class RegistrationComponent {
-  registrationForm!: FormGroup;
+  registrationForm!:FormGroup;
   sharedFile = new SharedFile(this.register);
   submitted: boolean = false;
   maxDate!: string;
@@ -23,7 +23,7 @@ export class RegistrationComponent {
   countryValues: string[] = this.sharedFile.countries;
   stateValue: string[] = this.sharedFile.states;
   
-  constructor(private fb: FormBuilder,private router: Router, private register: BankingdataService ) { 
+  constructor(private fb:FormBuilder, private router: Router, private register: BankingdataService ) { 
     this.setMaxDate()
   }
 
@@ -39,8 +39,8 @@ export class RegistrationComponent {
       state: ['Select State', [Validators.required]],
       dob: [null, [Validators.required]],
       address: ['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9\s,'-]*$/)]],
-      password: ['', [Validators.required,Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,16}$/)]],
-      confirmPassword: ['', [Validators.required,Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,16}$/)]],
+      password: ['', [Validators.required,Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?\d).{8,16}$/)]],
+      confirmPassword: ['', [Validators.required]],
 
     }, {
       validators: this.passwordMatchValidator
@@ -78,7 +78,7 @@ export class RegistrationComponent {
   }
 
   onKeyPress(event: KeyboardEvent) {
-    const inputChar = String.fromCharCode(event.charCode);
+    const inputChar = event.key;
     if (!/^\d+$/.test(inputChar)) {
       event.preventDefault();
     }

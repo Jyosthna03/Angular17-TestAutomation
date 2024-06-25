@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './userdata/login/login.component';
-import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
 import { loginguardGuard } from './guards/loginguard.guard';
 
 export const routes: Routes = [
@@ -50,5 +49,9 @@ export const routes: Routes = [
             c => c.AddpayeesmComponent
         )
     },
-    {path:'**',component:PageNotFoundComponent}
+    {path:'**',
+       loadComponent:()=> import('../app/pagenotfound/pagenotfound.component').then(
+        c => c.PageNotFoundComponent
+       )
+    }
 ];
