@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angula
 import { Router, RouterLink } from '@angular/router';
 import { BankingdataService } from '../../bankingdata.service';
 import { CommonModule } from '@angular/common';
+import { SharedFile } from '../../sharedfile';
 
 
 @Component({
@@ -13,15 +14,16 @@ import { CommonModule } from '@angular/common';
   styleUrl: './registration.component.css'
 })
 export class RegistrationComponent {
-  registrationForm!: FormGroup;
-  submitted = false;
-  imagePath = 'assets/Images/login-page.png';
+  registrationForm!:FormGroup;
+  sharedFile = new SharedFile(this.register);
+  submitted: boolean = false;
   maxDate!: string;
-  regData ='';
+  regData: string ='';
   validUser:boolean = false;
-  countries: string[] = ['Select Country', 'India','USA', 'Canada', 'UK', 'Australia', 'Poland', 'Other'];
-  states: string[] = ['Select State','Telangana','Andhra Pradesh','Karnataka','Tamil Nadu','Himachal Pradesh']
-  constructor(private fb: FormBuilder,private router: Router, private register: BankingdataService ) { 
+  countryValues: string[] = this.sharedFile.countries;
+  stateValue: string[] = this.sharedFile.states;
+  
+  constructor(private fb:FormBuilder, private router: Router, private register: BankingdataService ) { 
     this.setMaxDate()
   }
 
@@ -37,8 +39,8 @@ export class RegistrationComponent {
       state: ['Select State', [Validators.required]],
       dob: [null, [Validators.required]],
       address: ['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9\s,'-]*$/)]],
-      password: ['', [Validators.required,Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,16}$/)]],
-      confirmPassword: ['', [Validators.required,Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,16}$/)]],
+      password: ['', [Validators.required,Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?\d).{8,16}$/)]],
+      confirmPassword: ['', [Validators.required]],
 
     }, {
       validators: this.passwordMatchValidator
@@ -72,12 +74,11 @@ export class RegistrationComponent {
   
   setMaxDate() {
     const currentDate = new Date();
-    // Convert current date to yyyy-mm-dd format
     this.maxDate = currentDate.toISOString().split('T')[0];
   }
 
   onKeyPress(event: KeyboardEvent) {
-    const inputChar = String.fromCharCode(event.charCode);
+    const inputChar = event.key;
     if (!/^\d+$/.test(inputChar)) {
       event.preventDefault();
     }

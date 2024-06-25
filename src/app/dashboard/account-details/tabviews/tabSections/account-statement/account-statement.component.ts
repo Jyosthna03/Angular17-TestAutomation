@@ -1,11 +1,6 @@
 import { DatePipe, NgClass } from '@angular/common';
 import { Component, signal } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import {FormBuilder,FormGroup,ReactiveFormsModule,Validators,} from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { SharedFile } from '../../../../../sharedfile';
 import { BankingdataService } from '../../../../../bankingdata.service';
@@ -57,6 +52,4 @@ export class AccountStatementComponent {
     this.statementForm.get('selectedOption')!.setValue('');
     this.statementForm.get('downloadFormat')!.setValue('');
   }
-
-  submitForm() {}
 }

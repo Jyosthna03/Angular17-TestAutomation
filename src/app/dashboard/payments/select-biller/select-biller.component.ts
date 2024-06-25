@@ -98,7 +98,7 @@ updateSuccessState(formValue: FormGroup, amount: number, isRecharge: boolean) {
     });
   }
   onKeyPress(event: KeyboardEvent) {
-    const inputChar = String.fromCharCode(event.charCode);
+    const inputChar = event.key;
     if (!/^\d+$/.test(inputChar)) {
       event.preventDefault();
     }

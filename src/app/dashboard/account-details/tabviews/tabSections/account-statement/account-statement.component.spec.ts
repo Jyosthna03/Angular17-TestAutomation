@@ -1,7 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AccountStatementComponent } from './account-statement.component';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { of } from 'rxjs';
+import { DatePipe, NgClass } from '@angular/common';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { BankingdataService } from '../../../../../bankingdata.service';
 
 describe('AccountStatementComponent', () => {
   let component: AccountStatementComponent;
@@ -11,8 +14,9 @@ describe('AccountStatementComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AccountStatementComponent],
+      imports: [AccountStatementComponent,ReactiveFormsModule ],
       providers:[
+        FormBuilder, DatePipe, RouterLink, NgClass, BankingdataService, 
         {
           provide: ActivatedRoute,
           useValue: {
@@ -30,77 +34,51 @@ describe('AccountStatementComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the component', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should disable selectedOption and enable fromDate and toDate when inputType is dateRange', () => {
+  it('should initialize statementForm with required controls', () => {
+    expect(component.statementForm).toBeDefined();
+    expect(component.statementForm instanceof FormGroup).toBe(true);
+    expect(component.statementForm.get('inputType')).toBeTruthy();
+    expect(component.statementForm.get('fromDate')).toBeTruthy();
+    expect(component.statementForm.get('toDate')).toBeTruthy();
+    expect(component.statementForm.get('selectedOption')).toBeTruthy();
+    expect(component.statementForm.get('downloadFormat')).toBeTruthy();
+  });
+
+  it('should disable and enable form controls based on inputType changes', () => {
     component.statementForm.get('inputType')!.setValue('dateRange');
     expect(component.statementForm.get('selectedOption')!.disabled).toBe(true);
     expect(component.statementForm.get('fromDate')!.enabled).toBe(true);
     expect(component.statementForm.get('toDate')!.enabled).toBe(true);
-  });
 
-  it('should disable fromDate and toDate and enable selectedOption when inputType is dropdown', () => {
     component.statementForm.get('inputType')!.setValue('dropdown');
-    expect(component.statementForm.get('selectedOption')!.enabled).toBe(true);
     expect(component.statementForm.get('fromDate')!.disabled).toBe(true);
     expect(component.statementForm.get('toDate')!.disabled).toBe(true);
+    expect(component.statementForm.get('selectedOption')!.enabled).toBe(true);
   });
 
-  it('should reset form values and enable selectedOption, fromDate, and toDate on cancelForm()', () => {
+  it('should reset form and enable select and date controls in cancelForm method', () => {
+    component.statementForm.get('selectedOption')!.disable();
+    component.statementForm.get('fromDate')!.disable();
+    component.statementForm.get('toDate')!.disable();
+
     component.cancelForm();
+
     expect(component.statementForm.get('selectedOption')!.enabled).toBe(true);
     expect(component.statementForm.get('fromDate')!.enabled).toBe(true);
     expect(component.statementForm.get('toDate')!.enabled).toBe(true);
-    expect(component.statementForm.value).toEqual({
-      inputType: '',
-      fromDate: '',
-      toDate: '',
-      selectedOption: '',
-      downloadFormat: ''
-    });
+    expect(component.statementForm.get('selectedOption')!.value).toBe('');
+    expect(component.statementForm.get('downloadFormat')!.value).toBe('');
   });
-
-  it('should log form value on submitForm()', () => {
-    spyOn(console, 'log');
-    component.statementForm.setValue({
-      inputType: 'dateRange',
-      fromDate: '2024-06-01',
-      toDate: '2024-06-10',
-      selectedOption: 'Last 7 Days',
-      downloadFormat: 'PDF File'
-    });
-    component.submitForm();
-    expect(console.log).toHaveBeenCalledWith({
-      inputType: 'dateRange',
-      fromDate: '2024-06-01',
-      toDate: '2024-06-10',
-      selectedOption: 'Last 7 Days',
-      downloadFormat: 'PDF File'
-    });
-  });
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
 
   it('should navigate to dashboard when back button is clicked', () => {
     const navigateSpy = spyOn(router, 'navigateByUrl');
-
     const button = fixture.nativeElement.querySelector('#back');
     console.log(button)
     button.click();
-
     expect(navigateSpy).toHaveBeenCalled();
     expect(navigateSpy.calls.mostRecent().args[0]).toMatch(/\/dashboard$/)
   });

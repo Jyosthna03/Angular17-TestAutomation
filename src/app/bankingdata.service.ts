@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tabnames } from './modal';
 import { BehaviorSubject} from 'rxjs';
@@ -20,7 +19,7 @@ export class BankingdataService {
     this.bankNamepopUp.next(bankName);
   }
 
-  constructor(private http:HttpClient) { }
+  
 
   userData:string[]=['leela@gmail.com','Leela@123','katy@gmail.com','Katy@12354','jyosthna@gmail.com','Jyos@123'];
   registerDetails:Array<Object> = []
