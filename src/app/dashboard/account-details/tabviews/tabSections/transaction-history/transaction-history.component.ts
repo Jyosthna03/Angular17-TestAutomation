@@ -1,11 +1,6 @@
 import { Component } from '@angular/core';
 import { BankingdataService } from '../../../../../bankingdata.service';
-import {
-  FormBuilder,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import {FormBuilder,FormGroup,ReactiveFormsModule,Validators,} from '@angular/forms';
 import { DatePipe, NgClass, NgStyle } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { history } from '../../../../../modal';
