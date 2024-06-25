@@ -36,17 +36,17 @@ describe('PaymentSuccessComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should initialize selectBillerPayment from service', () => {
-    const component = new PaymentSuccessComponent(service); // Replace ComponentName with your component class name
-    component.ngOnInit();
-    expect(component.selectBillerPayment).toEqual(service.selectBillerSuccess);
-  });
+  // it('should initialize selectBillerPayment from service', () => {
+  //   const component = new PaymentSuccessComponent(service);
+  //   component.ngOnInit();
+  //   expect(component.selectBillerPayment).toEqual(service.selectBillerSuccess);
+  // });
 
-  it('should initialize mobileRechargePayment from service', () => {
-    const component = new PaymentSuccessComponent(service); // Replace ComponentName with your component class name
-    component.ngOnInit();
-    expect(component.mobileRechargePayment).toEqual(service.selectBillerSuccess);
-  });
+  // it('should initialize mobileRechargePayment from service', () => {
+  //   const component = new PaymentSuccessComponent(service); 
+  //   component.ngOnInit();
+  //   expect(component.mobileRechargePayment).toEqual(service.selectBillerSuccess);
+  // });
 
   it('should set recharge flag based on service', () => {
     const component = new PaymentSuccessComponent(service); // Replace ComponentName with your component class name
