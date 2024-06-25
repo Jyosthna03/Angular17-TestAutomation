@@ -65,7 +65,7 @@
             <div class="form-group">
               <label for="country" class="lable-name">Country:</label>
               <select id="country" class="form-select mt-1" formControlName="country">
-                @for (country of countries; track country){
+                @for (country of countryValues; track country){
                   <option [value]="country">{{ country }}</option>
                 }
               </select>
@@ -78,7 +78,7 @@
             <div class="form-group">
               <label for="state" class="lable-name mb-lable">State:</label>
               <select id="state" class="form-select mt-1" formControlName="state">
-                @for (state of states; track state){
+                @for (state of stateValue; track state){
                 <option [value]="state">{{ state }}</option>
                 }
               </select>
@@ -132,7 +132,7 @@
         @if(validUser){
           <div class="modal">
             <div class="modal-content">
-              <p class="text-center">{{ regData }}</p>
+              <span class="text-center">{{ regData }}</span>
             </div>
         </div>
         }
@@ -140,7 +140,7 @@
      
     </div>
     <div class="col-md-7 ps-4">
-      <img class="d-none d-sm-block reg-image" [src]="imagePath" alt="Description"/>
+      <img class="d-none d-sm-block reg-image" src="assets/Images/login-page.png" alt="Description"/>
     </div>
   </div>
 </div>

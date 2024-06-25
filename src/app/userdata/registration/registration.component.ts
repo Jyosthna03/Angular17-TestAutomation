@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angula
 import { Router, RouterLink } from '@angular/router';
 import { BankingdataService } from '../../bankingdata.service';
 import { CommonModule } from '@angular/common';
+import { SharedFile } from '../../sharedfile';
 
 
 @Component({
@@ -14,13 +15,14 @@ import { CommonModule } from '@angular/common';
 })
 export class RegistrationComponent {
   registrationForm!: FormGroup;
-  submitted = false;
-  imagePath = 'assets/Images/login-page.png';
+  sharedFile = new SharedFile(this.register);
+  submitted: boolean = false;
   maxDate!: string;
-  regData ='';
+  regData: string ='';
   validUser:boolean = false;
-  countries: string[] = ['Select Country', 'India','USA', 'Canada', 'UK', 'Australia', 'Poland', 'Other'];
-  states: string[] = ['Select State','Telangana','Andhra Pradesh','Karnataka','Tamil Nadu','Himachal Pradesh']
+  countryValues: string[] = this.sharedFile.countries;
+  stateValue: string[] = this.sharedFile.states;
+  
   constructor(private fb: FormBuilder,private router: Router, private register: BankingdataService ) { 
     this.setMaxDate()
   }
@@ -72,7 +74,6 @@ export class RegistrationComponent {
   
   setMaxDate() {
     const currentDate = new Date();
-    // Convert current date to yyyy-mm-dd format
     this.maxDate = currentDate.toISOString().split('T')[0];
   }
 
