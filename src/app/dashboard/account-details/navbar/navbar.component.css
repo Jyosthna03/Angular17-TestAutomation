@@ -4,9 +4,6 @@
     background: #082341;
     box-shadow: 4px 4px 24px 4px rgba(255, 255, 255, 0.10);
 }
-.bg-offCanvas{
-    color: black;
-}
 .accountDetails{
     color: #FFF;
     font-size: 14px;
@@ -16,31 +13,7 @@
     cursor: pointer;
 }
 .nav-item{
-    padding-right: 20px;
-    padding-top: 3px;
-}
-.notification{
-    width: 24px;
-    height: 24px;
-    flex-shrink: 0;
-    padding-bottom: 4px;
-    cursor: pointer;
-}
-.profileImage{
-    width: 24px;
-    height: 24px;
-    flex-shrink: 0;
-    border-radius: 2px;
-    border: 1px solid #FFF;
-    cursor: pointer;
-}
-.profileName{
-    color: #FFF;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.28px;
-    text-transform: capitalize;
-    cursor: pointer;
+    padding: 3px 20px 0px 0px;
 }
 .activeTab {
     color: #FFF !important;
@@ -75,15 +48,14 @@
 .dropdown{
     margin-top: 5px;
 }
-.dropdown-menu{
-    background: none !important;
-}
+
 .dropstart .dropdown-menu[data-bs-popper] {
     top: 32px !important;
     right: 0 !important;
     left: auto;
     margin-top: 0;
     margin-right: var(--bs-dropdown-spacer);
+    background: none !important;
 }
 .dropdown-toggle{
     cursor: pointer;
@@ -97,8 +69,7 @@
         padding: 10px;
      }
      .nav-item{
-        padding-right: 0px !important;
-        padding-left: 10px !important;
+        padding: 0px 0px 0px 10px !important;
     }
     .smNav{
         display: flex;
@@ -114,7 +85,7 @@
         justify-content: center !important;
     }
     #smNavItem{
-        padding-top: 42px;
+        padding-top: 42px !important;
     }
     .accountDetails{
         color: #050505;
@@ -152,9 +123,4 @@
     .activeTab{
         color: black !important;
     }
-    .navItems{
-        position: relative;
-        left: -20px;
-    }
 }
-
