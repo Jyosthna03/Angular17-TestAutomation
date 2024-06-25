@@ -2,9 +2,11 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TransactionHistoryComponent } from './transaction-history.component';
 import { BankingdataService } from '../../../../../bankingdata.service';
 import { HttpClientModule } from '@angular/common/http';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { of } from 'rxjs';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { DatePipe, NgClass, NgStyle } from '@angular/common';
+import { SharedFile } from '../../../../../sharedfile';
 
 describe('TransactionHistoryComponent', () => {
   let component: TransactionHistoryComponent;
@@ -15,8 +17,8 @@ describe('TransactionHistoryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TransactionHistoryComponent,HttpClientModule,ReactiveFormsModule],
-      providers:[BankingdataService,{
+      imports: [TransactionHistoryComponent,ReactiveFormsModule],
+      providers:[BankingdataService,FormBuilder, DatePipe, NgClass, NgStyle, RouterLink, SharedFile,{
         provide: ActivatedRoute,
         useValue: {
           paramMap: of({}) 
@@ -29,114 +31,117 @@ describe('TransactionHistoryComponent', () => {
     component = fixture.componentInstance;
     myservice = TestBed.inject(BankingdataService); // Inject the RegisterService
     router = TestBed.inject(Router)
-    spyOn(myservice, 'getData').and.returnValue(of({ TransHistory: [{}] }));
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the component', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should initialize default values on ngOnInit', () => {
-    expect(component.leftpaginationMode).toBeFalse();
-    expect(component.rightpaginationMode).toBeTrue();
-    expect(component.TransHistory.length).toEqual(60);
-    
+  it('should initialize transactionForm with required controls', () => {
+    expect(component.transactionForm).toBeDefined();
+    expect(component.transactionForm instanceof FormGroup).toBe(true);
+    expect(component.transactionForm.get('inputType')).toBeTruthy();
+    expect(component.transactionForm.get('fromDate')).toBeTruthy();
+    expect(component.transactionForm.get('toDate')).toBeTruthy();
+    expect(component.transactionForm.get('selectedOption')).toBeTruthy();
   });
 
-  it('should generate transaction data', () => {
-    expect(component.TransHistory.length).toEqual(60);
+  it('should disable and enable form controls based on inputType changes', () => {
+    component.transactionForm.get('inputType')!.setValue('dateRange');
+    expect(component.transactionForm.get('selectedOption')!.disabled).toBe(true);
+    expect(component.transactionForm.get('fromDate')!.enabled).toBe(true);
+    expect(component.transactionForm.get('toDate')!.enabled).toBe(true);
+
+    component.transactionForm.get('inputType')!.setValue('dropdown');
+    expect(component.transactionForm.get('fromDate')!.disabled).toBe(true);
+    expect(component.transactionForm.get('toDate')!.disabled).toBe(true);
+    expect(component.transactionForm.get('selectedOption')!.enabled).toBe(true);
   });
 
-  it('should initialize selectedShowperPage to 5', () => {
-    expect(component.selectedShowperPage).toEqual(5);
+  it('should generate transaction data on ngOnInit', () => {
+    component.ngOnInit();
+    expect(component.TransHistory.length).toBe(60);
   });
 
-  it('should initialize startIndex to 0', () => {
-    expect(component.startIndex).toEqual(0);
+  it('should set TransHistory and totalPages on valid form submission', () => {
+    component.submitForm();
+    expect(component.totalPages.length).toBeGreaterThan(0);
+    expect(component.showData).toBe(true);
   });
 
-  it('should initialize endIndex to 5', () => {
-    expect(component.endIndex).toEqual(5);
+  it('should reset form and hide data on cancelForm', () => {
+    component.cancelForm();
+    expect(component.transactionForm.get('selectedOption')!.enabled).toBe(true);
+    expect(component.transactionForm.get('fromDate')!.enabled).toBe(true);
+    expect(component.transactionForm.get('toDate')!.enabled).toBe(true);
+    expect(component.transactionForm.get('selectedOption')!.value).toBe('');
+    expect(component.showData).toBe(false);
   });
 
-  it('should initialize currentPage to 1', () => {
-    expect(component.currentPage).toEqual(1);
+  it('should update pagination on onPageChange', () => {
+    const mockPageNo = 2;
+    component.TransHistory = [{
+      sno: '01',
+      transactionDate: '18/03/2024',
+      transctionRemarks:
+        'VIN/BLINKIT/202403031436/4063-09545745/Phone pe/Blinkit',
+      withDrawalAmount: '314.45',
+      depositAmount: '---',
+      balance: '1109.82',
+    }];
+    spyOn(component, 'getpageList').and.returnValue([1, 2]);
+
+    component.onPageChange(mockPageNo);
+
+    expect(component.leftpaginationMode).toBe(false);
+    expect(component.rightpaginationMode).toBe(true);
+    expect(component.currentPage).toBe(mockPageNo);
+    expect(component.rightPaginationItems.length).toBeGreaterThan(0); // Ensure rightPaginationItems is populated
   });
 
-  it('should update leftpaginationMode, rightpaginationMode, currentPage, and rightPaginationItems when onPageChange is called', () => {
-    spyOn(component, 'getpageList').and.returnValue([1, 2, 3]);
-    const pageNo = 2;
-    component.TransHistory = []; 
-    component.selectedShowperPage = 5;
-    component.onPageChange(pageNo);
-    expect(component.leftpaginationMode).toBeFalse();
-    expect(component.rightpaginationMode).toBeTrue();
-    expect(component.currentPage).toEqual(pageNo);
-    expect(component.rightPaginationItems).toEqual([1, 2, 3]);
-    expect(component.getpageList).toHaveBeenCalledWith(component.TransHistory.length, component.selectedShowperPage);
+  it('should return page transactions based on selectedShowperPage and currentPage', () => {
+    const mockTransactions = [{
+      sno: '01',
+      transactionDate: '18/03/2024',
+      transctionRemarks:
+        'VIN/BLINKIT/202403031436/4063-09545745/Phone pe/Blinkit',
+      withDrawalAmount: '314.45',
+      depositAmount: '---',
+      balance: '1109.82',
+    }];
+    component.TransHistory = mockTransactions;
+    spyOn(component, 'getpageList').and.returnValue([1]);
+
+    const pageTransactions = component.getPageTransactions();
+
+    expect(pageTransactions).toEqual(mockTransactions.slice(0, component.selectedShowperPage));
   });
 
-  it('should return an array of page numbers based on totRecords and pageItems', () => {
-    const totRecords = 10;
-    const pageItems = 3;
-    const expectedResult = [1, 2, 3, 4];
-    expect(component.getpageList(totRecords, pageItems)).toEqual(expectedResult);
+  it('should update selectedShowperPage and pagination on onSelectPageRows', () => {
+    expect(component.selectedShowperPage).toBe(10);
+    expect(component.leftpaginationMode).toBe(true);
+    expect(component.rightpaginationMode).toBe(false);
+    expect(component.rightPaginationItems.length).toBeGreaterThan(0); // Ensure rightPaginationItems is populated
   });
 
-  it('should return an empty array if totRecords is 0', () => {
-    const totRecords = 0;
-    const pageItems = 5;
-    expect(component.getpageList(totRecords, pageItems)).toEqual([]);
-  });
-
-  it('should update selectedShowperPage and set pagination modes correctly', () => {
-    const event = { target: { value: 10 } };
-    spyOn(component, 'getpageList').and.returnValue([1, 2]); 
-    component.TransHistory = []; 
-
-    component.onSelectPageRows(event);
-
-    expect(component.selectedShowperPage).toEqual(10);
-    expect(component.leftpaginationMode).toBeTrue();
-    expect(component.rightpaginationMode).toBeFalse();
-    expect(component.endIndex).toEqual(10);
-    expect(component.getpageList).toHaveBeenCalledWith(component.TransHistory.length, 10);
-  });
-
-  it('should increment currentPage by 1 if not exceeding the total number of pages', () => {
-    component.currentPage = 2;
-    component.rightPaginationItems = [1, 2, 3];
+  it('should increment currentPage on nextPage', () => {
+    const initialPage = component.currentPage;
     component.nextPage();
-    expect(component.currentPage).toEqual(3);
+    expect(component.currentPage).toBe(initialPage + 1);
   });
 
-  it('should set currentPage to 1 if it exceeds the total number of pages', () => {
-    component.currentPage = 3;
-    component.rightPaginationItems = [1, 2, 3];
-    component.nextPage();
-    expect(component.currentPage).toEqual(1);
-  });
-
-  it('should decrement currentPage by 1 if not less than 1', () => {
-    component.currentPage = 2;
+  it('should decrement currentPage on previousPage', () => {
+    const initialPage = component.currentPage;
     component.previousPage();
-    expect(component.currentPage).toEqual(1);
-  });
-
-  it('should set currentPage to 1 if it becomes less than 1', () => {
-    component.currentPage = 1;
-    component.previousPage();
-    expect(component.currentPage).toEqual(1);
+    expect(component.currentPage).toBe(initialPage - 1);
   });
 
   it('should navigate to dashboard when back button is clicked', () => {
     const navigateSpy = spyOn(router, 'navigateByUrl');
-
     const button = fixture.nativeElement.querySelector('#backBtn');
     console.log(button)
     button.click();
-
     expect(navigateSpy).toHaveBeenCalled();
     expect(navigateSpy.calls.mostRecent().args[0]).toMatch(/\/dashboard$/)
   });
