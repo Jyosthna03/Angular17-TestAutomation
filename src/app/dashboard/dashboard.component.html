@@ -1,56 +1,58 @@
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<div class="container-fluid">
-			<div class="d-flex align-items-center">
-					<img src="assets/Images/logo.png" alt="EVOKE LOGO" class="me-2">
-					<a class="navbar-brand logo">Test Automation</a>
-			</div>
-			<!-- Offcanvas Toggle Button with Hamburger Icon -->
-			<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false" aria-label="Toggle navigation">
-					<img src="assets/Images/hamburger.png" alt="Hamburger">
-			</button>
-			<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-					<div class="offcanvas-header">
-							<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-					</div>
-					<div class="offcanvas-body d-flex justify-content-end">
-							<ul class="navbar-nav">
-								<div class="sm-offcanvas d-flex">
-									<li class="nav-item">
-										<img class="user-style" src="assets/Images/user-icon.png" alt="user">
-									</li>
-									<li class=" nav-item login-user navbar-text me-3 ms-2">{{username}}</li>
-									<li class="nav-item accountNumber d-block d-sm-none">123456789101112</li>
-								</div>
-								<li class="nav-item dropdown dropstart">
-									<img src="assets/Images/dropdown-arrow.png" class="dropdown-toggle" data-bs-toggle="dropdown" alt="dropdown">
-									<ul class="dropdown-menu">
-										<li>
-											<button type="button" class="logBtn" routerLink="/" (click)="logOut()">Logout</button>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container-fluid">
+				<div class="d-flex align-items-center">
+						<img src="assets/Images/logo.png" alt="EVOKE LOGO" class="me-2">
+						<a class="navbar-brand logo">Test Automation</a>
+				</div>
+				<!-- Offcanvas Toggle Button with Hamburger Icon -->
+				<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false" aria-label="Toggle navigation">
+						<img src="assets/Images/hamburger.png" alt="Hamburger">
+				</button>
+				<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+						<div class="offcanvas-header">
+								<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+						</div>
+						<div class="offcanvas-body d-flex justify-content-end">
+								<ul class="navbar-nav">
+									<div class="sm-offcanvas d-flex">
+										<li class="nav-item">
+											<img class="user-style" src="assets/Images/user-icon.png" alt="user">
 										</li>
-									</ul>
-						</li>
-									<li class="nav-item mt-auto d-lg-none mb-4">
-										<button class="btn btn-primary logout-style" (click)="logOut()">LogOut</button>
-								</li>
-							</ul>
-					</div>
+										<li class=" nav-item login-user navbar-text me-3 ms-2">{{username}}</li>
+										<li class="nav-item accountNumber d-block d-sm-none">123456789101112</li>
+									</div>
+									<li class="nav-item dropdown dropstart">
+										<img src="assets/Images/dropdown-arrow.png" class="dropdown-toggle" data-bs-toggle="dropdown" alt="dropdown">
+										<ul class="dropdown-menu">
+											<li>
+												<button type="button" class="logBtn" routerLink="/" (click)="logOut()">Logout</button>
+											</li>
+										</ul>
+							</li>
+										<li class="nav-item mt-auto d-lg-none mb-4">
+											<button class="btn btn-primary logout-style" (click)="logOut()">LogOut</button>
+									</li>
+								</ul>
+						</div>
+				</div>
+		</div>
+	</nav>
+	<div class="container-fluid bg-color">
+		<span class="specific-text"><img class="img-style" src="assets/Images/Group.png" alt="Icon">  CLICK ON SPECIFIC CATEGORY TO ENTER INTO APPLICATION</span>
+		<section>
+			<div class="row section-style">
+				<div class="col-md-4 col-sm-12">
+					<app-account-details (click)="gotoAccountDashboard()"></app-account-details>
+				</div>
+				<div class="col-md-4 col-sm-12">
+					<app-payments (click)="gotoPaymentDashboard()"></app-payments>
+				</div>
+				<div class="col-md-4 col-sm-12">
+					<app-fund-transfer (click)="gotoTransferDashboard()"></app-fund-transfer>
+				</div>
 			</div>
+		</section>
 	</div>
-</nav>
-<div class="container-fluid bg-color">
-    <span class="specific-text"><img class="img-style" src="assets/Images/Group.png" alt="Icon">  CLICK ON SPECIFIC CATEGORY TO ENTER INTO APPLICATION</span>
-	<section>
-        <div class="row section-style">
-            <div class="col-md-4 col-sm-12">
-                <app-account-details (click)="gotoAccountDashboard()"></app-account-details>
-            </div>
-            <div class="col-md-4 col-sm-12">
-                <app-payments (click)="gotoPaymentDashboard()"></app-payments>
-            </div>
-            <div class="col-md-4 col-sm-12">
-                <app-fund-transfer (click)="gotoTransferDashboard()"></app-fund-transfer>
-            </div>
-        </div>
-    </section>
-</div>
+
+

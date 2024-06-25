@@ -108,6 +108,23 @@ margin-top: 20px;
 .sub-text.due{
     margin-top: 5px !important;
 }
+.fixed-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: #F6F6F6;
+    z-index: 1000;
+    padding: 12px 26px;
+    bottom: 0;
+}
+.fixed-footer .row {
+    margin: 0;
+}
+.fixed-footer .button-margin {
+    margin: 0;
+}
 }
 
   
