@@ -21,7 +21,7 @@ export class AccountHolderDetailsComponent {
   currentDate = new Date();
 
   ngOnInit() {
-    this.accountDetails = this.service.accountData;
+    this.accountDetails = this.service.multipleAccountData;
     this.userName = this.service.trimmedString;
     this.breadCrumbPath = this.service.breadCrumb;
   }

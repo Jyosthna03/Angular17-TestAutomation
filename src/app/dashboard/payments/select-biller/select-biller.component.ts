@@ -90,6 +90,7 @@ export class SelectBillerComponent {
           })
         }
       }
+
   onKeyPress(event: KeyboardEvent) {
     const inputChar = event.key;
     if (!/^\d+$/.test(inputChar)) {

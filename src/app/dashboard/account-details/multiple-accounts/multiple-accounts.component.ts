@@ -3,7 +3,7 @@ import { BankingdataService } from '../../../bankingdata.service';
 import { NgStyle } from '@angular/common';
 import { DigitSpacingPipe } from '../digit-spacing.pipe';
 import { SharedFile } from '../../../sharedfile';
-import { CardDetails } from '../../../modal';
+import { AccountData, CardDetails } from '../../../modal';
 
 
 @Component({
@@ -30,7 +30,7 @@ export class MultipleAccountsComponent {
 
   selectedCard(data: CardDetails) {
       this.selectedData = data;
-      this.service.accountData.pop() 
-      this.service.accountData.push(data)
+      this.service.multipleAccountData.pop() 
+      this.service.multipleAccountData.push(data)
     }
 }

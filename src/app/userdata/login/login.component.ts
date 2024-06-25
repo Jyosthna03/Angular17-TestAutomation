@@ -19,6 +19,7 @@ export class LoginComponent {
   isShowPopup: boolean = false;
   submitted = false;
   isInvalidUser:string = ''
+  invalidUser:boolean = false;
   constructor(private fb: FormBuilder,private router: Router,private modalService: NgbModal,private service:BankingdataService) {}
  
   @ViewChild('formElement') formElement!: ElementRef;
@@ -34,7 +35,7 @@ export class LoginComponent {
     return this.loginForm.controls;
   }
 
-  invalidUser:boolean = false;
+ 
   onSubmit() {
     const email = this.formControls['email'].value;
     const password = this.formControls['password'].value;

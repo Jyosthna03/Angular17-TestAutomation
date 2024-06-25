@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { BankingdataService } from '../../../bankingdata.service';
-import { CardDetails } from '../../../modal';
+import { AccountData, CardDetails } from '../../../modal';
 
 @Component({
   selector: 'app-account-summary',
@@ -15,7 +15,7 @@ export class AccountSummaryComponent {
   accountDetails!:CardDetails[];
   
   ngOnInit(){
-    this.accountDetails = this.service.accountData
+    this.accountDetails = this.service.multipleAccountData
   }
 
 

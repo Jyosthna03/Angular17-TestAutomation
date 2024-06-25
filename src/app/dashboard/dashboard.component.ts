@@ -30,14 +30,13 @@ export class DashboardComponent {
     this.gotoDashboard(0, "/accountDashboard");
   }
 
-  gotoTransferDashboard(){
-    this.gotoDashboard(2, "/transferDashboard");
-  }
-
   gotoPaymentDashboard(){
     this.gotoDashboard(1, "/paymentDashboard");
   }
-
+  gotoTransferDashboard(){
+    this.gotoDashboard(2, "/transferDashboard");
+  }
+  
   logOut(){
     this.route.navigate(['/'])
     localStorage.removeItem('logindata')

@@ -36,6 +36,7 @@ export interface addPayee{
     reEnteraccountNo:string
 }
 
+//multiple accounts data 
 export interface CardDetails {
     id: number;
     AccountHolder: string;
@@ -45,6 +46,7 @@ export interface CardDetails {
     AvailableBalanceinRupees: number;
   }
 
+  //accountSummary data
 export interface AccountData {
     AccountHolder: string;
     AccountType: string;
@@ -61,11 +63,12 @@ export interface AccountData {
     }
   
   export interface RechargeFormValues {
-    billerType: string;
-    networkProvider: string;
     PayingFrom: string;
+    amount:string;
+    mobileNumber:string;
+    networkProvider: string;
+    
   }
-
   export interface successData {
     payee:string;
     accountNumber:number;
@@ -73,5 +76,16 @@ export interface AccountData {
     amount:number;
     remarks:string;
     paymentModeInput:string;
+  }
+
+  export interface accountData{
+    AccountHolder:string;
+    AccountType:string;
+    AccountNumber:string;
+    AccountifscCode:string;
+    AccountBranch:string;
+    AvailableBalanceinRupees:number;
+
+
   }
  

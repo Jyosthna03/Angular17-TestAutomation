@@ -1,11 +1,27 @@
 import { Injectable } from '@angular/core';
-import { tabnames } from './modal';
+import { AccountData, CardDetails, accountData, tabnames } from './modal';
 import { BehaviorSubject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BankingdataService {
+ 
+  userData:string[]=['leela@gmail.com','Leela@123','katy@gmail.com','Katy@12354','jyosthna@gmail.com','Jyos@123'];
+  registerDetails:Array<Object> = []
+  currentUser: string="";
+  selectBillerSuccess:Array<Object> = []
+  rechargePaymentSuccess:boolean = false;
+  balance:number = 50000;
+  trimmedString:string = "";
+  addPayee:Array<string> = ['Dileep']
+  selectPayeeValue:boolean = true;
+  isTransactionHistory=false;
+  isAccountStatement=false;
+  breadCrumb:Array<string>= ["Account Details"] 
+  paymentSucess:Array<Object> = [] //for congratulations page data
+
+
   private accountNumberpopUp = new BehaviorSubject<string>('');
   private bankNamepopUp = new BehaviorSubject<string>('');
   currentAccountNumber = this.accountNumberpopUp.asObservable();
@@ -18,14 +34,6 @@ export class BankingdataService {
   userBankName(bankName:string){
     this.bankNamepopUp.next(bankName);
   }
-
-  
-
-  userData:string[]=['leela@gmail.com','Leela@123','katy@gmail.com','Katy@12354','jyosthna@gmail.com','Jyos@123'];
-  registerDetails:Array<Object> = []
-  currentUser: string="";
-  selectBillerSuccess:Array<Object> = []
-  rechargePaymentSuccess:boolean = false;
 
   checkUserInApp(searchUser: string){
     return this.userData.includes(searchUser);
@@ -48,14 +56,19 @@ export class BankingdataService {
   getCurrentUser() {
     return this.currentUser;
   }
+ 
+  //for multiple accounts and account summary component
+  multipleAccountData:CardDetails[] = [{
+        id:1,
+        AccountHolder: this.trimmedString,
+        AccountType:"Savings Account",
+        AccountNumber:"1234567890111213",
+        AccountBranch:"KPHB",
+        AvailableBalanceinRupees: this.balance
+  }]
 
-  balance:number = 50000;
-
-  trimmedString:string = "";
-
-  addPayee:Array<string> = ['Dileep']
-
-  accountData:any= [
+  //only for transfer account summary component
+  accountData:AccountData[]= [
     {
         AccountHolder: this.trimmedString,
         AccountType:"Savings Account",
@@ -65,13 +78,6 @@ export class BankingdataService {
         AvailableBalanceinRupees: this.balance
     }
   ]
-
-  selectPayeeValue:boolean = true;
-  isTransactionHistory=false;
-  isAccountStatement=false;
-  breadCrumb:Array<string>= ["Account Details"] 
-  paymentSucess:Array<Object> = [] //for congratulations page data
-
 
   tabNames:tabnames[] = [
     {
@@ -88,8 +94,7 @@ export class BankingdataService {
     }
   ]
 
-  userSelectedTab=this.tabNames[0].displayName;
-
+  userSelectedTab:string =this.tabNames[0].displayName;
   userSelectTab(tab:string){
     this.breadCrumb.pop();
     this.breadCrumb.push(tab);

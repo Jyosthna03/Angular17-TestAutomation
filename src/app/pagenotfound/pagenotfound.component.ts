@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { NavbarComponent } from '../dashboard/account-details/navbar/navbar.component';
+import { Component} from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -7,11 +6,11 @@ import { RouterLink } from '@angular/router';
     standalone: true,
     templateUrl: './pagenotfound.component.html',
     styleUrl: './pagenotfound.component.css',
-    imports: [NavbarComponent,RouterLink]
+    imports: [RouterLink]
 })
 
-export class PageNotFoundComponent implements OnInit {
-    constructor() { }
+export class PageNotFoundComponent  {
+    
 
-    ngOnInit() { }
+    
 }
