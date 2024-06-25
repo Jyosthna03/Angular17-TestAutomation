@@ -54,6 +54,9 @@ export class SharedFile {
   networkProviders = ['Airtel Post-paid', 'Airtel Pre-paid'];
   banks=['ICICI', 'SBI', 'HDFC', 'Axis', 'StandardCharted'];
 
+  countries = ['Select Country', 'India','USA', 'Canada', 'UK', 'Australia', 'Poland', 'Other'];
+  states = ['Select State','Telangana','Andhra Pradesh','Karnataka','Tamil Nadu','Himachal Pradesh']
+
 
   userviewByPeriod=['Last 7 Days', 'Last 14 Days'];
   userviewByFormat=['PDF File', 'Excel Sheet'];
