@@ -1,22 +1,19 @@
 .payeeDetails{
     color: #082341;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: bold;
-    line-height: normal;
-    padding: 0px 20px 0px 35px;
+    font-size: 18px;
+    font-weight: 800;
+    padding: 0px;
 }
 .btn-primary ,.btn-primary:active{
-  border: 1px solid #453985 !important;
-  background: #453985;
+    border: 1px solid #453985 !important;
+    background: #453985;
 }
 .payee-details{
-  color: var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1B154C);
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 20px; 
-  padding-left: 80px;
+    color: var(--Brand-Primary-Colors-Evoke-Blue-Evoke-Blue, #1B154C);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 20px; 
+    padding-left: 0px;
 }
 .payeeInputs{
     margin-bottom: 12px;
@@ -25,37 +22,28 @@
 .ifscCode{
    text-transform: uppercase;
 }
-@media screen and (min-width:576px) and (max-width:767px) {
-    .payee-details{
-        font-size: 12px;
-        padding-left: 20px;
-    }
-    input.transferInputs {
-        width: 216px ;
-        height: 36px;
-        flex-shrink: 0;
-      }
+.fixed-footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    background: #f6f6f6; 
+    z-index: 1000; 
+    padding: 12px 10px;
 }
-@media screen and (min-width:576px) and (max-width:767px) {
-    .error-text{
-        padding-left: 40px;
-    }
+.fixed-footer .row{
+    margin: 0;
 }
-@media screen and (min-width:375px) and (max-width:575px) {
-    .payee-details{
-        font-size: 12px;
-        padding-left: 0px;
-    }
-    .error-text{
-        padding-left: 0px;
-        text-align: start;
-    }
-    input.transferInputs {
-        width: 216px ;
-        height: 36px;
-        flex-shrink: 0;
-    }
-    .payeeDetails{
-        padding: 0px;
-    }
+.fixed-footer .bottom-buttons {
+    margin: 0;
+}
+.error-text{
+    padding-left: 0px;
+    text-align: start;
+}
+input.transferInputs {
+    width: 216px ;
+    height: 36px;
+    flex-shrink: 0;
 }

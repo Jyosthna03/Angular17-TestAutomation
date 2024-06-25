@@ -19,7 +19,6 @@
     padding-top: 10px;
     padding-bottom: 15px;
 }
-
 .instantTransfer{
   color: #646464;
   font-size: 12px;
@@ -94,7 +93,7 @@ input::-webkit-inner-spin-button {
 .text-danger{
     clear: both;
 }
-@media screen and (max-width:575px) {
+@media screen and (max-width:576px) {
     .transaction{
         padding: 30px 0px 10px 0px;
         font-size: 14px;
@@ -127,6 +126,9 @@ input::-webkit-inner-spin-button {
     }
     .fixed-footer .bottom-buttons {
         margin: 0;
+    }
+    .rtgspay{
+        margin-bottom: 30px;
     }
    
 }

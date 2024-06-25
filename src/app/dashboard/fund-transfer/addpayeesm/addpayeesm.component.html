@@ -6,7 +6,7 @@
         <form [formGroup]="addPayeesmForm" #formElement> 
            <div class="row">
                     <div class="col-md-5 col-sm-4 col-5">
-                        <label class="payee-details">Payee Full Name<span class="text-danger">*</span></label>
+                        <label for="fullname" class="payee-details">Payee Full Name<span class="text-danger">*</span></label>
                     </div>
                     <div class="col-md-7 col-sm-6 col-7 payeeInputs">
                         <input type="text" class="transferInputs" id="fullname" formControlName="fullname" maxlength="15">
@@ -25,7 +25,7 @@
 
              <div class="row">
                  <div class="col-md-5 col-sm-4 col-5">
-                    <label class="payee-details">Payee Nickname<span class="text-danger">*</span></label>
+                    <label for="nickname" class="payee-details">Payee Nickname<span class="text-danger">*</span></label>
                  </div>
                  <div class="col-md-7 col-sm-6 col-7 payeeInputs">
                     <input type="text" class="transferInputs" id="nickname" formControlName="nickname" maxlength="15">
@@ -44,10 +44,10 @@
 
              <div class="row">
                 <div class="col-md-5 col-sm-4 col-5">
-                    <label class="payee-details">Bank Name<span class="text-danger">*</span></label>
+                    <label for="bankname" class="payee-details">Bank Name<span class="text-danger">*</span></label>
                 </div>
                 <div class="col-md-7 col-sm-6 col-7 payeeInputs">
-                       <select formControlName="bankName" class="transferInputs">
+                       <select formControlName="bankName" class="transferInputs" id="bankname">
                             <option value="">Select Your Bank</option>
                             @for (bank of bankNames; track $index) {
                                 <option>{{bank}}</option>
@@ -58,7 +58,7 @@
 
              <div class="row">
                 <div class="col-md-5 col-sm-4 col-5">
-                    <label class="payee-details">Account Number<span class="text-danger">*</span></label>
+                    <label for="accountNo" class="payee-details">Account Number<span class="text-danger">*</span></label>
                 </div>
                 <div class="col-md-7 col-sm-6 col-7 payeeInputs">
                     <input type="number" class="transferInputs" id="accountNo" formControlName="accountNo" maxlength="18" (keypress)="onKeyPress($event)">
@@ -78,7 +78,7 @@
     
              <div class="row">
                 <div class="col-md-5 col-sm-4 col-5">
-                    <label class="payee-details">Confirm Account<span class="text-danger">*</span></label>
+                    <label for="reEnterAccNo" class="payee-details">Confirm Account<span class="text-danger">*</span></label>
                 </div>
                 <div class="col-md-7 col-sm-6 col-7 payeeInputs">
                     <input type="number" class="transferInputs" id="reEnterAccNo" formControlName="reEnteraccountNo" (keypress)="onKeyPress($event)" maxlength="18">
@@ -99,7 +99,7 @@
              </div>
              <div class="row">
                 <div class="col-md-5 col-sm-4 col-5">
-                    <label class="payee-details">IFSC Code<span class="text-danger">*</span></label>
+                    <label for="ifscCode" class="payee-details">IFSC Code<span class="text-danger">*</span></label>
                 </div>
                 <div class="col-md-7 col-sm-6 col-7 payeeInputs">
                     <input type="text" class="transferInputs ifscCode" id="ifscCode" formControlName="ifscCode" maxlength="11">
@@ -117,10 +117,15 @@
                 </div>
                 <div class="col-sm-2"></div>
              </div>
-            <div class="d-flex flex-row justify-content-center mt-5">
-                <button class="cancelAndSaveBtn me-4" routerLink="/transferDashboard" id="back">Back</button>
-                <button class="cancelAndSaveBtn" (click)="onCancel()" id="cancel">cancel</button>
-                <button type="submit" class="btn btn-primary cancelAndSaveBtn saveBtn" [disabled]="addPayeesmForm.invalid" (click)="submitPayee()" id="addPayee" [ngClass]="{'btn-enabled': !addPayeesmForm.invalid, 'btn-disabled': addPayeesmForm.invalid}">Add Payee</button>
-            </div>
+                <footer class="fixed-footer">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col">
+                            <button class="cancelAndSaveBtn me-4" routerLink="/transferDashboard" id="back">Back</button>
+                            <button class="cancelAndSaveBtn" (click)="onCancel()" id="cancel">cancel</button>
+                            <button type="submit" class="btn btn-primary cancelAndSaveBtn saveBtn" [disabled]="addPayeesmForm.invalid" (click)="submitPayee()" id="addPayee" [ngClass]="{'btn-enabled': !addPayeesmForm.invalid, 'btn-disabled': addPayeesmForm.invalid}">Add Payee</button>
+                        </div>
+                       
+                    </div>
+                </footer>
     </form>
 </div>

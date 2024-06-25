@@ -54,7 +54,7 @@ export class SharedFile {
   networkProviders = ['Airtel Post-paid', 'Airtel Pre-paid'];
   banks=['ICICI', 'SBI', 'HDFC', 'Axis', 'StandardCharted'];
 
-
+  //transaction history data
   userviewByPeriod=['Last 7 Days', 'Last 14 Days'];
   userviewByFormat=['PDF File', 'Excel Sheet'];
   userRecentTrans: recent[] = [

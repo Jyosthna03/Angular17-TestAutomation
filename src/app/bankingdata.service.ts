@@ -54,7 +54,7 @@ export class BankingdataService {
 
   trimmedString:string = "";
 
-  addPayee:Array<String> = ['Dileep']
+  addPayee:Array<string> = ['Dileep']
 
   accountData:any= [
     {

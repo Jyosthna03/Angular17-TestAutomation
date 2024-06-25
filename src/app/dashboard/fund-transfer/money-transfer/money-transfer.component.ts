@@ -1,4 +1,4 @@
-import { CommonModule, CurrencyPipe, NgClass } from '@angular/common';
+import { CommonModule, CurrencyPipe} from '@angular/common';
 import { Component, TemplateRef} from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BankingdataService } from '../../../bankingdata.service';
@@ -32,32 +32,24 @@ export class MoneyTransferComponent {
    }
  
   ngOnInit(){
-   
       this.service.currentAccountNumber.subscribe(accountNumber => {
       this.moneyTransferForm.get('accountNumber')?.setValue(accountNumber, { emitEvent: false });
     });
       this.service.currentBankName.subscribe(bankName =>{
       this.moneyTransferForm.get('bankName')?.setValue( bankName, { emitEvent: false });
     });
+}
 
-    
-    
-    
-   }
- 
-  onSubmit(value: FormGroup) {
-    if(this.moneyTransferForm.valid){
-      let amount = this.moneyTransferForm.value.amount;
+  onSubmit() {
+    if (this.moneyTransferForm.valid) {
+      const amount = this.moneyTransferForm.value.amount;
       this.service.balance -= amount;
-      this.service.paymentSucess.pop()
-      this.service.paymentSucess.push(value);
-      this.service.changeAccountNumber('')
-      this.service.userBankName('')
-      this.service.addPayee.pop();
-      this.route.navigateByUrl('/transferSuccess');
+      this.service.paymentSucess = [this.moneyTransferForm.value];
       this.moneyTransferForm.reset();
+      this.route.navigateByUrl('/transferSuccess');
     }
   }
+  
  
   openAddpayeePopup(content: TemplateRef<FormGroup>) {
     this.modalService.open(content, {
