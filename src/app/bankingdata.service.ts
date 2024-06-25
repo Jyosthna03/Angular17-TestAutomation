@@ -100,6 +100,4 @@ export class BankingdataService {
     this.breadCrumb.push(tab);
     this.userSelectedTab = tab;
   }
-
-
 }
