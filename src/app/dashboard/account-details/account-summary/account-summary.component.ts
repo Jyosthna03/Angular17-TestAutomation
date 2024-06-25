@@ -5,7 +5,6 @@ import { CardDetails } from '../../../modal';
 @Component({
   selector: 'app-account-summary',
   standalone: true,
-  imports: [],
   templateUrl: './account-summary.component.html',
   styleUrl: './account-summary.component.css'
 })
@@ -17,7 +16,6 @@ export class AccountSummaryComponent {
   
   ngOnInit(){
     this.accountDetails = this.service.accountData
-
   }
 
 

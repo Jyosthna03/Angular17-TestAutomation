@@ -3,7 +3,6 @@ import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angula
 import { Router, RouterLink} from '@angular/router';
 import { BankingdataService } from '../../../bankingdata.service';
 import { CommonModule, DatePipe } from '@angular/common';
-import { BillerFormValues, RechargeFormValues } from '../../../modal';
 import { SharedFile } from '../../../sharedfile';
 
 
@@ -76,26 +75,21 @@ updateSuccessState(formValue: FormGroup, amount: number, isRecharge: boolean) {
     this.route.navigate(['/paymentSuccess']);
 }
   onCancel() {
-    const handleCancel = (form: FormGroup, values: BillerFormValues | RechargeFormValues) => {
-      if (form.valid) {
-        const confirmation = confirm("Are you sure you want to Cancel the Payment?");
-        if (confirmation) {
-          form.reset();
-          form.patchValue(values);
-        }
-      }
-    };
-    handleCancel(this.billerForm, {
-      billerType: 'Credit Card',
-      billerdetails: 'Credit Card',
-      PayingFrom: 'Savings Account'
-    });
-  
-    handleCancel(this.rechargeForm, {
-      billerType: 'Mobile Recharge',
-      networkProvider: "Airtel Post-paid",
-      PayingFrom: 'Savings Account'
-    });
+    if(this.billerForm.valid){
+      this.billerForm.reset();
+      this.billerForm.patchValue({
+          billerType: 'Credit Card',
+          billerdetails: 'Credit Card',
+          PayingFrom: 'Savings Account'
+    })}
+    if(this.rechargeForm.valid){
+      this.rechargeForm.reset();
+      this.rechargeForm.patchValue({
+          billerType: 'Mobile Recharge',
+          networkProvider: 'Airtel Pre-paid',
+          PayingFrom: 'Savings Account'
+      })
+    }
   }
   onKeyPress(event: KeyboardEvent) {
     const inputChar = event.key;

@@ -50,7 +50,6 @@ export class MoneyTransferComponent {
     }
   }
   
- 
   openAddpayeePopup(content: TemplateRef<FormGroup>) {
     this.modalService.open(content, {
       centered: true,

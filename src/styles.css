@@ -169,6 +169,7 @@ body {
     background: var(--Card-Header, #ecf3ff);
   }
   .summaryheading {
+    display: block;
     color: var(--Heading-Text, #1b154c);
     font-size: 16px;
     font-weight: 700;

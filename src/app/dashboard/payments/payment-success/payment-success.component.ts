@@ -19,6 +19,7 @@ export class PaymentSuccessComponent{
   recharge:boolean = this.service.rechargePaymentSuccess
   ngOnInit(){
     this.selectBillerPayment =  this.service.selectBillerSuccess;
+    console.log(this.selectBillerPayment)
     this.mobileRechargePayment = this.service.selectBillerSuccess
   }
 
