@@ -13,7 +13,6 @@ import { NgClass, NgStyle } from '@angular/common';
   styleUrl: './tabviews.component.css'
 })
 export class TabviewsComponent {
-
   constructor(private reg:BankingdataService){}
   activeTab: number = 1;
 
@@ -30,7 +29,4 @@ export class TabviewsComponent {
   activateTab(tabNo: number) {
     this.activeTab = tabNo;
   }
-
-  
-
 }

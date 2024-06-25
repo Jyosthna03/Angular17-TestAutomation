@@ -52,6 +52,4 @@ export class AccountStatementComponent {
     this.statementForm.get('selectedOption')!.setValue('');
     this.statementForm.get('downloadFormat')!.setValue('');
   }
-
-  submitForm() {}
 }
