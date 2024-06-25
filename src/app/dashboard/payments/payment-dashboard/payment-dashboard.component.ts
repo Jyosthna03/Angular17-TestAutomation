@@ -11,9 +11,5 @@ import { BankingdataService } from '../../../bankingdata.service';
     imports: [AccountHolderDetailsComponent, SelectBillerComponent]
 })
 export class PaymentDashboardComponent {
-  constructor(private service:BankingdataService){}
 
-  ngOnInit(){
-    console.log(this.service.userSelectedTab);
-  }
 }

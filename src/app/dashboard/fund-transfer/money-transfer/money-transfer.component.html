@@ -171,6 +171,7 @@
                         </div>
                     </div>
                 </div>
+               <footer class="fixed-footer">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col bottom-buttons">
                         <button class="cancelAndSaveBtn backbtn" routerLink="/dashboard" id="back">Back</button>
@@ -178,6 +179,7 @@
                         <button type="submit" id="send" class="cancelAndSaveBtn saveBtn" [disabled]="moneyTransferForm.invalid" (click)="onSubmit(moneyTransferForm.value)" [ngClass]="{'btn-enabled': moneyTransferForm.valid, 'btn-disabled': moneyTransferForm.invalid}">Send</button>
                     </div>
                 </div>
+               </footer>
             </form>
         </div>
     </div>

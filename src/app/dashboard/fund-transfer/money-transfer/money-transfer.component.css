@@ -19,6 +19,7 @@
     padding-top: 10px;
     padding-bottom: 15px;
 }
+
 .instantTransfer{
   color: #646464;
   font-size: 12px;
@@ -110,6 +111,16 @@ input::-webkit-inner-spin-button {
     }
     .pd-default{
         padding: 2px;
+    }
+    .fixed-footer {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #f6f6f6; 
+        border-top: 1px solid #ccc; 
+        z-index: 1000; 
     }
    
 }
