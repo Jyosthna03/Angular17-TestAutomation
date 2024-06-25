@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TransactionHistoryComponent } from './transaction-history.component';
 import { BankingdataService } from '../../../../../bankingdata.service';
-import { HttpClientModule } from '@angular/common/http';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { of } from 'rxjs';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
@@ -11,7 +10,6 @@ import { SharedFile } from '../../../../../sharedfile';
 describe('TransactionHistoryComponent', () => {
   let component: TransactionHistoryComponent;
   let fixture: ComponentFixture<TransactionHistoryComponent>;
-  let myservice:BankingdataService;
 
   let router:Router
 
@@ -29,7 +27,6 @@ describe('TransactionHistoryComponent', () => {
     
     fixture = TestBed.createComponent(TransactionHistoryComponent);
     component = fixture.componentInstance;
-    myservice = TestBed.inject(BankingdataService); // Inject the RegisterService
     router = TestBed.inject(Router)
     fixture.detectChanges();
   });

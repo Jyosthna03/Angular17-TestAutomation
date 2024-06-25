@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tabnames } from './modal';
 import { BehaviorSubject} from 'rxjs';
@@ -54,7 +53,7 @@ export class BankingdataService {
 
   trimmedString:string = "";
 
-  addPayee:Array<String> = ['Dileep']
+  addPayee:Array<string> = ['Dileep']
 
   accountData:any= [
     {

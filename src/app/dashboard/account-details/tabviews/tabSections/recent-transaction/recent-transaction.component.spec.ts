@@ -1,9 +1,4 @@
-import {
-  ComponentFixture,
-  TestBed,
-  fakeAsync,
-  tick,
-} from '@angular/core/testing';
+import {ComponentFixture,TestBed,} from '@angular/core/testing';
 import { RecentTransactionComponent } from './recent-transaction.component';
 import { BankingdataService } from '../../../../../bankingdata.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -14,7 +9,7 @@ import { recent } from '../../../../../modal';
 describe('RecentTransactionComponent', () => {
   let component: RecentTransactionComponent;
   let fixture: ComponentFixture<RecentTransactionComponent>;
-  let myservice: BankingdataService;
+  
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -24,7 +19,6 @@ describe('RecentTransactionComponent', () => {
 
     fixture = TestBed.createComponent(RecentTransactionComponent);
     component = fixture.componentInstance;
-    myservice = TestBed.inject(BankingdataService);
 
     fixture.detectChanges();
   });

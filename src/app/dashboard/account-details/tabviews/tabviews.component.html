@@ -2,7 +2,7 @@
   <!-- Tab View Of the Page -->
   <ul class="nav nav-tabs">
     <!-- Recent Tab -->
-    <li class="nav-item" [ngClass]="{ active: activeTab === 1 }" (click)="activateTab(1)" id="tabs">
+    <li class="nav-item" [ngClass]="{ active: activeTab === 1 }" (mousedown)="activateTab(1)" id="tabs">
       <a class="nav-link" [ngStyle]="{
             'border-bottom': activeTab === 1 ? '2px solid #082341' : 'none',
             color: activeTab === 1 ? '#082341' : '#000',
@@ -11,7 +11,7 @@
           }">Recent Transaction</a>
     </li>
     <!-- Transaction History -->
-    <li class="nav-item" [ngClass]="{ active: activeTab === 2 }" (click)="activateTab(2)" id="tabs">
+    <li class="nav-item" [ngClass]="{ active: activeTab === 2 }" (mousedown)="activateTab(2)" id="tabs">
       <a class="nav-link" [ngStyle]="{
             'border-bottom': activeTab === 2 ? '2px solid #082341' : 'none',
             color: activeTab === 2 ? '#082341' : '#000',
@@ -20,7 +20,7 @@
           }">Transaction History</a>
     </li>
     <!-- Account Statement -->
-    <li class="nav-item" [ngClass]="{ active: activeTab === 3 }" (click)="activateTab(3)" id="tabs">
+    <li class="nav-item" [ngClass]="{ active: activeTab === 3 }" (mousedown)="activateTab(3)" id="tabs">
       <a class="nav-link" [ngStyle]="{
             'border-bottom': activeTab === 3 ? '2px solid #082341' : 'none',
             color: activeTab === 3 ? '#082341' : '#000',
