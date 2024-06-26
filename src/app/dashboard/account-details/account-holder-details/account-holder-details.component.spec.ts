@@ -59,40 +59,4 @@ describe('AccountHolderDetailsComponent', () => {
     expect(componentDate.getMonth()).toEqual(currentDate.getMonth());
     expect(componentDate.getDate()).toEqual(currentDate.getDate());
   });
-
-  // it('Checking if the Account Type is correct or Not',()=>{
-  //   myservice.accountData = [
-  //     {
-  //       id:1,
-  //       AccountHolder: myservice.trimmedString,
-  //       AccountType:"Savings Account",
-  //       AccountNumber:"1234567890111213",
-  //       AccountBranch:"KPHB",
-  //       AvailableBalanceinRupees: myservice.balance
-  //     },
-  //   ];
-  //   expect(component.accountDetails).toEqual(myservice.accountData);
-  // });
-
-  
-  // it('Checking the ngOnInit', () => {
-  //   myservice.accountData = [
-  //     {
-  //       AccountHolder: myservice.trimmedString,
-  //       AccountType: 'Savings Account',
-  //       AccountNumber: '1234567890111213',
-  //       AccountifscCode: 'ABCD0001234',
-  //       AccountBranch: 'KPHB',
-  //       AvailableBalanceinRupees: 50000,
-  //     },
-  //   ];
-  //   myservice.trimmedString = 'Leela';
-  //   myservice.breadCrumb = [];
-
-  //   component.ngOnInit();
-    
-  //   expect(component.accountDetails).toEqual(myservice.accountData);
-  //   expect(component.userName).toEqual(myservice.trimmedString);
-  //   expect(component.breadCrumbPath).toEqual(myservice.breadCrumb);
-  // });
 });
