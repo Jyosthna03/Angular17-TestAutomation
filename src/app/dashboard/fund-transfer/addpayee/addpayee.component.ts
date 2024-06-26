@@ -17,7 +17,7 @@ export class AddpayeeComponent {
   addPayeeForm!: FormGroup;
   bankNames:string[] = this.sharedFile.banks;
   payeeAddMsg: string = '';
-  constructor(private service: BankingdataService,private fb:FormBuilder,private modalService: NgbModal) {
+  constructor(private service: BankingdataService, private fb:FormBuilder, private modalService: NgbModal) {
     this.addPayeeForm = this.fb.group(
       {
         fullname: new FormControl('', [Validators.required,Validators.pattern(/^[a-zA-Z ]*$/),Validators.minLength(3),Validators.maxLength(15)]),
