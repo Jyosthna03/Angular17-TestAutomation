@@ -69,6 +69,7 @@ describe('SelectBillerComponent', () => {
     expect(amount.valid).toBeFalsy();
     amount.setValue(''); // Empty amount
     expect(amount.hasError('required')).toBeTruthy();
+
     amount.setValue('100'); // Valid amount
     expect(amount.valid).toBeTruthy();
   });
@@ -96,7 +97,6 @@ describe('SelectBillerComponent', () => {
     const navigateSpy = spyOn(router, 'navigateByUrl');
 
     const backButton = fixture.nativeElement.querySelector('#back');
-    console.log(backButton)
     backButton.click();
 
     expect(navigateSpy).toHaveBeenCalled();

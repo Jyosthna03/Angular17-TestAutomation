@@ -77,7 +77,6 @@ describe('AccountStatementComponent', () => {
   it('should navigate to dashboard when back button is clicked', () => {
     const navigateSpy = spyOn(router, 'navigateByUrl');
     const button = fixture.nativeElement.querySelector('#back');
-    console.log(button)
     button.click();
     expect(navigateSpy).toHaveBeenCalled();
     expect(navigateSpy.calls.mostRecent().args[0]).toMatch(/\/dashboard$/)

@@ -238,7 +238,6 @@ describe('TransactionHistoryComponent', () => {
     const navigateSpy = spyOn(router, 'navigateByUrl');
 
     const button = fixture.nativeElement.querySelector('#back');
-    console.log(button)
     button.click();
 
     expect(navigateSpy).toHaveBeenCalled();

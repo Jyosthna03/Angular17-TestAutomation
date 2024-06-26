@@ -73,7 +73,6 @@ describe('NavbarComponent', () => {
     const navigateSpy = spyOn(router, 'navigateByUrl');
 
     const button = fixture.nativeElement.querySelector('#logout');
-    console.log(button)
     button.click();
 
     expect(navigateSpy).toHaveBeenCalled();
