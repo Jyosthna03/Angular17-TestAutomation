@@ -36,11 +36,5 @@ describe('AccountDashboardComponent', () => {
     expect(component.isloaded).toBe(false);
   });
 
-  // it('should set isLoaded to true after interval', fakeAsync(() => {
-  //   component.isloaded=false;
-  //   component.ngOnInit();
-  //   expect(component.isloaded).toBe(false);
-  //   tick(1000);
-  //   expect(component.isloaded).toBe(true);
-  // }));
+  
 });
