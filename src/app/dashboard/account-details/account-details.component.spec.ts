@@ -27,12 +27,8 @@ describe('AccountDetailsComponent', () => {
   it('should render the image element with correct attributes', () => {
     const imgElement = fixture.debugElement.query(By.css('img'));
     expect(imgElement).toBeTruthy();
-    expect(imgElement.nativeElement.getAttribute('src')).toBe(
-      'assets/Images/account-icon.svg'
-    );
-    expect(imgElement.nativeElement.getAttribute('alt')).toBe(
-      'Account-Details'
-    );
+    expect(imgElement.nativeElement.getAttribute('src')).toBe('assets/Images/account-pin-circle-line.png')
+    expect(imgElement.nativeElement.getAttribute('alt')).toBe('Account-Details');
     expect(imgElement.nativeElement.style.maxHeight).toBe('fit-content');
   });
 
@@ -76,12 +72,8 @@ describe('AccountDetailsComponent', () => {
   it('should render paragraph with correct text and class for Statements', () => {
     const paragraphElement = fixture.debugElement.query(By.css('#statements'));
     expect(paragraphElement).toBeTruthy();
-    expect(paragraphElement.nativeElement.textContent.trim()).toBe(
-      'Statements'
-    );
-    expect(paragraphElement.nativeElement.getAttribute('class')).toContain(
-      'card-text'
-    );
+    expect(paragraphElement.nativeElement.textContent.trim()).toBe('Account Statement');
+    expect(paragraphElement.nativeElement.getAttribute('class')).toContain('card-text');
   });
 
   it('should set isAccountStatement to true', () => {
