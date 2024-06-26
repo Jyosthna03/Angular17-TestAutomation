@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AccountHolderDetailsComponent } from './account-holder-details.component';
 import { BankingdataService } from '../../../bankingdata.service';
-import { HttpClientModule } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 
@@ -13,7 +12,7 @@ describe('AccountHolderDetailsComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       providers: [BankingdataService,{ provide: ActivatedRoute, useValue: {paramMap:of({})} }],
-      imports: [AccountHolderDetailsComponent,HttpClientModule]
+      imports: [AccountHolderDetailsComponent]
     })
     .compileComponents();
     

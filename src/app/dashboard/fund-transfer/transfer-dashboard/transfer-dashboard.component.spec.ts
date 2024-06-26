@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TransferDashboardComponent } from './transfer-dashboard.component';
-import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
@@ -12,7 +11,7 @@ describe('TransferDashboardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule,HttpClientModule],
+      imports: [ReactiveFormsModule],
       providers: [
         BankingdataService,
          {

@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DashboardComponent } from './dashboard.component';
-import { HttpClientModule} from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { BankingdataService } from '../bankingdata.service';
@@ -14,7 +13,7 @@ describe('DashboardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule,HttpClientModule],
+      imports: [ReactiveFormsModule],
       providers: [BankingdataService,{ provide: ActivatedRoute, useValue: {paramMap:of({})} }],
       
     })

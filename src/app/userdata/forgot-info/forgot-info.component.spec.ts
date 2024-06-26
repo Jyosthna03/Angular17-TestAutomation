@@ -1,7 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ForgotInfoComponent } from './forgot-info.component';
-import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule} from '@angular/forms';
 import { BankingdataService } from '../../bankingdata.service';
 import { ActivatedRoute } from '@angular/router';
@@ -15,8 +13,9 @@ describe('ForgotInfoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule, HttpClientModule],
-      providers: [BankingdataService,{ provide: ActivatedRoute, useValue: {paramMap:of({})} }],
+      imports: [ReactiveFormsModule],
+      providers: [BankingdataService,
+        { provide: ActivatedRoute, useValue: {paramMap:of({})} }],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ForgotInfoComponent);

@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PaymentSuccessComponent } from './payment-success.component';
 import { BankingdataService } from '../../../bankingdata.service';
-import { HttpClientModule } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 
@@ -12,7 +11,6 @@ describe('PaymentSuccessComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientModule],
       providers: [
         BankingdataService,
          {

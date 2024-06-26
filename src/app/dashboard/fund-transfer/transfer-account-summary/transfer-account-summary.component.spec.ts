@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TransferAccountSummaryComponent } from './transfer-account-summary.component';
-import { HttpClientModule } from '@angular/common/http';
 import { BankingdataService } from '../../../bankingdata.service';
 
 describe('TransferAccountSummaryComponent', () => {
@@ -10,7 +9,6 @@ describe('TransferAccountSummaryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientModule],
       providers: [BankingdataService]
     })
     .compileComponents();
@@ -47,7 +45,7 @@ describe('TransferAccountSummaryComponent', () => {
     let balanceText = balanceEle.textContent.trim();
     let numericBalance = parseFloat(balanceText.replace(/[^\d.-]/g, ''));
     let balanceValue = myService.balance;
-    
+
     expect(accountHolderEle.textContent).toEqual(myService.accountData[0].AccountHolder)
     expect(accountTypeEle.textContent).toEqual(myService.accountData[0].AccountType)
     expect(accountNumberEle.textContent).toEqual(myService.accountData[0].AccountNumber)

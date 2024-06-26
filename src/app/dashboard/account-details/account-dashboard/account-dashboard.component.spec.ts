@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed} from '@angular/core/testing';
 import { AccountDashboardComponent } from './account-dashboard.component';
-import { HttpClientModule } from '@angular/common/http';
 
 describe('AccountDashboardComponent', () => {
   let component: AccountDashboardComponent;
@@ -8,7 +7,7 @@ describe('AccountDashboardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientModule]
+    
     })
     .compileComponents();
     

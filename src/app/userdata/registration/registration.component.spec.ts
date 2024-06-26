@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RegistrationComponent } from './registration.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { of } from 'rxjs';
 import { BankingdataService } from '../../bankingdata.service';
 import { ActivatedRoute } from '@angular/router';
@@ -12,7 +11,7 @@ describe('RegistrationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports:[ReactiveFormsModule,HttpClientModule],
+      imports:[ReactiveFormsModule],
       providers:[BankingdataService, { provide: ActivatedRoute, useValue: {paramMap:of({})} }]
     })
     .compileComponents();

@@ -4,7 +4,6 @@ import { By } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { of } from 'rxjs';
 import { BankingdataService } from '../../../bankingdata.service';
-import { HttpClientModule } from '@angular/common/http';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
@@ -13,7 +12,6 @@ describe('NavbarComponent', () => {
   let router:Router
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientModule],
       providers: [BankingdataService,{ provide: ActivatedRoute, useValue: {paramMap:of({})} }],
     })
     .compileComponents();

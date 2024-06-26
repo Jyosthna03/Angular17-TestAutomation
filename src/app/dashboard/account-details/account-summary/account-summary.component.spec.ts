@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AccountSummaryComponent } from './account-summary.component';
 import { BankingdataService } from '../../../bankingdata.service';
-import { HttpClientModule } from '@angular/common/http';
 
 describe('AccountSummaryComponent', () => {
   let component: AccountSummaryComponent;
@@ -10,7 +9,6 @@ describe('AccountSummaryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientModule],
       providers:[BankingdataService],
     })
     .compileComponents();
