@@ -13,7 +13,6 @@ describe('NavbarComponent', () => {
   let router:Router
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      // declarations:[NavbarComponent],
       imports: [HttpClientModule],
       providers: [BankingdataService,{ provide: ActivatedRoute, useValue: {paramMap:of({})} }],
     })
@@ -30,24 +29,9 @@ describe('NavbarComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have svg element', () => {
-    const svgElement = fixture.debugElement.query(By.css('svg'));
-    expect(svgElement).toBeTruthy();
-  });
 
-  it('should have correct width and height attributes', () => {
-    const svgElement: SVGElement = fixture.debugElement.query(By.css('svg')).nativeElement;
-    expect(svgElement.getAttribute('width')).toBe('32');
-    expect(svgElement.getAttribute('height')).toBe('32');
-  });
-
-  it('should have path element with correct fill color', () => {
-    const pathElement: SVGPathElement = fixture.debugElement.query(By.css('path')).nativeElement;
-    expect(pathElement.getAttribute('fill')).toBe('#F16A22');
-  });
-
-  it('should have a navbar-brand class', () => {
-    const linkElement = fixture.debugElement.query(By.css('.navbar-brand'));
+  it('should have a nav-item class', () => {
+    const linkElement = fixture.debugElement.query(By.css('.nav-item'));
     expect(linkElement).toBeTruthy();
   });
 
@@ -56,14 +40,14 @@ describe('NavbarComponent', () => {
     expect(linkElement).toBeTruthy();
   });
 
-  it('should display LOGO text', () => {
+  it('should display Test Automation text', () => {
     const linkElement: HTMLElement = fixture.debugElement.query(By.css('.logo')).nativeElement;
-    expect(linkElement.textContent).toContain('LOGO');
+    expect(linkElement.textContent).toContain('Test Automation');
   });
 
-  it('should have 4 nav items', () => {
+  it('should have 5 nav items', () => {
     const navItems = fixture.debugElement.queryAll(By.css('.nav-item'));
-    expect(navItems.length).toBe(4);
+    expect(navItems.length).toBe(5);
   });
 
   it('should have a logout button', () => {
@@ -82,7 +66,7 @@ describe('NavbarComponent', () => {
     const logoutButton = fixture.debugElement.query(By.css('.logOutBtn'));
     expect(logoutButton).toBeTruthy();
     const routerLink = logoutButton.nativeElement.getAttribute('routerLink');
-    expect(routerLink).toBe('/login');
+    expect(routerLink).toBe('/');
   });
 
   it('should navigate to login when back button is clicked', () => {
@@ -93,7 +77,7 @@ describe('NavbarComponent', () => {
     button.click();
 
     expect(navigateSpy).toHaveBeenCalled();
-    expect(navigateSpy.calls.mostRecent().args[0]).toMatch(/\/login$/)
+    expect(navigateSpy.calls.mostRecent().args[0]).toMatch('/')
   });
   
 

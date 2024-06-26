@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AccountData, CardDetails, accountData, tabnames } from './modal';
+import { AccountData, CardDetails, tabnames } from './modal';
 import { BehaviorSubject} from 'rxjs';
 
 @Injectable({
