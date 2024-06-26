@@ -3,8 +3,7 @@ import { RecentTransactionComponent } from './recent-transaction.component';
 import { BankingdataService } from '../../../../../bankingdata.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CurrencyPipe, NgFor } from '@angular/common';
-import { SharedFile } from '../../../../../sharedfile';
-import { recent } from '../../../../../modal';
+import { userRecentTrans } from '../../../../../sharedfile';
 
 describe('RecentTransactionComponent', () => {
   let component: RecentTransactionComponent;
@@ -14,7 +13,7 @@ describe('RecentTransactionComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HttpClientModule, CurrencyPipe, NgFor],
-      providers: [BankingdataService, SharedFile],
+      providers: [BankingdataService],
     }).compileComponents();
 
     fixture = TestBed.createComponent(RecentTransactionComponent);
@@ -27,29 +26,16 @@ describe('RecentTransactionComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should initialize sharedData with BankingdataService', () => {
-    expect(component.sharedData).toBeTruthy();
-    expect(component.sharedData instanceof SharedFile).toBe(true);
-  });
 
-  it('should initialize RecentTrans array', () => {
-    expect(component.RecentTrans).toBeDefined();
-    expect(component.RecentTrans.length).toBe(0);
-  });
+  describe('ngOnInit', () => {
+    it('should initialize RecentTrans', () => {
+      component.ngOnInit();
+      expect(component.RecentTrans).toEqual([]);
+    });
 
-  it('should set recentTrans with userRecentTrans from SharedFile on ngOnInit', () => {
-    let mockUserRecentTrans: recent[] = [
-      {
-        symbol: 'assets/Images/down-arrow.svg',
-        name: 'Natasha Davel',
-        transDate: '15/03/2024',
-        transtype: 'Credited',
-        transDesc: 'IMPS 1234/UPI123456/DIleep Thotakura/PhonePe',
-        amountcredit: '1,256.00',
-        totAmount: '₹1,11,256.00',
-      },
-    ];
-    component.ngOnInit();
-    expect(component.recentTrans).toEqual(mockUserRecentTrans);
+    it('should set recentTrans using userRecentTrans', () => {
+      component.ngOnInit();
+      expect(component.recentTrans()).toEqual(userRecentTrans);
+    });
   });
 });

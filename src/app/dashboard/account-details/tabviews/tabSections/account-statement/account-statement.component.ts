@@ -35,7 +35,7 @@ export class AccountStatementComponent {
     });
   }
 
-  // sharedFile = new SharedFile(this.serv);
+  
   fromStatementDate = signal('');
   toStatementDate = signal('');
   showflag = signal('');

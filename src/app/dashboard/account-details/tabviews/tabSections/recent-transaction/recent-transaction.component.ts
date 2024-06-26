@@ -2,7 +2,7 @@ import { Component, signal } from '@angular/core';
 import { BankingdataService } from '../../../../../bankingdata.service';
 import { recent } from '../../../../../modal';
 import { CurrencyPipe, NgFor } from '@angular/common';
-import { SharedFile } from '../../../../../sharedfile';
+import { SharedFile, userRecentTrans } from '../../../../../sharedfile';
 
 
 @Component({
@@ -13,15 +13,12 @@ import { SharedFile } from '../../../../../sharedfile';
   styleUrl: './recent-transaction.component.css'
 })
 
-
 export class RecentTransactionComponent {
-  constructor(private serv:BankingdataService){}
-  sharedData = new SharedFile(this.serv);
+  
   RecentTrans:recent[]=[];
   recentTrans = signal(this.RecentTrans);
-  
   ngOnInit(){
-    this.recentTrans.set(this.sharedData.userRecentTrans);
+    this.recentTrans.set(userRecentTrans);
   }
   
 } 
