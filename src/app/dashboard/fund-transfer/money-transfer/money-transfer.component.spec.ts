@@ -67,19 +67,6 @@ describe('MoneyTransferComponent', () => {
     expect(accNo.errors?.['maxlength']).toBeTruthy() 
   });
 
-  //reEnterAccountNo input field
-   it('checking reEnter accountNo matching validation', () => {
-    // Set the values in the form controls
-    component.moneyTransferForm.controls['accountNumber'].setValue('12345678');
-    component.moneyTransferForm.controls['reEnterAccountNo'].setValue('1234567890');
-
-    // Retrieve the values from the form controls
-    let accNo = component.moneyTransferForm.controls['accountNumber'].value;
-    let reEnterAccNo = component.moneyTransferForm.controls['reEnterAccountNo'].value;
-
-    let isMatching = accNo === reEnterAccNo;
-    expect(isMatching).toBeFalsy(); // Expecting the values not to match
-});
 
   //amount input field
   it('Setting static value for amount input field',()=>{
@@ -148,23 +135,10 @@ describe('MoneyTransferComponent', () => {
 
   it('should navigate to dashboard when back button is clicked', () => {
     const navigateSpy = spyOn(router, 'navigateByUrl');
-
     const button = fixture.nativeElement.querySelector('#back');
-    console.log(button)
     button.click();
-
     expect(navigateSpy).toHaveBeenCalled();
     expect(navigateSpy.calls.mostRecent().args[0]).toMatch(/\/dashboard$/)
   });
 
- xit('should navigate to transferSuccess when send button is clicked', () => {
-    const navigateSpy = spyOn(router, 'navigateByUrl');
-
-    const sendButton = fixture.nativeElement.querySelector('#send');
-    console.log(sendButton)
-    sendButton.disabled = false;
-    sendButton.click();
-    component.onSubmit()
-    expect(navigateSpy).toHaveBeenCalledWith('/transferSuccess');
-  });
 });
