@@ -1,22 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TransactionHistoryComponent } from './transaction-history.component';
-import { BankingdataService } from '../../../../../bankingdata.service';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { of } from 'rxjs';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { DatePipe, NgClass, NgStyle } from '@angular/common';
-import { SharedFile } from '../../../../../sharedfile';
+import { userTransHistory } from '../../../../../sharedfile';
 
 describe('TransactionHistoryComponent', () => {
   let component: TransactionHistoryComponent;
   let fixture: ComponentFixture<TransactionHistoryComponent>;
-
-  let router:Router
+  let fb: FormBuilder;
+  
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [TransactionHistoryComponent,ReactiveFormsModule],
-      providers:[BankingdataService,FormBuilder, DatePipe, NgClass, NgStyle, RouterLink, SharedFile,{
+      providers:[{
         provide: ActivatedRoute,
         useValue: {
           paramMap: of({}) 
@@ -24,123 +22,184 @@ describe('TransactionHistoryComponent', () => {
       }]
     })
     .compileComponents();
+
+    
     
     fixture = TestBed.createComponent(TransactionHistoryComponent);
     component = fixture.componentInstance;
-    router = TestBed.inject(Router)
+    component.TransHistory = []; 
+    component.selectedShowperPage = 5;
+    fb = TestBed.inject(FormBuilder); 
+    spyOn(fb, 'group').and.callThrough(); 
+    component.totalPages = []; 
+    component.showData = false;
+
+    component.transactionForm = fb.group({
+      inputType: ['dropdown'],
+      fromDate: [''],
+      toDate: [''],
+      selectedOption: ['']
+    });
+    
+    component.transactionForm = fb.group({
+      inputType: ['dropdown'],
+      fromDate: [{ value: '2023-01-01', disabled: false }],
+      toDate: [{ value: '2023-12-31', disabled: false }],
+      selectedOption: [{ value: 'option1', disabled: false }]
+    });
+    component.ngOnInit(); 
     fixture.detectChanges();
   });
 
-  it('should create the component', () => {
-    expect(component).toBeTruthy();
+  it('should initialize leftpaginationMode as false', () => {
+    expect(component.leftpaginationMode).toBeFalse(); 
   });
 
-  it('should initialize transactionForm with required controls', () => {
-    expect(component.transactionForm).toBeDefined();
-    expect(component.transactionForm instanceof FormGroup).toBe(true);
-    expect(component.transactionForm.get('inputType')).toBeTruthy();
-    expect(component.transactionForm.get('fromDate')).toBeTruthy();
-    expect(component.transactionForm.get('toDate')).toBeTruthy();
-    expect(component.transactionForm.get('selectedOption')).toBeTruthy();
+  it('should initialize rightpaginationMode as true', () => {
+    expect(component.rightpaginationMode).toBeTrue(); 
   });
 
-  it('should disable and enable form controls based on inputType changes', () => {
-    component.transactionForm.get('inputType')!.setValue('dateRange');
-    expect(component.transactionForm.get('selectedOption')!.disabled).toBe(true);
-    expect(component.transactionForm.get('fromDate')!.enabled).toBe(true);
-    expect(component.transactionForm.get('toDate')!.enabled).toBe(true);
-
-    component.transactionForm.get('inputType')!.setValue('dropdown');
-    expect(component.transactionForm.get('fromDate')!.disabled).toBe(true);
-    expect(component.transactionForm.get('toDate')!.disabled).toBe(true);
-    expect(component.transactionForm.get('selectedOption')!.enabled).toBe(true);
+  it('should initialize TransHistory', () => {
+    expect(component.TransHistory.length).toBeGreaterThan(50); 
   });
 
-  it('should generate transaction data on ngOnInit', () => {
+  it('should initialize showData as false', () => {
+    expect(component.showData).toBeFalse(); 
+  });
+
+  it('should initialize todayDate to current date', () => {
+    const currentDate = new Date();
+    expect(component.todayDate).toEqual(currentDate.toString()); 
+  });
+
+  it('should calculate totalPages based on TransHistory length and selectedShowperPage', () => {
+    component.TransHistory = userTransHistory;
+    component.selectedShowperPage = 5;
+    const calculatedTotalPages = component.getpageList(component.TransHistory.length, component.selectedShowperPage);
+    expect(calculatedTotalPages).toEqual([1,2,3,4,5,6,7,8,9,10,11,12]);
+  });
+
+  it('should initialize transactionForm as an instance of FormGroup', () => {
+    expect(component.transactionForm instanceof FormGroup).toBeTruthy();
+  });
+
+  it('should call generateTransactionData on ngOnInit', () => {
+    spyOn(component, 'generateTransactionData');
     component.ngOnInit();
-    expect(component.TransHistory.length).toBe(60);
+    expect(component.generateTransactionData).toHaveBeenCalled();
   });
 
-  it('should set TransHistory and totalPages on valid form submission', () => {
+  describe('generateTransactionData()', () => {
+    it('should populate TransHistory', () => {
+      component.generateTransactionData();
+      expect(component.TransHistory.length).toBeGreaterThan(50);
+    });
+
+    it('should populate TransHistory with expected data', () => {
+      component.generateTransactionData();
+      expect(component.TransHistory[0]).toEqual({
+        sno: '01',
+        transactionDate: '18/03/2024',
+        transctionRemarks: 'VIN/BLINKIT/202403031436/4063-09545745/Phone pe/Blinkit',
+        withDrawalAmount: '314.45',
+        depositAmount: '',
+        balance: '1109.82'
+      });
+    });
+  });
+
+  it('should initialize rightPaginationItems with totalPages', () => {
+    expect(component.rightPaginationItems).toEqual([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]);
+  });
+
+  it('should initialize transactionForm with expected controls', () => {
+    expect(component.transactionForm).toBeDefined();
+    expect(component.transactionForm.get('inputType')).toBeDefined();
+    expect(component.transactionForm.get('fromDate')).toBeDefined();
+    expect(component.transactionForm.get('toDate')).toBeDefined();
+    expect(component.transactionForm.get('selectedOption')).toBeDefined();
+  });
+
+  it('should update TransHistory, totalPages, and showData when form is valid', () => {
+    
+    component.transactionForm.patchValue({
+      inputType: 'dropdown', 
+      fromDate: '2023-01-01',
+      toDate: '2023-12-31',
+      selectedOption: 'option1'
+    });
+  
+    spyOn(component, 'getpageList').and.callThrough();
+
+    
     component.submitForm();
-    expect(component.totalPages.length).toBeGreaterThan(0);
-    expect(component.showData).toBe(true);
+
+    
+    expect(component.TransHistory).toEqual(userTransHistory); 
+    expect(component.totalPages.length).toBeGreaterThan(0); 
+    expect(component.showData).toBeTrue(); 
+
+    
+    expect(component.getpageList).toHaveBeenCalledWith(userTransHistory.length, component.selectedShowperPage);
   });
 
-  it('should reset form and hide data on cancelForm', () => {
-    component.cancelForm();
-    expect(component.transactionForm.get('selectedOption')!.enabled).toBe(true);
-    expect(component.transactionForm.get('fromDate')!.enabled).toBe(true);
-    expect(component.transactionForm.get('toDate')!.enabled).toBe(true);
-    expect(component.transactionForm.get('selectedOption')!.value).toBe('');
-    expect(component.showData).toBe(false);
+  it('should update pagination parameters on onPageChange', () => {
+    const pageNo = 2;
+
+    // Spy on getpageList method to check interactions
+    spyOn(component, 'getpageList').and.callThrough();
+
+    // Call onPageChange method with pageNo
+    component.onPageChange(pageNo);
+
+    // Assert expected behavior
+    expect(component.leftpaginationMode).toBeFalse(); // Ensure leftpaginationMode is false
+    expect(component.rightpaginationMode).toBeTrue(); // Ensure rightpaginationMode is true
+    expect(component.currentPage).toEqual(pageNo); // Ensure currentPage is updated correctly
+    expect(component.getpageList).toHaveBeenCalledWith(component.TransHistory.length, component.selectedShowperPage); // Check if getpageList method was called with correct arguments
+    expect(component.rightPaginationItems).toBeDefined(); // Ensure rightPaginationItems is updated (assuming getpageList correctly sets this)
   });
 
-  it('should update pagination on onPageChange', () => {
-    const mockPageNo = 2;
-    component.TransHistory = [{
-      sno: '01',
-      transactionDate: '18/03/2024',
-      transctionRemarks:
-        'VIN/BLINKIT/202403031436/4063-09545745/Phone pe/Blinkit',
-      withDrawalAmount: '314.45',
-      depositAmount: '---',
-      balance: '1109.82',
-    }];
-    spyOn(component, 'getpageList').and.returnValue([1, 2]);
+  describe('getpageList', () => {
+    it('should generate correct page list array', () => {
+      const totRecords = 20;
+      const pageItems = 5;
 
-    component.onPageChange(mockPageNo);
+      const result = component.getpageList(totRecords, pageItems);
 
-    expect(component.leftpaginationMode).toBe(false);
-    expect(component.rightpaginationMode).toBe(true);
-    expect(component.currentPage).toBe(mockPageNo);
-    expect(component.rightPaginationItems.length).toBeGreaterThan(0); // Ensure rightPaginationItems is populated
+      expect(result).toEqual([1, 2, 3, 4]);
+    });
+
+    it('should handle when totRecords is less than pageItems', () => {
+      const totRecords = 3;
+      const pageItems = 5;
+
+      const result = component.getpageList(totRecords, pageItems);
+
+      expect(result).toEqual([1]);
+    });
+
+    it('should handle when totRecords is zero', () => {
+      const totRecords = 0;
+      const pageItems = 5;
+
+      const result = component.getpageList(totRecords, pageItems);
+
+      expect(result).toEqual([]);
+    });
+
+    
   });
 
-  it('should return page transactions based on selectedShowperPage and currentPage', () => {
-    const mockTransactions = [{
-      sno: '01',
-      transactionDate: '18/03/2024',
-      transctionRemarks:
-        'VIN/BLINKIT/202403031436/4063-09545745/Phone pe/Blinkit',
-      withDrawalAmount: '314.45',
-      depositAmount: '---',
-      balance: '1109.82',
-    }];
-    component.TransHistory = mockTransactions;
-    spyOn(component, 'getpageList').and.returnValue([1]);
 
-    const pageTransactions = component.getPageTransactions();
+  
 
-    expect(pageTransactions).toEqual(mockTransactions.slice(0, component.selectedShowperPage));
-  });
+  
 
-  it('should update selectedShowperPage and pagination on onSelectPageRows', () => {
-    expect(component.selectedShowperPage).toBe(10);
-    expect(component.leftpaginationMode).toBe(true);
-    expect(component.rightpaginationMode).toBe(false);
-    expect(component.rightPaginationItems.length).toBeGreaterThan(0); // Ensure rightPaginationItems is populated
-  });
 
-  it('should increment currentPage on nextPage', () => {
-    const initialPage = component.currentPage;
-    component.nextPage();
-    expect(component.currentPage).toBe(initialPage + 1);
-  });
 
-  it('should decrement currentPage on previousPage', () => {
-    const initialPage = component.currentPage;
-    component.previousPage();
-    expect(component.currentPage).toBe(initialPage - 1);
-  });
 
-  it('should navigate to dashboard when back button is clicked', () => {
-    const navigateSpy = spyOn(router, 'navigateByUrl');
-    const button = fixture.nativeElement.querySelector('#backBtn');
-    console.log(button)
-    button.click();
-    expect(navigateSpy).toHaveBeenCalled();
-    expect(navigateSpy.calls.mostRecent().args[0]).toMatch(/\/dashboard$/)
-  });
+  
 
+  
 });

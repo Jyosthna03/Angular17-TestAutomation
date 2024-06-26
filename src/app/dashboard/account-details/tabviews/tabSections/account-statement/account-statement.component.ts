@@ -2,7 +2,7 @@ import { DatePipe, NgClass } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import {FormBuilder,FormGroup,ReactiveFormsModule,Validators,} from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { SharedFile } from '../../../../../sharedfile';
+import { userviewByPeriod,userviewByFormat } from '../../../../../sharedfile';
 import { BankingdataService } from '../../../../../bankingdata.service';
 
 @Component({
@@ -35,13 +35,13 @@ export class AccountStatementComponent {
     });
   }
 
-  sharedFile = new SharedFile(this.serv);
+  // sharedFile = new SharedFile(this.serv);
   fromStatementDate = signal('');
   toStatementDate = signal('');
   showflag = signal('');
   todayDate = signal(new Date());
-  statementPeriod = signal(this.sharedFile.userviewByPeriod);
-  statementFormats = signal(this.sharedFile.userviewByFormat);
+  statementPeriod = signal(userviewByPeriod);
+  statementFormats = signal(userviewByFormat);
   statementForm!: FormGroup;
 
   cancelForm() {

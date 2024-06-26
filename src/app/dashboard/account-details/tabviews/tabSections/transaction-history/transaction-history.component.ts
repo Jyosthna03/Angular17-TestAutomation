@@ -4,7 +4,7 @@ import {FormBuilder,FormGroup,ReactiveFormsModule,Validators,} from '@angular/fo
 import { DatePipe, NgClass, NgStyle } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { history } from '../../../../../modal';
-import { SharedFile } from '../../../../../sharedfile';
+import { userTransHistory,userviewByPeriod } from '../../../../../sharedfile';
 @Component({
   selector: 'app-transaction-history',
   standalone: true,
@@ -13,13 +13,12 @@ import { SharedFile } from '../../../../../sharedfile';
   styleUrl: './transaction-history.component.css',
 })
 export class TransactionHistoryComponent {
-  sharedData = new SharedFile(this.serv);
   leftpaginationMode = false;
   rightpaginationMode = true;
   TransHistory: history[] = [];
   showData = false;
   todayDate = Date();
-  periodicDays = this.sharedData.userviewByPeriod;
+  periodicDays = userviewByPeriod;
   selectedShowperPage = 5;
   startIndex = 0;
   endIndex = 5;
@@ -39,6 +38,8 @@ export class TransactionHistoryComponent {
     );
   }
 
+  
+
   generateTransactionData() {
     for (let i = 1; i <= 60; i++) {
       this.TransHistory.push({
@@ -53,7 +54,8 @@ export class TransactionHistoryComponent {
     }
   }
 
-  constructor(private serv: BankingdataService, private fb: FormBuilder) {
+  constructor( private fb: FormBuilder,) {
+    
     this.rightPaginationItems = this.totalPages;
     this.transactionForm = this.fb.group({
       inputType: ['', Validators.required],
@@ -74,9 +76,11 @@ export class TransactionHistoryComponent {
     });
   }
 
+  
+
   submitForm() {
     if (this.transactionForm.valid) {
-      this.TransHistory = this.sharedData.userTransHistory;
+      this.TransHistory = userTransHistory;
       this.totalPages = this.getpageList(
         this.TransHistory.length,
         this.selectedShowperPage
