@@ -22,7 +22,7 @@ export class AddpayeeComponent {
       {
         fullname: new FormControl('', [Validators.required,Validators.pattern(/^[a-zA-Z ]*$/),Validators.minLength(3),Validators.maxLength(15)]),
         nickname: new FormControl('', [Validators.required,Validators.pattern(/^[a-zA-Z ]*$/),Validators.minLength(3),Validators.maxLength(10)]),
-        bankName: new FormControl('', [Validators.required]),
+        bankName: new FormControl('', [Validators.required,Validators.pattern(/\b[A-Za-z0-9&.'-]+\b/)]),
         ifscCode: new FormControl('', [Validators.required,Validators.pattern('^[A-Za-z]{4}0[A-Z0-9a-z]{6}$'),Validators.maxLength(11)]),
         accountNo: new FormControl('', [Validators.required,Validators.pattern(/^\d*$/),Validators.minLength(8), Validators.maxLength(18)]),
         reEnteraccountNo: new FormControl('', [Validators.required,Validators.pattern(/^\d*$/)]),

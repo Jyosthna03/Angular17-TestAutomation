@@ -3,7 +3,6 @@ import { AccountDetailsComponent } from './account-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { By } from '@angular/platform-browser';
 import { BankingdataService } from '../../bankingdata.service';
-// import { RegisterService } from '../../register.service';
 
 describe('AccountDetailsComponent', () => {
   let component: AccountDetailsComponent;

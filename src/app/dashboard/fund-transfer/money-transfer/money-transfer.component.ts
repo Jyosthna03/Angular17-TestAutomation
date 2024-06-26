@@ -22,7 +22,7 @@ export class MoneyTransferComponent {
  
   constructor(private fb:FormBuilder,private service:BankingdataService,private route:Router,private modalService: NgbModal){
     this.moneyTransferForm = this.fb.group({
-       "payee":['',Validators.required],
+       "payee":['Select Payee',Validators.required],
        "accountNumber":['',[Validators.required,Validators.pattern(/^\d*$/),Validators.minLength(8),Validators.maxLength(18)]],
        "bankName":['',[Validators.required, Validators.pattern(/^[a-zA-Z ]*$/),Validators.minLength(3),Validators.maxLength(20)]],
        "amount":['',[Validators.required,Validators.pattern(/^\d*$/),Validators.maxLength(5),amountLimitValidator(this.availableBalance)]],

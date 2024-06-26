@@ -48,7 +48,7 @@ describe('MoneyTransferComponent', () => {
 
   //initial invalid form 
   it('should initialize form with empty values and is invalid', () => {
-    expect(component.moneyTransferForm.value).toEqual({ payee: 'Select Payee', accountNumber: '', reEnterAccountNo: '', amount: '', remarks: '', paymentModeInput: ''});
+    expect(component.moneyTransferForm.value).toEqual({ payee: 'Select Payee', accountNumber: '', bankName: '', amount: '', remarks: '', paymentModeInput: ''});
     expect(component.moneyTransferForm.invalid).toBeTruthy();
     expect(component.moneyTransferForm.untouched).toBeTruthy()
   });
@@ -68,20 +68,7 @@ describe('MoneyTransferComponent', () => {
   });
 
   //reEnterAccountNo input field
-  it('Setting a static value for reaccNo input field test case',()=>{
-    let reEnterAccNo = component.moneyTransferForm.controls['reEnterAccountNo'];
-    reEnterAccNo.setValue('Katyayani'); //if we set a value which is out of pattern and less than minlength then the test case fails
-    expect(reEnterAccNo.errors?.['pattern']).toBeTruthy() 
-    expect(reEnterAccNo.invalid).toBeTruthy();
-
-    reEnterAccNo.setValue('123456');
-    expect(reEnterAccNo.errors?.['minlength']).toBeTruthy();
-
-    reEnterAccNo.setValue('12345678901234567890');
-    expect(reEnterAccNo.errors?.['maxlength']).toBeTruthy();
-  });
-
-  it('checking reEnter accountNo matching validation', () => {
+   it('checking reEnter accountNo matching validation', () => {
     // Set the values in the form controls
     component.moneyTransferForm.controls['accountNumber'].setValue('12345678');
     component.moneyTransferForm.controls['reEnterAccountNo'].setValue('1234567890');
@@ -137,7 +124,6 @@ describe('MoneyTransferComponent', () => {
   //select tag input field
   it('should have two options', () => {
     const selectOptions = fixture.debugElement.nativeElement.querySelectorAll('option');
-    // console.log(selectOptions);
     expect(selectOptions.length).toEqual(2);
   });
 

@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddpayeesmComponent } from './addpayeesm.component';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
 
 describe('AddpayeesmComponent', () => {
   let component: AddpayeesmComponent;
@@ -8,7 +10,13 @@ describe('AddpayeesmComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AddpayeesmComponent]
+      imports: [AddpayeesmComponent],
+      providers : [{
+        provide: ActivatedRoute,
+        useValue: {
+          paramMap: of({}) 
+        }
+      }]
     })
     .compileComponents();
     

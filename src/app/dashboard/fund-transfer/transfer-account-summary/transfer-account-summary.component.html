@@ -8,31 +8,31 @@
                     <div class="each-block">
                           <div class="mb-bottom">
                             <span class="accountHeading">Account Holder Name</span>
-                            <span class="accountValues">{{data.AccountHolder}}</span>
+                            <span class="accountValues" id="accountHolder">{{data.AccountHolder}}</span>
                         </div>
                         <div>
                             <span class="accountHeading">Account Type</span>
-                            <span class="accountValues">{{data.AccountType}}</span>
+                            <span class="accountValues" id="accountType">{{data.AccountType}}</span>
                         </div>
                     </div>
                     <div class="each-block mr-left">
                         <div class="mb-bottom">
                           <span class="accountHeading">Account Number</span>
-                          <span class="accountValues">{{data.AccountNumber}}</span>
+                          <span class="accountValues" id="accountNumber">{{data.AccountNumber}}</span>
                       </div>
                       <div>
                           
                           <span class="accountHeading">Available balance</span>
-                          <span class="accountValues">{{data.AvailableBalanceinRupees | currency:'INR'}}</span>
+                          <span class="accountValues" id="balance">{{data.AvailableBalanceinRupees | currency:'INR'}}</span>
                       </div>
                     </div>
                     <div class="account-item">
                         <span class="accountHeading">Account IFSC</span>
-                        <span class="accountValues">{{data.AccountifscCode}}</span>
+                        <span class="accountValues" id="ifscCode">{{data.AccountifscCode}}</span>
                     </div>
                     <div class="account-item">
                         <span class="accountHeading">Account Branch</span>
-                        <span class="accountValues">{{data.AccountBranch}}</span>
+                        <span class="accountValues" id="branch">{{data.AccountBranch}}</span>
                     </div>
             }
           </div> 
