@@ -1,8 +1,7 @@
 import { Component, signal } from '@angular/core';
-import { BankingdataService } from '../../../../../bankingdata.service';
 import { recent } from '../../../../../modal';
 import { CurrencyPipe, NgFor } from '@angular/common';
-import { SharedFile, userRecentTrans } from '../../../../../sharedfile';
+import { userRecentTrans } from '../../../../../sharedfile';
 
 
 @Component({

@@ -38,7 +38,6 @@ describe('MoneyTransferComponent', () => {
     component = fixture.componentInstance;
 
     router = TestBed.inject(Router)
-    backBtn = fixture.debugElement.query(By.css('#back')).nativeElement;
     fixture.detectChanges();
   });
 
