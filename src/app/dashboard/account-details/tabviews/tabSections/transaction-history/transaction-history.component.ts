@@ -128,7 +128,6 @@ export class TransactionHistoryComponent {
   onSelectPageRows(event: Event) {
     const target = event.target as HTMLSelectElement;
     this.selectedShowperPage = parseInt(target.value, 10);
-    console.log(this.selectedShowperPage);
     this.leftpaginationMode = true;
     this.rightpaginationMode = false;
     this.endIndex = this.selectedShowperPage;

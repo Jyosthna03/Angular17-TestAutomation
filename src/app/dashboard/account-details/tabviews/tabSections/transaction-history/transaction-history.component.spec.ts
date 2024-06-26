@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TransactionHistoryComponent } from './transaction-history.component';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router} from '@angular/router';
 import { of } from 'rxjs';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { userTransHistory } from '../../../../../sharedfile';
@@ -9,8 +9,8 @@ describe('TransactionHistoryComponent', () => {
   let component: TransactionHistoryComponent;
   let fixture: ComponentFixture<TransactionHistoryComponent>;
   let fb: FormBuilder;
+  let router:Router;
   
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [TransactionHistoryComponent,ReactiveFormsModule],
@@ -23,8 +23,6 @@ describe('TransactionHistoryComponent', () => {
     })
     .compileComponents();
 
-    
-    
     fixture = TestBed.createComponent(TransactionHistoryComponent);
     component = fixture.componentInstance;
     component.TransHistory = []; 
@@ -33,6 +31,9 @@ describe('TransactionHistoryComponent', () => {
     spyOn(fb, 'group').and.callThrough(); 
     component.totalPages = []; 
     component.showData = false;
+    
+    component.rightPaginationItems = [1, 2, 3, 4, 5]; 
+    component.currentPage = 3;
 
     component.transactionForm = fb.group({
       inputType: ['dropdown'],
@@ -47,6 +48,7 @@ describe('TransactionHistoryComponent', () => {
       toDate: [{ value: '2023-12-31', disabled: false }],
       selectedOption: [{ value: 'option1', disabled: false }]
     });
+    router = TestBed.inject(Router);
     component.ngOnInit(); 
     fixture.detectChanges();
   });
@@ -121,43 +123,29 @@ describe('TransactionHistoryComponent', () => {
   });
 
   it('should update TransHistory, totalPages, and showData when form is valid', () => {
-    
     component.transactionForm.patchValue({
       inputType: 'dropdown', 
       fromDate: '2023-01-01',
       toDate: '2023-12-31',
       selectedOption: 'option1'
     });
-  
     spyOn(component, 'getpageList').and.callThrough();
-
-    
     component.submitForm();
-
-    
     expect(component.TransHistory).toEqual(userTransHistory); 
     expect(component.totalPages.length).toBeGreaterThan(0); 
     expect(component.showData).toBeTrue(); 
-
-    
     expect(component.getpageList).toHaveBeenCalledWith(userTransHistory.length, component.selectedShowperPage);
   });
 
   it('should update pagination parameters on onPageChange', () => {
     const pageNo = 2;
-
-    // Spy on getpageList method to check interactions
     spyOn(component, 'getpageList').and.callThrough();
-
-    // Call onPageChange method with pageNo
     component.onPageChange(pageNo);
-
-    // Assert expected behavior
-    expect(component.leftpaginationMode).toBeFalse(); // Ensure leftpaginationMode is false
-    expect(component.rightpaginationMode).toBeTrue(); // Ensure rightpaginationMode is true
-    expect(component.currentPage).toEqual(pageNo); // Ensure currentPage is updated correctly
-    expect(component.getpageList).toHaveBeenCalledWith(component.TransHistory.length, component.selectedShowperPage); // Check if getpageList method was called with correct arguments
-    expect(component.rightPaginationItems).toBeDefined(); // Ensure rightPaginationItems is updated (assuming getpageList correctly sets this)
+    expect(component.leftpaginationMode).toBeFalse(); 
+    expect(component.rightpaginationMode).toBeTrue();
+    expect(component.currentPage).toEqual(pageNo); 
+    expect(component.getpageList).toHaveBeenCalledWith(component.TransHistory.length, component.selectedShowperPage); 
+    expect(component.rightPaginationItems).toBeDefined();
   });
 
   describe('getpageList', () => {
@@ -190,6 +178,75 @@ describe('TransactionHistoryComponent', () => {
 
     
   });
+
+  describe('getPageTransactions', () => {
+    it('should return correct page of transactions', () => {
+      component.currentPage = 2;
+      const result = component.getPageTransactions();
+      expect(result.length).toBe(5); 
+      expect(result[0].sno).toBe('06');
+      expect(result[result.length - 1].sno).toBe('10');
+    });
+
+    it('should handle edge case when currentPage is 1', () => {
+      component.currentPage = 1;
+      const result = component.getPageTransactions();
+
+      expect(result.length).toBe(5); 
+      expect(result[0].sno).toBe('01'); 
+      expect(result[result.length - 1].sno).toBe('05'); 
+    });
+
+    it('should return empty array when currentPage is out of range', () => {
+      component.currentPage = 10;
+      const result = component.getPageTransactions();
+      expect(result.length).toBe(5);
+    });
+
+    it('should return empty array when TransHistory is empty', () => {
+      component.TransHistory = []; 
+      const result = component.getPageTransactions();
+      expect(result.length).toBe(0);
+    });
+
+    describe('nextPage', () => {
+      it('should increment currentPage correctly', () => {
+        const initialCurrentPage = component.currentPage;
+        component.nextPage();
+        expect(component.currentPage).toBe(initialCurrentPage + 1);
+      });
+  
+      it('should wrap around to first page when currentPage reaches end', () => {
+        component.currentPage = component.rightPaginationItems.length;
+        component.nextPage();
+        expect(component.currentPage).toBe(1);
+      });
+  
+    });
+
+  });
+
+  describe('previousPage', () => {
+    it('should decrement currentPage correctly', () => {
+      const initialCurrentPage = component.currentPage;
+      component.previousPage();
+      expect(component.currentPage).toBe(initialCurrentPage - 1);
+    });
+  });
+
+  it('should navigate to dashboard when back button is clicked', () => {
+    const navigateSpy = spyOn(router, 'navigateByUrl');
+
+    const button = fixture.nativeElement.querySelector('#back');
+    console.log(button)
+    button.click();
+
+    expect(navigateSpy).toHaveBeenCalled();
+    expect(navigateSpy.calls.mostRecent().args[0]).toMatch(/\/dashboard$/)
+  });
+
+
+
 
 
   
