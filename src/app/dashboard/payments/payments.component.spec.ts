@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PaymentsComponent } from './payments.component';
-import { HttpClientModule } from '@angular/common/http';
 import { By } from '@angular/platform-browser';
 import { BankingdataService } from '../../bankingdata.service';
 import { ActivatedRoute } from '@angular/router';
@@ -15,7 +14,6 @@ describe('PaymentsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientModule],
       providers: [
         BankingdataService,
          {

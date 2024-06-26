@@ -1,12 +1,10 @@
 import { ComponentFixture, TestBed} from '@angular/core/testing';
 import { MoneyTransferComponent } from './money-transfer.component';
-import { HttpClientModule } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { of } from 'rxjs';
 import { BankingdataService } from '../../../bankingdata.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { routes } from '../../../app.routes';
-import { By } from '@angular/platform-browser';
 
 
 describe('MoneyTransferComponent', () => {
@@ -14,14 +12,10 @@ describe('MoneyTransferComponent', () => {
   let fixture: ComponentFixture<MoneyTransferComponent>;
 
   let router:Router
-  let backBtn: HTMLElement;
-
- 
-
-  beforeEach(async () => {
+   beforeEach(async () => {
     
     await TestBed.configureTestingModule({
-      imports:[HttpClientModule,RouterTestingModule.withRoutes(routes)],
+      imports:[RouterTestingModule.withRoutes(routes)],
       providers: [Router,
         BankingdataService,
          {

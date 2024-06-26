@@ -1,7 +1,6 @@
 import {ComponentFixture,TestBed,} from '@angular/core/testing';
 import { RecentTransactionComponent } from './recent-transaction.component';
 import { BankingdataService } from '../../../../../bankingdata.service';
-import { HttpClientModule } from '@angular/common/http';
 import { CurrencyPipe, NgFor } from '@angular/common';
 import { userRecentTrans } from '../../../../../sharedfile';
 
@@ -12,7 +11,7 @@ describe('RecentTransactionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientModule, CurrencyPipe, NgFor],
+      imports: [CurrencyPipe, NgFor],
       providers: [BankingdataService],
     }).compileComponents();
 

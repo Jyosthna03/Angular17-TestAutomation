@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FundTransferComponent } from './fund-transfer.component';
-import { HttpClientModule } from '@angular/common/http';
 import { By } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
@@ -12,7 +11,6 @@ describe('FundTransferComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientModule],
       providers: [
         BankingdataService,
          {

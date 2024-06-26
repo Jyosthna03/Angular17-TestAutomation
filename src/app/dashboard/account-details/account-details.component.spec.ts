@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AccountDetailsComponent } from './account-details.component';
-import { HttpClientModule } from '@angular/common/http';
 import { By } from '@angular/platform-browser';
 import { BankingdataService } from '../../bankingdata.service';
 
@@ -11,7 +10,6 @@ describe('AccountDetailsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(AccountDetailsComponent);
