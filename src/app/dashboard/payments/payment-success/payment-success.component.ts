@@ -17,8 +17,9 @@ export class PaymentSuccessComponent{
   mobileRechargePayment!:RechargeFormValues[]
  
   constructor(private service:BankingdataService){}
-  recharge:boolean = this.service.rechargePaymentSuccess
+  recharge!:boolean
   ngOnInit(){
+    this.recharge = this.service.rechargePaymentSuccess
     this.selectBillerPayment =  this.service.selectBillerSuccess as BillerFormValues[];
     this.mobileRechargePayment = this.service.selectBillerSuccess as RechargeFormValues[];
   }

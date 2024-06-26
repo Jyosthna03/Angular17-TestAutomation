@@ -159,15 +159,6 @@ describe('MoneyTransferComponent', () => {
     sendBtn.click();
     expect(component.onSubmit).toHaveBeenCalled()
   })
-  
-  //Routing Test cases
-  // it('when back button is clicked it should navigate to dashboard',()=>{
-  //     const spy = spyOn(router, 'navigate');
-  //     backBtn.click()
-  //     console.log(spy.calls.first())
-  //     // const navArgs = spy.calls.first().args[0];
-  //     expect(spy.calls.first().args[0]).toBe('dashboard')
-  // })
 
   it('should navigate to dashboard when back button is clicked', () => {
     const navigateSpy = spyOn(router, 'navigateByUrl');
@@ -187,8 +178,7 @@ describe('MoneyTransferComponent', () => {
     console.log(sendButton)
     sendButton.disabled = false;
     sendButton.click();
-    component.onSubmit(component.moneyTransferForm.value)
-
+    component.onSubmit()
     expect(navigateSpy).toHaveBeenCalledWith('/transferSuccess');
   });
 });

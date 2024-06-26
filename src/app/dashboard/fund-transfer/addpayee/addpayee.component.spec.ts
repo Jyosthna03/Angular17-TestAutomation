@@ -171,10 +171,10 @@ describe('AddpayeeComponent', () => {
 });
 
   it('Checking whether onCancel method is called when cancel button is clicked',()=>{
-    spyOn(component, 'onCancel'); // Spy on the onCancel method
+    spyOn(component, 'onReset'); // Spy on the onCancel method
     const cancelButton = fixture.nativeElement.querySelector('#cancel');
     cancelButton.click();
-    expect(component.onCancel).toHaveBeenCalled();
+    expect(component.onReset()).toHaveBeenCalled();
   });
 
   it('checking whether closePopup is triggered when crossbtn is clicked',()=>{
