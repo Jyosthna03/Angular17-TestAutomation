@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SelectBillerComponent } from './select-biller.component';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BankingdataService } from '../../../bankingdata.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { of } from 'rxjs';
@@ -13,7 +12,7 @@ describe('SelectBillerComponent', () => {
   let router:Router
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule, FormsModule, HttpClientModule],
+      imports: [ReactiveFormsModule],
       providers: [
        BankingdataService,
         {
