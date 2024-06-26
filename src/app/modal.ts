@@ -2,7 +2,6 @@ export interface tabnames{
   displayName:string;
   routerLink:string;
 }
-
 export interface recent{
     symbol:string;
     name:string;
@@ -12,7 +11,6 @@ export interface recent{
     amountcredit:string;
     totAmount:string;
 }
-
 export interface history{
     sno:string;
     transactionDate:string;
@@ -21,12 +19,10 @@ export interface history{
     depositAmount:string;
     balance:string;
 }
-
 export interface PaymentMode {
     paymentMode: string;
     paymentModeLimit: string;
 }
-
 export interface addPayee{
     fullname:string,
     nickname:string,
@@ -35,7 +31,6 @@ export interface addPayee{
     accountNo:string,
     reEnteraccountNo:string
 }
-
 //multiple accounts data 
 export interface CardDetails {
     id: number;
@@ -44,9 +39,8 @@ export interface CardDetails {
     AccountNumber: string;
     AccountBranch: string;
     AvailableBalanceinRupees: number;
-  }
-
-  //accountSummary data
+}
+//accountSummary data
 export interface AccountData {
     AccountHolder: string;
     AccountType: string;
@@ -55,37 +49,32 @@ export interface AccountData {
     AccountifscCode:string;
     AvailableBalanceinRupees: number;
 }
-  export interface BillerFormValues {
+export interface BillerFormValues {
     billerType: string;
     billerdetails: string;
     PayingFrom: string;
     billDetailsAmount : string;
-    }
-  
-  export interface RechargeFormValues {
+}
+export interface RechargeFormValues {
     PayingFrom: string;
     amount:string;
     mobileNumber:string;
     networkProvider: string;
-    
-  }
-  export interface successData {
+}
+export interface successData {
     payee:string;
     accountNumber:number;
     bankName:string;
     amount:number;
     remarks:string;
     paymentModeInput:string;
-  }
-
-  export interface accountData{
+}
+export interface accountData{
     AccountHolder:string;
     AccountType:string;
     AccountNumber:string;
     AccountifscCode:string;
     AccountBranch:string;
     AvailableBalanceinRupees:number;
-
-
   }
  
