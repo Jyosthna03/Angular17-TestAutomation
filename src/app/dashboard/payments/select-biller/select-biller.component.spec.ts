@@ -70,9 +70,6 @@ describe('SelectBillerComponent', () => {
     amount.setValue(''); // Empty amount
     expect(amount.hasError('required')).toBeTruthy();
 
-    // amount.setValue('123456'); // Invalid amount length
-    // expect(amount.valid).toBeFalsy();
-
     amount.setValue('100'); // Valid amount
     expect(amount.valid).toBeTruthy();
   });
@@ -83,19 +80,16 @@ describe('SelectBillerComponent', () => {
 
   it('savings account tag length',() =>{
     let savings = fixture.debugElement.nativeElement.querySelectorAll("#savings");
-    // console.log(savings);
     expect(savings.length).toEqual(1)
   })
   it('biller length',() =>{
     fixture.detectChanges();
     let biller = fixture.debugElement.nativeElement.querySelectorAll('#biller');
-    // console.log(biller);
     expect(biller.length).toEqual(4)
   });
 
   it('billerDetails length',() =>{
     let billerDetails = fixture.debugElement.nativeElement.querySelectorAll("#billerDetails");
-    // console.log(billerDetails);
     expect(billerDetails.length).toEqual(2)
   })
 
@@ -103,7 +97,6 @@ describe('SelectBillerComponent', () => {
     const navigateSpy = spyOn(router, 'navigateByUrl');
 
     const backButton = fixture.nativeElement.querySelector('#back');
-    console.log(backButton)
     backButton.click();
 
     expect(navigateSpy).toHaveBeenCalled();
