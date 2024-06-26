@@ -139,9 +139,9 @@ describe('AddpayeeComponent', () => {
 
   it('Checking whether onReset method is called when reset button is clicked',()=>{
     spyOn(component, 'onReset');
-    const resetButton = fixture.nativeElement.querySelector('#reset');
+    let resetButton = fixture.nativeElement.querySelector('#reset');
     resetButton.click();
-    expect(component.onReset()).toHaveBeenCalled();
+    expect(component.onReset).toHaveBeenCalled();
   });
 
   it('checking whether closePopup is triggered when crossbtn is clicked',()=>{

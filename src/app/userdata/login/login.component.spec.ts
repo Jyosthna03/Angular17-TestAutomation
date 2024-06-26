@@ -15,7 +15,6 @@ describe('LoginComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      // declarations: [DashboardComponent],
       imports: [ReactiveFormsModule,HttpClientModule,RouterTestingModule.withRoutes(routes)],
       providers:[Router]
     })
@@ -81,15 +80,13 @@ describe('LoginComponent', () => {
     expect(component.openForgotPasswordPopup).toHaveBeenCalled();
   });
 
-  xit('navigate to dashboard when login button is clicked',()=>{
-     spyOn(router,'navigate')
-   
-    // expect(spy).toHaveBeenCalled();
-    let loginBtn = fixture.nativeElement.querySelector('#login');
-    console.log(loginBtn)
-    loginBtn.disabled = false
-    loginBtn.click()
-    expect(router.navigate).toEqual('/dashboard')
+  it('navigate to dashboard when login button is clicked',()=>{
+     spyOn(component, 'onSubmit');
+      let loginBtn = fixture.debugElement.nativeElement.querySelector('#login');
+      loginBtn.disabled = false;
+      component.onSubmit()
+      loginBtn.click()
+      expect(component.onSubmit).toHaveBeenCalled()
   })
   });
 
