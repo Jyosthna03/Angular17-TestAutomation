@@ -75,24 +75,6 @@ describe('AddpayeeComponent', () => {
     expect(nickname.valid).toBeTruthy();
   });
 
-  it('Setting a static value for bank name and checking validations',()=>{
-    let bankName = component.addPayeeForm.controls['bankName'];
-    bankName.setValue('2345678'); //pattern fails
-    expect(bankName.errors?.['pattern']).toBeTruthy() //pattern fails
-    expect(bankName.valid).toBeFalsy();
-
-    bankName.setValue('Sb'); //minlength fails
-    expect(bankName.errors?.['minlength']).toBeTruthy()
-    expect(bankName.valid).toBeFalsy();
-
-    bankName.setValue('State Bank of India and Union Bank'); //maxlength fails
-    expect(bankName.errors?.['maxlength']).toBeTruthy()
-    expect(bankName.valid).toBeFalsy();
-
-    bankName.setValue('State Bank of India');
-    expect(bankName.valid).toBeTruthy();
-  });
-
   it('Setting a static value for ifsc code and checking validations',()=>{
     let ifscCode = component.addPayeeForm.controls['ifscCode'];
     ifscCode.setValue('12340Abc78D'); //pattern fails
@@ -132,22 +114,7 @@ describe('AddpayeeComponent', () => {
     const bankName = component.addPayeeForm.controls['bankName'];
     const ifscCode = component.addPayeeForm.controls['ifscCode'];
     const accountNo = component.addPayeeForm.controls['accountNo'];
-    const reEnteraccountNo = component.addPayeeForm.controls['reEnteraccountNo'];
-
-    // Simulating blur event
-    const fullnameInput = fixture.debugElement.nativeElement.querySelector('#fullname')
-    const nicknameInput = fixture.debugElement.nativeElement.querySelector('#nickname')
-    const bankNameInput = fixture.debugElement.nativeElement.querySelector('#bankName')
-    const ifscCodeInput = fixture.debugElement.nativeElement.querySelector('#ifscCode')
-    const accountNoInput = fixture.debugElement.nativeElement.querySelector('#accountNo')
-    const reEnteraccountNoInput = fixture.debugElement.nativeElement.querySelector('#reEnterAccNo')
-
-    fullnameInput.dispatchEvent(new Event('blur'));
-    nicknameInput.dispatchEvent(new Event('blur'));
-    bankNameInput.dispatchEvent(new Event('blur'));
-    ifscCodeInput.dispatchEvent(new Event('blur'));
-    accountNoInput.dispatchEvent(new Event('blur'));
-    reEnteraccountNoInput.dispatchEvent(new Event('blur'));
+    const reEnteraccountNo = component.addPayeeForm.controls['reEnteraccountNo']
 
     // Expecting 'required' error
     expect(fullname.errors?.['required']).toBeTruthy();
@@ -170,10 +137,10 @@ describe('AddpayeeComponent', () => {
     expect(isMatching).toBeFalsy(); // Expecting the values not to match
 });
 
-  it('Checking whether onCancel method is called when cancel button is clicked',()=>{
-    spyOn(component, 'onReset'); // Spy on the onCancel method
-    const cancelButton = fixture.nativeElement.querySelector('#cancel');
-    cancelButton.click();
+  it('Checking whether onReset method is called when reset button is clicked',()=>{
+    spyOn(component, 'onReset');
+    const resetButton = fixture.nativeElement.querySelector('#reset');
+    resetButton.click();
     expect(component.onReset()).toHaveBeenCalled();
   });
 

@@ -6,7 +6,7 @@ import { BankingdataService } from '../../../bankingdata.service';
 describe('TransferAccountSummaryComponent', () => {
   let component: TransferAccountSummaryComponent;
   let fixture: ComponentFixture<TransferAccountSummaryComponent>;
-  let service : BankingdataService;
+  let myService : BankingdataService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -17,7 +17,7 @@ describe('TransferAccountSummaryComponent', () => {
     
     fixture = TestBed.createComponent(TransferAccountSummaryComponent);
     component = fixture.componentInstance;
-    service = TestBed.inject(BankingdataService)
+    myService = TestBed.inject(BankingdataService)
     fixture.detectChanges();
   });
 
@@ -25,37 +25,36 @@ describe('TransferAccountSummaryComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('checking whether accountHolderName tag has expected textContent',()=>{
-    let accountHolderName = fixture.debugElement.nativeElement.querySelector('#accountHolderName');
-    let name = service.trimmedString;
-    expect(accountHolderName.textContent).toEqual(name)
-  });
+  it('checking the data is same as the object data which is rendered',()=>{
+    myService.accountData = [
+      {
+          AccountHolder: myService.trimmedString,
+          AccountType:"Savings Account",
+          AccountNumber:"1234567890111213",
+          AccountifscCode:"ABCD0001234",
+          AccountBranch:"KPHB",
+          AvailableBalanceinRupees: myService.balance
+      }
+    ]
 
-  it('checking whether accountType has expected textContent',()=>{
-    let accountType = fixture.debugElement.nativeElement.querySelector('#accountType');
-    expect(accountType.textContent).toEqual('Savings Account')
-  });
+    let accountHolderEle = fixture.debugElement.nativeElement.querySelector("#accountHolder")
+    let accountTypeEle = fixture.debugElement.nativeElement.querySelector("#accountType")
+    let accountNumberEle = fixture.debugElement.nativeElement.querySelector("#accountNumber")
+    let branchEle = fixture.debugElement.nativeElement.querySelector("#branch")
+    let accountifscCodeEle = fixture.debugElement.nativeElement.querySelector("#ifscCode")
 
-  it('checking whether accountNumber has expected textContent',()=>{
-    let accountNumber = fixture.debugElement.nativeElement.querySelector('#accountNumber');
-    expect(accountNumber.textContent).toEqual('1234567890111213')
-  });
-
-  it('checking whether ifscCode has expected textContent',()=>{
-   let ifscCode = fixture.debugElement.nativeElement.querySelector('#ifscCode');
-   expect(ifscCode.textContent).toEqual('ABCD0001234')
-  });
-
-  it('checking whether available balance has expected value',()=>{
-    let balance = fixture.debugElement.nativeElement.querySelector('#balance');
-    let balanceText = balance.textContent.trim();
+    let balanceEle = fixture.debugElement.nativeElement.querySelector("#balance")
+    let balanceText = balanceEle.textContent.trim();
     let numericBalance = parseFloat(balanceText.replace(/[^\d.-]/g, ''));
-    let balanceValue = service.balance;
+    let balanceValue = myService.balance;
+    
+    expect(accountHolderEle.textContent).toEqual(myService.accountData[0].AccountHolder)
+    expect(accountTypeEle.textContent).toEqual(myService.accountData[0].AccountType)
+    expect(accountNumberEle.textContent).toEqual(myService.accountData[0].AccountNumber)
     expect(numericBalance).toEqual(balanceValue)
-  });
+    expect(accountifscCodeEle.textContent).toEqual(myService.accountData[0].AccountifscCode)
+    expect(branchEle.textContent).toEqual(myService.accountData[0].AccountBranch)
 
-  it('checking whether branch has expected textContent',()=>{
-    let branch = fixture.debugElement.nativeElement.querySelector('#branch');
-    expect(branch.textContent).toEqual('KPHB')
-  });
+  })
+  
 });
