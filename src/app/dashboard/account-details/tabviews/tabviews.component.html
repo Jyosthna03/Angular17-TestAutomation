@@ -17,7 +17,7 @@
             color: activeTab === 2 ? '#082341' : '#000',
             opacity: activeTab === 2 ? '1' : '0.4',
             'font-size': activeTab === 2 ? '20px' : '16px'
-          }">Transaction History</a>
+          }" #transaction>Transaction History</a>
     </li>
     <!-- Account Statement -->
     <li class="nav-item" [ngClass]="{ active: activeTab === 3 }" (click)="activateTab(3)" id="tabs">
@@ -26,7 +26,7 @@
             color: activeTab === 3 ? '#082341' : '#000',
             opacity: activeTab === 3 ? '1' : '0.4',
             'font-size': activeTab === 3 ? '20px' : '16px'
-          }">Account Statement</a>
+          }" #accountStatement>Account Statement</a>
     </li>
   </ul>
 
@@ -39,13 +39,13 @@
     <!-- User Transaction History Tab -->
     <div class="tab-pane" [ngClass]="{ active: activeTab === 2 }">
       <!-- Tansaction Inputs -->
-      @defer (on timer(1s)) {
+      @defer (on interaction(transaction)) {
         <app-transaction-history></app-transaction-history>
       }
     </div>
     <!-- Account Statement Tab -->
     <div class="tab-pane" [ngClass]="{ active: activeTab === 3 }">
-      @defer (on timer(1s)) {
+      @defer (on interaction(accountStatement)) {
         <app-account-statement></app-account-statement>
       }
     </div>
