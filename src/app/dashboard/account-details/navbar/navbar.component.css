@@ -38,9 +38,8 @@
     padding: 8px 42px;
     justify-content: center;
     align-items: center;
-    gap: 10px;
     border: none !important;
-    border-bottom: 1px solid #8C8A8A;
+    border-bottom: 1px solid #8C8A8A !important;
     color: #082341;
     font-size: 16px;
     font-weight: 700;
@@ -50,12 +49,13 @@
 }
 
 .dropstart .dropdown-menu[data-bs-popper] {
-    top: 32px !important;
+    top: 33px !important;
     right: 0 !important;
     left: auto;
     margin-top: 0;
     margin-right: var(--bs-dropdown-spacer);
     background: none !important;
+    border: none !important;
 }
 .dropdown-toggle{
     cursor: pointer;
