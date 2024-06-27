@@ -105,7 +105,7 @@
               @if (registrationForm.get('password')?.hasError('required') && registrationForm.get('password')?.touched) {
                 <span class="error-text">Password is required</span>
               } @if (registrationForm.get('password')?.hasError('pattern')) {
-               <span class="error-text">Password must be at least 8 characters long and contain at least one letter and one number.</span>
+               <span class="error-text">Password must be at least 8 characters & contain at least one letter and one number.</span>
               }
             </div>
           </div>

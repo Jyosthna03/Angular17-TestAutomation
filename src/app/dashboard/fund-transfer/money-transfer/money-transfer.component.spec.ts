@@ -64,7 +64,7 @@ describe('MoneyTransferComponent', () => {
   //amount input field
   it('Setting static value for amount input field',()=>{
     let amount = component.moneyTransferForm.controls['amount'];
-    amount.setValue('Gatti'); //if we set a value which is out of pattern and greater than maxlength then the test case fails
+    amount.setValue('Gatti');
     expect(amount.errors?.['pattern']).toBeTruthy();
 
     amount.setValue('123456789');
