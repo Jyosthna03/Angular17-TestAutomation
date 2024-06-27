@@ -12,17 +12,17 @@ import { userTransHistory,userviewByPeriod } from '../../../../../sharedfile';
   styleUrl: './transaction-history.component.css',
 })
 export class TransactionHistoryComponent {
-  leftpaginationMode = false;
-  rightpaginationMode = true;
+  leftpaginationMode:boolean = false;
+  rightpaginationMode:boolean = true;
   TransHistory: history[] = [];
-  showData = false;
+  showData:boolean = false;
   todayDate = Date();
   periodicDays = userviewByPeriod;
-  selectedShowperPage = 5;
-  startIndex = 0;
-  endIndex = 5;
-  currentPage = 1;
-  totalPages = this.getpageList(
+  selectedShowperPage:number = 5;
+  startIndex:number = 0;
+  endIndex:number = 5;
+  currentPage:number = 1;
+  totalPages:number[] = this.getpageList(
     this.TransHistory.length,
     this.selectedShowperPage
   );
@@ -36,8 +36,6 @@ export class TransactionHistoryComponent {
       this.selectedShowperPage
     );
   }
-
-  
 
   generateTransactionData() {
     for (let i = 1; i <= 60; i++) {
@@ -74,8 +72,6 @@ export class TransactionHistoryComponent {
       }
     });
   }
-
-  
 
   submitForm() {
     if (this.transactionForm.valid) {
