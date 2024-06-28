@@ -42,7 +42,7 @@ export class ForgotInfoComponent {
     if ((this.myForm.valid) && this.service.userData.includes(this.myForm.value.email)) {
       let userIndex=this.service.userData.indexOf(this.myForm.value.email);
       this.service.userData[userIndex+1] = this.myForm.value.password;
-     this.usersuccessfullyReset = 'Password Changed Successfully!!'
+     this.usersuccessfullyReset = 'Password Changed Successfully!!';
       setTimeout(() =>{
         this.closePopup();
       },3000)
