@@ -64,6 +64,7 @@
     color: #082341;
     font-size: 16px;
     font-weight: 700;
+    margin-left: 25px;
 }
 .dropdown{
     margin-top: 7px;
@@ -73,7 +74,7 @@
     border: none !important;
 }
 .dropstart .dropdown-menu[data-bs-popper] {
-    top: 33px !important;
+    top: 29px !important;
     right: 0 !important;
     left: auto;
     margin-top: 0;

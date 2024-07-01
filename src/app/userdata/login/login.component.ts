@@ -55,7 +55,7 @@ export class LoginComponent {
     this.modalService.open(content, {
       centered: true,
       scrollable: true,
-      size: 'lg',
+      size: 'md',
       backdrop: 'static',
     });
   }
